@@ -10,14 +10,14 @@ The Rainbow computer was designed and manufactured at Zhukovsky Aviation College
 - Graphics Memory: 32 KB
 - Audio: equivalent to AY8910
 - 4 logarithmic volume DACs
-- 3 voice chanels
-- 1 noise chanel
+- 3 voice channels
+- 1 noise channel
 - 1 single bit PCM
 
 Graphics:
 
 - 24KB frame buffer
-- 8KB font's buffer
+- 8KB font buffer
 - Screen 4: 384×256:16 colors
 - Instant palette: 256 colors
 
