@@ -2,4 +2,5 @@ title: HWW Portfolio
 description: I am a broadly skilled hardware and software designer
 show_downloads: false
 google_analytics: false
-theme: jekyll-theme-midnight
+theme: chalk
+theme1: jekyll-theme-midnight
