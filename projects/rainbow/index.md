@@ -1,6 +1,6 @@
 # Diploma Task
 
-
+> To design and build the microcomputer central computing module.
 
 The Rainbow computer was designed and manufactured at Zhukovsky Aviation College, Omsk in 1988. The Rainbow was backward compatible with the "Specialist" personal computer, with added color graphics and 3-voice sound synthesizer.
 
