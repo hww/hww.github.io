@@ -2,6 +2,17 @@
 
 ### Projects
 
+#### Crazy Claw Emojist
+
+#### Crazy Claw
+
+The world's first coin operated video CLAW machine!
+
+#### REMIS
+
+Gold medal on The Belgian and International Trade Fair Innova Eureka
+
+for Technological Innovation
 
 #### Aleste Computer
 
