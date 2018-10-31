@@ -12,4 +12,4 @@ Compact 1-player, 43” wide, 57” deep
 
 ![AMOA Fun Award](/projects/crazy_claw_original/amoa.jpg)
 
-![Major Fun Award](/projects/crazy_claw_original/major_fun_award.jpg)
+![Major Fun Award](/projects/crazy_claw_original/major_fun_award.png)
