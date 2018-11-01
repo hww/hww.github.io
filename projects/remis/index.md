@@ -18,4 +18,5 @@ Additionaly was created command line tool which allow to define and build sound 
 
 ## Awards
 
-![Synthesizer](/projects/remis/bruksela_eureka_gold_medal_99.png)
+![Golden Medal - Eureka Competition](/projects/remis/bruksela_eureka_gold_medal_99.png)
+![Brussels Innova](/projects/remis/innova.png)
