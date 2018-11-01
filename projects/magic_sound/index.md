@@ -1,6 +1,18 @@
 # Magic Sound Board
 
-MagicSound is a four channel DMA playback device. Supports 8 bit per sample, 6 bits of volume per channel, and 16bit sample rate timer per channel. Computer uses the board for playing STM (Scream Tracker) files. 
+I was lead designer of the MagicSound expansion board for Aleste 520EX computer. This board is very similar to sound system of Amiga computer.
+
+** Features **
+
+- four DMA channel
+- four programmable timers
+- 8 bit per sample
+- 6 bits of volume per channel
+- 32kHz sample rate. 
+
+Aleste plays STM (Scream Tracker) files with MG board. 
+
+Photo below shows the recreated version of MagicSound board.
 
 ![Magic Sound](/projects/magic_sound/MagicSoundRecreated.jpg)
 
