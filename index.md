@@ -13,3 +13,5 @@
 [My Dimploma Task](/projects/rainbow)
 
 ### Homebrew Projects
+
+[Hakko FX951 Clone](/projects/hakko_fx951_clone)
