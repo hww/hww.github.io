@@ -8,7 +8,7 @@ The first project was a sound sythesizer with digital signal processor based on 
 
 Second project was a mini game for Nintendo N64 console. To complete my job task was designed Nintendo ROM-emulator known as _PVBackup_. Finaly was designed custom N64 cartrige.
 
-![N64 Cartige](/projects/remis/cartrige.png)
+![N64 Cartige](/projects/remis/cartrige_400px.png)
 
 As last task for Remis Labs I create a sound synthesizer based on Motorolla fixed point digital signal processor. I implement with `C` language, complete multivoice MIDI syntesizer sampler. 
 
