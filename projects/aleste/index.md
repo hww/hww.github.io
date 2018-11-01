@@ -10,7 +10,7 @@ In addition to the standard CPC6128 features, it includes a number of extra feat
 
 [Aleste 520EX - CPCWiki](http://www.cpcwiki.eu/index.php/Aleste_520EX)
 
-## Simulation of TMS9928 
+## Running MSX Games
 
 Was implemented tiny TMS9938 simulator and after that original MSX games could be pached to run on Aleste. The patching process require several things:
 
