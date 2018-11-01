@@ -1,4 +1,4 @@
-# My Diploma Task for Zhukovsky Aviation College
+# My Diploma Task for Aviation College
 
 > To design and build the microcomputer central computing module.
 
