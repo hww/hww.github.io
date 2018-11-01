@@ -6,7 +6,7 @@ At my home workshop I have a Hakko FX951 soldering station but I wish to have mo
 
 This image shows the micro-controller board based on PIC18.
 
-[PCBoards](/projects/hakko_fx951_clone/board_1.jpg)
+[PCBoard MCU board](/projects/hakko_fx951_clone/board_1.jpg)
 
 This board is the RF power supply.  If you wish to build this project you can choose to assemble just this board.
 
