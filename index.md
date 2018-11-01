@@ -4,6 +4,8 @@
 
 [Digital Signal Processing & Sound Synthesizing](/projects/remis)
 
+[MagicSound for Alete 520EX](https://hww.github.io/projects/magic_sound/)
+
 [Lead developer Aleste 520EX project](https://hww.github.io/projects/rainbow)
 
 [My Dimploma Task](https://hww.github.io/projects/rainbow)
