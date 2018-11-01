@@ -22,6 +22,10 @@ The ultimate ticket redemption game and merchandiser.
 ![AMOA Fun Award](/projects/crazy_claw_original/amoa.jpg)
 ![Major Fun Award](/projects/crazy_claw_original/major_fun_award.png)
 
+## External references
+
+[ROCKETAMUSEMENTS](https://www.rocketamusements.com)
+
 ## Images
 
 ![Crazy Claw Dual Players](/projects/crazy_claw_original/2-players-machine_1_orig.jpg "Standard 2-player model, 52 wide 42 deep inches")
