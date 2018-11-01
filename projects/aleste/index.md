@@ -10,6 +10,19 @@ In addition to the standard CPC6128 features, it includes a number of extra feat
 
 [Aleste 520EX - CPCWiki](http://www.cpcwiki.eu/index.php/Aleste_520EX)
 
+## Simulation of TMS9928 
+
+Was implemented tiny TMS9938 simulator and after that original MSX games could be pached to run on Aleste. The patching process require several things:
+
+- Some of portions of code patched by replacing by multiple `RET` 
+- Replace `LD	(0A000H),A` to `CALL	0F56CH`
+- Replace `OTIR` by `RST10`
+- Fuctions with OUT to the port `LD	A,(DE); INC	DE; OUT	(C),A` replaced to `RST16`
+
+Video below shows running on Aleste the _King Valley II_ game.
+
+[Aleste 520EX - TMS9928 Simulation](https://www.youtube.com/watch?v=m0mpAffz5DQ)
+
 ## Screenshots
 
 ![Aleste 520EX - Boot Screen](/projects/aleste/aleste_boot_screen.png)
