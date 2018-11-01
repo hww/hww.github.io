@@ -12,9 +12,10 @@ Specification:
 - Graphics Memory: 32 KB
 - Audio: equivalent to AY8910
 - 4 logarithmic volume DACs
-- 3 voice channels
-- 1 noise channel
-- 1 single bit PCM
+- Sound
+  - 3 voice channels
+  - 1 noise channel
+  - 1 single bit PCM
 
 Graphics:
 
