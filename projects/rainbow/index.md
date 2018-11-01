@@ -1,4 +1,4 @@
-# My Diploma Task for Aviation College
+# My Diploma Task at Aviation College
 
 > To design and build the microcomputer central computing module.
 
