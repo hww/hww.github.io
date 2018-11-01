@@ -10,5 +10,3 @@ The speaker protection boards are in the next picture.
 
 This amplifier, known as Nataly Experience (NXP), has output power 350W and THD < 0.001%. The photo shows a set of assembled boards without power transistors.
 
-The speaker protection boards are in the next picture.
-
