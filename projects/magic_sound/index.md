@@ -1,6 +1,6 @@
 # Magic Sound Board
 
-I was lead designer of the MagicSound expansion board for Aleste 520EX computer. This board is very similar to sound system of Amiga computer.
+I was lead designer of the MagicSound expansion board for Aleste 520EX computer. This board is very similar to the sound system of the Amiga computer.
 
 **Features**
 
@@ -15,6 +15,8 @@ With this board Aleste computer plays .stm (Scream Tracker) files.
 Photo below shows the recreated version of MagicSound board.
 
 ![Magic Sound](/projects/magic_sound/MagicSoundRecreated800.jpg)
+
+Listen to [example](/projects/magic_sound/mag.mp3) to hear the quality of sound this synthesizer produced.
 
 ## External Links
 
