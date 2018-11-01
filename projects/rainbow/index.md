@@ -6,7 +6,7 @@ I designed and built the computer hardware and monitor software for the Rainbow 
 
 Specification:
 
-- Construction: Single unit incorporating computer, keyboard and power suppply.
+- Construction: Single unit incorporating computer, keyboard and power supply.
 - CPU: 8080
 - Memory: 32 KB
 - Graphics Memory: 32 KB
