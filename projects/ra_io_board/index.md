@@ -1,4 +1,4 @@
-[RA IO Board](/projects/ra_io_board/DSC_7413.jpg)
+![RA IO Board](/projects/ra_io_board/DSC_7413.jpg)
 
 # I/O Board
 
