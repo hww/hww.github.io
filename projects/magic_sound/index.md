@@ -2,7 +2,7 @@
 
 I was lead designer of the MagicSound expansion board for Aleste 520EX computer. This board is very similar to sound system of Amiga computer.
 
-** Features **
+**Features**
 
 - four DMA channel
 - four programmable timers
@@ -10,11 +10,11 @@ I was lead designer of the MagicSound expansion board for Aleste 520EX computer.
 - 6 bits of volume per channel
 - 32kHz sample rate. 
 
-Aleste plays STM (Scream Tracker) files with MG board. 
+With this board Aleste computer plays .stm (Scream Tracker) files. 
 
 Photo below shows the recreated version of MagicSound board.
 
-![Magic Sound](/projects/magic_sound/MagicSoundRecreated.jpg)
+![Magic Sound](/projects/magic_sound/MagicSoundRecreated800.jpg)
 
 ## External Links
 
