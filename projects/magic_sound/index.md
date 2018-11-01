@@ -2,7 +2,7 @@
 
 I was lead designer of the MagicSound expansion board for Aleste 520EX computer. This board is very similar tothe sound system of the Amiga computer.
 
-Features
+**Features**
 
 - four DMA channel
 - four programmable timers
