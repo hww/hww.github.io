@@ -15,3 +15,9 @@ This board is the RF power supply.  If you wish to build this project you can ch
 Finally I decided to use it with the Hakko FX1001 iron and T31 tips with the new clone station. Mostly my decision is based on the price difference.
 
 In case if you decide to build same board go to [EVBlog](http://www.eevblog.com/forum/projects/diy-metcal-13-56-mhz-rf-supply/)
+
+# Heat Sink
+
+Fixing the board to heatsink with four 5mm posts.
+
+![RF Board on Heatsink](/projects/hakko_fx951_clone/rf_board_on_heatsink.jpg) 
