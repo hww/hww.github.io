@@ -14,7 +14,7 @@ The Aleste 520EX added the following features beyond what the CPC 6128 provided:
 
 ## Screenshots
 
-![Aleste 520EX - Boot Screen](/projects/aleste/aleste_boot_screen.png)
+![Aleste 520EX - Boot Screen](/projects/aleste/aleste_boot_screen.png "Boot Screen")
 
 ![Aleste 520EX - MSX DOS Screen](/projects/aleste/msx_dos_screenshot.png)
 
