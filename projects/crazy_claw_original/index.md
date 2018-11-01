@@ -20,7 +20,6 @@ The ultimate ticket redemption game and merchandiser.
 ## Awards
 
 ![AMOA Fun Award](/projects/crazy_claw_original/amoa.jpg)
-
 ![Major Fun Award](/projects/crazy_claw_original/major_fun_award.png)
 
 ## Images
