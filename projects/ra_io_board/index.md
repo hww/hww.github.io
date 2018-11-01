@@ -1,8 +1,8 @@
-[RA IO Board](/projects/ra_io_board/DSC_7413.jpg)
+![RA IO Board](/projects/ra_io_board/DSC_7413.jpg)
 
 # I/O Board
 
-
+The digital circuit design and PCB layout was done with Altium DXP.
 
 The board has embedded DC/DC converter 12V to 5V/3A.
 
