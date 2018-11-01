@@ -1,8 +1,8 @@
-# My Diploma Task at Aviation College
-
-> To design and build the microcomputer central computing module.
+## My Diploma Task at Aviation College: To design and build the microcomputer central computing module.
 
 The Rainbow computer was designed and manufactured at Zhukovsky Aviation College, Omsk in 1988. The Rainbow was backward compatible with the "Specialist" personal computer, with added color graphics and a 3-voice synthesizer.
+
+I designed and built the computer hardware and monitor software for the Rainbow microcomputer.
 
 Specification:
 
