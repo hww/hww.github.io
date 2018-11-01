@@ -15,3 +15,5 @@
 ### Homebrew Projects
 
 [Hakko FX951 Clone](/projects/hakko_fx951_clone)
+
+[DIY Project: Super-A power amplifier](projects/nataly_nxp)
