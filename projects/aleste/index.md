@@ -1,6 +1,6 @@
 # Aleste 520EX
 
-The Aleste 520EX is a clone of the Amstrad CPC 6128 developed 1993 by Patisonic in Omsk (Siberia). The Aleste is rare, according to Patisonic themselves, they "produced several dozens of the model, some of them were in 'kit' form".
+The Aleste 520EX computer is a backward compatible with Amstrad CPC 6128 developed by me at 1993. And runs MSX DOS operation system. 
 
 ![Aleste 520EX](/projects/aleste/aleste_520ex_512px.jpg)
 
@@ -8,13 +8,13 @@ In addition to the standard CPC6128 features, it includes a number of extra feat
 
 ## External References
 
-[Aleste 520EX on CPCWIKI](http://www.cpcwiki.eu/index.php/Aleste_520EX)
+[Aleste 520EX - CPCWiki](http://www.cpcwiki.eu/index.php/Aleste_520EX)
 
 ## Screenshots
 
-![Aleste 520EX Boot Screen](/projects/aleste/aleste_boot_screen.png)
+![Aleste 520EX - Boot Screen](/projects/aleste/aleste_boot_screen.png)
 
-![MSX DOS Screenshot](/projects/aleste/msx_dos_screenshot.png)
+![Aleste 520EX - MSX DOS Screen](/projects/aleste/msx_dos_screenshot.png)
 
-![Aleste 520EX Test Screen](/projects/aleste/test_screenshot.png)
+![Aleste 520EX - Test Screen](/projects/aleste/test_screenshot.png)
 

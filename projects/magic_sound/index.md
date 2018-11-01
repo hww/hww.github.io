@@ -6,4 +6,4 @@ MagicSound is a four channel DMA playback device. Supports 8 bit per sample, 6 b
 
 ## External Links
 
-[Aleste 520EX - CPCWiki](http://www.cpcwiki.eu/index.php/Magic_Sound_Board)
+[Magic Sound - CPCWiki](http://www.cpcwiki.eu/index.php/Magic_Sound_Board)
