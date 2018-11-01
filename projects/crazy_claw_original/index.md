@@ -24,7 +24,7 @@ The ultimate ticket redemption game and merchandiser.
 
 ## External references
 
-[ROCKETAMUSEMENTS](https://www.rocketamusements.com)
+[Rocketamusements Official Site](https://www.rocketamusements.com)
 
 ## Images
 
