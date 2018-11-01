@@ -6,7 +6,6 @@ I designed and built the computer hardware and monitor software for the Rainbow 
 
 Specification:
 
-- Construction: Monoblock
 - CPU: 8080
 - Memory: 32 KB
 - Graphics Memory: 32 KB
