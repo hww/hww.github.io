@@ -9,4 +9,4 @@ My responsibility was: circuit design, plastic housing design. Used tools Mentor
 
 ![View Body - SP Version](/projects/view_boy/viewboy21-3647.jpg)
 
-![View Body - SP Version Connectors](/projects/view_boy/viewboy21-3647.jpg)
+![View Body - SP Version Connectors](/projects/view_boy/viewboy23-3649.jpg)
