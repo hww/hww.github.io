@@ -2,19 +2,19 @@
   
 As lead developer I complete several project when worked for Remis Labs. 
 
-The first project was a sound sythesizer with DSP implemented in Altera FLEX 10K PLD. As main CPU was used Zilog Z180, and Z8 as midi keybord controller. 
+The first project was a sound sythesizer with digital signal processor based on Altera FLEX 10K programmable logic device. Zilog Z80 was a main central processing unit, and Zilog Z8 as keybord controller. 
   
 ![Flex Synt](/projects/remis/flex-synth.png)
 
-Seond project was a mini game for Nintendo N64. To complete the task I have made ROM-emulator known as _PVBackup_. Also  create the cartrge for N64 with flash ROM chips on.
+Second project was a mini game for Nintendo N64 console. To complete my job task was designed Nintendo ROM-emulator known as _PVBackup_. Finaly was designed custom N64 cartrige.
 
 ![N64 Cartige](/projects/remis/cartrige.png)
 
-At last I create the sound synthesizer with Motorolla DSP and complete multivoice MIDI syntesizer firmware. 
+As last task for Remis Labs I create a sound synthesizer based on Motorolla fixed point digital signal processor. I implement with `C` language, complete multivoice MIDI syntesizer sampler. 
 
 ![Synthesizer](/projects/remis/synthesizer.jpg)
 
-Additionaly was created command line tool which alow to define and build sound bank.
+Additionaly was created command line tool which allow to define and build sound bank for this syntesizer or for N64 sofware development kit.
 
 ## Awards
 
