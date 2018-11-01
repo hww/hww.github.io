@@ -8,11 +8,11 @@ In addition to the standard CPC6128 features, it includes a number of extra feat
 
 ## Screenshots
 
-[MSX DOS Screenshot](/projects/aleste/msx_dos_screenshot.png)
+![MSX DOS Screenshot](/projects/aleste/msx_dos_screenshot.png)
 
-[Aleste 520EX Boot Screen](/projects/aleste/aleste_boot_screen.png)
+![Aleste 520EX Boot Screen](/projects/aleste/aleste_boot_screen.png)
 
-[Aleste 520EX Test Screen](/projects/aleste/test_screenshot.png)
+![Aleste 520EX Test Screen](/projects/aleste/test_screenshot.png)
 
 ## External References
 [Aleste 520EX on CPCWIKI](http://www.cpcwiki.eu/index.php/Aleste_520EX)
