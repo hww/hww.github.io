@@ -10,7 +10,7 @@ I was lead designer of the MagicSound expansion board for Aleste 520EX computer.
 - 6 bits of volume per channel
 - 32kHz sample rate. 
 
-With this board Aleste computer plays .stm (Scream Tracker) files. 
+With this board Aleste computer plays .stm (Scream Tracker) files. Play [example](/projects/magic_sound/mag.mp3) file to listen the qualty. 
 
 Photo below shows the recreated version of MagicSound board.
 
