@@ -1,10 +1,10 @@
 # Aleste 520EX
 
+My first official job was the design of the Aleste 520EX computer in 1993. The Aleste 520EX was backward compatible with the popular Amstrad CPC 6128 and ran the same MSX DOS operation system.
+
 The Aleste 520EX added the following features beyond what the CPC 6128 provided: 64-color palette, double color depth in slightly decreased horizontal resolution mode (eg. 16 color at 256x200 resolution), battery-backed Real Time Clock chip, 512Kbyte RAM (of which 192K can be accessed as on 64K CPC with 128K dk'tronics memory expansion), 8bit printer port, expanded keyboard matrix with 10 additional keys, two software controlled LEDs, extended Expansion Port (with additional pins for DMA support).
 
 ![Aleste 520EX](/projects/aleste/aleste_520ex_512px.jpg)
-
-My first official job was the design of the Aleste 520EX computer in 1993. The Aleste 520EX was backward compatible with the popular Amstrad CPC 6128 and ran the same MSX DOS operation system.
 
 I was the principal designer on the Aleste 520EX project. I designed the computer hardware, and specified and managed development of software. I reverse-engineered how to emulate Amstrad CPC 1628 hardware and software features enabling the Aleste 520EX to run games designed for the Amstrad machine.
 
