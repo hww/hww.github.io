@@ -2,9 +2,11 @@
 
 ### Projects
 
+[Driver Training Courseware Site](/projects/webtraining)
+
 [Nintendo SP and DS on TV device](/projects/webtraining)
 
-[Driver Training Courseware Site](/projects/webtraining)
+[Famicom Nintedo Action Replay Device](/projects/karat)
 
 [Aleste 520 emulator for PC](/projects/caprice32/)
 
