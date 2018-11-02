@@ -24,8 +24,7 @@ The user side implements:
   - Interactive scripted course navigation.
   - Quizzes and tests to verify student's apprehension of the course material.
   - Recording test results and course completion status.
-  - Issuing certificates that students can use for insurance purposes.
-                
+  - Issuing certificates that students can use for insurance purposes.      
 - Enrollment and scheduling for on-site behind-the-wheel training, based on course availability and location.
         
 Technical aspects of the site:
