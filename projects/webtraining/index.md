@@ -36,4 +36,4 @@ Technical aspects of the site:
 - Time-consuming tasks are queued and completed asynchronously from the web interface. Admins can monitor the progress
  of their queued jobs.
 
-[Webtraning - Front Page](/projects/webtraining/webtraining_front_page_512.png)
+![Webtraning - Front Page](/projects/webtraining/webtraining_front_page_512.png)
