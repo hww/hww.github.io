@@ -2,6 +2,10 @@
 
 ### Projects
 
+[Nintendo SP and DS on TV device](/projects/webtraining)
+
+[Driver Training Courseware Site](/projects/webtraining)
+
 [Aleste 520 emulator for PC](/projects/caprice32/)
 
 [Digital Signal Processing & Sound Synthesizing](/projects/remis)
