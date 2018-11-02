@@ -1,6 +1,10 @@
 ### Welcome to my portfolio
 
+TODO...
+
 ### Projects
+
+TODO...
 
 [Driver Training Courseware Site](/projects/webtraining)
 
@@ -19,6 +23,8 @@
 [My Dimploma Task](/projects/rainbow)
 
 ### Homebrew Projects
+
+TODO...
 
 [Hakko FX951 Clone](/projects/hakko_fx951_clone)
 
