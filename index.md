@@ -6,7 +6,7 @@
 
 [Nintendo SP and DS on TV device](/projects/webtraining)
 
-[Pro Action Rocky - Nintendo cheat device](/projects/karat)
+[Pro Action Rocky - Nintendo cheat device](/projects/nintendo_cheat_device)
 
 [Aleste 520 emulator for PC](/projects/caprice32/)
 
