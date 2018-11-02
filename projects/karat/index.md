@@ -7,6 +7,9 @@ The housing was designed to meet Nintendo's specification for shell dimensions a
 ![Pro Action Rocky - Rendered picture](/projects/karat/CartSecond12-noview-9.jpg)
 
 ![Pro Action Rocky - Box](/projects/karat/rocky02.jpg)
+
 ![Pro Action Rocky - Connected cartrige](/projects/karat/rocky04.jpg)
+
 ![Pro Action Rocky - Chet Code](/projects/karat/rocky10.jpg)
+
 ![Pro Action Rocky - Game Screenshot](/projects/karat/rocky11.jpg)
