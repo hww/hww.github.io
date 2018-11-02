@@ -1,4 +1,4 @@
-@ Nintendo SP and DS on TV device
+# Nintendo SP and DS on TV device
 
 At the GameTools company, I implemented the design of the ViewBoy for Nintendo GameBoy Advance SP and DS. The ViewBoy attached passively to the handheld game device and allowed the device's display to be duplicated on an ordinary TV set. Other similar devices on the market at the time required modifications to made to the GBA's internal circuitry. ViewBoy was the first passive TV display for GBA.
 
