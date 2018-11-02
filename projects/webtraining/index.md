@@ -35,6 +35,6 @@ Technical aspects of the site:
 - CAS authentication is available for admins, students and API clients.
 - Time-consuming tasks are queued and completed asynchronously from the web interface. Admins can monitor the progress
  of their queued jobs.
-- Tools and libraries: Ruby on Rails, Thin, plain JavaScript and JQuery, Redis, Resque, Mongrel Cluster, MySQL
+- Tools and libraries: Ruby on Rails, Thin, plain JavaScript and JQuery, Redis, Resque, Mongrel Cluster, MySQL, iText PDF
 
 ![Webtraning - Front Page](/projects/webtraining/webtraining_front_page_512.png)
