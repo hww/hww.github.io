@@ -12,6 +12,7 @@ Designed by me IO Board for arcade machine cabinet.....
 - I2C expansion for additional daughter board
 - 12V to 5V/2.5A DC/DC converter for suppying 5V decies
 - 12 LEDs for diagnostincs
+- 4 jumper switchers for configuration 
 
 The digital circuit design and PCB layout was done with Altium DXP. 
 
