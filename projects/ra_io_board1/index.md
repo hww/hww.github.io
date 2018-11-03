@@ -15,12 +15,15 @@ Designed by me IO Board for arcade machine cabinet.....
 
 The digital circuit design and PCB layout was done with Altium DXP. 
 
-Pcture 1: PCB top view 
+Pcture 1: PCB top view
+
 ![RA IO Board](/projects/ra_io_board1/img_pcb_top.jpg)
 
 Pcture 2: Left to the right: input/output connector, power output for slave devices
+
 ![RA IO Board - DC/DC converter](/projects/ra_io_board1/img_pcb_con1.jpg)
 
 Pcture 3: Left to the right: Power Input, JTAG, analog inputs, USB
+
 ![RA IO Board - Serial Key](/projects/ra_io_board1/img_pcb_con2.jpg)
 
