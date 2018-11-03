@@ -12,7 +12,7 @@ TODO...
 
 [Driver Training Courseware Site](/projects/webtraining)
 
-[Nintendo SP and DS on TV device](/projects/webtraining)
+[Nintendo SP and DS on TV device](/projects/view_boy/)
 
 [Game Engine Architect](/projects/sengine/index.md)
 
