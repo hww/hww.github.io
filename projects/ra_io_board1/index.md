@@ -16,7 +16,7 @@ The digital circuit design and PCB layout was done with Altium DXP.
 
 ![RA IO Board](/projects/ra_io_board1/img_pcb_top.jpg)
 
-Left to the right: Power Input, JTAG, analog inputs, USB
+Left to the right: input/output connector, power output for slave devices
 ![RA IO Board - DC/DC converter](/projects/ra_io_board1/img_pcb_con1.jpg)
 
 Left to the right: Power Input, JTAG, analog inputs, USB
