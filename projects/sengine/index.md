@@ -9,4 +9,5 @@ We used Maya for level editing, and developed custom Maya tools for saving anima
 Even though today I would do some parts of the design differently, this was very useful experience. After this project I see more pros and cons for various game engine design considerations.
 
 ![SEngine](/projects/sengine/screenshot-notes.png)
+
 1 - _Main menu_,  2 - _Class/Files browser and script editor_, 3 - _Errors, Variables inspector and Disassembly preview_,  4 - _Game view_,  5 - _Scene hierarchy browser_,  6 - _Fields inspector/editor_
