@@ -6,9 +6,9 @@ TODO...
 
 TODO...
 
-[Driver Training Courseware Site](hww.github.io/projects/ra_io_board1)
+[I/O board for Rocket Amusements arcade game cabinet v2](hww.github.io/projects/ra_io_board2)
 
-[Driver Training Courseware Site](hww.github.io/projects/ra_io_board2)
+[I/O board for Rocket Amusements arcade game cabinet v1](hww.github.io/projects/ra_io_board1)
 
 [Driver Training Courseware Site](/projects/webtraining)
 
