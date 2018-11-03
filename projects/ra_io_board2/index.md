@@ -1,4 +1,5 @@
 # I/O board for Rocket Amusements arcade game cabinet
+**RA-USB-IO-1-rev-4**
 
 The board features a 32-bit ARM processor, USB port, 8 analog inputs, 32 digital inputs, 12 high-current outputs, diagnostic and status LED's and configuration switches. Power is derived from 12V DC input. ESD and EMI protection are included.
 
