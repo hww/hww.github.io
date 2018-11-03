@@ -1,4 +1,4 @@
-# RA I/O Board
+# RA Input Ooutput Board
 
 Designed by me IO Board for arcade machine cabinet..... 
 
