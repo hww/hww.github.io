@@ -11,7 +11,8 @@ Designed by me IO Board for arcade machine cabinet.....
 - 6 outputs for each player 1.7A
 - I2C expansion for additional daughter board
 - 12V to 5V/2.5A DC/DC converter for suppying 5V decies
-  
+- 12 LEDs for diagnostincs
+
 The digital circuit design and PCB layout was done with Altium DXP. 
 
 ![RA IO Board](/projects/ra_io_board1/img_pcb_top.jpg)
