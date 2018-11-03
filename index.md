@@ -14,6 +14,8 @@ TODO...
 
 [Nintendo SP and DS on TV device](/projects/webtraining)
 
+[Game Engine Architect](/projects/sengine/index.md)
+
 [Pro Action Rocky - Nintendo cheat device](/projects/nintendo_cheat_device)
 
 [Aleste 520 emulator for PC](/projects/caprice32/)
@@ -27,8 +29,6 @@ TODO...
 [My Dimploma Task](/projects/rainbow)
 
 ### Homebrew Projects
-
-TODO...
 
 [Hakko FX951 Clone](/projects/hakko_fx951_clone)
 
