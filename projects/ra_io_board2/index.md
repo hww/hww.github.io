@@ -1,18 +1,12 @@
-# I/O Board
+# I/O board for Rocket Amusements arcade game cabinet
 
-The digital circuit design and PCB layout was done with Altium DXP.
+The board features a 32-bit ARM processor, USB port, 8 analog inputs, 32 digital inputs, 12 high-current outputs, diagnostic and status LED's and configuration switches. Power is derived from 12V DC input. ESD and EMI protection are included.
 
 ![RA IO Board](/projects/ra_io_board2/img_pcb.jpg)
 
-The board has embedded DC/DC converter 12V to 5V/3A.
-
 ![RA IO Board - DC/DC converter](/projects/ra_io_board2/img_dcdc.jpg)
 
-Serial key.
-
 ![RA IO Board - Serial Key](/projects/ra_io_board2/img_key.jpg)
-
-The board has interface to LCD module used as service and diagnostics display.
 
 ![RA IO Board - Service Display](/projects/ra_io_board2/img_display.jpg)
 
