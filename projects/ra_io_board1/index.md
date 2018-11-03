@@ -2,7 +2,7 @@
 
 Designed by me IO Board for arcade machine cabinet..... 
 
-- Mirocontroller STM32F105.
+- STM32F105 mirocontroller
 - USB 
 - 2 players
 - 12V power input
