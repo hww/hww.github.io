@@ -7,3 +7,6 @@ The game engine had scene management, OpenGL rendering, animation and collision 
 We used Maya for level editing, and developed custom Maya tools for saving animation, mesh, materials and level designs in engine-ready formats.
 
 Even though today I would do some parts of the design differently, this was very useful experience. After this project I see more pros and cons for various game engine design considerations.
+
+![SEngine](/projects/sengine/screenshot-notes.png)
+1 - Main menu,  2 - Class/Files browser and script editor, 3 - Errors, Variables inspector and Disassembly preview,  4 - Game view,  5 - Scene hierarchy browser,  6 - Fields inspector/editor
