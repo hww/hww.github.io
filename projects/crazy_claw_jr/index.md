@@ -2,7 +2,7 @@
 
 This was the second game developed for RocketAmusements ticket redemption and merchandiser game cabinet.
 
-The was system including cabinet, multi-game framework and Crazy Claw Junior game.
+The system includes cabinet, multi-game framework and Crazy Claw Junior game.
 
 The software runs on a normal PC for game applications with Rocket OS, a Linux environment providing common I/O, settings, networking and bookkeeping. 
 
