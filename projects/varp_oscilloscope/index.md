@@ -6,4 +6,4 @@ VARP Oscilloscope is a small, easy to use Unity asset that you can use to record
 
 ## Links
 
-[VARP Oscilloscope - On Github](https://github.com/hww/varp_oscilloscope)
+[VARP Oscilloscope - On GitHub](https://github.com/hww/varp_oscilloscope)
