@@ -9,7 +9,11 @@ While evaluating Gamebryo for our team, I implemented a compete binding of Gambi
 
 ## External Links
 
+[Official GambitC Site](http://gambitscheme.org/wiki/index.php/Main_Page)
+
 [Official Gamebryo Site](http://www.gamebryo.com)
+
+## Additionaly
 
 My guide how to use [GambitC with OGRE Rendering Engine](https://github.com/hww/ogre-gambc)
 
