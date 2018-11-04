@@ -14,7 +14,7 @@ The ultimate ticket redemption game and merchandiser.
 
 - Lead game devoloper
 - Prototype cabinet design with SolidWorks
-- I/O Board circuit and PCB design
+- I/O Board circuit and PCB design with Altium DXP
 - Cabinet circuit design
 
 ## Awards
