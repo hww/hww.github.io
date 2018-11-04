@@ -4,10 +4,10 @@ I am a broadly skilled hardware and software designer in the St. Petersburg area
 
 ### Courses & Certificates
 
-|          | Year | Course                             | Score |
-|----------|------|------------------------------------------|-----|
-| BerkleyX | 2012 | CS188.1x: Artificial Intelligence | 97% |
-| BerkleyX | 2012 | CS184.1x: Foundations of Computer Graphics | 100% |
+|          | Year | Course                                                            | Score |
+|----------|------|-------------------------------------------------------------------|-----|
+| BerkleyX | 2012 | CS188.1x: Artificial Intelligence                                 | 97% |
+| BerkleyX | 2012 | CS184.1x: Foundations of Computer Graphics                        | 100% |
 | BerkleyX | 2013 | TA<sup>1</sup> Team in CS184.1x: Foundations of Computer Graphics | - |
 | BerkleyX | 2014 | TA<sup>1</sup> Team in CS184.1x: Foundations of Computer Graphics | - |
 
