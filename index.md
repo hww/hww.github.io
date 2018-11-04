@@ -4,11 +4,15 @@ TODO...
 
 ### Projects
 
-TODO...
+[Crazy Claw Emojis](/projects/crazy_claw_emojis)
 
-[I/O board for Rocket Amusements arcade game cabinet v2](hww.github.io/projects/ra_io_board2)
+[Crazy Claw Junior](/projects/crazy_claw_junior)
 
-[I/O board for Rocket Amusements arcade game cabinet v1](hww.github.io/projects/ra_io_board1)
+[Crazy Claw Original](/projects/crazy_claw_original)
+
+[I/O board for Rocket Amusements arcade game cabinet v2](/projects/ra_io_board2)
+
+[I/O board for Rocket Amusements arcade game cabinet v1](/projects/ra_io_board1)
 
 [Gamebryo with GambitC](/projects/gamebryo/)
 
