@@ -1,5 +1,7 @@
 # Crazy Claw Junior
 
+Compact cabinet and single player version of the game.
+
 ## External references
 
 [Rocketamusements Official Site](https://www.rocketamusements.com)
