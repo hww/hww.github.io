@@ -10,6 +10,7 @@ I am a broadly skilled hardware and software designer in the St. Petersburg area
 | BerkleyX | 2012 | CS184.1x: Foundations of Computer Graphics | 100% |
 | BerkleyX | 2013 | TA<sup>1</sup> Team in CS184.1x: Foundations of Computer Graphics | - |
 | BerkleyX | 2014 | TA<sup>1</sup> Team in CS184.1x: Foundations of Computer Graphics | - |
+
 <sup>1</sup> Teacher Assistance Team
 
 ### Projects
