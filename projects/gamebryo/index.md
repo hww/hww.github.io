@@ -2,8 +2,8 @@
 
 ![Gamebryo](/projects/gamebryo/icon_gamebryo_270px.gif)
 
-Using the LISP type of languages in game developing process allow easy implement any DSL and define code and data definitions without headache. 
-As the task of estimating Gamebryo for our team, was implemented compete binging of GambitC to the Gamebryo engine. Making it was fun, and i think gave me allot of knowledge. The source code was mixed C++ and GambitC sources, as example look at picture below 
+Using a LISP type language in game development allows easy implementation of DSL's, along with simple headache-free representations for code, script and data definitions.               
+While evaluating Gamebryo for our team, I implemented a compete binding of GambitC Scheme to the Gamebryo engine. Creating this binding was fun, and provided valuable knowledge and experience with Lisp enhancments for game engines. The source code was mixed C++ and GambitC; the picture below shows an example.
 
 ![Source Code Screen](/projects/gamebryo/src_screen.png)
 
