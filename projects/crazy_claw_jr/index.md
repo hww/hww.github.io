@@ -13,7 +13,7 @@ The software runs on a normal PC for game applications with Rocket OS, a Linux e
 
 ## External references
 
-[Rocketamusements Official Site](https://www.rocketamusements.com)
+[RocketAmusements Official Site](https://www.rocketamusements.com)
 
 ## Images
 
