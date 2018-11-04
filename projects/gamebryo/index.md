@@ -10,4 +10,5 @@ As the task of estimating Gamebryo for our team, was implemented compete binging
 ## External Links
 
 [Official Gamebryo Site](http://www.gamebryo.com)
+
 [GambitC Compiler with OGRE Rendering Engine](https://github.com/hww/ogre-gambc)
