@@ -1,14 +1,20 @@
 ### Welcome to my portfolio
 
-TODO...
+I am a broadly skilled hardware and software designer in the St. Petersburg area, and have worked in the game industry for the last 15 years. My most recent project was a Unity game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China.
 
 ### Projects
 
-TODO...
+[Crazy Claw Emojis](/projects/crazy_claw_emojis)
 
-[I/O board for Rocket Amusements arcade game cabinet v2](hww.github.io/projects/ra_io_board2)
+[Crazy Claw Junior](/projects/crazy_claw_jr)
 
-[I/O board for Rocket Amusements arcade game cabinet v1](hww.github.io/projects/ra_io_board1)
+[Crazy Claw Original](/projects/crazy_claw_original)
+
+[I/O board for Rocket Amusements arcade game cabinet v2](/projects/ra_io_board2)
+
+[I/O board for Rocket Amusements arcade game cabinet v1](/projects/ra_io_board1)
+
+[Gamebryo with GambitC](/projects/gamebryo/)
 
 [Driver Training Courseware Site](/projects/webtraining)
 
@@ -37,3 +43,4 @@ TODO...
 [Hakko FX951 Clone](/projects/hakko_fx951_clone)
 
 [DIY Project: Super-A power amplifier](projects/nataly_nxp)
+

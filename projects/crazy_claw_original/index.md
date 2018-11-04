@@ -1,20 +1,16 @@
 # Crazy Claw Original
 
-> The world's first coin operated video claw machine.
+This was the first game developed for RocketAmusements ticket redemption and merchandiser game cabinet.
 
-The ultimate ticket redemption game and merchandiser.
+The system was three years in development including cabinet, multi-game framework and Crazy Claw Original game, with extensive field test.
 
-- Three years in development.
-- Original cabinet designs and custom hardware.
-- Introducing Rocket OS, a standardized settings, networking and bookkeeping system.
-- Main computer and all parts and accessories commonly available.
-- CRAZY CLAW is a versatile machine with unique features that empower operators for long term earnings that can be achieved with reasonable effort and cost in locations of any type.  FECs, restaurants, supermarkets, airports and pubs.  The possibilities for operators are limitless. 
+The software runs on a normal PC for game applications with Rocket OS, a Linux environment providing common I/O, settings, networking and bookkeeping. 
 
-## My responsibilities
+**My responsibilities:**
 
-- Lead game devoloper
+- Lead game developer (Crazy Claw game was made with Unity3D and sound-system)
 - Prototype cabinet design with SolidWorks
-- I/O Board circuit and PCB design with Altium DXP
+- STM32 based I/O board circuit and PCB design with Altium DXP
 - Cabinet circuit design
 
 ## Awards
@@ -24,7 +20,7 @@ The ultimate ticket redemption game and merchandiser.
 
 ## External references
 
-[Rocketamusements Official Site](https://www.rocketamusements.com)
+[RocketAmusements Official Site](https://www.rocketamusements.com)
 
 ## Images
 

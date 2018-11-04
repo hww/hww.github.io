@@ -1,10 +1,19 @@
 # Crazy Claw Junior
 
-Compact cabinet and single player version of the game.
+This was the second game developed for RocketAmusements ticket redemption and merchandiser game cabinet.
+
+The system includes cabinet, multi-game framework and Crazy Claw Junior game.
+
+The software runs on a normal PC for game applications with Rocket OS, a Linux environment providing common I/O, settings, networking and bookkeeping. 
+
+**My responsibilities:**
+
+- Lead game developer (Crazy Claw Junior game was made with Unity3D and sound-system)
+- NXP MK81 based I/O board circuit and PCB design with Altium DXP
 
 ## External references
 
-[Rocketamusements Official Site](https://www.rocketamusements.com)
+[RocketAmusements Official Site](https://www.rocketamusements.com)
 
 ## Images
 
