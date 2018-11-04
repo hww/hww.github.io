@@ -6,7 +6,7 @@ TODO...
 
 [Crazy Claw Emojis](/projects/crazy_claw_emojis)
 
-[Crazy Claw Junior](/projects/crazy_claw_junior)
+[Crazy Claw Junior](/projects/crazy_claw_jr)
 
 [Crazy Claw Original](/projects/crazy_claw_original)
 
