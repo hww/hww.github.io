@@ -4,6 +4,8 @@ I am a broadly skilled hardware and software designer in the St. Petersburg area
 
 ### Projects
 
+[VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope)
+
 [Crazy Claw Emojis](/projects/crazy_claw_emojis)
 
 [Crazy Claw Junior](/projects/crazy_claw_jr)
