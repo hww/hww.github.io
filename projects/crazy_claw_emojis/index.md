@@ -1,5 +1,16 @@
 # CRAZY CLAW the Emojis
 
-I was lead developer of _CRAZY CLAW the Emojis_ game. 
+This was the third game developed for RocketAmusements ticket redemption and merchandiser game cabinet.
+
+The system was including cabinet, multi-game framework and Crazy Claw Emojis game.
+
+The software runs on a normal PC for game applications with Rocket OS, a Linux environment providing common I/O, settings, networking and bookkeeping. 
+
+**My responsibilities:**
+
+- Lead game developer (Crazy Claw game was made with Unity3D and sound-system)
+- Prototype cabinet design with SolidWorks
+- STM32 based I/O board circuit and PCB design with Altium DXP
+- Cabinet circuit design
 
 ![CRAZY CLAW the Emojis](/projects/crazy_claw_emojis/crazy_claw_emojis_triple.png)
