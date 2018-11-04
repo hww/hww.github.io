@@ -1,4 +1,4 @@
-# CRAZY CLAW the Emojis
+# Crazy Claw the Emojis
 
 This was the third game developed for RocketAmusements ticket redemption and merchandiser game cabinet.
 
@@ -11,8 +11,9 @@ The software runs on a normal PC for game applications with Rocket OS, a Linux e
 - Lead game developer (Crazy Claw game was made with Unity3D and sound-system)
 - NXPK81 based I/O board circuit and PCB design with Altium DXP
 
+![CRAZY CLAW the Emojis](/projects/crazy_claw_emojis/crazy_claw_emojis_triple.png)
+
 ## External references
 
 [RocketAmusements Official Site](https://www.rocketamusements.com)
 
-![CRAZY CLAW the Emojis](/projects/crazy_claw_emojis/crazy_claw_emojis_triple.png)
