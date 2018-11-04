@@ -1,7 +1,8 @@
 ### Welcome to my portfolio
 
-|--|--|
-| ![hww](/pp/pp_hww_08.jpg) | I am a broadly skilled hardware and software designer in the St. Petersburg area, and have worked in the game industry for the last 15 years. My most recent project was a Unity game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. |
+I am a broadly skilled hardware and software designer in the St. Petersburg area, and have worked in the game industry for the last 15 years. My most recent project was a Unity game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
+
+![hww](/pp/pp_hww_08.jpg) 
 
 ### Courses & Certificates
 
