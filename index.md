@@ -4,6 +4,8 @@ I am a broadly skilled hardware and software designer in the St. Petersburg area
 
 ![hww](/pp/pp_hww_08.jpg) 
 
+[Me at Linkedin](https://www.linkedin.com/in/valeriyap/)
+
 ### Courses & Certificates
 
 |          | Year | Course                                                            | Score |
