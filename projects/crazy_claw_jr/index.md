@@ -6,4 +6,4 @@
 
 ## Images
 
-![Crazy Claw Junior](/projects/crazy_claw_original/jr-machine_2_orig.jpg "Compact 1-player, 43 wide, 57 deep inches")
+![Crazy Claw Junior](/projects/crazy_claw_jr/jr-machine_2_orig.jpg "Compact 1-player, 43 wide, 57 deep inches")
