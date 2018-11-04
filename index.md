@@ -10,6 +10,8 @@ TODO...
 
 [I/O board for Rocket Amusements arcade game cabinet v1](hww.github.io/projects/ra_io_board1)
 
+[Gamebryo with GambitC](/projects/gamebryo/)
+
 [Driver Training Courseware Site](/projects/webtraining)
 
 [Nintendo SP and DS on TV device](/projects/view_boy/)
