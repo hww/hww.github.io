@@ -11,3 +11,5 @@ Even though today I would do some parts of the design differently, this was very
 ![SEngine](/projects/sengine/screenshot-notes.png)
 
 1 - _Main menu_,  2 - _Class/Files browser and script editor_, 3 - _Errors, Variables inspector and Disassembly preview_,  4 - _Game view_,  5 - _Scene hierarchy browser_,  6 - _Fields inspector/editor_
+
+[Read Full Article](https://docs.google.com/document/d/e/2PACX-1vSFIKzHRjDRz4NuzrIc4kiudjMa1cV1uFk1h3P7JNZqujAYrHVC68PLmVH5ALX0kT6SFOSuyN-NHG9V/pub)
