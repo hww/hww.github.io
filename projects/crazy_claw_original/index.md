@@ -1,4 +1,4 @@
-# Crazy Claw
+# Crazy Claw Original
 
 > The world's first coin operated video claw machine.
 
