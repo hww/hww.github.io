@@ -1,4 +1,4 @@
-# Crazy Claw
+# Crazy Claw Original
 
 > The world's first coin operated video claw machine.
 
@@ -14,7 +14,7 @@ The ultimate ticket redemption game and merchandiser.
 
 - Lead game devoloper
 - Prototype cabinet design with SolidWorks
-- I/O Board circuit and PCB design
+- I/O Board circuit and PCB design with Altium DXP
 - Cabinet circuit design
 
 ## Awards
@@ -29,4 +29,4 @@ The ultimate ticket redemption game and merchandiser.
 ## Images
 
 ![Crazy Claw Dual Players](/projects/crazy_claw_original/2-players-machine_1_orig.jpg "Standard 2-player model, 52 wide 42 deep inches")
-![Crazy Claw Junior](/projects/crazy_claw_original/jr-machine_2_orig.jpg "Compact 1-player, 43 wide, 57 deep inches")
+
