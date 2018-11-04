@@ -9,8 +9,10 @@ The software runs on a normal PC for game applications with Rocket OS, a Linux e
 **My responsibilities:**
 
 - Lead game developer (Crazy Claw game was made with Unity3D and sound-system)
-- Prototype cabinet design with SolidWorks
-- STM32 based I/O board circuit and PCB design with Altium DXP
-- Cabinet circuit design
+- NXPK81 based I/O board circuit and PCB design with Altium DXP
+
+## External references
+
+[RocketAmusements Official Site](https://www.rocketamusements.com)
 
 ![CRAZY CLAW the Emojis](/projects/crazy_claw_emojis/crazy_claw_emojis_triple.png)
