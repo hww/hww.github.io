@@ -11,4 +11,6 @@ While evaluating Gamebryo for our team, I implemented a compete binding of Gambi
 
 [Official Gamebryo Site](http://www.gamebryo.com)
 
-[hww/GambitC with OGRE Rendering Engine](https://github.com/hww/ogre-gambc)
+My guide how to use [GambitC with OGRE Rendering Engine](https://github.com/hww/ogre-gambc)
+
+My article [Lisp based scripting in Unity 3D](https://docs.google.com/document/d/e/2PACX-1vSx2Bilw0ZGgiUx9lbXfAR3JLs1i-kHJgqAUFN3sJWLG6si51pcFg8dTZqzzSoln6aiq24uS0w_6ZAC/pub)
