@@ -10,7 +10,7 @@ The second project was a mini game for the Nintendo N64 console. To develop and 
 
 ![N64 Cartige](/projects/remis/cartrige_400px.png)
 
-For the last task at Remis Labs, I created a sound synthesizer based on Motorola fixed point digital signal processor. Implemented in the C language, the result was a complete MIDI compatible multivoice sampling syntesizer.     
+For the last task at Remis Labs, I created a sound synthesizer based on Motorola fixed point digital signal processor. Implemented in the C language, the result was a complete MIDI compatible multivoice sampling synthesizer.     
 
 ![Synthesizer](/projects/remis/synthesizer.jpg)
 
