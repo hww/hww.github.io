@@ -97,7 +97,9 @@ _New Braunfels, U.S._
 
 ### 2002-2004 Technical Director & Lead Developer
 **Sybersoft**
+
 _Riga, Latvia_
+
 _Limassol, Cyprus_
 
 - Designed a game engine used as a rapid prototyping tool in Sybersoft game development team. 
