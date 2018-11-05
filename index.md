@@ -1,10 +1,10 @@
 ## Hello I am Valery
 
-I am a broadly skilled hardware and software designer in the St. Petersburg area, and have worked in the game industry for the last 15 years. 
+I am a widely skilled hardware and software designer in the St. Petersburg area. I have been working in the video game industry for the last 15 years. 
 
 ![hww](/pp/pp_hww_08.jpg) 
 
-## Contact To Me
+## Contact Me
 
 Me at [Linkedin](https://www.linkedin.com/in/valeriyap/)
 
@@ -23,7 +23,7 @@ Me at [GitHub](https://www.linkedin.com/in/valeriyap/)
 
 ## Projects
 
-My most recent project was a Unity game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
+My most recent projects are all related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
 
 [Crazy Claw Emojis](/projects/crazy_claw_emojis)
 
@@ -55,7 +55,7 @@ My most recent project was a Unity game for the arcade redemption market, for wh
 
 [Lead developer Aleste 520EX project](/projects/rainbow)
 
-[My Dimploma Task](/projects/rainbow)
+[My Diploma Task](/projects/rainbow)
 
 ## Sample Code
 
