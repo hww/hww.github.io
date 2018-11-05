@@ -1,10 +1,10 @@
-### Hello I am Valery
+## Hello I am Valery
 
 I am a broadly skilled hardware and software designer in the St. Petersburg area, and have worked in the game industry for the last 15 years. 
 
 ![hww](/pp/pp_hww_08.jpg) 
 
-### Contact To Me
+## Contact To Me
 
 Me at [Linkedin](https://www.linkedin.com/in/valeriyap/)
 
@@ -21,7 +21,7 @@ Me at [GitHub](https://www.linkedin.com/in/valeriyap/)
 
 <sup>1</sup> Teacher Assistance Team
 
-### Projects
+## Projects
 
 My most recent project was a Unity game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
 
@@ -57,7 +57,7 @@ My most recent project was a Unity game for the arcade redemption market, for wh
 
 [My Dimploma Task](/projects/rainbow)
 
-### Sample Code
+## Sample Code
 
 |     | Link                                                                               |
 |-----|-------------------------------------------------------------------------------------|
@@ -66,11 +66,11 @@ My most recent project was a Unity game for the arcade redemption market, for wh
 | C#  | [VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope) |
 | C#  | [Simple Finite State Machines for Unity](https://github.com/hww/UnityTFSM) |
 
-### Articles
+## Articles
 
 [Lisp based scripting in Unity 3D](https://docs.google.com/document/d/e/2PACX-1vSx2Bilw0ZGgiUx9lbXfAR3JLs1i-kHJgqAUFN3sJWLG6si51pcFg8dTZqzzSoln6aiq24uS0w_6ZAC/pub)
 
-### Homebrew Projects
+## Homebrew Projects
 
 [Hakko FX951 Clone](/projects/hakko_fx951_clone)
 
