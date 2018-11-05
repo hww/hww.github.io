@@ -51,8 +51,8 @@ Courses
 
 Langauges
 
-Russian (native)
-English (fluent)
+- Russian (native)
+- English (fluent)
 
 Goals
 
