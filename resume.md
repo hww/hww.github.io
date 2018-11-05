@@ -1,7 +1,8 @@
 # Valeriya P.
->  Lead software and hardware developer at ROCKET AMUSEMENTS
 
-Full stack game development
+Lead software and hardware developer at ROCKET AMUSEMENTS
+
+## Full stack game development
 
 • Game architecture design
 • Game code
@@ -15,7 +16,7 @@ Full stack game development
 • Unity3d and proprietary game systems
 • Coin-op/redemption and PC platforms
 
-Hardware development
+## Hardware development
 
 - Peripheral devices digital circuit design
 - General digital and analog circuit design for computer applications
@@ -26,7 +27,7 @@ Hardware development
 - Injection-molded plastic components design
 - FPGA implementation/verification (Verilog)
 
-Pluses
+## Pluses
 
 - Self-motivated individual with excellent problem solving skills
 - More than 10 years of experience as a programmer in the games industry 
@@ -42,20 +43,22 @@ Pluses
 - I am not afraid to try something new or radical
 - Able to relocate. European locations preferred.
 
-Courses
+## Courses
 
 - BerkleyX: TA Team in CS184.1x: Foundations of Computer Graphics (2014)
 - BerkleyX: TA Team in CS184.1x: Foundations of Computer Graphics (2013)
 - BerkleyX: CS184.1x: Foundations of Computer Graphics (100%) (2012)
 - BerkleyX: CS188.1x: Artificial Intelligence (97%) (2012) 
 
-Langauges
+## Langauges
 
 - Russian (native)
 - English (fluent)
 
-Goals
+## Goals
 
 I'm looking for a position as video game project Architect, Technical Director, or Lead Developer.
+
+## Contacts
 
 My Portfolio: https://hww.github.io
