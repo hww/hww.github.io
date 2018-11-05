@@ -70,7 +70,7 @@ I'm looking for a position as video game project Architect, Technical Director, 
 - Me at Linkedin: https://www.linkedin.com/in/valeriyap/
 - Me at GitHub: https://github.com/hww
 
-# 2014- ROCKET AMUSEMENTS Lead software and hardware developer
+# 2014- Rocket Amusements - Lead software and hardware developer
 _St.Petersburg, Russia_
 _New Braunfels, U.S._
 _Guangzhou, China_
@@ -81,7 +81,7 @@ _Guangzhou, China_
 - Developed Crazy Claw Junior single player game.
 - Developed Crazy Claw the Emojis three players game.
 
-# 2008- DigitalChile Lead software developer
+# 2008- DigitalChile - Lead software developer
 _St.Petersburg, Russia_
 _New Braunfels, U.S._
 
