@@ -10,7 +10,7 @@ Me at [Linkedin](https://www.linkedin.com/in/valeriyap/)
 
 Me at [GitHub](https://www.linkedin.com/in/valeriyap/)
 
-### Courses & Certificates
+## Courses & Certificates
 
 |          | Year | Course                                                            | Score |
 |----------|------|-------------------------------------------------------------------|-----|
@@ -20,6 +20,10 @@ Me at [GitHub](https://www.linkedin.com/in/valeriyap/)
 | BerkleyX | 2014 | TA<sup>1</sup> Team in CS184.1x: Foundations of Computer Graphics | - |
 
 <sup>1</sup> Teacher Assistance Team
+
+## Langauges
+
+Russian (native), English (fluent) 
 
 ## Projects
 
