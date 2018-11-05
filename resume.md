@@ -123,7 +123,8 @@ _Omsk, Russia_
 - Designed the MagicSound expansion board for Aleste 520EX computer. DE   
 - As a lead developer i complete number of application for this platform:
 
-### 1988 Student of Aviation Colledge
+### 1984-1988 Student
+**Aviation Colledge**
 _Omsk, Russia_
 
 - I designed and built the computer hardware and monitor software for the Rainbow microcomputer.
