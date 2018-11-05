@@ -88,9 +88,9 @@ _New Braunfels, U.S._<br/>
 - Driver Training Courseware Site. This site provides management and content for certified corporate automobile and truck driver training courses. These training courses are used for corporate insurance purposes, so the accuracy and reliabity of this site are of primary im portance to clients.
 
 ### 2004-2008 Lead hardware software developer
->**GameTools**<br/>
->>_St.Petersburg, Russia_<br/>
->>_New Braunfels, U.S._
+**GameTools**<br/>
+_St.Petersburg, Russia_<br/>
+_New Braunfels, U.S._
 
 - Implemented the design of the ViewBoy for Nintendo GameBoy Advance SP and DS. 
 - Designed the plastic housing for a Nintendo Famicom (Japanese market version of NES) game cheat code device. The housing was designed to meet Nintendo's specification for shell dimensions and PCB card connector position. 
