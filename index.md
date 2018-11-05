@@ -7,6 +7,7 @@ I am a broadly skilled hardware and software designer in the St. Petersburg area
 ### Contact To Me
 
 [Me at Linkedin](https://www.linkedin.com/in/valeriyap/)
+
 [Me at GitHub](https://www.linkedin.com/in/valeriyap/)
 
 ### Courses & Certificates
