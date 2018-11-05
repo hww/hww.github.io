@@ -4,17 +4,17 @@ Lead software and hardware developer at ROCKET AMUSEMENTS
 
 ## Full stack game development
 
-• Game architecture design
-• Game code
-• Game scripting 
-• Game GUI
-• Shader development
-• Audio implementation
-• Animation control
-• Artwork pipeline design (Maya and Photoshop, mostly)
-• Art and software department coordination
-• Unity3d and proprietary game systems
-• Coin-op/redemption and PC platforms
+- Game architecture design
+- Game code
+- Game scripting 
+- Game GUI
+- Shader development
+- Audio implementation
+- Animation control
+- Artwork pipeline design (Maya and Photoshop, mostly)
+- Art and software department coordination
+- Unity3d and proprietary game systems
+- Coin-op/redemption and PC platforms
 
 ## Hardware development
 
