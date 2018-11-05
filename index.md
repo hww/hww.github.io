@@ -80,14 +80,4 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 My collection of [articles and books](https://github.com/hww/game_programmer_reading) for game developer.
 
-## LISP & 3D
 
-Fun LISP cource from [Baggers](https://github.com/cbaggers)
-
-(Installing Common Lisp, Emacs, Slime & Quicklisp)(https://www.youtube.com/playlist?list=PL2VAYZE_4wRIoHsU5cEBIxCYcbHzy4Ypj)
-
-(Pushing Pixels With Lisp)(https://www.youtube.com/playlist?list=PL2VAYZE_4wRITJBv6saaKouj4sWSG1FcS)
-
-(Little Bits of Lisp)(https://www.youtube.com/playlist?list=PL2VAYZE_4wRJi_vgpjsH75kMhN4KsuzR_)
-
-(CEPL)(https://www.youtube.com/playlist?list=PL2VAYZE_4wRKKr5pJzfYD1w4tKCXARs5y)
