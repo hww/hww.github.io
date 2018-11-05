@@ -67,7 +67,7 @@ I'm looking for a position as video game project Architect, Technical Director, 
 
 # PROFESSIONAL EXPERIENCE
 
-## 2014-curent Lead software and hardware developer
+### 2014-curent Lead software and hardware developer
 **Rocket Amusements**
 _St.Petersburg, Russia_
 _New Braunfels, U.S._
@@ -79,7 +79,7 @@ _Guangzhou, China_
 - Developed Crazy Claw Junior single player game.
 - Developed Crazy Claw the Emojis three players game.
 
-## 2008-curent Lead software developer 
+### 2008-curent Lead software developer 
 **DigitalChile**
 _St.Petersburg, Russia_
 _New Braunfels, U.S._
@@ -87,7 +87,7 @@ _New Braunfels, U.S._
 - Implemented a compete binding of GambitC Scheme to the Gamebryo engine. 
 - Driver Training Courseware Site. This site provides management and content for certified corporate automobile and truck driver training courses. These training courses are used for corporate insurance purposes, so the accuracy and reliabity of this site are of primary im portance to clients.
 
-## 2004-2008 Lead hardware software developer
+### 2004-2008 Lead hardware software developer
 **GameTools**
 _St.Petersburg, Russia_
 _New Braunfels, U.S._
@@ -95,14 +95,14 @@ _New Braunfels, U.S._
 - Implemented the design of the ViewBoy for Nintendo GameBoy Advance SP and DS. 
 - Designed the plastic housing for a Nintendo Famicom (Japanese market version of NES) game cheat code device. The housing was designed to meet Nintendo's specification for shell dimensions and PCB card connector position. 
 
-## 2002-2004 Technical Director & Lead Developer
+### 2002-2004 Technical Director & Lead Developer
 **Sybersoft**
 _Riga, Latvia_
 _Limassol, Cyprus_
 
 - Designed a game engine used as a rapid prototyping tool in Sybersoft game development team. 
 
-## 1992-2002 Lead Developer
+### 1992-2002 Lead Developer
 **REMIS Lab**
 _Omsk, Russia_
 
@@ -115,10 +115,15 @@ I completed several project while working for Remis Labs as Lead Developer:
 - Created firmware for sound synthesizer. Implemented with C complete sampler with MIDI player.
 - Additionally created a command line tool to define and build sound banks for this synthesizer.
 
-## 1990-1997 Lead Developer 
+### 1990-1997 Lead Developer 
 **PATISONIC**
 _Omsk, Russia_
 
 - Designed the Aleste 520EX computer. The Aleste 520EX was backward compatible with the popular Amstrad CPC 6128 and ran the same MSX DOS operation system.
 - Designed the MagicSound expansion board for Aleste 520EX computer. DE   
 - As a lead developer i complete number of application for this platform:
+
+### 1988 Student of Aviation Colledge
+_Omsk, Russia_
+
+- I designed and built the computer hardware and monitor software for the Rainbow microcomputer.
