@@ -76,3 +76,6 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [DIY Project: Super-A power amplifier](projects/nataly_nxp)
 
+## Reading Sources
+
+My collection of [articles and books](https://github.com/hww/game_programmer_reading) for game developer.
