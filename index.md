@@ -55,13 +55,11 @@ My most recent project was a Unity game for the arcade redemption market, for wh
 
 ### Sample Code
 
-C# [VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope)
-
-C++ [Ray Tracer](https://github.com/hww/RayTracer) Simple ray tracer for on-line course
-
-C# [Simple Finite State Machines for Unity](https://github.com/hww/UnityTFSM)
-
-C [Synthesizer sampler & MIDI Player](https://github.com/hww/SndSynt/tree/master/firmware/applications/midiplayer)
+|---|---|
+| C++ | [Ray Tracer](https://github.com/hww/RayTracer) Simple ray tracer for on-line course |
+| C | [Synthesizer sampler & MIDI Player](https://github.com/hww/SndSynt/tree/master/firmware/applications/midiplayer) |
+| C# | [VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope) |
+| C# | [Simple Finite State Machines for Unity](https://github.com/hww/UnityTFSM) |
 
 ### Articles
 
