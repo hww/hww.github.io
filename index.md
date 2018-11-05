@@ -4,6 +4,8 @@ I am a widely skilled hardware and software designer in the St. Petersburg area.
 
 ![hww](/pp/pp_hww_08.jpg) 
 
+[My Resume](/resume)
+
 ## Contact Me
 
 Me at [Linkedin](https://www.linkedin.com/in/valeriyap/)
