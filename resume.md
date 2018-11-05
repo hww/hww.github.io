@@ -1,12 +1,18 @@
 # Valeriya P.
 
-Lead software and hardware developer at ROCKET AMUSEMENTS
+- My Portfolio: https://hww.github.io
+- Me at Linkedin: https://www.linkedin.com/in/valeriyap/
+- Me at GitHub: https://github.com/hww
 
-# SUMMARY
+## SUMMARY
 
-# SKILLS
+I am a widely skilled hardware and software designer in the St. Petersburg area. I have been working in the video game industry for the last 15 years. My most recent projects are all related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China.
 
-## Full stack game development
+I'm looking for a position as video game project Architect, Technical Director, or Lead Developer.
+
+## SKILLS
+
+### Full stack game development
 
 - Game architecture design
 - Game code
@@ -20,7 +26,7 @@ Lead software and hardware developer at ROCKET AMUSEMENTS
 - Unity3d and proprietary game systems
 - Coin-op/redemption and PC platforms
 
-## Hardware development
+### Hardware development
 
 - Peripheral devices digital circuit design
 - General digital and analog circuit design for computer applications
@@ -31,7 +37,7 @@ Lead software and hardware developer at ROCKET AMUSEMENTS
 - Injection-molded plastic components design
 - FPGA implementation/verification (Verilog)
 
-## Pluses
+### Pluses
 
 - Self-motivated individual with excellent problem solving skills
 - More than 10 years of experience as a programmer in the games industry 
@@ -47,30 +53,19 @@ Lead software and hardware developer at ROCKET AMUSEMENTS
 - I am not afraid to try something new or radical
 - Able to relocate. European locations preferred.
 
-## Courses
+### Courses
 
 - BerkleyX: TA Team in CS184.1x: Foundations of Computer Graphics (2014)
 - BerkleyX: TA Team in CS184.1x: Foundations of Computer Graphics (2013)
 - BerkleyX: CS184.1x: Foundations of Computer Graphics (100%) (2012)
 - BerkleyX: CS188.1x: Artificial Intelligence (97%) (2012) 
 
-## Langauges
+### Langauges
 
 - Russian (native)
 - English (fluent)
 
-# GOARLS
-
-I'm looking for a position as video game project Architect, Technical Director, or Lead Developer.
-
-
-# Contacts & Links
-
-- My Portfolio: https://hww.github.io
-- Me at Linkedin: https://www.linkedin.com/in/valeriyap/
-- Me at GitHub: https://github.com/hww
-
-# Professional Experience
+# PROFESSIONAL EXPERIENCE
 
 ## 2014-curent Lead software and hardware developer
 **Rocket Amusements**
