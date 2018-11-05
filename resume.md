@@ -69,7 +69,7 @@ I'm looking for a position as video game project Architect, Technical Director, 
 
 # PROFESSIONAL EXPERIENCE
 
-### 2014-curent Lead software and hardware developer
+### 2014-current Lead software and hardware developer
 **Rocket Amusements**<br/>
 _St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._<br/>
@@ -81,7 +81,7 @@ _Guangzhou, China_
 - Developed Crazy Claw Junior single player game.
 - Developed Crazy Claw the Emojis three players game.
 
-### 2008-curent Lead software developer 
+### 2008-current Lead software developer 
 **DigitalChile**<br/>
 _St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._<br/>
