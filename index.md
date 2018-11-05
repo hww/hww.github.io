@@ -55,7 +55,7 @@ My most recent project was a Unity game for the arcade redemption market, for wh
 
 ### Sample Code
 
-|     |                                                                                     |
+|     | Link                                                                               |
 |-----|-------------------------------------------------------------------------------------|
 | C++ | [Ray Tracer](https://github.com/hww/RayTracer) |
 | C   | [Synthesizer sampler & MIDI Player](https://github.com/hww/SndSynt/tree/master/firmware/applications/midiplayer) |
