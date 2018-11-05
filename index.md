@@ -1,6 +1,6 @@
 ### Hello I am Valery
 
-I am a broadly skilled hardware and software designer in the St. Petersburg area, and have worked in the game industry for the last 15 years. My most recent project was a Unity game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
+I am a broadly skilled hardware and software designer in the St. Petersburg area, and have worked in the game industry for the last 15 years. 
 
 ![hww](/pp/pp_hww_08.jpg) 
 
@@ -18,6 +18,8 @@ I am a broadly skilled hardware and software designer in the St. Petersburg area
 <sup>1</sup> Teacher Assistance Team
 
 ### Projects
+
+My most recent project was a Unity game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
 
 [Crazy Claw Emojis](/projects/crazy_claw_emojis)
 
@@ -53,9 +55,13 @@ I am a broadly skilled hardware and software designer in the St. Petersburg area
 
 ### Sample Code
 
-[VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope)
+C# [VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope)
 
-[Ray Tracer](https://github.com/hww/RayTracer) Simple ray tracer for on-line course
+C++ [Ray Tracer](https://github.com/hww/RayTracer) Simple ray tracer for on-line course
+
+C# [Simple Finite State Machines for Unity](https://github.com/hww/UnityTFSM)
+
+C [Synthesizer sampler & MIDI Player](https://github.com/hww/SndSynt/tree/master/firmware/applications/midiplayer)
 
 ### Articles
 
