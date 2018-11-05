@@ -49,6 +49,11 @@ Courses
 - BerkleyX: CS184.1x: Foundations of Computer Graphics (100%) (2012)
 - BerkleyX: CS188.1x: Artificial Intelligence (97%) (2012) 
 
+Langauges
+
+Russian (native)
+English (fluent)
+
 Goals
 
 I'm looking for a position as video game project Architect, Technical Director, or Lead Developer.
