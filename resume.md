@@ -107,7 +107,7 @@ _Limassol, Cyprus_
 
 - Designed a game engine used for rapid prototyping and development by Sybersoft game development team. 
 
-### 1992-2002 Lead Developer
+### 1998-2002 Lead Developer
 **REMIS Lab**<br/>
 _Omsk, Russia_
 
