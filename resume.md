@@ -8,6 +8,8 @@
 
 I am a widely skilled hardware and software designer in the St. Petersburg area. I have been working in the video game industry for the last 15 years. My most recent projects are related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China.
 
+I can wear many hats at a development company: software designer and implementor, hardware circuit, PCB and manufacturing designer, mechanical designer, technical drawing and documentation author.
+
 I'm looking for a position as video game project Architect, Technical Director, or Lead Developer.
 
 ## SKILLS
