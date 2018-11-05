@@ -19,8 +19,6 @@ I am a broadly skilled hardware and software designer in the St. Petersburg area
 
 ### Projects
 
-[VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope)
-
 [Crazy Claw Emojis](/projects/crazy_claw_emojis)
 
 [Crazy Claw Junior](/projects/crazy_claw_jr)
@@ -30,6 +28,8 @@ I am a broadly skilled hardware and software designer in the St. Petersburg area
 [I/O board for Rocket Amusements arcade game cabinet v2](/projects/ra_io_board2)
 
 [I/O board for Rocket Amusements arcade game cabinet v1](/projects/ra_io_board1)
+
+### Old Projects
 
 [Gamebryo with GambitC](/projects/gamebryo/)
 
@@ -50,6 +50,12 @@ I am a broadly skilled hardware and software designer in the St. Petersburg area
 [Lead developer Aleste 520EX project](/projects/rainbow)
 
 [My Dimploma Task](/projects/rainbow)
+
+### Sample Code
+
+[VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope)
+
+[Ray Tracer](https://github.com/hww/RayTracer) Simple ray tracer for on-line course
 
 ### Articles
 
