@@ -62,3 +62,5 @@ I'm looking for a position as video game project Architect, Technical Director, 
 ## Contacts
 
 My Portfolio: https://hww.github.io
+Me at Linkedin: https://www.linkedin.com/in/valeriyap/
+Me at GitHub: https://github.com/hww
