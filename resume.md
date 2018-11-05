@@ -59,7 +59,9 @@ Lead software and hardware developer at ROCKET AMUSEMENTS
 
 I'm looking for a position as video game project Architect, Technical Director, or Lead Developer.
 
-## Contacts
+
+
+## Contacts & Links
 
 - My Portfolio: https://hww.github.io
 - Me at Linkedin: https://www.linkedin.com/in/valeriyap/
