@@ -30,6 +30,6 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [MagicSound for Alete 520EX](/projects/magic_sound/)
 
-[Lead developer Aleste 520EX project](/projects/rainbow)
+[Lead developer Aleste 520EX project](/projects/aleste)
 
 [My Diploma Task](/projects/rainbow)
