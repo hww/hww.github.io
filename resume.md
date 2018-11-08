@@ -106,6 +106,8 @@ _Riga, Latvia_<br/>
 _Limassol, Cyprus_
 
 - Designed a game engine used for rapid prototyping and development by Sybersoft game development team. 
+- Developed a JAMMA board. With advanced VGA2TV video converter and embeeded devices USB-HID, USB-DAC, USB bulk storage.
+- Developed a JAMMA board. This board allows plug-in connection of a JAMMA arcade cabinet to a VGA card and keyboard port or USB port on a PC motherboard.
 
 ### 1998-2002 Lead Developer
 **REMIS Lab**<br/>
