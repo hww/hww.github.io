@@ -125,7 +125,7 @@ I completed several project while working for Remis Labs as Lead Developer:
   the synthesizer.
 
 ### 1990-1997 Lead Developer 
-**PATISONIC**<br/>
+**PАТISОNIС**<br/>
 _Omsk, Russia_
 
 - Designed the Aleste 520EX computer. The Aleste 520EX was backward compatible
