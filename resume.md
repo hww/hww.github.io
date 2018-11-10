@@ -69,7 +69,7 @@ I'm looking for a position as video game project Architect, Technical Director, 
 
 # PROFESSIONAL EXPERIENCE
 
-### <small>2014-current</small> Lead software and hardware developer
+### 2014-current Lead software and hardware developer
 **Rocket Amusements**<br/>
 _St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._<br/>
