@@ -69,7 +69,7 @@ I'm looking for a position as video game project Architect, Technical Director, 
 
 # PROFESSIONAL EXPERIENCE
 
-### 2014-current Lead software and hardware developer
+### _2014-current_ Lead software and hardware developer
 **Rocket Amusements**<br/>
 _St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._<br/>
@@ -81,7 +81,7 @@ _Guangzhou, China_
 - Developed Crazy Claw Junior single player game.
 - Developed Crazy Claw the Emojis three players game.
 
-### 2008-current Lead software developer 
+### _2008-current_ Lead software developer 
 **DigitalChile**<br/>
 _St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._<br/>
@@ -92,7 +92,7 @@ _New Braunfels, U.S._<br/>
   training courses are used for corporate insurance purposes, so the sites
   accuracy and reliability are of primary importance to clients.
 
-### 2004-2008 Lead hardware software developer
+### _2004-2008_ Lead hardware software developer
 **GameTools**<br/>
 _St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._
@@ -100,7 +100,7 @@ _New Braunfels, U.S._
 - Implemented the design of the ViewBoy for Nintendo GameBoy Advance SP and DS. 
 - Designed the plastic housing for a Nintendo Famicom (Japanese market version of NES) game cheat code device. The housing was designed to meet Nintendo's specification for shell dimensions and PCB card connector position. 
 
-### 2002-2004 Technical Director & Lead Developer
+### _2002-2004_ Technical Director & Lead Developer
 **Sybersoft**<br/>
 _Riga, Latvia_<br/>
 _Limassol, Cyprus_
@@ -109,7 +109,7 @@ _Limassol, Cyprus_
 - Developed a JAMMA board. With advanced VGA2TV video converter and embeeded devices USB-HID, USB-DAC, USB bulk storage.
 - Developed a JAMMA board. This board allows plug-in connection of a JAMMA arcade cabinet to a VGA card and keyboard port or USB port on a PC motherboard.
 
-### 1998-2002 Lead Developer
+### _1998-2002_ Lead Developer
 **REMIS Lab**<br/>
 _Omsk, Russia_
 
@@ -124,7 +124,7 @@ I completed several project while working for Remis Labs as Lead Developer:
 - Additionally created a command line tool to define and build sound banks for
   the synthesizer.
 
-### 1990-1997 Lead Developer 
+### _1990-1997_ Lead Developer 
 **PАТISОNIС**<br/>
 _Omsk, Russia_
 
@@ -133,7 +133,7 @@ _Omsk, Russia_
 - Designed the MagicSound expansion board for Aleste 520EX computer.   
 - As a lead developer I complete a number of applications for this platform.
 
-### 1984-1988 Student
+### _1984-1988_ Student
 **Aviation College**<br/>
 _Omsk, Russia_
 
