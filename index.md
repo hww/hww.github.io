@@ -73,7 +73,9 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 ## Articles
 
-[Lisp based scripting in Unity 3D](https://docs.google.com/document/d/e/2PACX-1vSx2Bilw0ZGgiUx9lbXfAR3JLs1i-kHJgqAUFN3sJWLG6si51pcFg8dTZqzzSoln6aiq24uS0w_6ZAC/pub)
+2013 [Lisp based scripting in Unity 3D](https://docs.google.com/document/d/e/2PACX-1vSx2Bilw0ZGgiUx9lbXfAR3JLs1i-kHJgqAUFN3sJWLG6si51pcFg8dTZqzzSoln6aiq24uS0w_6ZAC/pub)
+
+2003 [Rapid Game Development System Overview (2003)](https://docs.google.com/document/d/e/2PACX-1vSFIKzHRjDRz4NuzrIc4kiudjMa1cV1uFk1h3P7JNZqujAYrHVC68PLmVH5ALX0kT6SFOSuyN-NHG9V/pub)
 
 ## Homebrew Projects
 
