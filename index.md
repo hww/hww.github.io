@@ -85,6 +85,6 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 ## Reading Sources
 
-My collection of [articles and books](https://github.com/hww/game_programmer_reading) for game developer.
+My collection of [articles and books](/reading) for game developer.
 
 
