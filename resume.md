@@ -99,6 +99,7 @@ _New Braunfels, U.S._<br/>
   for certified corporate automobile and truck driver training courses. These
   training courses are used for corporate insurance purposes, so the sites
   accuracy and reliability are of primary importance to clients.
+- Created LISP based game framework for Unity 3D and one prototype game using it.
 
 ### 2004-2008 Lead hardware software developer
 **GameTools**<br/>
@@ -116,8 +117,8 @@ _Limassol, Cyprus_
 - Designed a game engine used for rapid prototyping and development by Sybersoft game development team. 
 - Developed a JAMMA board. With advanced VGA2TV video converter and embeeded devices USB-HID, USB-DAC, USB bulk storage.
 - Developed a JAMMA board. This board allows plug-in connection of a JAMMA arcade cabinet to a VGA card and keyboard port or USB port on a PC motherboard.
-- Created working prototypes of _Metal Dogs_ game a 3D side scroller, shooter.
-- Created working prototypes of _Psycho Racers_ a 3D arcade rally racing comedy game.
+- Created working prototype of _Metal Dogs_ game a 3D side scroller, shooter.
+- Created working prototype of _Psycho Racers_ a 3D arcade rally racing comedy game.
 
 ### 1998-2002 Lead Developer
 **REMIS Lab**<br/>
