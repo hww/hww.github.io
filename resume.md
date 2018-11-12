@@ -67,6 +67,14 @@ I'm looking for a position as video game project Architect, Technical Director, 
 - Russian (native)
 - English (fluent)
 
+### Engines & IDEs 
+
+- Game engines: Unity 3D,  UDK (UE), Trinigy, Gambryo
+- Art creation tools: Photoshop, Maya, Illustrator, Painter
+- IDEs: Rider, MSVC, Emacs, QTCreator
+- EDAs: Altium DXP, PADS, Xpedition
+- CADs: Solid Works
+
 # PROFESSIONAL EXPERIENCE
 
 ### 2014-current Lead software and hardware developer
@@ -108,6 +116,8 @@ _Limassol, Cyprus_
 - Designed a game engine used for rapid prototyping and development by Sybersoft game development team. 
 - Developed a JAMMA board. With advanced VGA2TV video converter and embeeded devices USB-HID, USB-DAC, USB bulk storage.
 - Developed a JAMMA board. This board allows plug-in connection of a JAMMA arcade cabinet to a VGA card and keyboard port or USB port on a PC motherboard.
+- Created working prototypes of _Metal Dogs_ game a 3D side scroller, shooter.
+- Created working prototypes of _Psycho Racers_ a 3D arcade rally racing comedy game.
 
 ### 1998-2002 Lead Developer
 **REMIS Lab**<br/>
