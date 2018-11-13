@@ -85,9 +85,9 @@ _Guangzhou, China_
 
 - Designed two versions of I/O board for Rocket Amusements arcade game cabinet. 
 - Designed dual player ticket redemption and merchandiser game cabinet
-- Developed Crazy Claw Original dual player game.
-- Developed Crazy Claw Junior single player game.
-- Developed Crazy Claw the Emojis three players game.
+- Developed Crazy Claw Original dual player 3D game.
+- Developed Crazy Claw Junior single player 3D game.
+- Developed Crazy Claw the Emojis three players 3D game.
 
 ### 2008-current Lead software developer 
 **DigitalChile**<br/>
@@ -95,10 +95,11 @@ _St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._<br/>
 
 - Implemented a complete binding of GambitC Scheme to the Gamebryo engine. 
-- Driver Training Courseware Site. This site provides management and content
+- Crated Driver Training Courseware Site. This site provides management and content
   for certified corporate automobile and truck driver training courses. These
   training courses are used for corporate insurance purposes, so the sites
   accuracy and reliability are of primary importance to clients.
+- Created 48 interactive video courses.
 - Created LISP based game framework for Unity 3D and one prototype game using it.
 
 ### 2004-2008 Lead hardware software developer
