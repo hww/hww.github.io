@@ -5,8 +5,4 @@ google_analytics: UA-129022385-1
 theme: jekyll-theme-slate
 show_downloads: false
 github:
-  zip_url: https://github.com/hww
-github:
-  another_url: https://github.com/hww
-github:
   is_project_page: false
