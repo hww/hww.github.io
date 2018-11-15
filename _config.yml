@@ -7,3 +7,6 @@ github:
   is_project_page: false
   owner_url: 
   public: false
+github.is_project_page: false
+github.owner_url: 
+github.public: false 
