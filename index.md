@@ -1,3 +1,4 @@
+#
 ## Hello I am Valery
 
 I am a widely skilled hardware and software designer in the St. Petersburg area. I have been working in the video game industry for the last 15 years. [Read my resume](/resume).
