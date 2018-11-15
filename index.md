@@ -13,7 +13,7 @@ Me at [GitHub](https://www.linkedin.com/in/valeriyap/)
 ## Courses & Certificates
 
 |          | Year | Course                                                            | Score |
-|----------|------|-------------------------------------------------------------------|-----|
+|----------|------|:------------------------------------------------------------------|-----|
 | BerkleyX | 2012 | CS188.1x: Artificial Intelligence                                 | 97% |
 | BerkleyX | 2012 | CS184.1x: Foundations of Computer Graphics                        | 100% |
 | BerkleyX | 2013 | TA<sup>1</sup> Team in CS184.1x: Foundations of Computer Graphics | - |
@@ -64,7 +64,7 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 ## Sample Code
 
 |     | Link                                                                               |
-|-----|-------------------------------------------------------------------------------------|
+|-----|:-----------------------------------------------------------------------------------|
 | C++ | [Ray Tracer](https://github.com/hww/RayTracer) |
 | C   | [Synthesizer sampler & MIDI Player](https://github.com/hww/SndSynt/tree/master/firmware/applications/midiplayer) |
 | C#  | [VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope) |
