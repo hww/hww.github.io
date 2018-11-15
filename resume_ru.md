@@ -8,9 +8,21 @@ I am a widely skilled hardware and software designer in the St. Petersburg area.
 
 I can wear many hats at a development company: software designer and implementor, hardware circuit, PCB and manufacturing designer, mechanical designer, technical drawing and documentation author.
 
+You're looking for me if:
+
+- You have project vision but not the technical means to achieve it. I can do research and development, choose suitable tools and processes for all departments, and basically ensure that everything works.
+- You wish to add to your team a "general specialist": someone with a wide spectrum of experience-based knowledge of software and hardware development and a particular interest in games.
+- You are starting a new project or creating a new game development studio.
+
 ## SUMMARY
 
-I'm looking for a position as video game project Architect, Technical Director, or Lead Developer.
+The job I'm looking for might be called "Technical Manager".
+It would involve:
+  - Assessing the technical requirements for implementing game designs.
+  - Assessing available technologies for effectiveness and applicability. This involves knowing the company's in-house capabilities, and keeping track of new technologies that we might acquire or develop.
+  - Forming realistic technical project completion plans.
+  - Working with all teams to solve technical problems. Suggest solutions and designs where needed.
+  - Working with leaders of all departments to ensure that plans and requirements are understood and reasonably scheduled.
 
 ## SKILLS
 
