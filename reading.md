@@ -1,4 +1,4 @@
-# Game Programmer Reading
+## Game Programmer Reading
 
 Game development documentation and institutional collection 
 
