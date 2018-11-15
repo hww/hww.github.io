@@ -1,4 +1,6 @@
-# Valery P.
+# HWW Resume
+
+Valery P.
 
 - My Portfolio: https://hww.github.io
 - Me at Linkedin: https://www.linkedin.com/in/valeriyap/
