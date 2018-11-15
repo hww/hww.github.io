@@ -1,4 +1,4 @@
-## Valeriya Pudova CV
+## Valeriya Pudova
 
 - My Portfolio: https://hww.github.io
 - Me at Linkedin: https://www.linkedin.com/in/valeriyap/
