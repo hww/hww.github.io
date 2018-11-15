@@ -7,3 +7,4 @@ is_project_page: false
 github:
   zip_url: https://github.com/hww
   another_url: https://github.com/hww
+  is_project_page: false
