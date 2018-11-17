@@ -1,9 +1,5 @@
 ## Valeriya Pudova
 
-- My Portfolio: https://hww.github.io
-- Me at Linkedin: https://www.linkedin.com/in/valeriyap/
-- Me at GitHub: https://github.com/hww
-
 I am a widely skilled hardware and software designer in the St. Petersburg area. I have been working in the video game industry for the last 15 years. My most recent projects are related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China.
 
 I can wear many hats at a development company: software designer and implementor, hardware circuit, PCB and manufacturing designer, mechanical designer, technical drawing and documentation author.
@@ -14,9 +10,14 @@ You're looking for me if:
 - You wish to add to your team a "general specialist": someone with a wide spectrum of experience-based knowledge of software and hardware development and a particular interest in games.
 - You are starting a new project or creating a new game development studio.
 
+- My Portfolio: https://hww.github.io
+- Linkedin: https://www.linkedin.com/in/valeriyap/
+- GitHub: https://github.com/hww
+
 ## SUMMARY
 
-The job I'm looking for might be called "Technical Manager".
+I'm looking for a position as video game project Architect, Technical Manager, Developer or Lead Developer.
+
 It would involve:
   - Assessing the technical requirements for implementing game designs.
   - Assessing available technologies for effectiveness and applicability. This involves knowing the company's in-house capabilities, and keeping track of new technologies that we might acquire or develop.
@@ -37,7 +38,7 @@ It would involve:
 - Animation control
 - Artwork pipeline design (Maya and Photoshop, mostly)
 - Art and software department coordination
-- Unity3d and proprietary game systems
+- Unity3d and in-house game engines
 - Coin-op/redemption and PC platforms
 
 ### Hardware development
@@ -56,7 +57,7 @@ It would involve:
 - Self-motivated individual with excellent problem solving skills
 - More than 10 years of experience as a programmer in the games industry 
 - Decent 3D math skills
-- Fluent in C/C++, C#, Lisp and other scripting languages
+- Fluent in C/C++, C#, Lisp and various scripting languages
 - Understanding hardware at a low level
 - Can optimize code for performance, size, scalability and clarity
 - Console programming experience (SNES, N64)
@@ -91,9 +92,7 @@ It would involve:
 
 ### 2014-current Lead software and hardware developer
 **Rocket Amusements**<br/>
-_St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._<br/>
-_Guangzhou, China_
 
 - Designed two versions of I/O board for Rocket Amusements arcade game cabinet. 
 - Designed dual player ticket redemption and merchandiser game cabinet
@@ -103,7 +102,6 @@ _Guangzhou, China_
 
 ### 2008-current Lead software developer 
 **DigitalChile**<br/>
-_St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._<br/>
 
 - Implemented a complete binding of GambitC Scheme to the Gamebryo engine. 
@@ -116,7 +114,6 @@ _New Braunfels, U.S._<br/>
 
 ### 2004-2008 Lead hardware software developer
 **GameTools**<br/>
-_St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._
 
 - Implemented the design of the ViewBoy for Nintendo GameBoy Advance SP and DS. 
@@ -160,3 +157,4 @@ _Omsk, Russia_
 _Omsk, Russia_
 
 - I designed and built the computer hardware and monitor software for the Rainbow microcomputer.
+
