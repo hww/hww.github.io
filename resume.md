@@ -1,8 +1,8 @@
 ## Valeriya Pudova
 
 - My Portfolio: https://hww.github.io
-- Me at Linkedin: https://www.linkedin.com/in/valeriyap/
-- Me at GitHub: https://github.com/hww
+- Linkedin: https://www.linkedin.com/in/valeriyap/
+- GitHub: https://github.com/hww
 
 I am a widely skilled hardware and software designer in the St. Petersburg area. I have been working in the video game industry for the last 15 years. My most recent projects are related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China.
 
