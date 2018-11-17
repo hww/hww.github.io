@@ -26,7 +26,7 @@ I'm looking for a position as video game project Architect, Technical Manager, D
 - Animation control
 - Artwork pipeline design (Maya and Photoshop, mostly)
 - Art and software department coordination
-- Unity3d and in-house game systems
+- Unity3d and in-house game engines
 - Coin-op/redemption and PC platforms
 
 ### Hardware development
