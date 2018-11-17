@@ -80,9 +80,7 @@ I'm looking for a position as video game project Architect, Technical Manager, D
 
 ### 2014-current Lead software and hardware developer
 **Rocket Amusements**<br/>
-_St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._<br/>
-_Guangzhou, China_
 
 - Designed two versions of I/O board for Rocket Amusements arcade game cabinet. 
 - Designed dual player ticket redemption and merchandiser game cabinet
@@ -92,7 +90,6 @@ _Guangzhou, China_
 
 ### 2008-current Lead software developer 
 **DigitalChile**<br/>
-_St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._<br/>
 
 - Implemented a complete binding of GambitC Scheme to the Gamebryo engine. 
@@ -105,7 +102,6 @@ _New Braunfels, U.S._<br/>
 
 ### 2004-2008 Lead hardware software developer
 **GameTools**<br/>
-_St.Petersburg, Russia_<br/>
 _New Braunfels, U.S._
 
 - Implemented the design of the ViewBoy for Nintendo GameBoy Advance SP and DS. 
