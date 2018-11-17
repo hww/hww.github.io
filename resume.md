@@ -10,7 +10,7 @@ I can wear many hats at a development company: software designer and implementor
 
 ## SUMMARY
 
-I'm looking for a position as video game project Architect, Technical Director, or Lead Developer.
+I'm looking for a position as video game project Architect, Technical Manager, Developer or Lead Developer.
 
 ## SKILLS
 
