@@ -45,7 +45,7 @@ I'm looking for a position as video game project Architect, Technical Manager, D
 - Self-motivated individual with excellent problem solving skills
 - More than 10 years of experience as a programmer in the games industry 
 - Decent 3D math skills
-- Fluent in C/C++, C#, Lisp and other scripting languages
+- Fluent in C/C++, C#, Lisp and various scripting languages
 - Understanding hardware at a low level
 - Can optimize code for performance, size, scalability and clarity
 - Console programming experience (SNES, N64)
