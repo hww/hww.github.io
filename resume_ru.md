@@ -1,4 +1,7 @@
 ## Valeriya Pudova
+My Portfolio: https://hww.github.io
+Linkedin: https://www.linkedin.com/in/valeriyap/
+GitHub: https://github.com/hww
 
 I am a widely skilled hardware and software designer in the St. Petersburg area. I have been working in the video game industry for the last 15 years. My most recent projects are related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China.
 
@@ -9,10 +12,6 @@ You're looking for me if:
 - You have project vision but not the technical means to achieve it. I can do research and development, choose suitable tools and processes for all departments, and basically ensure that everything works.
 - You wish to add to your team a "general specialist": someone with a wide spectrum of experience-based knowledge of software and hardware development and a particular interest in games.
 - You are starting a new project or creating a new game development studio.
-
-- My Portfolio: https://hww.github.io
-- Linkedin: https://www.linkedin.com/in/valeriyap/
-- GitHub: https://github.com/hww
 
 ## SUMMARY
 
