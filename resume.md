@@ -4,9 +4,9 @@ I am a widely skilled hardware and software designer in the St. Petersburg area.
 
 I can wear many hats at a development company: software designer and implementor, hardware circuit, PCB and manufacturing designer, mechanical designer, technical drawing and documentation author.
 
-- My Portfolio: https://hww.github.io
-- Linkedin: https://www.linkedin.com/in/valeriyap/
-- GitHub: https://github.com/hww
+My Portfolio: https://hww.github.io<br/>
+Linkedin: https://www.linkedin.com/in/valeriyap/<br/>
+GitHub: https://github.com/hww<br/>
 
 
 ## SUMMARY
