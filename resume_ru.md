@@ -15,7 +15,7 @@ You're looking for me if:
 
 ## SUMMARY
 
-I'm looking for a position as video game project Architect, Technical Manager, Developer or Lead Developer.
+I'm looking for a position as video game project Architect, Technical Manager or Lead Developer.
 
 It would involve:
   - Assessing the technical requirements for implementing game designs.
