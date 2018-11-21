@@ -44,7 +44,7 @@ _gamasutra_ [The Secrets Of Enemy AI In Uncharted 2](https://www.gamasutra.com/v
 
 2018 [CREATING A TOOLS PIPELINE FOR HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf?mtime=20170307154856) _Decima: Review the tools and runtime engine_
 
-2017 [PUTTING THE AI BACK INTO AIR](https://www.guerrilla-games.com/read/putting-the-ai-back-into-air) _Air Natigating, Height Map Navigation wih Mipmaps, Path Finding_
+2017 [PUTTING THE AI BACK INTO AIR](https://www.guerrilla-games.com/read/putting-the-ai-back-into-air) _Air Navigation, Height Map Navigation with Mipmaps, Path Finding_
 
 2017 [THE AI OF HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/The-AI-of-Horizon-Zero-Dawn.pdf?mtime=20171123123153) _Agents, Hierarchical Task Network, Roles, Perception, Navigation_
 
