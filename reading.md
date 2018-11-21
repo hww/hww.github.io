@@ -54,7 +54,7 @@ _2108_ NAUGHTY DOG [INTERACTIVE CINEMATICS IN UNCHARTED](http://www.gameanim.com
 
 _2016_ NAUGHTY DOG [UNCHARTED 2: CREATING AN ACTIVE CINEMATIC EXPERIENCE](http://www.gameanim.com/2016/05/10/uncharted-2-creating-active-cinematic-experience/)
 
-_2010_ [CINEMATICS SANS CUTSCENES](http://www.gameanim.com/2010/04/23/cinematics-sans-cutscenes/)
+_2010_ [CINEMATICS SANS CUTSCENES](http://www.gameanim.com/2010/04/23/cinematics-sans-cutscenes/) _Agents, Hierarchical Task Network, Roles, Perception, Navigation_
 
 ## C++
 
@@ -98,4 +98,6 @@ Fun LISP course from [Baggers](https://github.com/cbaggers)
 
 [CEPL](https://www.youtube.com/playlist?list=PL2VAYZE_4wRKKr5pJzfYD1w4tKCXARs5y)
 
+## C## QUICK TIPS AND TRICKS
 
+[The Rule Of Five](https://cpppatterns.com/patterns/rule-of-five.html)
