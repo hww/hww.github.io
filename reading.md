@@ -48,15 +48,15 @@ _gamasutra_ [The Secrets Of Enemy AI In Uncharted 2](https://www.gamasutra.com/v
 
 2017 [THE AI OF HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/The-AI-of-Horizon-Zero-Dawn.pdf?mtime=20171123123153) _Agents, Hierarchical Task Network, Roles, Perception, Navigation_
 
+GCAP2017 [DECIMA VISIBILITY HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/GCAP2017_DecimaVisibility.pdf?mtime=20171120133325)
+
 ##  Interactive Cinematics
 
 _2108_ NAUGHTY DOG [INTERACTIVE CINEMATICS IN UNCHARTED](http://www.gameanim.com/2018/03/09/interactive-cinematics-in-uncharted-4/)
 
 _2016_ NAUGHTY DOG [UNCHARTED 2: CREATING AN ACTIVE CINEMATIC EXPERIENCE](http://www.gameanim.com/2016/05/10/uncharted-2-creating-active-cinematic-experience/)
 
-_2017_ [CINEMATICS SANS CUTSCENES](http://www.gameanim.com/2010/04/23/cinematics-sans-cutscenes/) 
-
-GCAP2017 [DECIMA VISIBILITY HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/GCAP2017_DecimaVisibility.pdf?mtime=20171120133325)
+_2010_ [CINEMATICS SANS CUTSCENES](http://www.gameanim.com/2010/04/23/cinematics-sans-cutscenes/) 
 
 ## C++
 
