@@ -40,6 +40,10 @@ _GDC2010_ Insomniac [A Dynamic Component Architecture for High Performance Gamep
 _gamasutra_ [The Secrets Of Enemy AI In Uncharted 2](https://www.gamasutra.com/view/feature/134566/the_secrets_of_enemy_ai_in_.php)
  by Benson Russell
 
+## Guerrilla Games
+
+2018 [CREATING A TOOLS PIPELINE FOR HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf?mtime=20170307154856)
+
 ##  Interactive Cinematics
 
 _2108_ NAUGHTY DOG [INTERACTIVE CINEMATICS IN UNCHARTED](http://www.gameanim.com/2018/03/09/interactive-cinematics-in-uncharted-4/)
