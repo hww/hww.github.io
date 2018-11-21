@@ -46,6 +46,8 @@ _gamasutra_ [The Secrets Of Enemy AI In Uncharted 2](https://www.gamasutra.com/v
 
 2017 [PUTTING THE AI BACK INTO AIR](https://www.guerrilla-games.com/read/putting-the-ai-back-into-air) _Air Natigating, Height Map Navigation wih Mipmaps, Path Finding_
 
+2017 [THE AI OF HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/The-AI-of-Horizon-Zero-Dawn.pdf?mtime=20171123123153)
+
 ##  Interactive Cinematics
 
 _2108_ NAUGHTY DOG [INTERACTIVE CINEMATICS IN UNCHARTED](http://www.gameanim.com/2018/03/09/interactive-cinematics-in-uncharted-4/)
