@@ -79,14 +79,10 @@ _2010_ [CINEMATICS SANS CUTSCENES](http://www.gameanim.com/2010/04/23/cinematics
 
 [CppCon 2014 Presentation Materials](https://github.com/CppCon/CppCon2014)
 
-## Games Hacking & Reverse Engineering
 
-[Crash Bandicoot Hacking Wikia](http://crash-hacking.wikia.com/wiki/Crash_Bandicoot_Hacking_Wikia)
+## C++ QUICK TIPS AND TRICKS
 
-[Disassembling Jak & Daxter](https://github.com/rmitton/goaldis)
-
-[Disassembling Jak & Daxter - goaldis on GitHub](https://github.com/rmitton/goaldis)
-
+[The Rule Of Five](https://cpppatterns.com/patterns/rule-of-five.html)
 
 ## LISP & 3D
 
@@ -100,6 +96,11 @@ Fun LISP course from [Baggers](https://github.com/cbaggers)
 
 [CEPL](https://www.youtube.com/playlist?list=PL2VAYZE_4wRKKr5pJzfYD1w4tKCXARs5y)
 
-## C## QUICK TIPS AND TRICKS
+## Games Hacking & Reverse Engineering
 
-[The Rule Of Five](https://cpppatterns.com/patterns/rule-of-five.html)
+[Crash Bandicoot Hacking Wikia](http://crash-hacking.wikia.com/wiki/Crash_Bandicoot_Hacking_Wikia)
+
+[Disassembling Jak & Daxter](https://github.com/rmitton/goaldis)
+
+[Disassembling Jak & Daxter - goaldis on GitHub](https://github.com/rmitton/goaldis)
+
