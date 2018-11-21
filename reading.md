@@ -54,7 +54,9 @@ _2108_ NAUGHTY DOG [INTERACTIVE CINEMATICS IN UNCHARTED](http://www.gameanim.com
 
 _2016_ NAUGHTY DOG [UNCHARTED 2: CREATING AN ACTIVE CINEMATIC EXPERIENCE](http://www.gameanim.com/2016/05/10/uncharted-2-creating-active-cinematic-experience/)
 
-_2010_ [CINEMATICS SANS CUTSCENES](http://www.gameanim.com/2010/04/23/cinematics-sans-cutscenes/) 
+_2017_ [CINEMATICS SANS CUTSCENES](http://www.gameanim.com/2010/04/23/cinematics-sans-cutscenes/) 
+
+GCAP2017 [DECIMA VISIBILITY HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/GCAP2017_DecimaVisibility.pdf?mtime=20171120133325)
 
 ## C++
 
