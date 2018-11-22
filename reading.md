@@ -42,6 +42,8 @@ _gamasutra_ [The Secrets Of Enemy AI In Uncharted 2](https://www.gamasutra.com/v
 
 ## Guerrilla Games
 
+<sup>The tags added by _italic_ font</sup>
+
 2018 [CREATING A TOOLS PIPELINE FOR HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/GDC2017_Sumaili_VanDerSteen_CreatingAToolsPipelineForHorizonZeroDawn.pdf?mtime=20170307154856) _Decima: Review the tools and runtime engine_
 
 2017 [PUTTING THE AI BACK INTO AIR](https://www.guerrilla-games.com/read/putting-the-ai-back-into-air) _Air Navigation, Height Map Navigation with Mipmaps, Path Finding_
@@ -49,6 +51,8 @@ _gamasutra_ [The Secrets Of Enemy AI In Uncharted 2](https://www.gamasutra.com/v
 2017 [THE AI OF HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/The-AI-of-Horizon-Zero-Dawn.pdf?mtime=20171123123153) _Agents, Hierarchical Task Network, Roles, Perception, Navigation_
 
 GCAP2017 [DECIMA VISIBILITY HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/GCAP2017_DecimaVisibility.pdf?mtime=20171120133325)
+
+2005 [The Guerrilla Guide to Game Code](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/Rouwe05_GuerrillaGuideToGameCode.pdf?mtime=20160418102916) _GFS, Runtime Model, Entity, MVC, Transform interpolation and Anti Jitter_
 
 ##  Interactive Cinematics
 
