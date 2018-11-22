@@ -94,6 +94,13 @@ _2010_ [CINEMATICS SANS CUTSCENES](http://www.gameanim.com/2010/04/23/cinematics
 
 [List of algorithms](https://en.wikipedia.org/wiki/List_of_algorithms)
 
+[Top 10 Algorithms and Data Structures for Competitive Programming](https://www.geeksforgeeks.org/top-algorithms-and-data-structures-for-competitive-programming/)
+
+[Top Algorithms/Data Structures/Concepts every computer science student should know](https://medium.com/@codingfreak/top-algorithms-data-structures-concepts-every-computer-science-student-should-know-e0549c67b4ac)
+
+[Изучаем алгоритмы: полезные книги, веб-сайты, онлайн-курсы и видеоматериалы](https://proglib.io/p/awesome-algorithms/)
+
+
 ## LISP & 3D
 
 Fun LISP course from [Baggers](https://github.com/cbaggers)
