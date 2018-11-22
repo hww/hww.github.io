@@ -70,6 +70,8 @@ _2010_ [CINEMATICS SANS CUTSCENES](http://www.gameanim.com/2010/04/23/cinematics
 
 [News, Status & Discussion about Standard C++](https://isocpp.org)
 
+[C++11 Memomy Model](https://people.cs.pitt.edu/~xianeizhang/notes/cpp11_mem.html)
+
 
 ## CppCon
 
@@ -87,6 +89,10 @@ _2010_ [CINEMATICS SANS CUTSCENES](http://www.gameanim.com/2010/04/23/cinematics
 ## C++ QUICK TIPS AND TRICKS
 
 [The Rule Of Five](https://cpppatterns.com/patterns/rule-of-five.html)
+
+## ALGORYTHMS
+
+[List of algorithms](https://en.wikipedia.org/wiki/List_of_algorithms)
 
 ## LISP & 3D
 
