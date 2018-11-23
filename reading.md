@@ -50,7 +50,7 @@ _gamasutra_ [The Secrets Of Enemy AI In Uncharted 2](https://www.gamasutra.com/v
 
 2017 [THE AI OF HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/The-AI-of-Horizon-Zero-Dawn.pdf?mtime=20171123123153) _Agents, Hierarchical Task Network, Roles, Perception, Navigation_
 
-GCAP2017 [DECIMA VISIBILITY HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/GCAP2017_DecimaVisibility.pdf?mtime=20171120133325)
+GCAP2017 [DECIMA VISIBILITY HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/GCAP2017_DecimaVisibility.pdf?mtime=20171120133325) _Occlusion culing, Geometry Filtering, GPU, APU_
 
 2005 [The Guerrilla Guide to Game Code](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/Rouwe05_GuerrillaGuideToGameCode.pdf?mtime=20160418102916) _GFS, Runtime Model, Entity, MVC, Transform interpolation with two time steps process (Anti Jitter)_
 
