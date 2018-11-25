@@ -54,6 +54,8 @@ GCAP2017 [DECIMA VISIBILITY HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront
 
 2005 [The Guerrilla Guide to Game Code](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/Rouwe05_GuerrillaGuideToGameCode.pdf?mtime=20160418102916) _GFS, Runtime Model, Entity, MVC, Transform interpolation with two time steps process (Anti Jitter)_
 
+2018 [BEYOND KILLZONE: CREATING NEW AI SYSTEMS FOR HORIZON ZERO DAWN](https://www.guerrilla-games.com/read/beyond-killzone-creating-new-ai-systems-for-horizon-zero-dawn) _Navigation path, Curvature, Animation blending, Look At_
+
 ##  Interactive Cinematics
 
 _2108_ NAUGHTY DOG [INTERACTIVE CINEMATICS IN UNCHARTED](http://www.gameanim.com/2018/03/09/interactive-cinematics-in-uncharted-4/)
