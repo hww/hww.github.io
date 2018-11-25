@@ -8,6 +8,34 @@ Game development documentation and institutional collection
 
 [Artificial Intelligence A Modern Approach Third Edition](https://www.google.ru/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=2ahUKEwiuw9bFsL3eAhWyiqYKHYtPAigQFjAAegQICRAC&url=https%3A%2F%2Ffaculty.psau.edu.sa%2Ffiledownload%2Fdoc-7-pdf-a154ffbcec538a4161a406abf62f5b76-original.pdf&usg=AOvVaw0i7pLrlBs9LMW296xeV6b0)
 
+## C++
+
+[Cpp Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
+
+[C++ reference](https://en.cppreference.com/w/)
+
+[News, Status & Discussion about Standard C++](https://isocpp.org)
+
+[C++11 Memomy Model](https://people.cs.pitt.edu/~xianeizhang/notes/cpp11_mem.html)
+
+
+## CppCon
+
+[CppCon 2018 Presentation Materials](https://github.com/CppCon/CppCon2018)
+
+[CppCon 2017 Presentation Materials](https://github.com/CppCon/CppCon2017)
+
+[CppCon 2016 Presentation Materials](https://github.com/CppCon/CppCon2016)
+
+[CppCon 2015 Presentation Materials](https://github.com/CppCon/CppCon2015)
+
+[CppCon 2014 Presentation Materials](https://github.com/CppCon/CppCon2014)
+
+
+## C++ QUICK TIPS AND TRICKS
+
+[The Rule Of Five](https://cpppatterns.com/patterns/rule-of-five.html)
+
 ## Articles
 
 [MAKING CRASH BANDICOOT BY ANDY GAVIN AND JASON RUBIN](https://www.naughtydog.com/blog/making_crash_bandicoot_by_andy_gavin_and_jason_rubin)
@@ -64,33 +92,6 @@ _2016_ NAUGHTY DOG [UNCHARTED 2: CREATING AN ACTIVE CINEMATIC EXPERIENCE](http:/
 
 _2010_ [CINEMATICS SANS CUTSCENES](http://www.gameanim.com/2010/04/23/cinematics-sans-cutscenes/) 
 
-## C++
-
-[Cpp Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
-
-[C++ reference](https://en.cppreference.com/w/)
-
-[News, Status & Discussion about Standard C++](https://isocpp.org)
-
-[C++11 Memomy Model](https://people.cs.pitt.edu/~xianeizhang/notes/cpp11_mem.html)
-
-
-## CppCon
-
-[CppCon 2018 Presentation Materials](https://github.com/CppCon/CppCon2018)
-
-[CppCon 2017 Presentation Materials](https://github.com/CppCon/CppCon2017)
-
-[CppCon 2016 Presentation Materials](https://github.com/CppCon/CppCon2016)
-
-[CppCon 2015 Presentation Materials](https://github.com/CppCon/CppCon2015)
-
-[CppCon 2014 Presentation Materials](https://github.com/CppCon/CppCon2014)
-
-
-## C++ QUICK TIPS AND TRICKS
-
-[The Rule Of Five](https://cpppatterns.com/patterns/rule-of-five.html)
 
 ## ALGORYTHMS
 
