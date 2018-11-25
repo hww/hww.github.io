@@ -84,6 +84,8 @@ GCAP2017 [DECIMA VISIBILITY HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront
 
 2018 [BEYOND KILLZONE: CREATING NEW AI SYSTEMS FOR HORIZON ZERO DAWN](https://www.guerrilla-games.com/read/beyond-killzone-creating-new-ai-systems-for-horizon-zero-dawn) _Navigation path, Curvature, Animation blending, Look At_
 
+2018 [NUBIS: REALTIME VOLUMETRIC CLOUDSCAPES IN A NUTSHELL](https://www.guerrilla-games.com/read/nubis-realtime-volumetric-cloudscapes-in-a-nutshell)
+
 ##  Interactive Cinematics
 
 _2108_ NAUGHTY DOG [INTERACTIVE CINEMATICS IN UNCHARTED](http://www.gameanim.com/2018/03/09/interactive-cinematics-in-uncharted-4/)
