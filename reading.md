@@ -90,6 +90,8 @@ GCAP2017 [DECIMA VISIBILITY HORIZON ZERO DAWN](https://d1z4o56rleaq4j.cloudfront
 
 2017 [GPU-based Procedural Placement in Horizon Zero Dawn](https://d1z4o56rleaq4j.cloudfront.net/downloads/assets/GDC2017_VanMuijden_GPUBasedProceduralPlacementInHorizonZeroDawn.pdf?mtime=20170307153432)
 
+2017 [DECIMA ENGINE: ADVANCES IN LIGHTING AND AA](https://www.guerrilla-games.com/read/decima-engine-advances-in-lighting-and-aa)
+
 ##  Interactive Cinematics
 
 _2108_ NAUGHTY DOG [INTERACTIVE CINEMATICS IN UNCHARTED](http://www.gameanim.com/2018/03/09/interactive-cinematics-in-uncharted-4/)
