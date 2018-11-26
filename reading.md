@@ -8,6 +8,8 @@ My collection of Game Development and Technology Articles and Tutorials.
 
 [Artificial Intelligence A Modern Approach Third Edition](https://www.google.ru/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=2ahUKEwiuw9bFsL3eAhWyiqYKHYtPAigQFjAAegQICRAC&url=https%3A%2F%2Ffaculty.psau.edu.sa%2Ffiledownload%2Fdoc-7-pdf-a154ffbcec538a4161a406abf62f5b76-original.pdf&usg=AOvVaw0i7pLrlBs9LMW296xeV6b0)
 
+[3D Math: Primer for Graphics and Game Development](https://tfetimes.com/wp-content/uploads/2015/04/F.Dunn-I.Parberry-3D-Math-Primer-for-Graphics-and-Game-Development.pdf)
+
 ## C++
 
 [Cpp Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
@@ -127,4 +129,8 @@ Fun LISP course from [Baggers](https://github.com/cbaggers)
 [Disassembling Jak & Daxter](https://github.com/rmitton/goaldis)
 
 [Disassembling Jak & Daxter - goaldis on GitHub](https://github.com/rmitton/goaldis)
+
+## Cheat Sheets
+
+[Cheat Sheets for AI, Neural Networks, Machine Learning, Deep Learning & Big Data](https://becominghuman.ai/cheat-sheets-for-ai-neural-networks-machine-learning-deep-learning-big-data-678c51b4b463)
 
