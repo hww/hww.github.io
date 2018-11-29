@@ -10,6 +10,19 @@ My collection of Game Development and Technology Articles and Tutorials.
 
 [3D Math: Primer for Graphics and Game Development](https://tfetimes.com/wp-content/uploads/2015/04/F.Dunn-I.Parberry-3D-Math-Primer-for-Graphics-and-Game-Development.pdf)
 
+## C++ Books
+
+[The C++ Programming Language](http://www.amazon.com/dp/0321958322) (Bjarne Stroustrup) [C++11]
+
+[Effective Modern C++](http://www.amazon.com/dp/1491903996) (Scott Meyers) [C++11/14]
+
+[Overview of the New C++](http://www.artima.com/shop/overview_of_the_new_cpp) (Scott Meyers) [C++11/14]
+
+[C++ Core Guidelines](https://github.com/isocpp/CppCoreGuidelines) (Bjarne Stroustrup, Herb Sutter) [C++11/14/17] - Guidelines for using modern C++.
+
+[C++ Concurrency in Action](http://www.cplusplusconcurrencyinaction.com) (Anthony Williams) [C++11/14/17] - Using the C++ Concurrency Library
+
+
 ## C++
 
 [Cpp Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
@@ -20,6 +33,7 @@ My collection of Game Development and Technology Articles and Tutorials.
 
 [C++11 Memomy Model](https://people.cs.pitt.edu/~xianeizhang/notes/cpp11_mem.html)
 
+[Awesome Modern C++](https://github.com/rigtorp/awesome-modern-cpp) _A collection of resources on modern C++_
 
 ## CppCon
 
