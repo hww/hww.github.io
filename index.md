@@ -70,7 +70,8 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 | C#  | [VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope) |
 | C#  | [Simple Finite State Machines for Unity](https://github.com/hww/UnityTFSM) |
 | C#  | [Imediate Draw Text Display for Unity](https://github.com/hww/varp_text_display) |
-
+| C#  | [In Game Text Only Debug Menu for Unity](https://github.com/hww/varp_debug_menu) | 
+ 
 ## Articles
 
 [Lisp based scripting in Unity 3D (2013)](https://docs.google.com/document/d/e/2PACX-1vSx2Bilw0ZGgiUx9lbXfAR3JLs1i-kHJgqAUFN3sJWLG6si51pcFg8dTZqzzSoln6aiq24uS0w_6ZAC/pub)
