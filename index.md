@@ -73,6 +73,7 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 | C#  | [In Game Text Only Debug Menu for Unity](https://github.com/hww/varp_debug_menu) | 
 | C#  | [Emacs inspired keyboard and menu system for .NET](https://github.com/hww/varp_keyboard) | 
 | C#  | [Using Model-View-Controller pattern with Unity 3D](https://github.com/hww/unity_mvc) |
+| C#  | [Unity editor extension for managing visibility of layers and categories of objects](https://github.com/hww/varp_art_manager)
 
 ## Articles
 
