@@ -69,7 +69,6 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 | C   | [Synthesizer sampler & MIDI Player](https://github.com/hww/SndSynt/tree/master/firmware/applications/midiplayer) |
 | C#  | [VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope) |
 | C#  | [Simple Finite State Machines for Unity](https://github.com/hww/UnityTFSM) |
-| C#  | [Imediate Draw Text Display for Unity](https://github.com/hww/varp_text_display) |
 | C#  | [In Game Text Only Debug Menu for Unity](https://github.com/hww/varp_debug_menu) | 
 | C#  | [Emacs inspired keyboard and menu system for .NET](https://github.com/hww/varp_keyboard) | 
 | C#  | [Using Model-View-Controller pattern with Unity 3D](https://github.com/hww/unity_mvc) |
