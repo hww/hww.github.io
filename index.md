@@ -66,7 +66,7 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 |     | Link                                                                               |
 |-----|:-----------------------------------------------------------------------------------|
 | C++ | [Ray Tracer](https://github.com/hww/RayTracer) |
-| C   | [Synthesizer sampler & MIDI Player](https://github.com/hww/SndSynt/tree/master/firmware/applications/midiplayer) |
+| C   | [Synthesizer sampler & MIDI Player](https://github.com/hww/SndSynt/) |
 | C#  | [VARP Oscilloscope - Unity Asset](/projects/varp_oscilloscope) |
 | C#  | [Simple Finite State Machines for Unity](https://github.com/hww/UnityTFSM) |
 | C#  | [In Game Text Only Debug Menu for Unity](https://github.com/hww/varp_debug_menu) | 
