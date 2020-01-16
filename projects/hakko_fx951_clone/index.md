@@ -24,7 +24,7 @@ Fixing the board to heatsink with four 5mm posts.
 
 # Photos
 
-![Photo 08](/projects/hakko_fx951_clone/diy_metcal_13mhz_rf_supply_08.jpg | width=600) 
+![Photo 08](/projects/hakko_fx951_clone/diy_metcal_13mhz_rf_supply_08.jpg) 
 ![Photo 09](/projects/hakko_fx951_clone/diy_metcal_13mhz_rf_supply_09.jpg) 
 ![Photo 02](/projects/hakko_fx951_clone/diy_metcal_13mhz_rf_supply_02.jpg) 
 ![Photo 03](/projects/hakko_fx951_clone/diy_metcal_13mhz_rf_supply_03.jpg) 
