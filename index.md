@@ -51,13 +51,13 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [Pro Action Rocky - Nintendo cheat device](/projects/nintendo_cheat_device)
 
-[Aleste 520 emulator for PC](/projects/caprice32/)
+<!--[Aleste 520 emulator for PC](/projects/caprice32/)-->
 
 [Digital Signal Processing & Sound Synthesizing](/projects/remis)
 
-[MagicSound for Alete 520EX](/projects/magic_sound/)
+<!--[MagicSound for Alete 520EX](/projects/magic_sound/)-->
 
-[Lead developer Aleste 520EX project](/projects/aleste)
+<!--[Lead developer Aleste 520EX project](/projects/aleste)-->
 
 [My Diploma Task](/projects/rainbow)
 
