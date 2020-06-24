@@ -20,7 +20,7 @@ In case if you decide to build same board go to [EVBlog](http://www.eevblog.com/
 
 Fixing the board to heatsink with four 5mm posts.
 
-![RF Board on Heatsink](/projects/hakko_fx951_clone/rf_board_on_heatsink.jpg) 
+![RF Board on Heatsink](/projects/hakko_fx100_clone/rf_board_on_heatsink.jpg) 
 
 # Photos
 
