@@ -82,7 +82,7 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 ## Homebrew Projects
 
-[Hakko FX-100 Clone](/projects/hakko_fx951_clone)
+[Hakko FX-100 Clone](/projects/hakko_f100_clone)
 
 [DIY Project: Super-A power amplifier](projects/nataly_nxp)
 
