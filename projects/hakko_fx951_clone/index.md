@@ -2,7 +2,7 @@
 
 # DIY Project for my workshop: Soldering Station
 
-At my home workshop I have a Hakko FX951 soldering station but I wish to have more advanced tool such as Metcal or Hakko FX100.  Those stations are expensive and that is why I decided to build a clone. I spent two days to assemble and test the boards. Now the electronic circuit works. The next step will be put them to aluminum case.
+At my home workshop I have a Hakko FX-100 soldering station but I wish to have more advanced tool such as Metcal or Hakko FX100.  Those stations are expensive and that is why I decided to build a clone. I spent two days to assemble and test the boards. Now the electronic circuit works. The next step will be put them to aluminum case.
 
 This image shows the micro-controller board based on PIC18.
 
