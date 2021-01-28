@@ -86,6 +86,8 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [DIY Project: Super-A power amplifier](projects/nataly_nxp)
 
+[DIY Project: The coil winding CNC](https://github.com/hww/coil_winder_grbl_esp32)
+
 ## Reading Sources
 
 My collection of [articles and books](/reading) for game developer.
