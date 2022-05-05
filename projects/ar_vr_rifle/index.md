@@ -14,5 +14,10 @@ My task list for this project looks like:
 
 Were madden 3 prototypes of the rifle.
 
+<img src="/projects/ar_vr_rifle/images/pcb_block_diagramm.png" width="500">
 <img src="/projects/ar_vr_rifle/images/motor_1.jpg" width="500" >
+<img src="/projects/ar_vr_rifle/images/rifle_02.jpg" width="500" >
+<img src="/projects/ar_vr_rifle/images/rifle_03.jpg" width="500" >
+<img src="/projects/ar_vr_rifle/images/vca_prototype.jpg" width="500" >
+<img src="/projects/ar_vr_rifle/images/vr_rifle_pcb.png" width="500" >
 
