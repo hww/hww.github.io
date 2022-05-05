@@ -22,9 +22,8 @@ The electonic circuit contains two DC/DC converters, the ESP32 microcontroller a
 
 
 The images below displays two of the motors from all created prototypes.
-
-<img src="/projects/ar_vr_rifle/images/motor_1.jpg" width="300" >
-<img src="/projects/ar_vr_rifle/images/vca_prototype.jpg" width="300" >
-
+<div>
+<img src="/projects/ar_vr_rifle/images/motor_1.jpg" width="300" ><img src="/projects/ar_vr_rifle/images/vca_prototype.jpg" width="300" >
+</div>
 
 
