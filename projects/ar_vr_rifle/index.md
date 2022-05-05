@@ -28,6 +28,7 @@ The electonic circuit contains two DC/DC converters, the ESP32 microcontroller a
 The firmware contains the UDP server and Lisp dialect interpretator. Each UDP request recognzed as string anf parsed by the LISP machine. To simplify integration to the Unity, there are LISP methods which interpolate the Unity.AnimationCurve for the single shoot or for the automatic shoots. 
 
 *Technical characteristics*
+
 |-----------------|------------|
 | Тип вибромотора	| custom MMA |
 | Максимальная частота выстрелов | 	20 Hz |
