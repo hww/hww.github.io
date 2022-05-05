@@ -29,6 +29,7 @@ The firmware contains the UDP server and Lisp dialect interpretator. Each UDP re
 
 *Technical characteristics*
 
+|                 |            |
 |-----------------|------------|
 | Тип вибромотора	| custom MMA |
 | Максимальная частота выстрелов | 	20 Hz |
