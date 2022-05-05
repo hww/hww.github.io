@@ -17,15 +17,19 @@ My task list for this project looks like:
 - Assembling
 - Creating the firmware
 
-Were madden 3 prototypes of the rifle. The photo of one of them you can see below.
+Were madden 3 prototypes of the rifle. The photo of one of them you can see below. The designing of electomagnetic system was realy hard but enjoyable task for me. 
 
 <img src="/projects/ar_vr_rifle/images/rifle_03.jpg" width="500" >
+
+The final prototypes makes 5N/A force and can make impact effect up to 20 shoots per second. The vibration effect can grow up to 50Hz.
 
 The electonic circuit contains two DC/DC converters, the ESP32 microcontroller and L6207 motor driver. The PCB of the controller illustrated on the picture below.
 
 <img src="/projects/ar_vr_rifle/images/vr_rifle_pcb.png" width="500" >
 
 The firmware contains the UDP server and Lisp dialect interpretator. Each UDP request recognzed as string anf parsed by the LISP machine. To simplify integration to the Unity, there are LISP methods which interpolate the Unity.AnimationCurve for the single shoot or for the automatic shoots. 
+
+When the game run and the Oculus controller sends command to shoot, the game should send the coomand to the microcontroller in the rifle, and the microcontroller produce vibration or impact feedback.1
 
 *Technical characteristics*
 
@@ -41,3 +45,5 @@ The firmware contains the UDP server and Lisp dialect interpretator. Each UDP re
 | Масса	| 1.5 kg |
 | Габариты	| 425x50x210 mm | 
 | Интерфейс для диагностики и конфигурации	| Micro USB |
+
+That was very interesting project, and I grateful to the company who requuest this job task.
