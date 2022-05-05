@@ -14,4 +14,4 @@ My task list for this project looks like:
 
 Were madden 3 prototypes of the rifle.
 
-![](./images/motor_1.jpg | width=100)
+![](/projects/ar_vr_rifle/images/motor_1.jpg | width=100)
