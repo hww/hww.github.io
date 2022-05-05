@@ -13,3 +13,5 @@ My task list for this project looks like:
 - Creating the firmware
 
 Were madden 3 prototypes of the rifle.
+
+![](./images/motor_1.jpg | width=100)
