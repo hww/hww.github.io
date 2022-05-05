@@ -12,12 +12,17 @@ My task list for this project looks like:
 - Assembling
 - Creating the firmware
 
-Were madden 3 prototypes of the rifle.
+Were madden 3 prototypes of the rifle. The photo of one of them you can see below.
 
-<img src="/projects/ar_vr_rifle/images/pcb_block_diagramm.png" width="500">
-<img src="/projects/ar_vr_rifle/images/motor_1.jpg" width="500" >
-<img src="/projects/ar_vr_rifle/images/rifle_02.jpg" width="500" >
-<img src="/projects/ar_vr_rifle/images/rifle_03.jpg" width="500" >
-<img src="/projects/ar_vr_rifle/images/vca_prototype.jpg" width="500" >
+<img src="/projects/ar_vr_rifle/images/rifle_03.jpg" width="500" c
+
+The electonic circuit contains two DC/DC converters, the ESP32 microcontroller and L6207 motor driver. The PCB of the controller illustrated on the picture below.
+
 <img src="/projects/ar_vr_rifle/images/vr_rifle_pcb.png" width="500" >
+
+<img src="/projects/ar_vr_rifle/images/pcb_block_diagramm.png" width="300">
+
+<img src="/projects/ar_vr_rifle/images/vca_prototype.jpg" width="300" >
+
+
 
