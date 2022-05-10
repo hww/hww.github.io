@@ -3,8 +3,8 @@
 The project was to create  and prototype hand tracking gloves for VR. High tracking accuracy and interference protection allow the gloves to be used for  industrial environments and processes. The software integrates easily into modern gaming platforms. The use of a quick-release battery, wireless operation, and adjustability for a quick custom fit  provide convenience, reliability, accurate use, comfort, and the most vivid user experience. Battery and Wi-Fi signal status are indicated by both LED and tactile alarms. The glove line consists of two models: Elite and Professional. The professional version is designed for industrial use with a larger battery providing more run time and more processor performance.
 
 <div>
-<img src="/projects/ar_vr_gloves/images/proto_3_1.jpg" width="300" >
-<img src="/projects/ar_vr_gloves/images/proto_3_3.jpg" width="300" >
+<img src="/projects/ar_vr_gloves/images/proto_3_1.jpg" height="250" >
+<img src="/projects/ar_vr_gloves/images/proto_3_3.jpg" height="250" >
 </div>
 
 
