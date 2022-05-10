@@ -9,8 +9,9 @@ The project was to create  and prototype hand tracking gloves for VR. High track
 
 
 *The specifications*
+
 |                                              | Elite     | Professional |
-|----------------------------------------------+-----------+--------------|
+|----------------------------------------------|-----------|--------------|
 | Calibrating time                         | 4-5 m     | 4-5 m        |
 | Sensor reading frequency              | up to 400 Hz    | up to 800 Hz       |
 | Host computer update rate by Wi-Fi       | 30 fps    | 60 fps       |
