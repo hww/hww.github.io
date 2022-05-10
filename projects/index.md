@@ -2,9 +2,11 @@
 
 My most recent projects are all related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
 
-[The haptic feedback rifle for Oculus Quest (2022)](/projects/r_vr_rifle)
+[2022 - The haptic feedback rifle for Oculus Quest](/projects/r_vr_rifle)
 
-[Hand tracking gloves (2021)](/projects/ar_vr_gloves)
+[2021 - Hand tracking gloves](/projects/ar_vr_gloves)
+
+### Old Projects
 
 [Crazy Claw Emojis](/projects/crazy_claw_emojis)
 
@@ -15,8 +17,6 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 [I/O board for Rocket Amusements arcade game cabinet v2](/projects/ra_io_board2)
 
 [I/O board for Rocket Amusements arcade game cabinet v1](/projects/ra_io_board1)
-
-### Old Projects
 
 [Gamebryo with GambitC](/projects/gamebryo/)
 
