@@ -1,6 +1,9 @@
 # The haptic feedback rifle for Oculus Quest
 
+*2022*
+
 *The brief product description*
+
 The product is a prototype rifle with haptic feedback for Oculus Quest. The rifle has a quick-release left or right Oculus Quest controller mount. The controller is used to track the position and orientation of the rifle, and to control the game using the controls. The rifle housing contains a haptic feedback mechanism, a rapidly replaceable lithium battery, and a Wi-Fi enabled microcontroller. The microcontroller generates vibration style patterns based on commands over a wireless connection, using a protocol that can be easily integrated into any game.
  
 *Technical characteristics*
