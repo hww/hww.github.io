@@ -1,12 +1,13 @@
 ## Projects
 
-My most recent projects are all related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
 
 [2022 - The haptic feedback rifle for Oculus Quest](/projects/r_vr_rifle)
 
 [2021 - Hand tracking gloves](/projects/ar_vr_gloves)
 
-### Old Projects
+### Rocket Projects
+
+My most recent projects are all related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
 
 [Crazy Claw Emojis](/projects/crazy_claw_emojis)
 
@@ -18,6 +19,9 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [I/O board for Rocket Amusements arcade game cabinet v1](/projects/ra_io_board1)
 
+
+### Syber Projects
+
 [Gamebryo with GambitC](/projects/gamebryo/)
 
 [Driver Training Courseware Site](/projects/webtraining)
@@ -27,6 +31,8 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 [Game Engine Architect](/projects/sengine/index.md)
 
 [Pro Action Rocky - Nintendo cheat device](/projects/nintendo_cheat_device)
+
+### DIY Projects
 
 [Aleste 520 emulator for PC](/projects/caprice32/)
 
