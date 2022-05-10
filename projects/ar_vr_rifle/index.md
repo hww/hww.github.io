@@ -40,7 +40,9 @@ Three different prototype  rifles  were made. One of them is shown in this photo
 The final prototype produces 5 N/A force and can produce an impact effect at up to 20 shots per second. The vibration effect is usable up to 50Hz. The rifle uses a 12V 2A/h quick-replace Metabo power tool battery.
 The electronic circuit contains two DC/DC converters, an ESP32 microcontroller and an L6207 motor driver. The PCB of the controller is illustrated in the picture below.
 
+<div>
 <img src="/projects/ar_vr_rifle/images/vr_rifle_pcb.png" width="500" >
+</div>
 
 The firmware contains a UDP server and LISP based interpreter. Each UDP request is recognized as a string and parsed by the LISP machine. To simplify integration with Unity, there are LISP methods to interpolate Unity.AnimationCurve data for single shot and  automatic shot modes.
 
