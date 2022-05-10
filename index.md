@@ -25,7 +25,13 @@ I am a widely skilled hardware and software designer in the St. Petersburg area.
 
 Russian (native), English (fluent) 
 
-## Projects
+## Last Projects 
+
+[2022 - The haptic feedback rifle for Oculus Quest](/projects/r_vr_rifle)
+
+[2021 - Hand tracking gloves](/projects/ar_vr_gloves)
+
+## Older Projects
 
 My most recent projects are all related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
 
@@ -39,27 +45,9 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [I/O board for Rocket Amusements arcade game cabinet v1](/projects/ra_io_board1)
 
-### Old Projects
+### Other Projects
 
-[Gamebryo with GambitC](/projects/gamebryo/)
-
-[Driver Training Courseware Site](/projects/webtraining)
-
-[Nintendo SP and DS on TV device](/projects/view_boy/)
-
-[Game Engine Architect](/projects/sengine/index.md)
-
-[Pro Action Rocky - Nintendo cheat device](/projects/nintendo_cheat_device)
-
-<!--[Aleste 520 emulator for PC](/projects/caprice32/)-->
-
-[Digital Signal Processing & Sound Synthesizing](/projects/remis)
-
-<!--[MagicSound for Alete 520EX](/projects/magic_sound/)-->
-
-<!--[Lead developer Aleste 520EX project](/projects/aleste)-->
-
-[My Diploma Task](/projects/rainbow)
+[All projects](/projects)
 
 ## Sample Code
 
