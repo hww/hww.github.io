@@ -22,8 +22,9 @@ The product is a prototype rifle with haptic feedback for Oculus Quest. The rifl
 | Diagnostic interface  | Micro USB |
 
 *How i did it*
-My task was to design and prototype a plastic housing and haptic feedback motor for the Oculus Quest controller. The most complex part was to create the low cost, easy to build, and efficient motor. After five different prototypes of the motor, the winner was an  MMA style linear motor.  All motors were simulated with the COMSOL, then their characteristics were verified by test.
-The images below display two of the five prototype motors.
+
+My task was to design and prototype a plastic housing and haptic feedback motor for the Oculus Quest controller. The most complex part was to create the low cost, easy to build, and efficient motor. After five different prototypes of the motor, the winner was an  MMA style linear motor.  All motors were simulated with the COMSOL, then their characteristics were verified by test. The images below display two of the five prototype motors.
+
 <div>
 <img src="/projects/ar_vr_rifle/images/motor_1.jpg" width="300" ><img src="/projects/ar_vr_rifle/images/vca_prototype.jpg" width="300" >
 </div>
