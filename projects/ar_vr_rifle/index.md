@@ -5,7 +5,12 @@
 *The brief product description*
 
 The product is a prototype rifle with haptic feedback for Oculus Quest. The rifle has a quick-release left or right Oculus Quest controller mount. The controller is used to track the position and orientation of the rifle, and to control the game using the controls. The rifle housing contains a haptic feedback mechanism, a rapidly replaceable lithium battery, and a Wi-Fi enabled microcontroller. The microcontroller generates vibration style patterns based on commands over a wireless connection, using a protocol that can be easily integrated into any game.
+
+<div>
+<img src="/projects/ar_vr_rifle/images/rifle_03.jpg" width="500" >
+</div>
  
+
 *Technical characteristics*
 
 |                 |            |
@@ -39,12 +44,8 @@ My task list for this project included:
 - Assembling the prototypes
 - Creating the firmware with C++ 17
 
-Three different prototype  rifles  were made. One of them is shown in this photo:
+Three different prototype  rifles  were made. One of them is shown in this photo above.
 
-<div>
-<img src="/projects/ar_vr_rifle/images/rifle_03.jpg" width="500" >
-</div>
- 
 The final prototype produces 5 N/A force and can produce an impact effect at up to 20 shots per second. The vibration effect is usable up to 50Hz. The rifle uses a 12V 2A/h quick-replace Metabo power tool battery.
 The electronic circuit contains two DC/DC converters, an ESP32 microcontroller and an L6207 motor driver. The PCB of the controller is illustrated in the picture below.
 
