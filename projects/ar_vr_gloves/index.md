@@ -4,7 +4,7 @@ The project was to create  and prototype hand tracking gloves for VR. High track
 
 <div>
 <img src="/projects/ar_vr_gloves/images/proto_3_1.jpg" width="300" >
-<img src="/projects/ar_vr_gloves/images/proto_3_2.jpg" width="300" >
+<img src="/projects/ar_vr_gloves/images/proto_3_3.jpg" width="300" >
 </div>
 
 
