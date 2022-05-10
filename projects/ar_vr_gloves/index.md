@@ -3,6 +3,7 @@
 *2021*
 
 *A brief product description*
+
 The project was to create  and prototype hand tracking gloves for VR. High tracking accuracy and interference protection allow the gloves to be used for  industrial environments and processes. The software integrates easily into modern gaming platforms. The use of a quick-release battery, wireless operation, and adjustability for a quick custom fit  provide convenience, reliability, accurate use, comfort, and the most vivid user experience. Battery and Wi-Fi signal status are indicated by both LED and tactile alarms. The glove line consists of two models: Elite and Professional. The professional version is designed for industrial use with a larger battery providing more run time and more processor performance.
 
 <div>
@@ -30,6 +31,7 @@ The task was to design and prototype hand tracking gloves. The product should be
 I built four prototypes with different types of IMU sensors and with different numbers of sensors in different positions on the hand.
 
 All prototypes shared the same control circuit, which includes:
+
 - Power management and battery charger
 - ESP32 microcontroller
 - USB <-> Serial interface
@@ -60,4 +62,5 @@ the sensors used in the prototypes. All of them have approximately the same resu
 | BOSH          | BMX160    |
 
 The prototypes used the same battery 800 mA/h, but the testing showed it was too large. There is an opportunity to create a reduced version of the product with a smaller battery. 
+
 This  was a very interesting project, and I am grateful to the company who requested this work.
