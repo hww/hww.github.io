@@ -65,7 +65,9 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 ## My Articles 
 
 ### Русский
+
 [Программирование игрового процесса *На примере игры The Last of Us*](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
+
 [Мифы и заблуждения программиста игр](https://docs.google.com/document/d/1oWby75MPbSMVWSmDUkr9b7rPAfSn6WW2_hZtNfyypS8/edit?usp=sharing)
 
 ### English
