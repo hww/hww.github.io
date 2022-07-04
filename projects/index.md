@@ -1,5 +1,6 @@
 ## Projects
 
+[2022 - The Open GOAL Type System for Racket language](https://github.com/hww/open-goal-type-system-for-racket)
 
 [2022 - The haptic feedback rifle for Oculus Quest](/projects/ar_vr_rifle)
 
