@@ -6,7 +6,7 @@ show_downloads: false
 github:
   is_project_page: false
   owner_url: 
-  public: false
+  public: true
 github.is_project_page: false
 github.owner_url: 
-github.public: false
+github.public: true
