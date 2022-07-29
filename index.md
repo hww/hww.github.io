@@ -1,16 +1,16 @@
-## Hello I am Valery (hww)
+## :sunny: Hello I am Valery (hww)
 
 I am a widely skilled hardware and software designer in the St. Petersburg area. I have been working in the video game industry for the last 15 years. 
 
 ![hww](/pp/pp_hww_08.jpg)
 
-## Contact Me
+## :iphone: Contact Me
 
 [Linkedin](https://www.linkedin.com/in/valeriyap/)
 
 [GitHub](https://www.linkedin.com/in/hww/)
 
-## Courses & Certificates
+## :mortar_board: Courses & Certificates
 
 |          | Year | Course                                                            | Score |
 |----------|------|:------------------------------------------------------------------|-----|
@@ -21,11 +21,11 @@ I am a widely skilled hardware and software designer in the St. Petersburg area.
 
 <sup>1</sup> Teacher Assistance Team
 
-## Langauges
+## :earth_asia: Langauges
 
 Russian (native), English (fluent) 
 
-## Last Projects 
+## :rocket: Last Projects 
 
 [2022 - The Open GOAL Type System for Racket language](https://github.com/hww/open-goal-type-system-for-racket)
 
@@ -33,7 +33,7 @@ Russian (native), English (fluent)
 
 [2021 - Hand tracking gloves](/projects/ar_vr_gloves)
 
-## Older Projects
+## :airplane: Older Projects
 
 My most recent projects are all related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
 
@@ -47,11 +47,11 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [I/O board for Rocket Amusements arcade game cabinet v1](/projects/ra_io_board1)
 
-### Other Projects
+### factory: Other Projects
 
 [All projects](/projects)
 
-## Sample Code
+## :memo: Sample Code
 
 |     | Link                                                                               |
 |-----|:-----------------------------------------------------------------------------------|
@@ -64,11 +64,11 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 | C#  | [Using Model-View-Controller pattern with Unity 3D](https://github.com/hww/unity_mvc) |
 | C#  | [Unity editor extension for managing visibility of layers and categories of objects](https://github.com/hww/varp_art_manager)
 
-## My Articles :book: 
+## :books: My Articles 
 
-### Русский
+### :flags: Русский
 
-#### Программирование игрового процесса *На примере игры The Last of Us
+#### :newspaper: Программирование игрового процесса *На примере игры The Last of Us
 
 В документе кратко изложена базовая система игры _Game Runtime Base Foundation System_, используемая в серии игр “The Last of Us”. Игры компании _Naughty Dog_ - это хороший пример сочетания принципов достаточности _KIS_ и гибкости _Customization_.
 
@@ -76,19 +76,19 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [Программирование игрового процесса *На примере игры The Last of Us](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
 
-#### Мифы и заблуждения программиста игр
+#### :newspaper: Мифы и заблуждения программиста игр
 
 Человек постоянно ошибается — не ошибается тот, кто ничего не делает. И даже лучшие из нас — опытные профессионалы — могут совершать досадные ошибки и заблуждаться. Этот документ описывает те расхожие заблуждения и ошибочные мифы, с которыми мне довелось столкнуться в профессиональной деятельности, при разработке игровых проектов.
 
 [Мифы и заблуждения программиста игр](https://docs.google.com/document/d/1oWby75MPbSMVWSmDUkr9b7rPAfSn6WW2_hZtNfyypS8/edit?usp=sharing)
 
-### English
+### :flags: English
 
 [Lisp based scripting in Unity 3D (2013)](https://docs.google.com/document/d/e/2PACX-1vSx2Bilw0ZGgiUx9lbXfAR3JLs1i-kHJgqAUFN3sJWLG6si51pcFg8dTZqzzSoln6aiq24uS0w_6ZAC/pub)
 
 [Rapid Game Development System Overview (2003)](https://docs.google.com/document/d/e/2PACX-1vSFIKzHRjDRz4NuzrIc4kiudjMa1cV1uFk1h3P7JNZqujAYrHVC68PLmVH5ALX0kT6SFOSuyN-NHG9V/pub)
 
-## Homebrew Projects
+## :house: :electric_plug: Homebrew Projects
 
 [Hakko FX-100 Clone](/projects/hakko_fx100_clone)
 
@@ -96,7 +96,7 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [DIY Project: The coil winding CNC](https://github.com/hww/coil_winder_grbl_esp32)
 
-## Reading Sources
+## :books: :satellite: Reading Sources
 
 My collection of [articles and books](/reading) for game developer.
 
