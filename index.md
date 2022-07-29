@@ -47,7 +47,7 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [I/O board for Rocket Amusements arcade game cabinet v1](/projects/ra_io_board1)
 
-### factory: Other Projects
+### :factory: Other Projects
 
 [All projects](/projects)
 
