@@ -99,6 +99,6 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 ## Reading Sources
 
-My collection of [articles and books](/reading) for game developer.
+My collection of [articles and books](/reading) for game developer. Links may become out of date from time to time, use the title to find the new location of the file on the web.
 
 
