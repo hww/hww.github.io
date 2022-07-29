@@ -25,15 +25,15 @@ I am a widely skilled hardware and software designer in the St. Petersburg area.
 
 Russian (native), English (fluent) 
 
-## Last Projects 
+## Projects 
+
+A collection of links to some of my projects. Most of the information does not include design documentation.
 
 [2022 - The Open GOAL Type System for Racket language](https://github.com/hww/open-goal-type-system-for-racket)
 
 [2022 - The haptic feedback rifle for Oculus Quest](/projects/ar_vr_rifle)
 
 [2021 - Hand tracking gloves](/projects/ar_vr_gloves)
-
-## Older Projects
 
 My most recent projects are all related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
 
@@ -55,12 +55,11 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 |     | Link                                                                               |
 |-----|:-----------------------------------------------------------------------------------|
+| CL  | [The open GOAL type system for Common LISP](https://github.com/hww/open-goal-type-system-cl) |
 | C++ | [Ray Tracer](https://github.com/hww/RayTracer) |
 | C   | [Synthesizer sampler & MIDI Player](https://github.com/hww/SndSynt/) |
 | C#  | [VARP Oscilloscope - Unity Asset](https://hww.github.io/projects/varp_oscilloscope/) |
-| C#  | [Simple Finite State Machines for Unity](https://github.com/hww/UnityTFSM) |
 | C#  | [In Game Text Only Debug Menu for Unity](https://github.com/hww/varp_debug_menu) | 
-| C#  | [Emacs inspired keyboard and menu system for .NET](https://github.com/hww/varp_keyboard) | 
 | C#  | [Using Model-View-Controller pattern with Unity 3D](https://github.com/hww/unity_mvc) |
 | C#  | [Unity editor extension for managing visibility of layers and categories of objects](https://github.com/hww/varp_art_manager)
 
