@@ -68,7 +68,9 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 ### :flags: Русский
 
-#### :newspaper: Программирование игрового процесса *На примере игры The Last of Us
+#### :newspaper: Программирование игрового процесса _На примере игры The Last of Us_
+
+**Keywords** _Object System_, _Runtime_, _Scripting_, _Finite State Machines_, _AI_, _Game Design_
 
 В документе кратко изложена базовая система игры _Game Runtime Base Foundation System_, используемая в серии игр “The Last of Us”. Игры компании _Naughty Dog_ - это хороший пример сочетания принципов достаточности _KIS_ и гибкости _Customization_.
 
