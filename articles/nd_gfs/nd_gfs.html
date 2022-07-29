@@ -1,0 +1,2147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-07-29 Пт 15:29 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Программирование игрового процесса</title>
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Программирование игрового процесса
+<br />
+<span class="subtitle">На примере игры The Last of Us</span>
+</h1>
+<div class="org-center">
+<p>
+Валерия Пудова
+</p>
+</div>
+<div class="org-center">
+<p>
+valery.hww@gmail.com
+</p>
+</div>
+<div class="org-center">
+<p>
+18.05.2022
+</p>
+</div>
+
+<div class="org-center">
+
+<div id="org6cd3f1b" class="figure">
+<p><img src="./images/cell_1200.png" alt="cell_1200.png" height="250px" />
+</p>
+</div>
+</div>
+<p>
+\clearpage
+</p>
+
+<p>
+<b><b>Abstract</b></b>
+</p>
+\begin{abstract}
+В документе кратко изложена базовая система игры \emph{Game Runtime Base Foundation System}, используемая в серии игр “The Last of Us”. Игры компании \emph{Naughty Dog} - это хороший пример сочетания принципов достаточности \emph{KIS} и гибкости \emph{Customization}.
+
+Информация в файле - результат беглого \emph{reverse engineering}, поэтому может содержать не полную и не точную информацию, но ее, в целом, достаточно чтобы понять суть предложенного метода.
+
+\end{abstract}
+
+<p>
+<b>Keywords</b>
+\keywords{Object System, Runtime, Scripting, Finite State Machines}
+</p>
+
+
+<p>
+\clearpage
+</p>
+
+<p>
+<b><b>Отказ от ответственности</b></b>
+</p>
+
+<p>
+Я не работаю в \emph{Naughty Dog}, и не владею секретами компании или секретами \emph{Last Of Us}, я делюсь теми своими знаниями которые получила сама, исследуя саму игру и читая информацию в интернете и книгах. Фрагменты приведенного кода доступны в различных источниках на которые я ссылаюсь в конце документа.
+</p>
+
+
+<p>
+<b><b>Disclaimer</b></b>
+</p>
+
+<p>
+I don’t work at \emph{Naughty Dog}, nor do I have any secret knowledge of \emph{The Last of Us}, except what I figured out myself from the disc. So a lot of this may well be wrong. Take it with a pinch of salt. Most of the code samples in this document are taken from the sources listed at the end of the document.
+</p>
+
+
+<p>
+\clearpage
+</p>
+
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgbd1f1a5">1. Введение</a></li>
+<li><a href="#org3a63cb2">2. Управление ассетами</a></li>
+<li><a href="#orgf1597c0">3. Редактор мира</a></li>
+<li><a href="#orgcf15197">4. Объектная система игры</a></li>
+<li><a href="#org462c3f9">5. Spawning</a></li>
+<li><a href="#orge2ab9fa">6. Сигналы и сообщения</a></li>
+<li><a href="#org1a0497e">7. State Update</a></li>
+<li><a href="#orgf74d054">8. Идентификаторы объектов</a></li>
+<li><a href="#org4052281">9. Синтаксис DC</a></li>
+<li><a href="#orgec45d1a">10. Анимационные состояния</a></li>
+<li><a href="#orgfe57c1c">11. Конечные автоматы</a></li>
+<li><a href="#orgca4d24b">12. Объявление переменных состояния</a></li>
+<li><a href="#org3005fbb">13. Параллельное исполнение процессов</a></li>
+<li><a href="#orgb310d82">14. Интеграция VM в Engine</a></li>
+<li><a href="#org6b39a1a">15. DC компилятор</a></li>
+<li><a href="#orgfb2ad10">16. Формат SID-файла</a></li>
+<li><a href="#org0064ebe">17. Формат DCI-файла</a></li>
+<li><a href="#orgb006773">18. Формат бинарного DC-файла</a></li>
+<li><a href="#orgf91ba63">19. Виртуальная машина</a></li>
+<li><a href="#orgd111f98">20. Система команд VM</a>
+<ul>
+<li><a href="#orga035e3c">20.1. Использование регистров и констант</a></li>
+</ul>
+</li>
+<li><a href="#org89271f5">21. Результат</a></li>
+<li><a href="#orgbd5a2ad">22. В завершение</a></li>
+</ul>
+</div>
+</div>
+
+
+<p>
+\clearpage
+</p>
+<div id="outline-container-orgbd1f1a5" class="outline-2">
+<h2 id="orgbd1f1a5"><span class="section-number-2">1.</span> Введение</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+В компании \emph{Naughty Dog} \emph{(ND)} используется набор инструментов разработчика, состоящий из множества различных утилит. Некоторые эти утилиты имеют собственный \emph{GUI}, тогда как другие остаются в виде команд для консоли \citep{jgregory2014}. Такой подход имеет определенные преимущества в сравнении с интегрированными средами разработки (\emph{IDE}) игр, таких как Unity 3D.
+</p>
+
+<ul class="org-ul">
+<li>Требуется меньше затрат на разработку \emph{GUI}, поэтому больше ресурсов можно потратить на саму игру</li>
+<li>Проще организовать совместную работу команды в целом</li>
+<li>Утилиты по отдельности требуют меньше ресурсов \emph{ПК}. И поэтому они более удобны для выполнения конкретной задачи: \emph{World},\emph{FX}, \emph{Shaders}, редакторы и т.д.</li>
+<li>С таким подходом легче организовать автоматизацию производства</li>
+<li>Инструменты работают не деструктивно: если дизайнер ничего не менял, то и проект остается неизменным</li>
+</ul>
+
+<p>
+Основная особенность \emph{ND} подхода основана на использовании анимаций и динамическом обновлении окружения среды исполнения — не требуется перекомпиляция и перезапуск проекта чтобы увидеть результат.
+</p>
+
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-org3a63cb2" class="outline-2">
+<h2 id="org3a63cb2"><span class="section-number-2">2.</span> Управление ассетами</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Система управления \emph{ассетами} — предназначена для организации совместной работы над проектом, отслеживания различных версий исходных файлов<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>, устранения конфликтных ситуаций, а также для генерации актуального состояния всех медиа ресурсов проекта и сохранения рузультата в оптимальной для поковой загрузки форме. Эта система основана на распределенной базе данных, которая реализована с использованием СУБД или \emph{xml} файлов<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>. База данных содержит информацию о всех входных медиа-ресурсах и позволяет создать папку ассетов проекта и наполнить её контентом. Каждая запись содержит не только параметры импорта, но и дополнительную информацию, например, комментарии. Для разрешения конфликтов для каждого файла сохраняется история действий над ним: переименование, перемещение, удаление и т.д.
+</p>
+
+
+<div id="orgaf2cfb0" class="figure">
+<p><img src="./images/nd_assets.drawio.png" alt="nd_assets.drawio.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Управление ассетами</p>
+</div>
+
+<p>
+Не стоит пренебрегать системой управления ассетами: от нее зависит очень много, так как создание игр — это в большей степени работа с ассетами, нежели программирование.
+</p>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-orgf1597c0" class="outline-2">
+<h2 id="orgf1597c0"><span class="section-number-2">3.</span> Редактор мира</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Редактор никак не связан с самим движком и это является преимуществом<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>. Он использует текстовые конфигурационные файлы \emph{schema}. Каждый файл содержит описание параметров для одного типа объектов сцены. Для каждого поля декларируются тип, значение по умолчанию, минимальное и максимальное значения, возможные значения для перечисляемых типов. Поставив пустой объект на сцену, дизайнер выбирает какую схему использует этот объект. После этого дизайнер может заполнять поля, так как список полей описан в файле схемы. Дизайнер имеет возможность самостоятельно добавлять или удалять поля в файл \emph{schema}. В конечном итоге, редактор мира запишет структуру всей сцены, например, в виде \emph{xml} или другого формата файла. Подход в целом иллюстрирован на рисунке <a href="#orgc2e7499">2</a>
+</p>
+
+
+<div id="orgc2e7499" class="figure">
+<p><img src="./images/nd_schema.drawio.svg.png" alt="nd_schema.drawio.svg.png" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Редактор мира и файл \emph{schema}</p>
+</div>
+
+<p>
+Существуют следующие типы \citep{jgregory2017} объектов сцены:
+</p>
+
+<ul class="org-ul">
+<li>\emph{Spawner} — Процесс, производящий инстанциирование персонажа</li>
+<li>\emph{Spline} — 3D кривая</li>
+<li>\emph{Region} — Фрагмент мира</li>
+<li>\emph{Nav Mesh} — Навигационная геометрия (сетка навигации)</li>
+<li>\emph{Static Background Geometry} — геометрия статического фона</li>
+</ul>
+
+<p>
+В параметрах объекта могут присутствовать такие поля как \emph{archetype}, а иногда и \emph{parent-archetype}. Эти параметры определяют то, какой объект на самом деле будет использован, какие компоненты он имеет и какие у них поля.
+</p>
+
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-orgcf15197" class="outline-2">
+<h2 id="orgcf15197"><span class="section-number-2">4.</span> Объектная система игры</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Иерархия классов изображена на рисунке ниже. Она не имеет глубокой вложенности и построена от одного класса-предка. Теоретически система могла быть реализована как динамическая компонентная система\citep{tcohen2010} или другом варианте \emph{Data Oriented} программирования. Приблизительная структура классов изображена на диаграмме <a href="#org3ed423c">3</a>
+</p>
+
+
+<div id="org3ed423c" class="figure">
+<p><img src="./images/nd_classes.drawio.svg.png" alt="nd_classes.drawio.svg.png" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Структура классов низкого уровня \citep{jgregory2006}</p>
+</div>
+
+<p>
+Базовый класс всех персонажей \emph{ProcessGameObject} и классы от него унаследованные, представляют собой хост-объект, функционал которого расширяется с помощью композиции, смотри рисунок <a href="#org8a732cd">4</a>. При использовании \emph{MVC} можно создать два отдельных класса, каждый со своим набором параметров состояния и со своим набором компонентов.
+</p>
+
+
+<div id="org8a732cd" class="figure">
+<p><img src="./images/nd_components.drawio.png" alt="nd_components.drawio.png" height="120px" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Композиция игровых объектов \citep{jgregory2006}</p>
+</div>
+
+<p>
+Объектная система игры основана на \emph{LISP}-подобном языке, на котором описываются структуры, классы, экземпляры классов вместе с хранимыми в них данными, а также переменные и функции. Этот файл компилируется в файлы \emph{.h}, \emph{.bin} и \emph{.dci}. Кроме всего перечисленного, \emph{DC}-файл содержит код машин состояний игровых объектов. Этот код организован как множество параллельных процессов, работающих в условиях кооперативной многозадачности. У процессов имеется механизм синхронизации, основанный на сигналах.
+</p>
+
+<ul class="org-ul">
+<li>\emph{.h} — предназначен для сборки \emph{С} компилятором и обеспечивает прямое использование динамических данных бинарным кодом</li>
+<li>\emph{.bin} — содержит только данные структур и функции. Загружается игрой в среду исполнения</li>
+<li>\emph{.dci} — текстовый файл с декларацией \emph{import}-файлов и \emph{export}-дефиниций</li>
+</ul>
+
+<p>
+Изменение \emph{DC}-файла требует перекомпиляции проекта только если изменилась структура, то есть был изменен \emph{.h}-файл. Принцип работы системы изображен на рисунке <a href="#org9a6a143">5</a>.
+</p>
+
+
+<div id="org9a6a143" class="figure">
+<p><img src="./images/nd_game_world_model.drawio.png" alt="nd_game_world_model.drawio.png" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Редактирование модели мира \citep{jgregory2017}</p>
+</div>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+
+<div id="outline-container-org462c3f9" class="outline-2">
+<h2 id="org462c3f9"><span class="section-number-2">5.</span> Spawning</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Основа гибкого создания новых экземпляров игровых сущностей — \emph{spawning} — это использование скрипт-процессов. Такие процессы делают всю необходимую работу по созданию объектов, а затем производят инъекцию нужных данных. Система \emph{spawning} использует \emph{фабрику объектов}, которая имеет таблицу имен типов и архетипов и хранит информацию о наследовании и размере классов. Также система должна уметь перемещать объекты для эффективного использования памяти.
+</p>
+
+<p>
+Система может запрашивать максимальный объём памяти, необходимый для хранения объекта, а после инстанциирования освобождать неиспользованный фрагмент памяти. После релоцирования, все объекты в памяти должны располагаться оптимальным образом.
+</p>
+
+<p>
+Более качественный результат может дать \emph{Data Oriented} подход, который использует пулы (pools) гомогенных объектов.
+</p>
+
+<p>
+В целом, \emph{spawning}-система должна решать следующие проблемы:
+</p>
+
+<ul class="org-ul">
+<li>Следить за уникальностью идентификаторов</li>
+<li>Создавать всю необходимую иерархию объектов</li>
+<li>Настраивать все необходимые зависимости</li>
+<li>Эффективно использовать память</li>
+<li>Бережно использовать ресурсы процессора. Например, создавать объект за несколько шагов: запрос, создание, инициализация, запрос создания дочерних и т.д.</li>
+<li>Уметь использовать при создании объектов очередь с приоритетами \emph{priority queue}</li>
+<li>Позволять создавать объекты различными способами:
+<ul class="org-ul">
+<li>\emph{Spawner} — объектом в мире с параметрами инъекции</li>
+<li>\emph{C} — кодом с аргументами инъекции</li>
+<li>\emph{Script} — кодом с аргументами инъекции</li>
+<li>\emph{Cloning} — копированием объекта</li>
+<li>\emph{Replication} — копированием по сети</li>
+</ul></li>
+</ul>
+
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge2ab9fa" class="outline-2">
+<h2 id="orge2ab9fa"><span class="section-number-2">6.</span> Сигналы и сообщения</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Цель программиста создавать код с минимумом зависимостей. Два взаимодействующих объекта не должны знать друг о друге слишком много. Вместо этого, используя полиморфизм, они должны говорить друг с другом на абстрактном языке сообщений. Для этого хорошо подходят контейнеры данных, где для ключей \emph{key} имеется запись данных \emph{value} типа \emph{variant}. При этом, в качестве указателей на объекты лучше использовать имена \emph{StringId} или идентификаторы \emph{Handler}.
+</p>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1a0497e" class="outline-2">
+<h2 id="org1a0497e"><span class="section-number-2">7.</span> State Update</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Обновление всех объектов происходит через \emph{batched}- и \emph{bucket}-метод.
+</p>
+
+<ul class="org-ul">
+<li>\emph{batched} — обновление всех компонентов одного типа \emph{Data Oriented Programming}</li>
+<li>\emph{bucket} — обновление объектов по приоритетам, для устранения проблемы взаимозависимости</li>
+</ul>
+
+<p>
+Ниже приведен пример \emph{batched} и \emph{backed} обновления \citep{jgregory2017}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #51afef;">while</span> <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">true</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">{</span>
+    PollJoypad<span style="color: #c678dd;">()</span>;
+    <span style="color: #ECBE7B;">float</span> <span style="color: #dcaeea;">dt</span> = GetFrameDeltaTime<span style="color: #c678dd;">()</span>;
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Backed update game objects</span>
+    <span style="color: #51afef;">for</span> <span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">each</span> <span style="color: #dcaeea;">bucket</span><span style="color: #c678dd;">)</span>
+    <span style="color: #c678dd;">{</span>
+        <span style="color: #51afef;">for</span> <span style="color: #98be65;">(</span><span style="color: #ECBE7B;">each</span> gameObject <span style="color: #ECBE7B;">in</span> <span style="color: #dcaeea;">bucket</span><span style="color: #98be65;">)</span>
+        <span style="color: #98be65;">{</span>
+            gameObject.Update<span style="color: #a9a1e1;">(</span>dt<span style="color: #a9a1e1;">)</span>;
+        <span style="color: #98be65;">}</span>
+    <span style="color: #c678dd;">}</span>
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Batched update components</span>
+    g_animationEngine.Update<span style="color: #c678dd;">(</span>dt<span style="color: #c678dd;">)</span>;
+    g_physicsEngine.Simulate<span style="color: #c678dd;">(</span>dt<span style="color: #c678dd;">)</span>;
+    g_collisionEngine.Run<span style="color: #c678dd;">(</span>dt<span style="color: #c678dd;">)</span>;
+    g_audioEngine.Update<span style="color: #c678dd;">(</span>dt<span style="color: #c678dd;">)</span>;
+    g_renderingEngine.RenderFrame<span style="color: #c678dd;">()</span>;
+    g_videoDriver.FlipBuffers<span style="color: #c678dd;">()</span>;
+ <span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<p>
+Обновление по фазам устраняет проблемы взаимозависимости. Суть решения в том, чтобы обновлять объекты не за один, а за несколько проходов. В своих проектах я использую именно такой способ обновления объектов. Смотри пример ниже \citep{jgregory2017}. В принципе, количество фаз может быть любым, но в моей практике использовались только две.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #51afef;">while</span> <span style="color: #51afef;">(</span><span style="color: #a9a1e1;">true</span><span style="color: #51afef;">)</span> <span style="color: #5B6268;">// </span><span style="color: #5B6268;">main game loop</span>
+<span style="color: #51afef;">{</span>
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">...</span>
+    <span style="color: #51afef;">for</span> <span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">each</span> <span style="color: #dcaeea;">gameObject</span><span style="color: #c678dd;">)</span>
+        gameObject.PreAnimUpdate<span style="color: #c678dd;">(</span>dt<span style="color: #c678dd;">)</span>;
+
+    g_animationEngine.CalculateIntermediatePoses<span style="color: #c678dd;">(</span>dt<span style="color: #c678dd;">)</span>;
+
+    <span style="color: #51afef;">for</span> <span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">each</span> <span style="color: #dcaeea;">gameObject</span><span style="color: #c678dd;">)</span>
+        gameObject.PostAnimUpdate<span style="color: #c678dd;">(</span>dt<span style="color: #c678dd;">)</span>;
+
+    g_ragdollSystem.ApplySkeletonsToRagDolls<span style="color: #c678dd;">()</span>;
+    g_physicsEngine.Simulate<span style="color: #c678dd;">(</span>dt<span style="color: #c678dd;">)</span>;
+    g_collisionEngine.DetectAndResolveCollisions<span style="color: #c678dd;">(</span>dt<span style="color: #c678dd;">)</span>;
+    g_ragdollSystem.ApplyRagDollsToSkeletons<span style="color: #c678dd;">()</span>;
+    g_animationEngine.FinalizePoseAndMatrixPalette<span style="color: #c678dd;">()</span>;
+
+    <span style="color: #51afef;">for</span> <span style="color: #c678dd;">(</span><span style="color: #ECBE7B;">each</span> <span style="color: #dcaeea;">gameObject</span><span style="color: #c678dd;">)</span>
+        gameObject.FinalUpdate<span style="color: #c678dd;">(</span>dt<span style="color: #c678dd;">)</span>;
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">...</span>
+<span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<p>
+То, как необходимо обновлять объекты, в большой степени зависит от самой игры. И решение должно приниматься в каждом конкретном случае, для каждого конкретного проекта.
+</p>
+
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-orgf74d054" class="outline-2">
+<h2 id="orgf74d054"><span class="section-number-2">8.</span> Идентификаторы объектов</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Все имена объектов трансформируются в целочисленные значения (\emph{integer}) с помощью алгоритма \emph{CRC32}. В исходном коде на \emph{С} используется макрос \emph{SID(s)}, который перед компиляцией конвертируется в \emph{SID(n, s)}. Идентификаторы всех строк собираются в отдельном текстовом \emph{.sid}-файле для отладки. Пример макроса в исходном \emph{С}-файле приведен ниже.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #51afef; font-weight: bold;">#define</span> <span style="color: #c678dd;">SID</span><span style="color: #51afef;">(</span><span style="color: #dcaeea;">n</span>,...<span style="color: #51afef;">)</span> n
+</pre>
+</div>
+
+<p>
+В результате во время компиляции исходные строки полностью отбрасываются, но попадают в \emph{.sid}-файл. Сгенерированные \emph{.cpp|.h}-файлы имеют ссылку на оригинальный файл. Пример такой ссылки показан ниже.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #51afef; font-weight: bold;">#line</span> <span style="color: #da8548; font-weight: bold;">1</span> <span style="color: #98be65;">"original_file.cpp"</span>
+</pre>
+</div>
+
+<p>
+В целом процесс выглядит так, как показано на диаграмме <a href="#org00f9885">6</a>.
+</p>
+
+
+<div id="org00f9885" class="figure">
+<p><img src="./images/nd_sider.drawio.svg.png" alt="nd_sider.drawio.svg.png" height="100px" />
+</p>
+<p><span class="figure-number">Figure 6: </span>Обработка \emph{C} файлов перед компиляцией</p>
+</div>
+
+<p>
+Современная версия \emp{C} позволяет использовать для этой цели \emph{constexpr} для генерации \emph{StringId}. Пример такой функции приведен ниже:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #5B6268;">// </span><span style="color: #5B6268;">Usage: find_character("player"_id)</span>
+constexpr <span style="color: #ECBE7B;">StringId</span> <span style="color: #c678dd;">operator</span> <span style="color: #98be65;">""</span> _id<span style="color: #51afef;">(</span><span style="color: #51afef;">const</span> <span style="color: #ECBE7B;">char</span>* <span style="color: #dcaeea;">v</span>, <span style="color: #ECBE7B;">unsigned</span> <span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">c</span><span style="color: #51afef;">)</span> <span style="color: #51afef;">{</span>
+    <span style="color: #51afef;">return</span> crc32_helper<span style="color: #c678dd;">(</span>v, c, <span style="color: #da8548; font-weight: bold;">0xFFFFFFFF</span><span style="color: #c678dd;">)</span>;
+<span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<p>
+\FloatBarrier
+</p>
+
+<p>
+Пример генератора \emph{StringId} приведен ниже. Эта фунция работает в коде дизассемблера \emph{.bin}-файлов игры.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #5B6268;"># </span><span style="color: #5B6268;">Python</span>
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">create_table</span>(poly):
+  <span style="color: #dcaeea;">init</span>=<span style="color: #da8548; font-weight: bold;">0</span>
+  <span style="color: #dcaeea;">l</span>=[<span style="color: #da8548; font-weight: bold;">0</span>]*<span style="color: #da8548; font-weight: bold;">256</span>
+  <span style="color: #51afef;">for</span> i <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #da8548; font-weight: bold;">256</span>):
+    <span style="color: #dcaeea;">t</span>=init^(i&lt;&lt;<span style="color: #da8548; font-weight: bold;">24</span>)
+    <span style="color: #51afef;">for</span> j <span style="color: #51afef;">in</span> <span style="color: #c678dd;">range</span>(<span style="color: #da8548; font-weight: bold;">8</span>):
+      <span style="color: #dcaeea;">mask</span>=<span style="color: #da8548; font-weight: bold;">1</span>&lt;&lt;<span style="color: #da8548; font-weight: bold;">31</span>
+      <span style="color: #51afef;">if</span>(mask&amp;t!=<span style="color: #da8548; font-weight: bold;">0</span>):
+          <span style="color: #dcaeea;">t</span>=(t&lt;&lt;<span style="color: #da8548; font-weight: bold;">1</span>)^poly
+      <span style="color: #51afef;">else</span>:
+          t=(t&lt;&lt;<span style="color: #da8548; font-weight: bold;">1</span>)
+    <span style="color: #dcaeea;">l</span>[<span style="color: #dcaeea;">i</span>]=t&amp;0xffffffff
+  <span style="color: #51afef;">return</span> l
+
+<span style="color: #dcaeea;">crc32_table</span> = create_table(0x04c11db7)
+
+<span style="color: #51afef;">def</span> <span style="color: #c678dd;">crc32</span>(s, init=<span style="color: #da8548; font-weight: bold;">0</span>):
+  crc = init
+  <span style="color: #51afef;">if</span> s:
+    <span style="color: #51afef;">for</span> c <span style="color: #51afef;">in</span> s:
+      crc = (crc32_table[ ((crc&gt;&gt;<span style="color: #da8548; font-weight: bold;">24</span>) ^ <span style="color: #c678dd;">ord</span>(c)) &amp; 0xff ] \
+        ^ (crc &lt;&lt; <span style="color: #da8548; font-weight: bold;">8</span>)) &amp; 0xffffffff
+  <span style="color: #51afef;">return</span> crc
+</pre>
+</div>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-org4052281" class="outline-2">
+<h2 id="org4052281"><span class="section-number-2">9.</span> Синтаксис DC</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Язык позволяет декларировать новые типы, ниже приведен пример четырехкомпонентного вектора \citep{dliebdold2008}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">deftype</span> <span style="color: #ECBE7B;">vec4</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">:align</span> <span style="color: #da8548; font-weight: bold;">16</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #98be65;">(</span>x float<span style="color: #98be65;">)</span>
+   <span style="color: #98be65;">(</span>y float<span style="color: #98be65;">)</span>
+   <span style="color: #98be65;">(</span>z float<span style="color: #98be65;">)</span>
+   <span style="color: #98be65;">(</span>w float <span style="color: #c678dd;">:default</span> <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #98be65;">)</span>
+   <span style="color: #c678dd;">)</span>
+  <span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+При декларировании можно использовать наследование. Примеры такого наследования приведены ниже \citep{dliebdold2008}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">deftype</span> <span style="color: #ECBE7B;">quaternion</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">:parent</span> vec4<span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">()</span><span style="color: #51afef;">)</span>
+
+<span style="color: #51afef;">(</span><span style="color: #51afef;">deftype</span> <span style="color: #ECBE7B;">point</span> <span style="color: #c678dd;">(</span><span style="color: #c678dd;">:parent</span> vec4<span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #98be65;">(</span>w float <span style="color: #c678dd;">:default</span> <span style="color: #da8548; font-weight: bold;">1</span><span style="color: #98be65;">)</span>
+   <span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+Еще один пример, но теперь композиции классов \citep{dliebdold2008}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #51afef;">(</span><span style="color: #51afef;">deftype</span> <span style="color: #ECBE7B;">locator</span> <span style="color: #c678dd;">()</span>
+  <span style="color: #c678dd;">(</span><span style="color: #98be65;">(</span>trans point <span style="color: #c678dd;">:inline</span> #t<span style="color: #98be65;">)</span>
+   <span style="color: #98be65;">(</span>rot quaternion <span style="color: #c678dd;">:inline</span> #t<span style="color: #98be65;">)</span>
+   <span style="color: #c678dd;">)</span>
+<span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+В результате, \emph{DC}-компилятор преобразует структуру в содержимое \emph{.h}-файла \citep{dliebdold2008}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #51afef;">struct</span> <span style="color: #ECBE7B;">Locator</span>
+<span style="color: #51afef;">{</span>
+    <span style="color: #ECBE7B;">Point</span> <span style="color: #dcaeea;">m_trans</span>;
+    <span style="color: #ECBE7B;">Quaternion</span> <span style="color: #dcaeea;">m_rot</span>;
+<span style="color: #51afef;">}</span>;
+</pre>
+</div>
+
+<p>
+Декларировать можно не только типы, но и функции. Ниже приведен пример функции \emph{axis-angle->quat} \citep{dliebdold2008}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #51afef;">(</span>define <span style="color: #c678dd;">(</span>axis-angle-&gt;quat axis angle<span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span><span style="color: #51afef;">let</span> <span style="color: #98be65;">(</span><span style="color: #a9a1e1;">(</span>sin-angle/2 <span style="color: #51afef;">(</span>sin <span style="color: #c678dd;">(</span>* <span style="color: #da8548; font-weight: bold;">0.5</span> angle<span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span><span style="color: #98be65;">)</span>
+    <span style="color: #98be65;">(</span>new quaternion
+         <span style="color: #c678dd;">:x</span> <span style="color: #a9a1e1;">(</span>* <span style="color: #51afef;">(</span>-&gt; axis x<span style="color: #51afef;">)</span> sin-angle/2<span style="color: #a9a1e1;">)</span>
+         <span style="color: #c678dd;">:y</span> <span style="color: #a9a1e1;">(</span>* <span style="color: #51afef;">(</span>-&gt; axis y<span style="color: #51afef;">)</span> sin-angle/2<span style="color: #a9a1e1;">)</span>
+         <span style="color: #c678dd;">:z</span> <span style="color: #a9a1e1;">(</span>* <span style="color: #51afef;">(</span>-&gt; axis z<span style="color: #51afef;">)</span> sin-angle/2<span style="color: #a9a1e1;">)</span>
+         <span style="color: #c678dd;">:w</span> <span style="color: #a9a1e1;">(</span>cos <span style="color: #51afef;">(</span>* <span style="color: #da8548; font-weight: bold;">0.5</span> angle<span style="color: #51afef;">)</span><span style="color: #a9a1e1;">)</span>
+<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+Одна из важных особенностей \emph{LISP}-подобного языка — это возможность создания предметно-ориентированных языков \emph{DSL}. Это позволяет писать код и декларировать данные более компактно, без лишних церемоний \citep{dliebdold2008}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #51afef;">(</span>define *y-axis* <span style="color: #c678dd;">(</span>new vec4 <span style="color: #c678dd;">:x</span> <span style="color: #da8548; font-weight: bold;">0</span> <span style="color: #c678dd;">:y</span> <span style="color: #da8548; font-weight: bold;">1</span> <span style="color: #c678dd;">:z</span> <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">(</span>define *origin* <span style="color: #c678dd;">(</span>new point <span style="color: #c678dd;">:x</span> <span style="color: #da8548; font-weight: bold;">0</span> <span style="color: #c678dd;">:y</span> <span style="color: #da8548; font-weight: bold;">0</span> <span style="color: #c678dd;">:z</span> <span style="color: #da8548; font-weight: bold;">0</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+При этом, объявления данных могут использовать функции. Пример определения стартовой точки игрока показан ниже. Здесь в качестве значения угла поворота используется функция, вычисляющая \emph{quaternion} из \emph{угла} и \emph{оси вращения} \citep{dliebdold2008}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #51afef;">(</span>define-export *player-start*
+  <span style="color: #c678dd;">(</span>new locator
+       <span style="color: #c678dd;">:trans</span> *origin*
+       <span style="color: #c678dd;">:rot</span> <span style="color: #98be65;">(</span>axis-angle-&gt;quaternion *y-axis* <span style="color: #da8548; font-weight: bold;">45</span><span style="color: #98be65;">)</span>
+       <span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+Использование дефиниций в \emph{DC} файле из \emph{C} исходного кода выглядит как на примере ниже \citep{jgregory2014}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #51afef; font-weight: bold;">#include</span> <span style="color: #98be65;">"dc-types.h"</span>
+
+<span style="color: #51afef;">const</span> <span style="color: #ECBE7B;">Locator</span> * <span style="color: #dcaeea;">pLoc</span> = DcLookupSymbol<span style="color: #51afef;">(</span><span style="color: #98be65;">"*player-start*"</span><span style="color: #51afef;">)</span>;
+<span style="color: #ECBE7B;">Point</span> <span style="color: #dcaeea;">pos</span> = pLoc-&gt;m_trans;
+</pre>
+</div>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgec45d1a" class="outline-2">
+<h2 id="orgec45d1a"><span class="section-number-2">10.</span> Анимационные состояния</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Анимационные состояния реализуются как структуры данных. Требуется наличие соответствующего \emph{С}-кода для того, чтобы интерпретировать эти состояния и произвести конструирование необходимых объектов в памяти системы. Ниже приведено простое анимационное состояние \emph{pirate-jump} \citep{jgregory2017}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #51afef;">(</span>define-state simple
+  <span style="color: #c678dd;">:name</span>     <span style="color: #98be65;">"pirate-jump"</span>
+  <span style="color: #c678dd;">:clip</span>     <span style="color: #98be65;">"pirate-jump"</span>
+  <span style="color: #c678dd;">:flags</span>    <span style="color: #c678dd;">(</span>anim-state-flag no-adjust-to-ground<span style="color: #c678dd;">)</span>
+  <span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+Пример состояния сложной анимации приведен ниже \citep{jgregory2017}. В данном случае производится линейная интерполяция двух анимаций: \emph{pirate-jump} и \emph{pirate-scare}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #51afef;">(</span>define-state complex
+  <span style="color: #c678dd;">:name</span>   <span style="color: #98be65;">"pirate-jump"</span>
+  <span style="color: #c678dd;">:tree</span>
+  <span style="color: #c678dd;">(</span>anim-node-lerp
+   <span style="color: #98be65;">(</span>anim-node-clip <span style="color: #98be65;">"pirate-jump"</span><span style="color: #98be65;">)</span>
+   <span style="color: #98be65;">(</span>anim-node-clip <span style="color: #98be65;">"pirate-scare"</span><span style="color: #98be65;">)</span>
+   <span style="color: #c678dd;">)</span>
+  <span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+Еще один пример приведен ниже, в нем присутсвует дерево различных узлов (node), которые производят операции смешивания анимаций \citep{jgregory2017}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #51afef;">(</span>define-state complex
+  <span style="color: #c678dd;">:name</span>     <span style="color: #98be65;">"pirate-jump"</span>
+  <span style="color: #c678dd;">:tree</span>
+  <span style="color: #c678dd;">(</span>anim-node-lerp
+   <span style="color: #98be65;">(</span>anim-node-additive
+    <span style="color: #a9a1e1;">(</span>anim-node-additive
+     <span style="color: #51afef;">(</span>anim-node-clip <span style="color: #98be65;">"pirate-jump-f"</span><span style="color: #51afef;">)</span>
+     <span style="color: #51afef;">(</span>anim-node-clip <span style="color: #98be65;">"pirate-scare-f"</span><span style="color: #51afef;">)</span>
+     <span style="color: #a9a1e1;">)</span>
+    <span style="color: #a9a1e1;">(</span>anim-node-clip <span style="color: #98be65;">"pirate-felldown-f"</span><span style="color: #a9a1e1;">)</span>
+    <span style="color: #98be65;">)</span>
+   <span style="color: #98be65;">(</span>anim-node-additive
+    <span style="color: #a9a1e1;">(</span>anim-node-additive
+     <span style="color: #51afef;">(</span>anim-node-clip <span style="color: #98be65;">"pirate-jump-b"</span><span style="color: #51afef;">)</span>
+     <span style="color: #51afef;">(</span>anim-node-clip <span style="color: #98be65;">"pirate-scare-b"</span><span style="color: #51afef;">)</span>
+     <span style="color: #a9a1e1;">)</span>
+    <span style="color: #a9a1e1;">(</span>anim-node-clip <span style="color: #98be65;">"pirate-felldown-b"</span><span style="color: #a9a1e1;">)</span>
+    <span style="color: #98be65;">)</span>
+   <span style="color: #c678dd;">)</span>
+  <span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+Описание анимационных переходов между состояниями приведена ниже \citep{jgregory2017}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #5B6268;">;; </span><span style="color: #5B6268;">nb aim-tree is the macro definition</span>
+<span style="color: #51afef;">(</span>define-state complex
+  <span style="color: #c678dd;">:name</span> <span style="color: #98be65;">"s-turret-idle"</span>
+  <span style="color: #c678dd;">:tree</span> <span style="color: #c678dd;">(</span>aim-tree <span style="color: #98be65;">(</span>anim-node-clip <span style="color: #98be65;">"turret-aim-all-base"</span><span style="color: #98be65;">)</span>
+                  <span style="color: #98be65;">"turret-aim-all-left-right"</span>
+                  <span style="color: #98be65;">"turret-aim-all-left-updown"</span><span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">:transitions</span> <span style="color: #c678dd;">(</span>
+                <span style="color: #98be65;">(</span>transition <span style="color: #98be65;">"reload"</span> <span style="color: #98be65;">"s_turret-reload"</span>
+                            <span style="color: #a9a1e1;">(</span>range - -<span style="color: #a9a1e1;">)</span> <span style="color: #c678dd;">:fade-time</span> <span style="color: #da8548; font-weight: bold;">0.2</span><span style="color: #98be65;">)</span>
+
+                <span style="color: #98be65;">(</span>transition <span style="color: #98be65;">"step-left"</span> <span style="color: #98be65;">"s_turret-step-left"</span>
+                            <span style="color: #a9a1e1;">(</span>range - -<span style="color: #a9a1e1;">)</span> <span style="color: #c678dd;">:fade-time</span> <span style="color: #da8548; font-weight: bold;">0.2</span><span style="color: #98be65;">)</span>
+
+                <span style="color: #98be65;">(</span>transition <span style="color: #98be65;">"step-right"</span> <span style="color: #98be65;">"s_turret-ste-right"</span>
+                            <span style="color: #a9a1e1;">(</span>range - -<span style="color: #a9a1e1;">)</span> <span style="color: #c678dd;">:fade-time</span> <span style="color: #da8548; font-weight: bold;">0.2</span><span style="color: #98be65;">)</span>
+
+                <span style="color: #98be65;">(</span>transition <span style="color: #98be65;">"reload"</span> <span style="color: #98be65;">"s_turret-fire"</span>
+                            <span style="color: #a9a1e1;">(</span>range - -<span style="color: #a9a1e1;">)</span> <span style="color: #c678dd;">:fade-time</span> <span style="color: #da8548; font-weight: bold;">0.1</span><span style="color: #98be65;">)</span>
+
+                <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">invoke previously defined group of transitions</span>
+                <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">it is used when the same set of transitions needed</span>
+                <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">to be used in the other state</span>
+                <span style="color: #98be65;">(</span>transition-group <span style="color: #98be65;">"combat-gunpout-idle-mode"</span><span style="color: #98be65;">)</span>
+
+                <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">specifies a transition that is</span>
+                <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">taken upon reaching the end of the state's</span>
+                <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">local time line if no other transition</span>
+                <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">has been taken before then</span>
+                <span style="color: #98be65;">(</span>transition-end <span style="color: #98be65;">"s-turret-idle"</span><span style="color: #98be65;">)</span>
+                <span style="color: #c678dd;">)</span>
+  <span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+Подобным образом можно кодировать и другие системы игры например \emph{AI}, \emph{Melee} \citep{minglun2021}, и другие.
+</p>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-orgfe57c1c" class="outline-2">
+<h2 id="orgfe57c1c"><span class="section-number-2">11.</span> Конечные автоматы</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+В компании \emph{ND} под состоянием понимается определенный набор процессов, которые выполняются для конкретного хост-объекта или как самостоятельные процессы в памяти \citep{jgregory2006}. Пример конечного автомата \citep{jgregory2006} анимированной сцены показан ниже.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#1057;&#1094;&#1077;&#1085;&#1072; &#1089; &#1072;&#1074;&#1072;&#1088;&#1080;&#1077;&#1081; &#1072;&#1074;&#1090;&#1086;&#1073;&#1091;&#1089;&#1072;</span>
+<span style="color: #51afef;">(</span>define-state-script <span style="color: #c678dd;">(</span><span style="color: #98be65;">"wz-bus-crash"</span><span style="color: #c678dd;">)</span>
+  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#1089;&#1086;&#1089;&#1090;&#1086;&#1103;&#1085;&#1080;&#1077; spawn &#1089;&#1086;&#1083;&#1076;&#1072;&#1090;</span>
+  <span style="color: #c678dd;">(</span>state <span style="color: #98be65;">(</span><span style="color: #98be65;">"spawn-soldiers"</span><span style="color: #98be65;">)</span>
+         <span style="color: #98be65;">(</span>on <span style="color: #a9a1e1;">(</span>begin<span style="color: #a9a1e1;">)</span>
+             <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#1086;&#1090;&#1082;&#1083;&#1102;&#1095;&#1080;&#1090;&#1100; &#1091;&#1087;&#1088;&#1072;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1080;&#1075;&#1088;&#1086;&#1082;&#1086;&#1084;, &#1085;&#1086; &#1082;&#1088;&#1086;&#1084;&#1077; &#1087;&#1088;&#1072;&#1074;&#1086;&#1081; &#1082;&#1085;&#1086;&#1087;&#1082;&#1080;</span>
+             [player-disable-controls
+             <span style="color: #a9a1e1;">(</span>controls all-but-right-stick<span style="color: #a9a1e1;">)</span>]
+             <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#1089;&#1086;&#1079;&#1076;&#1072;&#1090;&#1100; &#1089;&#1086;&#1083;&#1076;&#1072;&#1090;</span>
+             [spawn-npc-in-combat <span style="color: #98be65;">"npc-wz-52"</span>]
+             [spawn-npc-in-combat <span style="color: #98be65;">"npc-wz-53"</span>]
+             ...
+             <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#1087;&#1077;&#1088;&#1077;&#1081;&#1090;&#1080; &#1074; &#1089;&#1086;&#1089;&#1090;&#1086;&#1103;&#1085;&#1080;&#1077; crash</span>
+             [go <span style="color: #98be65;">"crash"</span>]
+             <span style="color: #98be65;">)</span>
+         <span style="color: #c678dd;">)</span>
+...
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgca4d24b" class="outline-2">
+<h2 id="orgca4d24b"><span class="section-number-2">12.</span> Объявление переменных состояния</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+Состояние может иметь собственные переменные для сохнанения различных значений или обмена данными.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#1057;&#1094;&#1077;&#1085;&#1072; &#1089; &#1072;&#1074;&#1072;&#1088;&#1080;&#1077;&#1081; &#1072;&#1074;&#1090;&#1086;&#1073;&#1091;&#1089;&#1072;</span>
+<span style="color: #51afef;">(</span>define-state-script <span style="color: #c678dd;">(</span><span style="color: #98be65;">"kickable-gate"</span><span style="color: #c678dd;">)</span>
+<span style="color: #c678dd;">:initial-state</span> <span style="color: #98be65;">"closed"</span>
+<span style="color: #c678dd;">:declarations</span> <span style="color: #c678dd;">(</span>decl-list
+  <span style="color: #98be65;">(</span>var <span style="color: #98be65;">"num-attempts"</span> <span style="color: #c678dd;">:type</span> int32<span style="color: #98be65;">)</span>
+  <span style="color: #98be65;">(</span>var <span style="color: #98be65;">"is-locked"</span> <span style="color: #c678dd;">::default</span> #t<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span><span style="color: #51afef;">)</span>
+  ....
+  <span style="color: #ff6c6b; font-weight: bold;">)</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3005fbb" class="outline-2">
+<h2 id="org3005fbb"><span class="section-number-2">13.</span> Параллельное исполнение процессов</h2>
+<div class="outline-text-2" id="text-13">
+<p>
+Каждое состояние объекта можно представить как множество параллельных треков. Некоторые из которых выполняются от начала до конца в каждом кадре, а другие приостанавливаются и продолжают выполнение в ответ на определенное событие. Существуют еще и отдельные треки, которые запускаются по событию. В начале исполняется код инициализации, а в конце — код финализации. Диаграмма <a href="#org704cf58">7</a> иллюстрирует одно состояние.
+</p>
+
+
+<div id="org704cf58" class="figure">
+<p><img src="./images/nw_flow.drawio.png" alt="nw_flow.drawio.png" height="100px" />
+</p>
+<p><span class="figure-number">Figure 7: </span>Треки одного состояния</p>
+</div>
+
+<p>
+\FloatBarrier
+</p>
+
+<p>
+Следующее состояние \citep{jgregory2006} запускает четыре трека, то есть четыре параллельных процесса. Каждый процесс отрабатывает свой сценарий и отправляет сообщение в финале. Каждый процесс может приостанавливаться в ожидании другого процесса или в ожидании определенного сценария.
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #51afef;">(</span>state <span style="color: #c678dd;">(</span><span style="color: #98be65;">"crash"</span><span style="color: #c678dd;">)</span>
+       <span style="color: #c678dd;">(</span>on <span style="color: #98be65;">(</span>begin<span style="color: #98be65;">)</span>
+           <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#1087;&#1088;&#1086;&#1094;&#1077;&#1089;&#1089; &#1072;&#1085;&#1080;&#1084;&#1072;&#1094;&#1080;&#1080; &#1072;&#1074;&#1090;&#1086;&#1073;&#1091;&#1089;&#1072;</span>
+           <span style="color: #98be65;">(</span>track <span style="color: #a9a1e1;">(</span><span style="color: #98be65;">"bus"</span><span style="color: #a9a1e1;">)</span>
+                  [wait-animate <span style="color: #98be65;">"bus-1"</span> <span style="color: #98be65;">"bus-crash"</span>
+                  [get-locator <span style="color: #98be65;">"ref-bus-crash-1"</span>]]
+                  [signal <span style="color: #98be65;">"bus-done"</span>]
+                  <span style="color: #98be65;">)</span>
+           <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#1087;&#1088;&#1086;&#1094;&#1077;&#1089;&#1089; &#1072;&#1085;&#1080;&#1084;&#1072;&#1094;&#1080;&#1080; &#1080;&#1075;&#1088;&#1086;&#1082;&#1072;</span>
+           <span style="color: #98be65;">(</span>track <span style="color: #a9a1e1;">(</span><span style="color: #98be65;">"player"</span><span style="color: #a9a1e1;">)</span>
+                  [animate <span style="color: #98be65;">"player"</span> <span style="color: #98be65;">"player-watch-crash"</span>
+                  [get-locator <span style="color: #98be65;">"ref-bus-crash-1"</span>]]
+                  [wait-until-frame 250]
+                  [say <span style="color: #98be65;">"player"</span> <span style="color: #98be65;">"vox-wz-drk-01-what-the"</span>]
+                  [signal <span style="color: #98be65;">"drake-done"</span>]
+                  <span style="color: #98be65;">)</span>
+           <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#1087;&#1088;&#1086;&#1094;&#1077;&#1089;&#1089; &#1072;&#1085;&#1080;&#1084;&#1072;&#1094;&#1080;&#1080; &#1090;&#1086;&#1075;&#1086;, &#1082;&#1086;&#1075;&#1086; &#1089;&#1086;&#1073;&#1098;&#1077;&#1090; &#1072;&#1074;&#1090;&#1086;&#1073;&#1091;&#1089;</span>
+           <span style="color: #98be65;">(</span>track <span style="color: #a9a1e1;">(</span><span style="color: #98be65;">"guy-hit-by-bus"</span><span style="color: #a9a1e1;">)</span>
+                  [wait-animate <span style="color: #98be65;">"npc-wz-52"</span> <span style="color: #98be65;">"npc-hit-by-bus"</span>
+                  [get-locator <span style="color: #98be65;">"ref-bus-crash-1"</span>]]
+                  [npc-die <span style="color: #98be65;">"npc-wz-52"</span>]
+                  [signal <span style="color: #98be65;">"npc-dead"</span>]
+                  <span style="color: #98be65;">)</span>
+           <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">&#1087;&#1088;&#1086;&#1094;&#1077;&#1089;&#1089; &#1086;&#1078;&#1080;&#1076;&#1072;&#1085;&#1080;&#1103; &#1074;&#1089;&#1077;&#1093; &#1086;&#1089;&#1090;&#1072;&#1083;&#1100;&#1085;&#1099;&#1093; &#1087;&#1088;&#1086;&#1094;&#1077;&#1089;&#1089;&#1086;&#1074;</span>
+           <span style="color: #98be65;">(</span>track <span style="color: #a9a1e1;">(</span><span style="color: #98be65;">"wait-for-all-done"</span><span style="color: #a9a1e1;">)</span>
+                  [wait-for-signal <span style="color: #98be65;">"bus-done"</span>]
+                  [wait-for-signal <span style="color: #98be65;">"drake-done"</span>]
+                  [wait-for-signal <span style="color: #98be65;">"npc-dead"</span>]
+                  [go <span style="color: #98be65;">"done"</span>]
+                  <span style="color: #98be65;">)</span>
+...
+</pre>
+</div>
+
+<p>
+В конечном итоге, система треков многослойна, при этом верхние уровни контролируют нижние. Примеры уровней от верхнего к нижнему приведены ниже:
+</p>
+
+<ul class="org-ul">
+<li>Процессы верхнего уровня игры, а также глобальные процессы, например, смена дня и ночи</li>
+<li>Процессы текущего мира</li>
+<li>Процессы текущей зоны</li>
+<li>Процессы батл-зоны</li>
+<li>Процессы группового интеллекта</li>
+<li>Процессы персонажей</li>
+<li>Процессы дочерних объектов</li>
+</ul>
+
+<p>
+Этот подход весьма элегантный и простой, в котором есть некоторые недостатки, например:
+</p>
+
+<ul class="org-ul">
+<li>Дизайнеры должны уметь программировать на языке скриптов</li>
+<li>Процесс исполнения кода в треках не зависит от времени, то есть не может исполняться в обратном порядке или совершать скачки во времени.</li>
+</ul>
+
+<p>
+Впрочем, последнее бывает возможно в \emph{Data-Driven} системах.
+</p>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-orgb310d82" class="outline-2">
+<h2 id="orgb310d82"><span class="section-number-2">14.</span> Интеграция VM в Engine</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+Исходный код \emph{DC}-файлов компилируется в байткод. Более детально этот аспект будет затронут ниже. При любом способе интеграции динамического языка в систему, требуется механизм этой интеграции \emph{Reflection}, \emph{FFI}, и т.д.
+</p>
+
+<p>
+В компании \emph{ND} применен очень простой, но весьма эффективный способ интеграции виртуальной машины и самого движка. Для этого используется хэш-таблица, в которой  к каждому ключу \emph{ssid} имеется указатель на \emph{C}-функцию. Это функция с переменным числом аргументов, которые при этом имеют \emph{variant}-тип. Количество возможных типов аргументов весьма невелико: \emph{integer}, \emph{float}, \emph{StringId}, \emph{Pointer}.
+</p>
+
+<p>
+Пример такой функции приведен ниже \citep{jgregory2006}. Для доступа к объектам сцены используются имена объектов в виде \emph{StringId}, при этом, зарезервированное имя \emph{self} адресует хост-объект процесса.
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #ECBE7B;">Variant</span> <span style="color: #c678dd;">ScriptWaitAnimate</span><span style="color: #51afef;">(</span><span style="color: #ECBE7B;">int</span> <span style="color: #dcaeea;">argc</span>, <span style="color: #ECBE7B;">Variant</span>* <span style="color: #dcaeea;">argv</span><span style="color: #51afef;">)</span>
+<span style="color: #51afef;">{</span>
+    <span style="color: #ECBE7B;">StringId</span> <span style="color: #dcaeea;">objName</span> = <span style="color: #a9a1e1;">SC_ARG</span><span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">0</span>,StringId, <span style="color: #a9a1e1;">NULL</span><span style="color: #c678dd;">)</span>;
+    <span style="color: #ECBE7B;">StringId</span> <span style="color: #dcaeea;">animName</span> = <span style="color: #a9a1e1;">SC_ARG</span><span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">1</span>,StringId, <span style="color: #a9a1e1;">NULL</span><span style="color: #c678dd;">)</span>;
+
+    <span style="color: #51afef;">if</span><span style="color: #c678dd;">(</span><span style="color: #51afef; font-weight: bold;">!</span>objName<span style="color: #c678dd;">)</span>
+        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">The ScriptError is a function return Variant(false)</span>
+        <span style="color: #5B6268;">// </span><span style="color: #5B6268;">And print the error message</span>
+        <span style="color: #51afef;">return</span> ScriptError<span style="color: #c678dd;">(</span>
+            <span style="color: #98be65;">"wait-animate: expected object name (arg1)\n"</span><span style="color: #c678dd;">)</span>;
+    <span style="color: #51afef;">if</span><span style="color: #c678dd;">(</span><span style="color: #51afef; font-weight: bold;">!</span>animName<span style="color: #c678dd;">)</span>
+        <span style="color: #51afef;">return</span> ScriptError<span style="color: #c678dd;">(</span>
+            <span style="color: #98be65;">"wait-animate: expect animation name (arg2)\n"</span><span style="color: #c678dd;">)</span>;
+
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">find the object</span>
+    <span style="color: #ECBE7B;">ProcessGameObject</span>* <span style="color: #dcaeea;">pObj</span> = g_processMgr.Lookup<span style="color: #c678dd;">(</span>objName<span style="color: #c678dd;">)</span>;
+
+    <span style="color: #51afef;">if</span><span style="color: #c678dd;">(</span><span style="color: #51afef; font-weight: bold;">!</span>pObj<span style="color: #c678dd;">)</span>
+        <span style="color: #51afef;">return</span> ScriptError<span style="color: #c678dd;">(</span><span style="color: #98be65;">"wait-animate: could not found %s\n"</span>,
+                            StringIdToString<span style="color: #98be65;">(</span>onjName<span style="color: #98be65;">)</span><span style="color: #c678dd;">)</span>;
+
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">insruct object to play animation, and wakeup</span>
+    <span style="color: #5B6268;">// </span><span style="color: #5B6268;">this script when done</span>
+    pObj-&gt;WaitAnimate<span style="color: #c678dd;">(</span>animName, g_scriptContext<span style="color: #c678dd;">)</span>;
+    g_scriptContext.Suspend<span style="color: #c678dd;">()</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">go to sleep until animation complete</span>
+    <span style="color: #51afef;">return</span> Variant<span style="color: #c678dd;">(</span><span style="color: #a9a1e1;">true</span><span style="color: #c678dd;">)</span>;
+<span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<p>
+Теперь \emph{C}-функцию \emph{ScriptWaitAnimate} можно декларировать в динамической среде программирования, смотри пример ниже \citep{jgregory2006}. Декларация нужна лишь для объявления сигнатуры метода, то есть для проверки типов.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #51afef;">(</span>define-c-function wait-animate
+  <span style="color: #c678dd;">(</span>object-name string<span style="color: #c678dd;">)</span>
+  <span style="color: #c678dd;">(</span>anim-name string<span style="color: #c678dd;">)</span>
+  <span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+
+
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-org6b39a1a" class="outline-2">
+<h2 id="org6b39a1a"><span class="section-number-2">15.</span> DC компилятор</h2>
+<div class="outline-text-2" id="text-15">
+<p>
+Реализован на \emph{Racket}, хотя мог быть реализован и на \emph{C}, \emph{Go} или любом другом языке. Использование \emph{Racket} может быть связано со следующими причинами:
+</p>
+
+<ul class="org-ul">
+<li>Это среда, специально нацеленная на разработку \emph{DSL}</li>
+<li>Компилятор Racket поддерживает большое количество уже реализованных для платформы языков, таких как \empth{Typed Racket}</li>
+<li>Это зрелый продукт, хорошо зарекомендовавший себя в академической среде</li>
+<li>У \emph{Racket} есть собственная \emph{IDE} — \emph{DrRacket}. Она проста в установке и использовании, и при этом предоставляемые ею средства весьма наглядны и информативны.</li>
+<li>Продвинутые программисты могут использовать другой редактор, например \emph{EMACS}</li>
+</ul>
+
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfb2ad10" class="outline-2">
+<h2 id="orgfb2ad10"><span class="section-number-2">16.</span> Формат SID-файла</h2>
+<div class="outline-text-2" id="text-16">
+<p>
+Наличие такого файла — это мое предположение. Файл имеет текстовый формат и предназначен для хранения текстовых форм каждого \emph{StringId}. Это может быть полезно при отладке программ. Ниже приведен пример фрагмента этого файла.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">dbd3d0d8 is-test-task?
+2a990f91 is-demo-part-2?
+bff578ab is-t2?
+dcf596c6 get-difficulty
+a86d881d get-dda
+</pre>
+</div>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-org0064ebe" class="outline-2">
+<h2 id="org0064ebe"><span class="section-number-2">17.</span> Формат DCI-файла</h2>
+<div class="outline-text-2" id="text-17">
+<p>
+Данный файл предназначен для линковки модулей. В каждом файле в текстовой форме приводятся все импортируемые файлы и экспортируемые определения. Теоретически, в режиме отладки, в файл могут быть помещены все текстовые формы.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lisp"><span style="color: #5B6268;">;; </span><span style="color: #5B6268;">script-user-funcs.dci</span>
+<span style="color: #51afef;">(</span>script-user-funcs <span style="color: #c678dd;">(</span><span style="color: #da8548; font-weight: bold;">69857</span><span style="color: #c678dd;">)</span> <span style="color: #5B6268;">;</span>
+  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Import files</span>
+  <span style="color: #c678dd;">(</span>import script-funcs vox-defines
+          vox-remap-defines fact-defines
+          vox-action-defines<span style="color: #c678dd;">)</span>
+  <span style="color: #5B6268;">;; </span><span style="color: #5B6268;">Export symbols</span>
+  <span style="color: #c678dd;">(</span>export disable-relocation add-int32 subtract-int32 string<span style="color: #c678dd;">)</span>
+<span style="color: #51afef;">)</span>
+</pre>
+</div>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-orgb006773" class="outline-2">
+<h2 id="orgb006773"><span class="section-number-2">18.</span> Формат бинарного DC-файла</h2>
+<div class="outline-text-2" id="text-18">
+<p>
+Бинарный файл не документирован и ещё не полностью исследован, но некоторые выводы уже можно сделать. Формат файла очень прост
+и дружественнен для среды исполнения. Каждый файл начинается с 32 байт заголовка.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #51afef;">struct</span> <span style="color: #ECBE7B;">DcHeader</span> <span style="color: #51afef;">{</span>
+  <span style="color: #ECBE7B;">char</span> <span style="color: #dcaeea;">magic</span><span style="color: #c678dd;">[</span><span style="color: #da8548; font-weight: bold;">4</span><span style="color: #c678dd;">]</span> = <span style="color: #98be65;">"DC00"</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1052;&#1072;&#1075;&#1080;&#1095;&#1077;&#1089;&#1082;&#1072;&#1103; &#1089;&#1080;&#1075;&#1085;&#1072;&#1090;&#1091;&#1088;&#1072;</span>
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">unknown1</span>;
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">relocation1</span>;
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">unknown2</span>;
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">unknown3</span>;
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">definitions_count</span>;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1050;&#1086;&#1083;&#1080;&#1095;&#1077;&#1089;&#1090;&#1074;&#1086; &#1076;&#1077;&#1092;&#1080;&#1085;&#1080;&#1094;&#1080;&#1081; &#1074; &#1092;&#1072;&#1081;&#1083;&#1077;</span>
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">definitions_offset</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1053;&#1072;&#1095;&#1072;&#1083;&#1086; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093; &#1089; &#1076;&#1077;&#1092;&#1080;&#1085;&#1080;&#1094;&#1080;&#1103;&#1084;&#1080;</span>
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">unknown4</span>;           <span style="color: #5B6268;">// </span><span style="color: #5B6268;">PS4 version only</span>
+<span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<p>
+Каждое определение имеет имя, тип и смещение от начала файла. Примечательно, что тип объекта записан в текстовой форме, конвертированной в \emph{StringId}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #ECBE7B;">class</span> <span style="color: #dcaeea;">DcDefinition</span> <span style="color: #51afef;">{</span>
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">nameId</span>;   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">SID aka StringId("player")</span>
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">typeId</span>;   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">SID aka StringId("lambda")</span>
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">offset</span>;   <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Start of the descriptor</span>
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">unknown1</span>; <span style="color: #5B6268;">// </span><span style="color: #5B6268;">PS4 version only</span>
+<span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<p>
+Ниже перечислены, предположительно, основные типы определений.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C">vector        = <span style="color: #da8548; font-weight: bold;">0x012f77fe</span>
+string        = <span style="color: #da8548; font-weight: bold;">0x0b3952e7</span>
+<span style="color: #ECBE7B;">float</span>         = <span style="color: #da8548; font-weight: bold;">0x0f182ec3</span>
+angle         = <span style="color: #da8548; font-weight: bold;">0x13812cd6</span>
+state         = <span style="color: #da8548; font-weight: bold;">0x2e6743e3</span>
+direction     = <span style="color: #da8548; font-weight: bold;">0x7194cbe7</span>
+color         = <span style="color: #da8548; font-weight: bold;">0x71e73c6c</span>
+boolean       = <span style="color: #da8548; font-weight: bold;">0x8b4e76ff</span>
+vec4          = <span style="color: #da8548; font-weight: bold;">0x93bd2e95</span>
+script-lambda = <span style="color: #da8548; font-weight: bold;">0x9ed499e1</span>
+function      = <span style="color: #da8548; font-weight: bold;">0xab3eb31f</span>
+int32         = <span style="color: #da8548; font-weight: bold;">0xc7cb2752</span>
+</pre>
+</div>
+
+<p>
+Исходный код транслируется в тип \emph{script-lambda} или \emph{function}. Дефиниция указывает на дескриптор. Дескриптор имеет указатель на блоки кода и данных \emph{lambda} функции.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #51afef;">struct</span> <span style="color: #ECBE7B;">DcDescriptor</span> <span style="color: #51afef;">{</span>
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">code</span>;       <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1057;&#1084;&#1077;&#1097;&#1077;&#1085;&#1080;&#1077; &#1085;&#1072;&#1095;&#1072;&#1083;&#1072; &#1082;&#1086;&#1076;&#1072;</span>
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">unknown1</span>;
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">data</span>;       <span style="color: #5B6268;">// </span><span style="color: #5B6268;">&#1057;&#1084;&#1077;&#1097;&#1077;&#1085;&#1080;&#1077; &#1085;&#1072;&#1095;&#1072;&#1083;&#1072; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;</span>
+  <span style="color: #ECBE7B;">u32</span> <span style="color: #dcaeea;">unknown2</span>;
+<span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-orgf91ba63" class="outline-2">
+<h2 id="orgf91ba63"><span class="section-number-2">19.</span> Виртуальная машина</h2>
+<div class="outline-text-2" id="text-19">
+<p>
+Виртуальная машина имеет список состояний процессов, в котором расположены указатели на блок памяти, хранящий \emph{окружение} (\emph{environment}). В окружении хранятся:
+</p>
+
+<ul class="org-ul">
+<li>Указатель на исполняемую \emph{lambda} функцию</li>
+<li>Индекс текущей инструкции</li>
+<li>Указатель на родительское окружение, если окружения не организованы в виде стека</li>
+<li>Блок регистров, каждый из которых имеет вариантный тип</li>
+</ul>
+
+<p>
+Структура окружения \emph{VM} изображена на рисунке <a href="#org72a4975">8</a>
+</p>
+
+
+<div id="org72a4975" class="figure">
+<p><img src="./images/nd_vm_memory.drawio.png" alt="nd_vm_memory.drawio.png" />
+</p>
+<p><span class="figure-number">Figure 8: </span>Runtime виртуальной машины \citep{jgregory2006}</p>
+</div>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+<div id="outline-container-orgd111f98" class="outline-2">
+<h2 id="orgd111f98"><span class="section-number-2">20.</span> Система команд VM</h2>
+<div class="outline-text-2" id="text-20">
+<p>
+Код состоит из гомогенных команд в виде массива из 32-х битных значений. Кроме кода операции, имеется три операнда \emph{a},\emph{b},\emph{c}. Для некоторых команд операнд \emph{c} используется как непосредственное значение \emph{k}, для других операнды \emph{b} и \emph{c} объединяются в 16-ти битное значение \emph{kk}.
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #51afef;">struct</span> <span style="color: #ECBE7B;">DcInstruction</span> <span style="color: #51afef;">{</span>
+  <span style="color: #ECBE7B;">u8</span> <span style="color: #dcaeea;">opcode</span>;  <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Opcode</span>
+  <span style="color: #ECBE7B;">u8</span> <span style="color: #dcaeea;">a</span>;       <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Register number</span>
+  <span style="color: #ECBE7B;">u8</span> <span style="color: #dcaeea;">b</span>;       <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Register number</span>
+  <span style="color: #ECBE7B;">u8</span> <span style="color: #dcaeea;">c</span>;       <span style="color: #5B6268;">// </span><span style="color: #5B6268;">Register number</span>
+<span style="color: #51afef;">}</span>
+</pre>
+</div>
+
+<p>
+Доступ к константам идет по адресу данных из дескриптора. Значение регистра, умноженное на N<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup> используется как смещение области данных, где хранятся:
+</p>
+
+<ul class="org-ul">
+<li>Целые числа \emph{I8,U8,I16,U16,I32,U32,I64,U64}. Однако, в исследованной мною игре использовались только \emph{I32} и \emph{U32}</li>
+<li>32-битные числа с плавающей точкой</li>
+<li>Строки текста</li>
+</ul>
+
+<p>
+В таблице ниже приведена система команд виртуальной машины. В колонке \emph{Q-ty} дается приблизительное количество использований команды в игре.
+</p>
+
+<table id="org831fbea" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> Команды виртуальной машины с 0x00 по 0x1F</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Opcode</th>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-right">Q-ty</th>
+<th scope="col" class="org-left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0x00</td>
+<td class="org-left">return</td>
+<td class="org-right">1412</td>
+<td class="org-left">return aRes, b (allways equal a)</td>
+</tr>
+
+<tr>
+<td class="org-right">0x01</td>
+<td class="org-left">intAdd</td>
+<td class="org-right">130</td>
+<td class="org-left">a = b + c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x02</td>
+<td class="org-left">intSub</td>
+<td class="org-right">19</td>
+<td class="org-left">a = b - c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x03</td>
+<td class="org-left">intMul</td>
+<td class="org-right">1</td>
+<td class="org-left">a = b * c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x04</td>
+<td class="org-left">intDiv</td>
+<td class="org-right">0</td>
+<td class="org-left">a = b / c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x05</td>
+<td class="org-left">floatAdd</td>
+<td class="org-right">32</td>
+<td class="org-left">a = b + c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x06</td>
+<td class="org-left">floatSub</td>
+<td class="org-right">44</td>
+<td class="org-left">a = b - c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x07</td>
+<td class="org-left">floatMul</td>
+<td class="org-right">68</td>
+<td class="org-left">a = b * c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x08</td>
+<td class="org-left">floatDiv</td>
+<td class="org-right">30</td>
+<td class="org-left">a = b / c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x09</td>
+<td class="org-left">loadStaticInt</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (int)data[kk*N]</td>
+</tr>
+
+<tr>
+<td class="org-right">0x0A</td>
+<td class="org-left">loadStaticFloat</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (float)data[kk*N]</td>
+</tr>
+
+<tr>
+<td class="org-right">0x0B</td>
+<td class="org-left">loadStaticPointer</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (char*)data[kk*N]</td>
+</tr>
+
+<tr>
+<td class="org-right">0x0C</td>
+<td class="org-left">loadImm</td>
+<td class="org-right">3577</td>
+<td class="org-left">a = BC</td>
+</tr>
+
+<tr>
+<td class="org-right">0x0D</td>
+<td class="org-left">loadInt</td>
+<td class="org-right">78</td>
+<td class="org-left">a = (int)*b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x0E</td>
+<td class="org-left">loadFloat</td>
+<td class="org-right">129</td>
+<td class="org-left">a = (float)*b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x0F</td>
+<td class="org-left">loadPointer</td>
+<td class="org-right">2</td>
+<td class="org-left">a = (pointer)*b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x10</td>
+<td class="org-left">storeInt</td>
+<td class="org-right">0</td>
+<td class="org-left">(int*)a = b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x11</td>
+<td class="org-left">storeFloat</td>
+<td class="org-right">0</td>
+<td class="org-left">(float*)a = b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x12</td>
+<td class="org-left">storePointer</td>
+<td class="org-right">0</td>
+<td class="org-left">(char**)a = b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x13</td>
+<td class="org-left">lookupInt</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (int)lookup((sid)data[kk*N])</td>
+</tr>
+
+<tr>
+<td class="org-right">0x14</td>
+<td class="org-left">lookupFloat</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (float)lookuo((sid)data[kk*N])</td>
+</tr>
+
+<tr>
+<td class="org-right">0x15</td>
+<td class="org-left">lookupPointer</td>
+<td class="org-right">8313</td>
+<td class="org-left">a = (char*)lookup((sid)data[kk*N])</td>
+</tr>
+
+<tr>
+<td class="org-right">0x16</td>
+<td class="org-left">moveInt</td>
+<td class="org-right">0</td>
+<td class="org-left">a = b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x17</td>
+<td class="org-left">moveFloat</td>
+<td class="org-right">0</td>
+<td class="org-left">a = b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x18</td>
+<td class="org-left">movePointer</td>
+<td class="org-right">0</td>
+<td class="org-left">a = b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x19</td>
+<td class="org-left">castInteger</td>
+<td class="org-right">23</td>
+<td class="org-left">a = (int)b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x1A</td>
+<td class="org-left">castFloat</td>
+<td class="org-right">86</td>
+<td class="org-left">a = (float)b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x1B</td>
+<td class="org-left">call</td>
+<td class="org-right">1429</td>
+<td class="org-left">Call script function(aArg, bRes, argc)</td>
+</tr>
+
+<tr>
+<td class="org-right">0x1C</td>
+<td class="org-left">callFf</td>
+<td class="org-right">6866</td>
+<td class="org-left">Call native function(aArg, bRes, argc)</td>
+</tr>
+
+<tr>
+<td class="org-right">0x1D</td>
+<td class="org-left">cmpEqual</td>
+<td class="org-right">721</td>
+<td class="org-left">a = b == c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x1E</td>
+<td class="org-left">cmpGt</td>
+<td class="org-right">49</td>
+<td class="org-left">a = b &gt; c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x1F</td>
+<td class="org-left">cmpGtEqual</td>
+<td class="org-right">20</td>
+<td class="org-left">a = b &gt;= c)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+\FloatBarrier
+</p>
+
+<table id="org8cda7cf" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> Команды виртуальной машины с 0x20 по 0x3F</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Opcode</th>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-right">Q-ty</th>
+<th scope="col" class="org-left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0x20</td>
+<td class="org-left">cmpLt</td>
+<td class="org-right">141</td>
+<td class="org-left">a = b &lt; c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x21</td>
+<td class="org-left">cmpLtEqual</td>
+<td class="org-right">16</td>
+<td class="org-left">a = b &lt;= c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x22</td>
+<td class="org-left">cmpFloatEqual</td>
+<td class="org-right">19</td>
+<td class="org-left">a = b == c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x23</td>
+<td class="org-left">cmpFloatGt</td>
+<td class="org-right">108</td>
+<td class="org-left">a = b &gt; c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x24</td>
+<td class="org-left">cmpFloatGtEqual</td>
+<td class="org-right">31</td>
+<td class="org-left">a = b &gt;= c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x25</td>
+<td class="org-left">cmpFloatLt</td>
+<td class="org-right">153</td>
+<td class="org-left">a = b &lt; c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x26</td>
+<td class="org-left">cmpFloatLtEqual</td>
+<td class="org-right">44</td>
+<td class="org-left">a = b &lt;= c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x27</td>
+<td class="org-left">intMod</td>
+<td class="org-right">2</td>
+<td class="org-left">a = mod(b)</td>
+</tr>
+
+<tr>
+<td class="org-right">0x28</td>
+<td class="org-left">floatMod</td>
+<td class="org-right">0</td>
+<td class="org-left">a = fmod(b)</td>
+</tr>
+
+<tr>
+<td class="org-right">0x29</td>
+<td class="org-left">intAbs</td>
+<td class="org-right">0</td>
+<td class="org-left">a = abs(b)</td>
+</tr>
+
+<tr>
+<td class="org-right">0x2A</td>
+<td class="org-left">floatAbs</td>
+<td class="org-right">18</td>
+<td class="org-left">a = fabs(b)</td>
+</tr>
+
+<tr>
+<td class="org-right">0x2B</td>
+<td class="org-left">(not available)</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">0x2C</td>
+<td class="org-left">(not available)</td>
+<td class="org-right">0</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-right">0x2D</td>
+<td class="org-left">branch</td>
+<td class="org-right">844</td>
+<td class="org-left">rjump kk</td>
+</tr>
+
+<tr>
+<td class="org-right">0x2E</td>
+<td class="org-left">branchIf</td>
+<td class="org-right">348</td>
+<td class="org-left">if (a) rjmp kk</td>
+</tr>
+
+<tr>
+<td class="org-right">0x2F</td>
+<td class="org-left">branchIfNot</td>
+<td class="org-right">2063</td>
+<td class="org-left">if (not a) rjmp kk</td>
+</tr>
+
+<tr>
+<td class="org-right">0x30</td>
+<td class="org-left">opLogNot</td>
+<td class="org-right">417</td>
+<td class="org-left">a = not b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x31</td>
+<td class="org-left">opBitAnd</td>
+<td class="org-right">1</td>
+<td class="org-left">a = b band c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x32</td>
+<td class="org-left">opBitNot</td>
+<td class="org-right">0</td>
+<td class="org-left">a = bnot(b)</td>
+</tr>
+
+<tr>
+<td class="org-right">0x33</td>
+<td class="org-left">opBitOr</td>
+<td class="org-right">0</td>
+<td class="org-left">a = b bor c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x34</td>
+<td class="org-left">opBitXor</td>
+<td class="org-right">0</td>
+<td class="org-left">a = b bxor c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x35</td>
+<td class="org-left">opBitNor</td>
+<td class="org-right">0</td>
+<td class="org-left">a = bont (b bor c)</td>
+</tr>
+
+<tr>
+<td class="org-right">0x36</td>
+<td class="org-left">opLogAnd</td>
+<td class="org-right">0</td>
+<td class="org-left">a = b and c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x37</td>
+<td class="org-left">opLogOr</td>
+<td class="org-right">0</td>
+<td class="org-left">a = a or c</td>
+</tr>
+
+<tr>
+<td class="org-right">0x38</td>
+<td class="org-left">intNeg</td>
+<td class="org-right">0</td>
+<td class="org-left">a = -b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x39</td>
+<td class="org-left">floatNeg</td>
+<td class="org-right">0</td>
+<td class="org-left">a = -b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x3A</td>
+<td class="org-left">loadParmCnt</td>
+<td class="org-right">1</td>
+<td class="org-left">a = argc</td>
+</tr>
+
+<tr>
+<td class="org-right">0x3B</td>
+<td class="org-left">intAddImm</td>
+<td class="org-right">158</td>
+<td class="org-left">a = b + k</td>
+</tr>
+
+<tr>
+<td class="org-right">0x3C</td>
+<td class="org-left">intSubImm</td>
+<td class="org-right">0</td>
+<td class="org-left">a = b - k</td>
+</tr>
+
+<tr>
+<td class="org-right">0x3D</td>
+<td class="org-left">intMulImm</td>
+<td class="org-right">0</td>
+<td class="org-left">a = b * k</td>
+</tr>
+
+<tr>
+<td class="org-right">0x3E</td>
+<td class="org-left">intDivImm</td>
+<td class="org-right">0</td>
+<td class="org-left">a = b / k</td>
+</tr>
+
+<tr>
+<td class="org-right">0x3F</td>
+<td class="org-left">loadStaticI32Imm</td>
+<td class="org-right">7128</td>
+<td class="org-left">a = (i32)data[kk*N])</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+\FloatBarrier
+</p>
+
+<table id="orgd13ec1d" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 3:</span> Команды виртуальной машины с 0x40 по 0x4A</caption>
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Opcode</th>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-right">Q-ty</th>
+<th scope="col" class="org-left">Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0x40</td>
+<td class="org-left">loadStaticFloat</td>
+<td class="org-right">1699</td>
+<td class="org-left">a = (float)data[kk*N])</td>
+</tr>
+
+<tr>
+<td class="org-right">0x41</td>
+<td class="org-left">loadStaticPointer</td>
+<td class="org-right">558</td>
+<td class="org-left">a = (char*)&amp;data[data[kk*N]]</td>
+</tr>
+
+<tr>
+<td class="org-right">0x42</td>
+<td class="org-left">intAsh</td>
+<td class="org-right">0</td>
+<td class="org-left">a shift b bits left/right</td>
+</tr>
+
+<tr>
+<td class="org-right">0x43</td>
+<td class="org-left">move</td>
+<td class="org-right">27681</td>
+<td class="org-left">a = b</td>
+</tr>
+
+<tr>
+<td class="org-right">0x44</td>
+<td class="org-left">loadStaticU32</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (u32)data[kk*N])</td>
+</tr>
+
+<tr>
+<td class="org-right">0x45</td>
+<td class="org-left">loadStaticI8</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (i8)data[kk*N])</td>
+</tr>
+
+<tr>
+<td class="org-right">0x46</td>
+<td class="org-left">loadStaticU8</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (u8)data[kk*N])</td>
+</tr>
+
+<tr>
+<td class="org-right">0x47</td>
+<td class="org-left">loadStaticI16</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (i16)data[kk*N])</td>
+</tr>
+
+<tr>
+<td class="org-right">0x48</td>
+<td class="org-left">loadStaticU16</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (u16)data[kk*N])</td>
+</tr>
+
+<tr>
+<td class="org-right">0x49</td>
+<td class="org-left">loadStaticI64</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (i64)data[kk*N])</td>
+</tr>
+
+<tr>
+<td class="org-right">0x4A</td>
+<td class="org-left">loadStaticU64</td>
+<td class="org-right">0</td>
+<td class="org-left">a = (u64)data[kk*N])</td>
+</tr>
+
+<tr>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+\FloatBarrier
+</p>
+
+
+
+<p>
+\clearpage
+</p>
+</div>
+<div id="outline-container-orga035e3c" class="outline-3">
+<h3 id="orga035e3c"><span class="section-number-3">20.1.</span> Использование регистров и констант</h3>
+<div class="outline-text-3" id="text-20-1">
+<p>
+Приведу несколько примеров. В игре \emph{The Last of Us} не было ни одного доступа к регистру, большему чем \emph{R34}. При этом, регистры \emph{R24} и выше использовались, как правило, для передачи аргументов. 
+</p>
+
+<p>
+Код функции \emph{npc-smart-move-to} выглядит так:
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #c678dd;">npc-smart-move-to</span>:
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Get 4 arguments</span>
+    <span style="color: #51afef;">move</span>    r0, r24             <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r0 = r24</span>
+    <span style="color: #51afef;">move</span>    r1, r25             <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r1 = r25</span>
+    <span style="color: #51afef;">move</span>    r2, r26             <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r2 = r26</span>
+    <span style="color: #51afef;">move</span>    r3, r27             <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r3 = r27</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Find object reference</span>
+    <span style="color: #51afef;">lockupPointer</span> r4, data[<span style="color: #da8548; font-weight: bold;">0</span>]   <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r4 = StringId(0xa93d2926)</span>
+    <span style="color: #51afef;">move</span>    r5, r1              <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r5 = r1</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Set arguments</span>
+    <span style="color: #51afef;">move</span>    r24, r5             <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r24 = r5</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Call function</span>
+    <span style="color: #51afef;">callFf</span>  r4,r4,<span style="color: #da8548; font-weight: bold;">1</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Use the result of functo</span>
+    <span style="color: #51afef;">branchIfNot</span> r4, 0x00001770  <span style="color: #5B6268;">; </span><span style="color: #5B6268;">ix00001770</span>
+</pre>
+</div>
+
+<p>
+\FloatBarrier
+</p>
+
+<p>
+Ниже приведен исходный код функции \emph{vector-scale}. Можно заметить, что компилятор не имеет средств для качественной оптимизации. Но это не является большой проблемой, так как игра имеет хорошую архитектуру и четкое разделение между процессами высокой интенсивности и логикой игры, выполненной на \emph{VM}.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #c678dd;">vector-scale</span>(scalar, vector*)
+    <span style="color: #51afef;">move</span>            r0, r24     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r0 = r24 = scalar value</span>
+    <span style="color: #51afef;">move</span>            r1, r25     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r1 = r25 = vector pointer</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Get native function pointer</span>
+    <span style="color: #51afef;">lookupPointer</span>   r2, data[<span style="color: #da8548; font-weight: bold;">0</span>] <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r2 = StringId(0xcd4b9c1b)</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Scale X</span>
+    <span style="color: #51afef;">move</span>            r3, r0      <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r3 = r0</span>
+    <span style="color: #51afef;">move</span>            r4, r1      <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r4 = r1 = &amp;vector.x</span>
+    <span style="color: #51afef;">loadFloat</span>       r4, (r4)    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r4 = *r4 = vector.x</span>
+    <span style="color: #51afef;">floatMul</span>        r3, r3, r4  <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r3 = r3 * r4 = x * scale</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Scale Y</span>
+    <span style="color: #51afef;">move</span>            r4, r0      <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r4 = r0 = scalar</span>
+    <span style="color: #51afef;">move</span>            r5, r1      <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r5 = r1 = &amp;vector</span>
+    <span style="color: #51afef;">intAddImm</span>       r5, r5, 0x04<span style="color: #5B6268;">; </span><span style="color: #5B6268;">r5 = r5 + 4 = &amp;vector.y</span>
+    <span style="color: #51afef;">loadFloat</span>       r5, (r5)    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r5 = *r5 = vector.y</span>
+    <span style="color: #51afef;">floatMul</span>        r4, r4, r5  <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r4 = r4 * r5 = y * scale</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Scale Z</span>
+    <span style="color: #51afef;">move</span>            r5, r0      <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r5 = r0 = scalar</span>
+    <span style="color: #51afef;">move</span>            r6, r1      <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r6 = r1 = &amp;vector</span>
+    <span style="color: #51afef;">intAddImm</span>       r6, r6, 0x08<span style="color: #5B6268;">; </span><span style="color: #5B6268;">r6 = r6 + 8 = &amp;vector.z</span>
+    <span style="color: #51afef;">loadFloat</span>       r6, (r6)    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r6 = *r6 = vector.z</span>
+    <span style="color: #51afef;">floatMul</span>        r5, r5, r6  <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r5 = r5 * r6 = vector.z * scale</span>
+    <span style="color: #51afef;">loadStaticFloat</span> r6, data[<span style="color: #da8548; font-weight: bold;">1</span>] <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r6 = 1</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Call function with 4 values</span>
+    <span style="color: #51afef;">move</span>            r24, r3     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r24 = r3 = x</span>
+    <span style="color: #51afef;">move</span>            r25, r4     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r25 = r4 = y</span>
+    <span style="color: #51afef;">move</span>            r26, r5     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r26 = r5 = z</span>
+    <span style="color: #51afef;">move</span>            r27, r6     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r27 = r6 = w = 1</span>
+    <span style="color: #51afef;">callFf</span>          r2, r2, <span style="color: #da8548; font-weight: bold;">4</span>   <span style="color: #5B6268;">; </span><span style="color: #5B6268;">function(x,y,z,w)</span>
+    <span style="color: #51afef;">return</span>          r2, r2
+</pre>
+</div>
+
+<p>
+\FloatBarrier
+</p>
+
+<p>
+Передача сообщения объекту присутствует в коде ниже.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #c678dd;">kill-rigid-body</span>(x,y)
+    <span style="color: #51afef;">move</span>            r0, r24     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r0 = r24</span>
+    <span style="color: #51afef;">move</span>            r1, r25     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r1 = r25</span>
+    <span style="color: #51afef;">lookup</span>          r2, data[<span style="color: #da8548; font-weight: bold;">0</span>] <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r2 = StringId(NATIVE:send-event)</span>
+    <span style="color: #51afef;">loadStaticI32Imm</span> r3, data[<span style="color: #da8548; font-weight: bold;">1</span>]<span style="color: #5B6268;">; </span><span style="color: #5B6268;">r3 = 274190794 (0x1057d1ca)</span>
+    <span style="color: #51afef;">move</span>            r4, r0      <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r4 = r0</span>
+    <span style="color: #51afef;">loadImm</span>         r5, 0x0004  <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r5 = 4</span>
+    <span style="color: #51afef;">move</span>            r6, r1      <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r6 = r1</span>
+    <span style="color: #51afef;">move</span>            r24, r3     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r24 = r3</span>
+    <span style="color: #51afef;">move</span>            r25, r4     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r25 = r4</span>
+    <span style="color: #51afef;">move</span>            r26, r5     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r26 = r5</span>
+    <span style="color: #51afef;">move</span>            r27, r6     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r27 = r6</span>
+    <span style="color: #51afef;">callFf</span>          r2, r2, <span style="color: #da8548; font-weight: bold;">4</span>   <span style="color: #5B6268;">; </span><span style="color: #5B6268;">send-event(264190794,x,4,y)</span>
+    <span style="color: #51afef;">return</span>          r2,r2
+</pre>
+</div>
+
+<p>
+\FloatBarrier
+</p>
+
+<p>
+Набор допустимых типов \emph{variant} контейнера не включает \emph{StringId} вместо этого используется \emph{integer} значение. Это можно видеть на примере ниже.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-asm">    <span style="color: #51afef;">cloth-remove-external-collider</span>(arg)
+    <span style="color: #51afef;">move</span>            r0, r24         <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r0 = r24</span>
+    <span style="color: #51afef;">lookupPointer</span>   r1, data[<span style="color: #da8548; font-weight: bold;">0</span>]     <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r1 = StringId(send-event)</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">Load string id 'cloth-remove-external-collider'</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">as integer 32 bits constant 1119424146</span>
+    <span style="color: #51afef;">loadStaticI32Imm</span> r2, data[<span style="color: #da8548; font-weight: bold;">1</span>]    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r2 = 1119424146</span>
+    <span style="color: #51afef;">move</span>            r3, r0          <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r3 = r0</span>
+    <span style="color: #51afef;">move</span>            r24, r2         <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r24 = r2</span>
+    <span style="color: #51afef;">move</span>            r25, r3         <span style="color: #5B6268;">; </span><span style="color: #5B6268;">r25 = r3</span>
+    <span style="color: #5B6268;">; </span><span style="color: #5B6268;">callFf(sid(cloth-remove-external-collider), arg)</span>
+    <span style="color: #51afef;">callFf</span>          r1, r1, <span style="color: #da8548; font-weight: bold;">2</span>
+    <span style="color: #51afef;">return</span>          r1, r1
+</pre>
+</div>
+
+<p>
+Типы данных размер которых превышает \emph{variant} контейнер передаются как указатель на объект или как хэндрер объекта в пуле. 
+</p>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org89271f5" class="outline-2">
+<h2 id="org89271f5"><span class="section-number-2">21.</span> Результат</h2>
+<div class="outline-text-2" id="text-21">
+<p>
+Безусловно, данное введение не велико и многое упрощает, описывая лишь базу игровой системы и пайплайна в целом. Однако, из этого описания можно составить представление о наиболее важных решениях:
+</p>
+
+<ul class="org-ul">
+<li>Избегать проектирования инструментов с перегруженным GUI, лучше использовать потратить силы на саму игру</li>
+<li>Распределенная система управления ассетами должна быть пригодна для совместной работы и должна поддерживать множество проектов и их вариантов</li>
+<li>Ядро игры должно быть производительным, а инструменты  дизайнера — гибкими</li>
+<li>Использование \emph{LISP}-подобных языков позволяет удобно описывать данные и код в одном файле</li>
+</ul>
+
+<p>
+Весь игровой процесс состоит из тысяч параллельных процессов, каждый из которых подобен сценарию фильма. Я наблюдала, что в коде присутсвуют функции, код которых занимает несколько экранов.
+</p>
+
+<p>
+В целом, большинство упомянутых подходов, применимо и к другим средам разработки игр, таким как \emph{Unity 3D} и \emph{Unreal Engine}. У меня есть завершенные коммерческие проекты на \emph{Unity 3D}, сделанные с использованием принципов, изложенных в этом документе. Я оцениваю этот результат как весьма успешный.
+</p>
+
+<p>
+\clearpage
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbd5a2ad" class="outline-2">
+<h2 id="orgbd5a2ad"><span class="section-number-2">22.</span> В завершение</h2>
+<div class="outline-text-2" id="text-22">
+<p>
+Стоит сказать, что проект \emph{The Last of Us on the Playstation 3} потребовал следующих ресурсов:
+</p>
+
+<ul class="org-ul">
+<li>16 программистов
+<ul class="org-ul">
+<li>из них лишь два \emph{tool} программиста</li>
+</ul></li>
+<li>20 дизайнеров</li>
+<li>120 аниматоров</li>
+<li>6000 DC файлов
+<ul class="org-ul">
+<li>120 Мб суммарный объём DC-исходных файлов</li>
+<li>45 Мб суммареный объём DC-бинарных файлов</li>
+<li>Динамически загружаемые в пространство 5 Мб в области хипа</li>
+</ul></li>
+</ul>
+
+\bibliographystyle{unsrtnat}
+\bibliography{/home/valery/projects/articles/nd_gfs/refs}
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Таких как .psd, .tga, .mb, .fbx и т.д.</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">Или комбинации обоих подходов</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">об этом сказано во введении</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">8 для <i>The Last of Us PS4</i> и 4 для <i>The Last of Us PS3</i></p></div></div>
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+<p class="date">Created: 2022-07-29 Пт 15:29</p>
+</div>
+</body>
+</html>
