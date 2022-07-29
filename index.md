@@ -64,11 +64,21 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 | C#  | [Using Model-View-Controller pattern with Unity 3D](https://github.com/hww/unity_mvc) |
 | C#  | [Unity editor extension for managing visibility of layers and categories of objects](https://github.com/hww/varp_art_manager)
 
-## My Articles 
+## My Articles :book: 
 
 ### Русский
 
-[Программирование игрового процесса *На примере игры The Last of Us*](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
+#### Программирование игрового процесса *На примере игры The Last of Us
+
+В документе кратко изложена базовая система игры _Game Runtime Base Foundation System_, используемая в серии игр “The Last of Us”. Игры компании _Naughty Dog_ - это хороший пример сочетания принципов достаточности _KIS_ и гибкости _Customization_.
+
+Информация в файле - результат беглого _reverse engineering_, поэтому может содержать не полную и не точную информацию, но ее, в целом, достаточно чтобы понять суть предложенного метода.
+
+[Программирование игрового процесса *На примере игры The Last of Us](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
+
+#### Мифы и заблуждения программиста игр
+
+Человек постоянно ошибается — не ошибается тот, кто ничего не делает. И даже лучшие из нас — опытные профессионалы — могут совершать досадные ошибки и заблуждаться. Этот документ описывает те расхожие заблуждения и ошибочные мифы, с которыми мне довелось столкнуться в профессиональной деятельности, при разработке игровых проектов.
 
 [Мифы и заблуждения программиста игр](https://docs.google.com/document/d/1oWby75MPbSMVWSmDUkr9b7rPAfSn6WW2_hZtNfyypS8/edit?usp=sharing)
 
