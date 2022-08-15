@@ -29,7 +29,7 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [Nintendo SP and DS on TV device](/projects/view_boy/)
 
-[Game Engine Architect](/projects/sengine/index.md)
+[Game Engine Architect](/projects/sengine/)
 
 [Pro Action Rocky - Nintendo cheat device](/projects/nintendo_cheat_device)
 
