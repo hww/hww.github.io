@@ -65,11 +65,15 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 | C#  | [Using Model-View-Controller pattern with Unity 3D](https://github.com/hww/unity_mvc) |
 | C#  | [Unity editor extension for managing visibility of layers and categories of objects](https://github.com/hww/varp_art_manager)
 
-## My Articles 
+## My Articles (Eng)
 
-### Русский
+[Lisp based scripting in Unity 3D (2013)](https://docs.google.com/document/d/e/2PACX-1vSx2Bilw0ZGgiUx9lbXfAR3JLs1i-kHJgqAUFN3sJWLG6si51pcFg8dTZqzzSoln6aiq24uS0w_6ZAC/pub)
 
-#### Программирование игрового процесса _Пояснения для креативной команды_ 
+[Rapid Game Development System Overview (2003)](https://docs.google.com/document/d/e/2PACX-1vSFIKzHRjDRz4NuzrIc4kiudjMa1cV1uFk1h3P7JNZqujAYrHVC68PLmVH5ALX0kT6SFOSuyN-NHG9V/pub)
+
+## My Articles (Rus)
+
+### Программирование игрового процесса _Пояснения для креативной команды_ 
 
 _2022_
 
@@ -79,7 +83,7 @@ _2022_
 
 [Программирование игрового процесса _Пояснения для креативной команды_](https://docs.google.com/document/d/e/2PACX-1vSUy3AK03HaCGqjjiuuVVqfiFTGcdesL-f5VEdzvTILd3OFax75-0CV0RLK_G2JRi7_Ys_VgGZ7XKcf/pub)
 
-#### Программирование игрового процесса _На примере игры The Last of Us_ 
+### Программирование игрового процесса _На примере игры The Last of Us_ 
 
 _2022_
 
@@ -91,7 +95,7 @@ _2022_
 
 [Программирование игрового процесса _На примере игры The Last of Us_](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
 
-#### Мифы и заблуждения программиста игр
+### Мифы и заблуждения программиста игр
 
  _2022_
 
@@ -99,11 +103,6 @@ _2022_
 
 [Мифы и заблуждения программиста игр](https://docs.google.com/document/d/1oWby75MPbSMVWSmDUkr9b7rPAfSn6WW2_hZtNfyypS8/edit?usp=sharing)
 
-### English
-
-[Lisp based scripting in Unity 3D (2013)](https://docs.google.com/document/d/e/2PACX-1vSx2Bilw0ZGgiUx9lbXfAR3JLs1i-kHJgqAUFN3sJWLG6si51pcFg8dTZqzzSoln6aiq24uS0w_6ZAC/pub)
-
-[Rapid Game Development System Overview (2003)](https://docs.google.com/document/d/e/2PACX-1vSFIKzHRjDRz4NuzrIc4kiudjMa1cV1uFk1h3P7JNZqujAYrHVC68PLmVH5ALX0kT6SFOSuyN-NHG9V/pub)
 
 ## Homebrew Projects
 
