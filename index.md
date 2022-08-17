@@ -69,7 +69,9 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 ### Русский
 
-#### Программирование игрового процесса _Пояснения для креативной команды_ _2022_
+#### Программирование игрового процесса _Пояснения для креативной команды_ 
+
+_2022_
 
 **Keywords* _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
 
@@ -77,7 +79,9 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [Программирование игрового процесса _Пояснения для креативной команды_](https://docs.google.com/document/d/e/2PACX-1vSUy3AK03HaCGqjjiuuVVqfiFTGcdesL-f5VEdzvTILd3OFax75-0CV0RLK_G2JRi7_Ys_VgGZ7XKcf/pub)
 
-#### Программирование игрового процесса _На примере игры The Last of Us_ _2022_
+#### Программирование игрового процесса _На примере игры The Last of Us_ 
+
+_2022_
 
 **Keywords** _Object System_, _Runtime_, _Scripting_, _Finite State Machines_, _AI_, _Game Design_
 
@@ -87,7 +91,9 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [Программирование игрового процесса _На примере игры The Last of Us_](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
 
-#### Мифы и заблуждения программиста игр _2022_
+#### Мифы и заблуждения программиста игр
+
+ _2022_
 
 Человек постоянно ошибается — не ошибается тот, кто ничего не делает. И даже лучшие из нас — опытные профессионалы — могут совершать досадные ошибки и заблуждаться. Этот документ описывает те расхожие заблуждения и ошибочные мифы, с которыми мне довелось столкнуться в профессиональной деятельности, при разработке игровых проектов.
 
