@@ -69,6 +69,12 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 ### Русский
 
+#### Программирование игрового процесса _Пояснения для креативной команды_
+
+В статье «Программирование игрового процесса — На примере игры The Last of Us» я рассматриваю только технические особенности — оставляя взгляд креативной команды в стороне. Поэтому в этой статье я приведу краткие выдержки на креативную сторону этого технического решения.
+
+[Программирование игрового процесса _Пояснения для креативной команды_](https://docs.google.com/document/d/e/2PACX-1vSUy3AK03HaCGqjjiuuVVqfiFTGcdesL-f5VEdzvTILd3OFax75-0CV0RLK_G2JRi7_Ys_VgGZ7XKcf/pub)
+
 #### Программирование игрового процесса _На примере игры The Last of Us_
 
 **Keywords** _Object System_, _Runtime_, _Scripting_, _Finite State Machines_, _AI_, _Game Design_
@@ -77,7 +83,7 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 Информация в файле - результат беглого _reverse engineering_, поэтому может содержать не полную и не точную информацию, но ее, в целом, достаточно чтобы понять суть предложенного метода.
 
-[Программирование игрового процесса *На примере игры The Last of Us](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
+[Программирование игрового процесса _На примере игры The Last of Us_](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
 
 #### Мифы и заблуждения программиста игр
 
