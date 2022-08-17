@@ -71,6 +71,8 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 #### Программирование игрового процесса _Пояснения для креативной команды_ _2022_
 
+**Keywords* _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
+
 В статье «Программирование игрового процесса — На примере игры The Last of Us» я рассматриваю только технические особенности — оставляя взгляд креативной команды в стороне. Поэтому в этой статье я приведу краткие выдержки на креативную сторону этого технического решения.
 
 [Программирование игрового процесса _Пояснения для креативной команды_](https://docs.google.com/document/d/e/2PACX-1vSUy3AK03HaCGqjjiuuVVqfiFTGcdesL-f5VEdzvTILd3OFax75-0CV0RLK_G2JRi7_Ys_VgGZ7XKcf/pub)
