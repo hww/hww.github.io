@@ -67,6 +67,8 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 ## My Articles (Eng)
 
+[Game programming -- Clarification for the creative team (2023)](https://docs.google.com/document/d/e/2PACX-1vSetn9YKYDndMBBiVMpXZvQR_1_5BHTXL354HB4n7S7eyL6r1aUIedM_qw9OwiXx5bl4HhsarFXlXBQ/pub)
+
 [Lisp based scripting in Unity 3D (2013)](https://docs.google.com/document/d/e/2PACX-1vSx2Bilw0ZGgiUx9lbXfAR3JLs1i-kHJgqAUFN3sJWLG6si51pcFg8dTZqzzSoln6aiq24uS0w_6ZAC/pub)
 
 [Rapid Game Development System Overview (2003)](https://docs.google.com/document/d/e/2PACX-1vSFIKzHRjDRz4NuzrIc4kiudjMa1cV1uFk1h3P7JNZqujAYrHVC68PLmVH5ALX0kT6SFOSuyN-NHG9V/pub)
