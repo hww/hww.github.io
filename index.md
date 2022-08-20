@@ -67,7 +67,7 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 ## My Articles (Eng)
 
-[Game programming -- Clarification for the creative team (2022)](https://docs.google.com/document/d/e/2PACX-1vSetn9YKYDndMBBiVMpXZvQR_1_5BHTXL354HB4n7S7eyL6r1aUIedM_qw9OwiXx5bl4HhsarFXlXBQ/pub)
+[Game Developing - Clarification for the creative team (2022)](https://docs.google.com/document/d/e/2PACX-1vSetn9YKYDndMBBiVMpXZvQR_1_5BHTXL354HB4n7S7eyL6r1aUIedM_qw9OwiXx5bl4HhsarFXlXBQ/pub)
 
 [Game Developing - The Last of Us Case Study (2022)](https://drive.google.com/file/d/1R1u8fZQ5cPoLcReZ_OiVSzKKswbwg5pM/view?usp=sharing)
 
