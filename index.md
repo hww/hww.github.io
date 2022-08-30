@@ -77,6 +77,16 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 ## My Articles (Rus)
 
+### Методы разработчиков ААА-игр для инди-студии _Общее в решениях Naughty Dog и Kojima Productions_
+
+_2022_
+
+Рассматривая AAA-игры как идеал, который невозможно достичь, инди-разработчики рискуют потерпеть неудачу. Я скажу напротив – такие проекты, как Death Stranding или The Last of Us, необходимо анализировать каждому, а подходы разработчиков применять и в своей практике. Об этом я предлагаю подумать в данной статье.
+
+[Методы разработчиков ААА-игр для инди-студии _Общее в решениях Naughty Dog и Kojima Productions_](https://docs.google.com/document/d/e/2PACX-1vQMQ9cl63Sk3agu_Fz0Gf1XCber4bU4HNFwDKYFZJWSNM-g-gOzNgMdcO7aXw8xPz9mwdcdFwCbU3ym/pub)
+
+**Keywords* _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
+
 ### Программирование игрового процесса _Пояснения для креативной команды_ 
 
 _2022_
