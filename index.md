@@ -85,13 +85,13 @@ _2022_
 
 [Методы разработчиков ААА-игр для инди-студии _Общее в решениях Naughty Dog и Kojima Productions_](https://docs.google.com/document/d/e/2PACX-1vQMQ9cl63Sk3agu_Fz0Gf1XCber4bU4HNFwDKYFZJWSNM-g-gOzNgMdcO7aXw8xPz9mwdcdFwCbU3ym/pub)
 
-**Keywords* _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
+**Keywords** _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
 
 ### Программирование игрового процесса _Пояснения для креативной команды_ 
 
 _2022_
 
-**Keywords* _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
+**Keywords** _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
 
 В статье «Программирование игрового процесса — На примере игры The Last of Us» я рассматриваю только технические особенности — оставляя взгляд креативной команды в стороне. Поэтому в этой статье я приведу краткие выдержки на креативную сторону этого технического решения.
 
