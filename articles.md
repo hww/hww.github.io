@@ -1,4 +1,4 @@
-# My Articles (Eng)
+# My Articles
 
 [Game Developing - Clarification for the creative team (2022)](https://docs.google.com/document/d/e/2PACX-1vSetn9YKYDndMBBiVMpXZvQR_1_5BHTXL354HB4n7S7eyL6r1aUIedM_qw9OwiXx5bl4HhsarFXlXBQ/pub)
 
