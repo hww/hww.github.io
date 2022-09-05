@@ -85,6 +85,8 @@ _2022_
 
 [Чек-лист нанимающего менеджера (специалиста)](https://docs.google.com/document/d/e/2PACX-1vS8-1iUp4yFa3FYkX7MFRzjld9ik87vrk3Hg2H3TYC1H3Xj2j5ejgdmkgmdzZTYnc82-IkE5Kg-OMd5/pub)
 
+**Keywords** Jobs, JobSearch, JobSearching, JobSearchTips, Resume
+
 ### Методы разработчиков ААА-игр для инди-студии 
 
 _Общее в решениях Naughty Dog и Kojima Productions_
