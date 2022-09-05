@@ -1,6 +1,8 @@
 
 # Статьи
 
+Перечень моих статей на различные темы связанные с разработкой программного обеспечения.
+
 ## Чек-лист нанимающего менеджера (специалиста)
 
 _2022_
@@ -9,7 +11,7 @@ _2022_
 
 [Чек-лист нанимающего менеджера (специалиста)](https://docs.google.com/document/d/e/2PACX-1vS8-1iUp4yFa3FYkX7MFRzjld9ik87vrk3Hg2H3TYC1H3Xj2j5ejgdmkgmdzZTYnc82-IkE5Kg-OMd5/pub)
 
-**Keywords** Jobs, JobSearch, JobSearching, JobSearchTips, Resume
+**Keywords** _Jobs_, _JobSearch_, _JobSearching_, _JobSearchTips_, _Resume_
 
 ## Методы разработчиков ААА-игр для инди-студии 
 
@@ -27,23 +29,23 @@ _2022_
 
 _2022_
 
-**Keywords** _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
-
 В статье «Программирование игрового процесса — На примере игры The Last of Us» я рассматриваю только технические особенности — оставляя взгляд креативной команды в стороне. Поэтому в этой статье я приведу краткие выдержки на креативную сторону этого технического решения.
 
 [Программирование игрового процесса _Пояснения для креативной команды_](https://docs.google.com/document/d/e/2PACX-1vSUy3AK03HaCGqjjiuuVVqfiFTGcdesL-f5VEdzvTILd3OFax75-0CV0RLK_G2JRi7_Ys_VgGZ7XKcf/pub)
 
+**Keywords** _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
+
 ## Программирование игрового процесса _На примере игры The Last of Us_ 
 
 _2022_
-
-**Keywords** _Object System_, _Runtime_, _Scripting_, _Finite State Machines_, _AI_, _Game Design_
 
 В документе кратко изложена базовая система игры _Game Runtime Base Foundation System_, используемая в серии игр “The Last of Us”. Игры компании _Naughty Dog_ - это хороший пример сочетания принципов достаточности _KIS_ и гибкости _Customization_.
 
 Информация в файле - результат беглого _reverse engineering_, поэтому может содержать не полную и не точную информацию, но ее, в целом, достаточно чтобы понять суть предложенного метода.
 
 [Программирование игрового процесса _На примере игры The Last of Us_](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
+
+**Keywords** _Object System_, _Runtime_, _Scripting_, _Finite State Machines_, _AI_, _Game Design_
 
 ## Мифы и заблуждения программиста игр
 
@@ -53,4 +55,5 @@ _2022_
 
 [Мифы и заблуждения программиста игр](https://docs.google.com/document/d/1oWby75MPbSMVWSmDUkr9b7rPAfSn6WW2_hZtNfyypS8/edit?usp=sharing)
 
+**Keywords** _Programming_, _Simulation_, _Scripting_, _AI_, _Game Design_
 
