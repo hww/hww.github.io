@@ -27,7 +27,7 @@ _2022_
 
 **Keywords** _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
 
-### Программирование игрового процесса 
+### Программирование игрового процесса #2
 
 _Пояснения для креативной команды_ 
 
@@ -39,7 +39,7 @@ _2022_
 
 **Keywords** _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
 
-### Программирование игрового процесса 
+### Программирование игрового процесса #1
 
 _На примере игры The Last of Us_ 
 
