@@ -25,6 +25,12 @@ I am a widely skilled hardware and software designer in the St. Petersburg area.
 
 Russian (native), English (fluent) 
 
+## My Articles 
+
+[English](/articles)
+
+[Russian](/articles.rus)
+
 ## Projects 
 
 A collection of links to some of my projects. Most of the information does not include design documentation.
@@ -64,71 +70,6 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 | C#  | [In Game Text Only Debug Menu for Unity](https://github.com/hww/varp_debug_menu) | 
 | C#  | [Using Model-View-Controller pattern with Unity 3D](https://github.com/hww/unity_mvc) |
 | C#  | [Unity editor extension for managing visibility of layers and categories of objects](https://github.com/hww/varp_art_manager)
-
-## My Articles (Eng)
-
-[Game Developing - Clarification for the creative team (2022)](https://docs.google.com/document/d/e/2PACX-1vSetn9YKYDndMBBiVMpXZvQR_1_5BHTXL354HB4n7S7eyL6r1aUIedM_qw9OwiXx5bl4HhsarFXlXBQ/pub)
-
-[Game Developing - The Last of Us Case Study (2022)](https://drive.google.com/file/d/1R1u8fZQ5cPoLcReZ_OiVSzKKswbwg5pM/view?usp=sharing)
-
-[Lisp based scripting in Unity 3D (2013)](https://docs.google.com/document/d/e/2PACX-1vSx2Bilw0ZGgiUx9lbXfAR3JLs1i-kHJgqAUFN3sJWLG6si51pcFg8dTZqzzSoln6aiq24uS0w_6ZAC/pub)
-
-[Rapid Game Development System Overview (2003)](https://docs.google.com/document/d/e/2PACX-1vSFIKzHRjDRz4NuzrIc4kiudjMa1cV1uFk1h3P7JNZqujAYrHVC68PLmVH5ALX0kT6SFOSuyN-NHG9V/pub)
-
-## My Articles (Rus)
-
-### Чек-лист нанимающего менеджера (специалиста)
-
-_2022_
-
-Для совершенствования процесса отбора кандидатов я предлагаю следующий проверочный список. Я просматриваю его всякий раз, перед собеседованием с кандидатом, и учитываю утверждения из него при принятии решений.
-
-[Чек-лист нанимающего менеджера (специалиста)](https://docs.google.com/document/d/e/2PACX-1vS8-1iUp4yFa3FYkX7MFRzjld9ik87vrk3Hg2H3TYC1H3Xj2j5ejgdmkgmdzZTYnc82-IkE5Kg-OMd5/pub)
-
-**Keywords** Jobs, JobSearch, JobSearching, JobSearchTips, Resume
-
-### Методы разработчиков ААА-игр для инди-студии 
-
-_Общее в решениях Naughty Dog и Kojima Productions_
-
-_2022_
-
-Рассматривая AAA-игры как идеал, который невозможно достичь, инди-разработчики рискуют потерпеть неудачу. Я скажу напротив – такие проекты, как Death Stranding или The Last of Us, необходимо анализировать каждому, а подходы разработчиков применять и в своей практике. Об этом я предлагаю подумать в данной статье.
-
-[Методы разработчиков ААА-игр для инди-студии _Общее в решениях Naughty Dog и Kojima Productions_](https://docs.google.com/document/d/e/2PACX-1vQMQ9cl63Sk3agu_Fz0Gf1XCber4bU4HNFwDKYFZJWSNM-g-gOzNgMdcO7aXw8xPz9mwdcdFwCbU3ym/pub)
-
-**Keywords** _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
-
-### Программирование игрового процесса _Пояснения для креативной команды_ 
-
-_2022_
-
-**Keywords** _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
-
-В статье «Программирование игрового процесса — На примере игры The Last of Us» я рассматриваю только технические особенности — оставляя взгляд креативной команды в стороне. Поэтому в этой статье я приведу краткие выдержки на креативную сторону этого технического решения.
-
-[Программирование игрового процесса _Пояснения для креативной команды_](https://docs.google.com/document/d/e/2PACX-1vSUy3AK03HaCGqjjiuuVVqfiFTGcdesL-f5VEdzvTILd3OFax75-0CV0RLK_G2JRi7_Ys_VgGZ7XKcf/pub)
-
-### Программирование игрового процесса _На примере игры The Last of Us_ 
-
-_2022_
-
-**Keywords** _Object System_, _Runtime_, _Scripting_, _Finite State Machines_, _AI_, _Game Design_
-
-В документе кратко изложена базовая система игры _Game Runtime Base Foundation System_, используемая в серии игр “The Last of Us”. Игры компании _Naughty Dog_ - это хороший пример сочетания принципов достаточности _KIS_ и гибкости _Customization_.
-
-Информация в файле - результат беглого _reverse engineering_, поэтому может содержать не полную и не точную информацию, но ее, в целом, достаточно чтобы понять суть предложенного метода.
-
-[Программирование игрового процесса _На примере игры The Last of Us_](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
-
-### Мифы и заблуждения программиста игр
-
- _2022_
-
-Человек постоянно ошибается — не ошибается тот, кто ничего не делает. И даже лучшие из нас — опытные профессионалы — могут совершать досадные ошибки и заблуждаться. Этот документ описывает те расхожие заблуждения и ошибочные мифы, с которыми мне довелось столкнуться в профессиональной деятельности, при разработке игровых проектов.
-
-[Мифы и заблуждения программиста игр](https://docs.google.com/document/d/1oWby75MPbSMVWSmDUkr9b7rPAfSn6WW2_hZtNfyypS8/edit?usp=sharing)
-
 
 ## Homebrew Projects
 
