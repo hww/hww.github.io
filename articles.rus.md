@@ -59,7 +59,7 @@ _2022_
 
 Человек постоянно ошибается — не ошибается тот, кто ничего не делает. И даже лучшие из нас — опытные профессионалы — могут совершать досадные ошибки и заблуждаться. Этот документ описывает те расхожие заблуждения и ошибочные мифы, с которыми мне довелось столкнуться в профессиональной деятельности, при разработке игровых проектов.
 
-[Мифы и заблуждения программиста игр](https://docs.google.com/document/d/1oWby75MPbSMVWSmDUkr9b7rPAfSn6WW2_hZtNfyypS8/edit?usp=sharing)
+[Мифы и заблуждения программиста игр](https://docs.google.com/document/d/e/2PACX-1vTbXMLVn-BG5nWvkXAVqVxqcduZHD78_4oxHJKqClbGva3q3DTfOAUD0jmKqGO3Vn0Hgo9zkRneUbQv/pub)
 
 **Keywords** _Programming_, _Simulation_, _Scripting_, _AI_, _Game Design_
 
