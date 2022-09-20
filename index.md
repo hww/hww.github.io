@@ -71,7 +71,7 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 | C#  | [In Game Text Only Debug Menu for Unity](https://github.com/hww/varp_debug_menu) | 
 | C#  | [Using Model-View-Controller pattern with Unity 3D](https://github.com/hww/unity_mvc) |
 | C#  | [Unity editor extension for managing visibility of layers and categories of objects](https://github.com/hww/varp_art_manager) |
-| C#  | [A tiny Sound System for Unity 3D](https://github.com/hww/XiSound) |
+| C#  | [A tiny sound system for Unity 3D](https://github.com/hww/XiSound) |
 
 ## Homebrew Projects
 
