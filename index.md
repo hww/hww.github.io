@@ -71,6 +71,8 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 | C#  | [In Game Text Only Debug Menu for Unity](https://github.com/hww/XiDebugMenu) | 
 | C#  | [A tiny sound system for Unity 3D](https://github.com/hww/XiSound) |
 | C#  | [Using Model-View-Controller pattern with Unity 3D](https://github.com/hww/unity_mvc) |
+| C#  | [A Unity 3D Demo Noise Flowfield](https://github.com/hww/noise_flow_field) |
+| C#  | [A Unity 3D Demo Koch Fractals](https://github.com/hww/koch_fractals) |
 
 ## Homebrew Projects
 
