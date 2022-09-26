@@ -35,7 +35,7 @@ Russian (native), English (fluent)
 
 A collection of links to some of my projects. Most of the information does not include design documentation.
 
-[2022 - The Emacs menu and keyboard system for Unity 3D](https://github.com/hww/XiKeyboard))
+[2022 - The Emacs menu and keyboard system for Unity 3D](https://github.com/hww/XiKeyboard)
 
 [2022 - The open GOAL type system for Common LISP](https://github.com/hww/open-goal-type-system-cl)
 
