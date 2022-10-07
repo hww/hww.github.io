@@ -14,6 +14,6 @@ Even though today I would do some parts of the design differently, this was very
 
 ## Links
 
-- [Rapid Game Development System Overview (2003)](https://docs.google.com/document/d/e/2PACX-1vSFIKzHRjDRz4NuzrIc4kiudjMa1cV1uFk1h3P7JNZqujAYrHVC68PLmVH5ALX0kT6SFOSuyN-NHG9V/pub)
+- [(2003) Rapid Game Development System Overview](https://docs.google.com/document/d/e/2PACX-1vSFIKzHRjDRz4NuzrIc4kiudjMa1cV1uFk1h3P7JNZqujAYrHVC68PLmVH5ALX0kT6SFOSuyN-NHG9V/pub)
 
-- [Syber Engine - The SyberScript Language Reference](https://docs.google.com/document/d/e/2PACX-1vRin6WXakR_0LOFaL5qjfg53xc-IPn_T2K5UFJpODlSbujGIPbBxSBkgSFX4IJyMuQgcdb4garsibuf/pub?dfgdsf)
+- [(2003) Syber Engine - The SyberScript Language Reference](https://docs.google.com/document/d/e/2PACX-1vRin6WXakR_0LOFaL5qjfg53xc-IPn_T2K5UFJpODlSbujGIPbBxSBkgSFX4IJyMuQgcdb4garsibuf/pub?dfgdsf)
