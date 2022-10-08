@@ -4,21 +4,21 @@
 
 ## Содержание
 
-- [Статьи](#статьи) - Перечень моих статей  ![new](/images/new16.png)
+- [Статьи](#статьи) - Перечень моих статей 
 - [Заметки](#краткие-заметки) - Перечень кратких заметок
 
-## Статьи  ![new](/images/new16.png)
+## Статьи
 
 Перечень моих статей на различные темы связанные с разработкой программного обеспечения. 
 
-### Именование файлов в Unity 3D  ![new](/images/new16.png)
+### Именование файлов в Unity 3D
 
 _2022_ 
 
 Серия статей по организации файлов в проекте Unity 3D. Однако, эти принципы можно использовать и с другими игровыми движками.
 
 1. [Именование файлов в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vS3qR_vg_-AnNhv7eWRRUbA8_4-ssVMO2dpC5t2GLzU101CbTGHAxcUVCsRmgXSkyizKkovPKNUnAHx/pub#h.u8291nlml1yw) _В документе рассмотрены основные техники именования файлов._
-2. [Организация файлов проекта в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vRpuEZvmRUyhuAUDPyyZ-aw4TkZ9ASXlQPstAYfNOCmh8LHSSvoh_6C4wmdh-oOQ2kDXmMIERFwbHiq/pub) _В этом документе предлагается вариант общей структуры проекта._ 
+2. [Организация файлов проекта в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vRpuEZvmRUyhuAUDPyyZ-aw4TkZ9ASXlQPstAYfNOCmh8LHSSvoh_6C4wmdh-oOQ2kDXmMIERFwbHiq/pub) _В этом документе предлагается вариант общей структуры проекта._  ![new](/images/new16.png)
 3. Организация ART фалов 
 4. Организация сцены 
 
