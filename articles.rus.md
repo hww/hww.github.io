@@ -100,4 +100,7 @@ _2022_
 
 ## Краткие Заметки
 
-[Unity Spawning Methods - Методы инстанцирования актеров сцены в Unity](https://docs.google.com/document/d/e/2PACX-1vR0pweSEJBM1_tijpxbuWvuoJ2URe8sqe_T6nSSsJCQL_MU0G8MLa1iqpKTRXkwkN73T7tSSbsPiORi/pub)
+Короткие заметки на для того чтобы не забыть. 
+
+- [Unity Spawning Methods - Методы инстанцирования актеров сцены в Unity](https://docs.google.com/document/d/e/2PACX-1vR0pweSEJBM1_tijpxbuWvuoJ2URe8sqe_T6nSSsJCQL_MU0G8MLa1iqpKTRXkwkN73T7tSSbsPiORi/pub)
+- [Особенности симуляции реального времени в Unity3D](https://docs.google.com/document/d/e/2PACX-1vQtzwW3zTA0COR5hWaUmwypO1qGHSPsl--Bl1te4aqy6N7OrbswYXQYXSXBbwuqvAKu2-uRasMQBI2H/pub)
