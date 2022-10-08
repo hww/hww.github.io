@@ -29,7 +29,7 @@ Russian (native), English (fluent)
 
 [My articles in English](/articles)
 
-[My articles in Russian](/articles.rus) :newspaper: :boom:
+[My articles in Russian](/articles.rus) ![new](/images/new.png)
 
 ## Projects 
 
