@@ -12,6 +12,8 @@ A collection of links to some of my projects. Most of the information does not i
 
 [2022 - Racket - The Open GOAL Type System](https://github.com/hww/open-goal-type-system-for-racket)
 
+### Arcadia/VR Projects
+
 [2022 - Oculus Quest 2 - The haptic feedback rifle](/projects/ar_vr_rifle)
 
 [2021 - Hand tracking gloves with 6DOF IMU sensors](/projects/ar_vr_gloves)
