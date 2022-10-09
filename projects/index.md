@@ -1,10 +1,20 @@
 ## Projects
 
-[2022 - The Open GOAL Type System for Racket language](https://github.com/hww/open-goal-type-system-for-racket)
+A collection of links to some of my projects. Most of the information does not include design documentation.
 
-[2022 - The haptic feedback rifle for Oculus Quest](/projects/ar_vr_rifle)
+[2022 - Unity3D - The game data tool for Unity 3D](https://github.com/hww/XiGameTool)
 
-[2021 - Hand tracking gloves](/projects/ar_vr_gloves)
+[2022 - Unity3D - The Emacs menu and keyboard system](https://github.com/hww/XiKeyboard)
+
+[2022 - Unity3D - Debugg drawing tool](https://github.com/hww/XiDebugDraw)
+
+[2022 - Common Lisp - The open GOAL type system](https://github.com/hww/open-goal-type-system-cl)
+
+[2022 - Racket - The Open GOAL Type System](https://github.com/hww/open-goal-type-system-for-racket)
+
+[2022 - Oculus Quest 2 - The haptic feedback rifle](/projects/ar_vr_rifle)
+
+[2021 - Hand tracking gloves with 6DOF IMU sensors](/projects/ar_vr_gloves)
 
 ### Rocket Projects
 
@@ -20,7 +30,6 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [I/O board for Rocket Amusements arcade game cabinet v1](/projects/ra_io_board1)
 
-
 ### Syber Projects
 
 [Gamebryo with GambitC](/projects/gamebryo/)
@@ -29,7 +38,7 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [Nintendo SP and DS on TV device](/projects/view_boy/)
 
-[Game Engine Architect](/projects/sengine/)
+[SyberEngine - Game Engine Architect](/projects/sengine/)
 
 [Pro Action Rocky - Nintendo cheat device](/projects/nintendo_cheat_device)
 
