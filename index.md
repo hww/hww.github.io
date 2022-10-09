@@ -28,18 +28,18 @@ Russian (native), English (fluent)
 ## My Articles 
 
 - [My articles in English](/articles)
-- [My articles in Russian](/articles.rus) <img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
+- [My articles in Russian](/articles.rus) 
 
 ## My Projects
 
 - [Projects](/projects) - The completed projects for employers
 - [Personal Projects](/personal-projects) - Some of my projects for fun
 - [Homebrew Projects](/homebrew) - Hardware projects for home
-- [Code Samples](/code-samples) 
+- [Code Samples](/code-samples) - Code examples from various projects
 
 ## News & Updates
 
 Updating your page in reverse chronological order
 
-- 3.09.2022 - (Статьи на русском) Организация файлов проекта в Unity 3D 
+- 3.09.2022 - (Статьи на русском) Организация файлов проекта в Unity 3D <img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
 
