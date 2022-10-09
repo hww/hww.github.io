@@ -40,4 +40,5 @@ Russian (native), English (fluent)
 
 Updating your page in reverse chronological order
 
+- 3.09.2022 - (Статьи на русском) Организация файлов проекта в Unity 3D 
 
