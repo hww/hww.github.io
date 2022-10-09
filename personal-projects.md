@@ -12,14 +12,4 @@ A collection of links to some of my projects. Most of the information does not i
 
 [2022 - Racket - The Open GOAL Type System](https://github.com/hww/open-goal-type-system-for-racket)
 
-### DIY Projects
-
-[Aleste 520 emulator for PC](/projects/caprice32/)
-
-[2000 - Digital Signal Processing & Sound Synthesizing](/projects/remis)
-
-[1990 - MagicSound for Alete 520EX](/projects/magic_sound/)
-
-[1990 - Lead developer Aleste 520EX project](/projects/aleste)
-
-[1988- My Diploma Task](/projects/rainbow)
+[2007 - Aleste 520 emulator for PC](/projects/caprice32/)
