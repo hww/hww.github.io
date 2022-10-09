@@ -33,11 +33,11 @@ Russian (native), English (fluent)
 ## My Projects
 
 [My Projects](/projects)
-[Homebrew Projects](homebrew)
+[Homebrew Projects](/homebrew)
 
 ## Code Samples
 
-[Code Samples](code-samples)
+[Code Samples](/code-samples)
 
 
 
