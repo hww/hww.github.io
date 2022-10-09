@@ -28,7 +28,7 @@ Russian (native), English (fluent)
 ## My Articles 
 
 - [My articles in English](/articles)
-- [My articles in Russian](/articles.rus) ![new](/images/new16.png)
+- [My articles in Russian](/articles.rus) <img src="(/images/new16.png"/> 
 
 ## My Projects
 
