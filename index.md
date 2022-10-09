@@ -27,17 +27,17 @@ Russian (native), English (fluent)
 
 ## My Articles 
 
-[My articles in English](/articles)
-[My articles in Russian](/articles.rus) ![new](/images/new16.png)
+- [My articles in English](/articles)
+- [My articles in Russian](/articles.rus) ![new](/images/new16.png)
 
 ## My Projects
 
-[My Projects](/projects)
-[Homebrew Projects](/homebrew)
+- [My Projects](/projects)
+- [Homebrew Projects](/homebrew)
 
 ## Code Samples
 
-[Code Samples](/code-samples)
+- [Code Samples](/code-samples)
 
 
 
