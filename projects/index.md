@@ -24,13 +24,13 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 ### Syber Projects
 
-[2009 - Gamebryo with GambitC](/projects/gamebryo/)
+[2012 - Gamebryo with GambitC](/projects/gamebryo/)
 
-[2008 - Driver Training Courseware Site](/projects/webtraining)
+[2008-2012 - Driver Training Courseware Site](/projects/webtraining)
 
-[2005-7) - Nintendo SP and DS on TV devices](/projects/view_boy/)
+[2005-2007 - Nintendo SP and DS on TV devices](/projects/view_boy/)
 
-[2004 - Pro Action Rocky - Nintendo cheat device](/projects/nintendo_cheat_device)
+[2004-2005 - Pro Action Rocky - Nintendo cheat device](/projects/nintendo_cheat_device)
 
-[2003 - SyberEngine - Game Engine Architect](/projects/sengine/)
+[2003-2004 - SyberEngine - Game Engine Architect](/projects/sengine/)
 
