@@ -28,67 +28,16 @@ Russian (native), English (fluent)
 ## My Articles 
 
 [My articles in English](/articles)
-
 [My articles in Russian](/articles.rus) ![new](/images/new16.png)
 
-## Projects 
+## My Projects
 
-A collection of links to some of my projects. Most of the information does not include design documentation.
+[My Projects](/projects)
+[Homebrew Projects](homebrew)
 
-[2022 - XiDebugDraw Debugging drawing tool for Unity 3D](https://github.com/hww/XiDebugDraw)
+## Code Samples
 
-[2022 - The Emacs menu and keyboard system for Unity 3D](https://github.com/hww/XiKeyboard)
+[Code Samples](code-samples)
 
-[2022 - The open GOAL type system for Common LISP](https://github.com/hww/open-goal-type-system-cl)
-
-[2022 - The Open GOAL Type System for Racket language](https://github.com/hww/open-goal-type-system-for-racket)
-
-[2022 - The haptic feedback rifle for Oculus Quest](/projects/ar_vr_rifle)
-
-[2021 - Hand tracking gloves](/projects/ar_vr_gloves)
-
-My most recent projects are all related to a Unity(tm) game for the arcade redemption market, for which I wrote the game software and designed the I/O boards and arcade cabinet. This game is now going into production in China. 
-
-[Crazy Claw Emojis](/projects/crazy_claw_emojis)
-
-[Crazy Claw Junior](/projects/crazy_claw_jr)
-
-[Crazy Claw Original](/projects/crazy_claw_original)
-
-[I/O board for Rocket Amusements arcade game cabinet v2](/projects/ra_io_board2)
-
-[I/O board for Rocket Amusements arcade game cabinet v1](/projects/ra_io_board1)
-
-### Other Projects
-
-[All projects](/projects)
-
-## Sample Code
-
-|     | Link                                                                               |
-|-----|:-----------------------------------------------------------------------------------|
-| CL  | [The open GOAL type system for Common LISP](https://github.com/hww/open-goal-type-system-cl) |
-| C++ | [Ray Tracer](https://github.com/hww/RayTracer) |
-| C   | [Synthesizer sampler & MIDI Player](https://github.com/hww/SndSynt/) |
-| C#  | [XiDebugDraw Debugging drawing tool for Unity 3D](https://github.com/hww/XiDebugDraw) |
-| C#  | [VARP Oscilloscope - Unity Asset](https://hww.github.io/projects/varp_oscilloscope/) |
-| C#  | [Unity 3D Art Game Data Manager](https://github.com/hww/XiGameTool) | 
-| C#  | [In Game Text Only Debug Menu for Unity](https://github.com/hww/XiDebugMenu) | 
-| C#  | [A tiny sound system for Unity 3D](https://github.com/hww/XiSound) |
-| C#  | [Using Model-View-Controller pattern with Unity 3D](https://github.com/hww/unity_mvc) |
-| C#  | [A Unity 3D Demo Noise Flowfield](https://github.com/hww/noise_flow_field) |
-| C#  | [A Unity 3D Demo Koch Fractals](https://github.com/hww/koch_fractals) |
-
-## Homebrew Projects
-
-[Hakko FX-100 Clone](/projects/hakko_fx100_clone)
-
-[DIY Project: Super-A power amplifier](projects/nataly_nxp)
-
-[DIY Project: The coil winding CNC](https://github.com/hww/coil_winder_grbl_esp32)
-
-## Reading Sources
-
-My collection of [articles and books](/reading) for game developer. Links may become out of date from time to time, use the title to find the new location of the file on the web.
 
 
