@@ -14,7 +14,7 @@
 Серия статей по организации файлов в проекте Unity 3D. Однако, эти принципы можно использовать и с другими игровыми движками.
 
 - 7.09.2022 - [Именование файлов в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vS3qR_vg_-AnNhv7eWRRUbA8_4-ssVMO2dpC5t2GLzU101CbTGHAxcUVCsRmgXSkyizKkovPKNUnAHx/pub#h.u8291nlml1yw) _В документе рассмотрены основные техники именования файлов._
-- 3.09.2022 - [Организация файлов проекта в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vRpuEZvmRUyhuAUDPyyZ-aw4TkZ9ASXlQPstAYfNOCmh8LHSSvoh_6C4wmdh-oOQ2kDXmMIERFwbHiq/pub) _В этом документе предлагается вариант общей структуры проекта._  ![new](/images/new16.png)
+- 5.10.2022 - [Организация файлов проекта в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vRpuEZvmRUyhuAUDPyyZ-aw4TkZ9ASXlQPstAYfNOCmh8LHSSvoh_6C4wmdh-oOQ2kDXmMIERFwbHiq/pub) _В этом документе предлагается вариант общей структуры проекта._
 - Организация ART фалов (В работе)
 - Организация сцены (В работе)
 
