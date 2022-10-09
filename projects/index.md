@@ -34,3 +34,13 @@ My most recent projects are all related to a Unity(tm) game for the arcade redem
 
 [2003-2004 - SyberEngine - Game Engine Architect](/projects/sengine/)
 
+### Before 2000
+
+[2000 - Digital Signal Processing & Sound Synthesizing](/projects/remis)
+
+[1990 - MagicSound for Alete 520EX](/projects/magic_sound/)
+
+[1990 - Lead developer Aleste 520EX project](/projects/aleste)
+
+
+
