@@ -32,7 +32,7 @@ Russian (native), English (fluent)
 
 ## My Projects
 
-- [Projects](/projects) - The Complete Projects for Employers
+- [Projects](/projects) - The completed projects for employers
 - [Personal Projects](/personal-projects) - Some of my projects for fun
 - [Homebrew Projects](/homebrew) - Hardware projects for home
 
