@@ -32,7 +32,7 @@ Russian (native), English (fluent)
 
 ## My Projects
 
-- [My Projects](/projects)
+- [Projects](/projects)
 - [Homebrew Projects](/homebrew)
 
 ## Code Samples
