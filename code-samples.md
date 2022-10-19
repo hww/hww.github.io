@@ -1,6 +1,10 @@
 ## Sample Code
 
+This page will contain some examples of my source code. 
+
+Image 1 - _Some of my development tools_
 ![Title Image](images/tools.png)
+
 
 |     | Link                                                                               |
 |-----|:-----------------------------------------------------------------------------------|
