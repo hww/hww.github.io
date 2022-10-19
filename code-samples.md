@@ -2,6 +2,7 @@
 
 |     | Link                                                                               |
 |-----|:-----------------------------------------------------------------------------------|
+| C#  | [XiRename The renaming tool for Unity 3D](https://github.com/hww/XiRename) |
 | C#  | [XiGameTool - Unity 3D Art Game Data Manager](https://github.com/hww/XiGameTool) | 
 | C#  | [XiKeyboard - Emacs style menu for Unity 3D](https://github.com/hww/XiKeyboard) | 
 | C#  | [XiDebugDraw - Debugging drawing tool for Unity 3D](https://github.com/hww/XiDebugDraw) |
