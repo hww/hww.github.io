@@ -2,7 +2,7 @@
 
 Some of do it yoursef projects listed here.
 
-[2022 - XiAleste an Amstrad CPC replica](https://github.com/projects/xialeste)
+[2022 - XiAleste an Amstrad CPC replica](/projects/xialeste)
 
 [2022 - Coil Winder on ESP32](https://github.com/hww/coilwinder_esp32)
 
