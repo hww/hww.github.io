@@ -34,7 +34,7 @@ Russian (native), English (fluent)
 
 - [Projects](/projects) - The completed projects for employers
 - [Personal Projects](/personal-projects) - Some of my projects for fun
-- [Homebrew Projects](/homebrew) - Hardware projects for home
+- [Homebrew Projects](/homebrew) - Hardware projects for home <img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
 - [Code Samples](/code-samples) - Code examples from various projects
 
 ## News & Updates
