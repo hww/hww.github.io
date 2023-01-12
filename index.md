@@ -27,8 +27,8 @@ Russian (native), English (fluent)
 
 ## My Articles 
 
-- [My articles in English](/articles)
-- [My articles in Russian](/articles.rus) 
+- [My articles (English)](/articles)
+- [My articles (Russian)](/articles.rus) 
 
 ## My Projects
 
