@@ -41,7 +41,9 @@ Russian (native), English (fluent)
 
 Updating your page in reverse chronological order
 
-- 10.01.2022 - (Hardware Project) XiAleste an Amstrad CPC replica 
-- 22.10.2020 - (Статьи на русском) [Организация Art и GD-данных в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vTnqYfYVQCO-g15ix6BleTnnTVPP78fDevvDs7e0zTl2Gv27bzd6re7T3Rh0nyEyLwrcI-vhkRq3vce/pub#id.e30rzkidxxtw) <img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
+
+
+- 10.01.2022 - (Hardware Project) [2022 - XiAleste an Amstrad CPC replica](/projects/xialeste) <img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
+- 22.10.2020 - (Статьи на русском) [Организация Art и GD-данных в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vTnqYfYVQCO-g15ix6BleTnnTVPP78fDevvDs7e0zTl2Gv27bzd6re7T3Rh0nyEyLwrcI-vhkRq3vce/pub#id.e30rzkidxxtw)
 - 05.10.2022 - (Статьи на русском) [Организация файлов проекта в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vRpuEZvmRUyhuAUDPyyZ-aw4TkZ9ASXlQPstAYfNOCmh8LHSSvoh_6C4wmdh-oOQ2kDXmMIERFwbHiq/pub)
 - 22.09.2022 - (Статьи на русском) [Именование файлов в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vS3qR_vg_-AnNhv7eWRRUbA8_4-ssVMO2dpC5t2GLzU101CbTGHAxcUVCsRmgXSkyizKkovPKNUnAHx/pub)
