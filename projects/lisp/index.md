@@ -8,7 +8,7 @@ A comprehensive development ecosystem has been successfully created for my proje
 
 **REPL Interactive Environment** - A full-featured environment for interactive development, debugging, and code testing. The REPL is integrated with the type system and virtual machine, providing immediate feedback that is particularly valuable for reverse engineering.
 
-![Diagram](images/repl.png)
+![Diagram](images/xi_repl.png)
 
 **Type System** - An advanced type system providing static type checking and runtime safety. The type system is closely integrated with the compiler and virtual machine, using approaches similar to OpenGoal.
 
@@ -41,7 +41,7 @@ Active development is currently underway on the compiler and integrated debug en
 
 ## Architectural Advantages
 
-![Diagram](images/lisp_dev.png)
+![Diagram](images/xi_lisp_dev.png)
 
 This ecosystem provides:
 
