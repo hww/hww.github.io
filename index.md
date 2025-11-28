@@ -41,7 +41,7 @@ Russian (native), English (fluent)
 
 Updating your page in reverse chronological order
 
-- [2025 - Lisp-Based Development Ecosystem for Resource-Constrained Platforms](projects/lisp/lisp.md)<img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
+- [2025 - Lisp-Based Development Ecosystem for Resource-Constrained Platforms](projects/lisp)<img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
 - [2025 - Aleste LX FPGA - A modern and compatible FPGA implementation of the Aleste computer.](https://github.com/hww/aleste-lx-fpga-sv)<img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
 - 10.01.2022 - (Hardware Project) [2022 - XiAleste an Amstrad CPC replica](/projects/xialeste) 
 - 22.10.2020 - (Статьи на русском) [Организация Art и GD-данных в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vTnqYfYVQCO-g15ix6BleTnnTVPP78fDevvDs7e0zTl2Gv27bzd6re7T3Rh0nyEyLwrcI-vhkRq3vce/pub#id.e30rzkidxxtw)
