@@ -2,6 +2,10 @@
 
 A collection of links to some of my projects. Most of the information does not include design documentation.
 
+[2025 - Lisp-Based Development Ecosystem for Resource-Constrained Platforms](projects/lisp/lisp.md)
+
+[2025 - Aleste LX FPGA - A modern and compatible FPGA implementation of the Aleste computer.](https://github.com/hww/aleste-lx-fpga-sv)
+
 [2022 - Unity3D - The game data tool for Unity 3D](https://github.com/hww/XiGameTool)
 
 [2022 - Unity3D - Debugg drawing tool](https://github.com/hww/XiDebugDraw)

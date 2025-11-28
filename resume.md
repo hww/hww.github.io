@@ -78,7 +78,51 @@ I'm looking for a position as video game project Architect, Technical Manager, D
 
 # PROFESSIONAL EXPERIENCE
 
-### 2014-current Lead software and hardware developer
+### Web Studio (Sole Proprietorship) | October 2023 — Present
+**Full-Stack Engineer (Hardware-Software Solutions)**
+_Remote_<br/>
+
+● Developed a hardware-software complex for a gaming machine from scratch.
+● Software (Unity / C#):
+● Designed and implemented a communication system for server interaction.
+● Created key game subsystems: language localization, game state save/load, and statistics collection for balancing.
+● Developed a runtime core for executing game logic, including:
+● A hierarchical process system ensuring deterministic execution in complex interactions.
+● A Process-Engine architecture for managing complex object interactions through specialized engine systems.
+● A Data-Setting architecture for safe concurrent management of internal game data.
+● A Task Manager for managing game objectives, tracking progress, and providing contextual hints.
+● Hardware and Backend:
+● Designed and developed multiple I/O boards using Nordic microcontrollers.
+● Developed device firmware in C++ (bare-metal / Zephyr-based).
+● Implemented backend services in Golang (UDP protocol for game communication, HTTP server for statistics).
+● Managed data storage using SQLite.
+● Engineering:
+● Completed full-cycle design of 4-layer PCBs using Altium Designer.
+● Tools & Technologies: C#, Unity, C++, Golang, Nordic MCU, Altium Designer, SQLite, UDP, HTTP.
+
+### VedaProject | Moscow | February 2023 — October 2023
+**Lead Software Engineer, Development Team Lead**
+_Moscow_<br/>
+
+● Designed and implemented a client-server system for distributed compilation of trusted software for Linux OS.
+● Developed GUI applications for system configuration and monitoring using Qt.
+● Coordinated developer team workflow and conducted technical interviews.
+● Participated in documentation preparation and software registration applications with Rospatent (Nos. 2023664550, 2023663992).
+● Tools & Technologies: C++, Qt, Ruby, Python, Racket, Linux, Bash, Flutter, MySQL.
+
+### Arcadia VR | Moscow (Remote) | April 2020 — April 2023
+**CTO / Head of Hardware & Software Department**<br/>
+_Moscow_<br/>
+
+● Defined technical vision and designed a tactile feedback (haptic) system for VR, including a specialized MMA actuator.
+● Created specifications and designed a motion capture glove for VR.
+● Planned, designed, and selected equipment for studio network infrastructure. Deployed and configured server infrastructure (CI/CD, build farms).
+● Prepared technical reports, conducted research, and evaluated emerging technologies.
+● Led the development department: hiring, onboarding, code review, mentoring, and improving communication culture.
+● Designed multiple plastic enclosures for FDM 3D printing in Siemens NX and organized production of several prototypes.
+● Tools & Technologies: Project Management, C#, Unity, Python, Linux, Altium Designer, 3D Printing, Siemens NX, COMSOL, ESP32, IMU.
+
+### 2014-2020 Lead software and hardware developer
 **Rocket Amusements**<br/>
 _New Braunfels, U.S._<br/>
 
@@ -88,7 +132,7 @@ _New Braunfels, U.S._<br/>
 - Developed Crazy Claw Junior single player 3D game.
 - Developed Crazy Claw the Emojis three players 3D game.
 
-### 2008-current Lead software developer 
+### 2008-2014 Lead software developer 
 **DigitalChile**<br/>
 _New Braunfels, U.S._<br/>
 
