@@ -16,52 +16,36 @@ Development Methodology
 
 The development is based on OpenGoal principles - an open approach to reverse engineering game systems, focusing on:
 
-    Analysis of existing binary files and data formats
-
-    Recreating development toolchains used by original creators
-
-    Building compatible runtime environments
+- Analysis of existing binary files and data formats
+- Recreating development toolchains used by original creators
+- Building compatible runtime environments
 
 Reverse engineering techniques similar to those used in studying engines like Uncharted are applied, including:
 
-    Analysis of executable files and libraries
-
-    Investigation of data formats and resources
-
-    Reconstruction of memory systems and resource management
+- Analysis of executable files and libraries
+- Investigation of data formats and resources
+- Reconstruction of memory systems and resource management
 
 Current Development Status
 
 All core system components have been completed and tested:
 
-    Lisp interpreter with full S-expression support
-
-    REPL interactive environment with debugging capabilities
-
-    Type system with static type checking
-
-    Virtual machine with optimized bytecode format
+- Lisp interpreter with full S-expression support
+- REPL interactive environment with debugging capabilities
+- Type system with static type checking
+- Virtual machine with optimized bytecode format
 
 Active development is currently underway on the compiler and integrated debug environment. The compiler transforms Lisp code into bytecode for the virtual machine and also generates C source files for compilation to native code on the target platform.
 Architectural Advantages
-
 
 ![Diagram](images/LISP%20Development.png)
 
 This ecosystem provides:
 
-    Controlled multitasking and secure execution environment
-
-    Crash protection - errors generate clear messages pointing to the problem source
-
-    Cross-platform compatibility (supports RISC-V, ARM, microcontrollers)
-
-    Efficient use of limited resources
-
-    Compatibility with existing game assets and data formats
+- Controlled multitasking and secure execution environment
+- Crash protection - errors generate clear messages pointing to the problem source
+- Cross-platform compatibility (supports RISC-V, ARM, microcontrollers)
+- Efficient use of limited resources
+- Compatibility with existing game assets and data formats
 
 The project demonstrates the practical applicability of Lisp approaches in embedded systems and gaming platforms, continuing active development to meet the requirements of target projects in the spirit of OpenGoal.
-Отлично Переведи на английский
-Lisp-Based Development Ecosystem for Resource-Constrained Platforms
-
-I have successfully built a comprehensive development ecosystem for my project that solves the software creation challenges for resource-limited target platforms. The development is conducted within the context of reverse 
