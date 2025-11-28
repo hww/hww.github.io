@@ -1,10 +1,7 @@
 title: HWW Portfolio
 description: Software and Hardware Developer
 google_analytics: UA-129022385-1
-remote_theme: pages-themes/slate@v0.2.0
-plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
-#theme: jekyll-theme-slate
+theme: jekyll-theme-slate
 show_downloads: false
 github:
   is_project_page: false
