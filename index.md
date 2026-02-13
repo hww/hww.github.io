@@ -8,7 +8,7 @@ I am a widely skilled hardware and software designer in the Moscow area. I have 
 
 [Linkedin](https://www.linkedin.com/in/valeriyap/)
 
-[GitHub](https://www.linkedin.com/in/hww/)
+[GitHub](https://github.com/hww)
 
 ## Courses & Certificates
 
@@ -21,7 +21,7 @@ I am a widely skilled hardware and software designer in the Moscow area. I have 
 
 <sup>1</sup> Teacher Assistance Team
 
-## Langauges
+## Languages
 
 Russian (native), English (fluent) 
 
