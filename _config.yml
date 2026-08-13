@@ -1,10 +1,5 @@
 title: HWW Portfolio
 description: Software and Hardware Developer
-google_analytics: G-GPHE3GSVLY
-analytics:
-  provider: google-analytics
-  google:
-    tracking_id: G-GPHE3GSVLY
 #theme: jekyll-theme-slate
 remote_theme: pages-themes/slate@v0.2.0
 plugins:
