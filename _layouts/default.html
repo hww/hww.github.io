@@ -7,16 +7,35 @@
     <meta name="viewport" content="width=device-width,maximum-scale=2">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
 
-{% seo %}
+    <!-- Основные мета-теги для индексации -->
+    <title>HWW Portfolio | Software and Hardware Developer</title>
+    <meta name="description" content="Личное портфолио и R&D блог: проектирование программно-аппаратных комплексов (ПАК), высокоскоростных печатных плат и архитектуры игровых движков.">
+    <meta name="keywords" content="R&D, Embedded, Hardware, Altium Designer, C++, LISP, Unity 3D, Naughty Dog, системное программирование, печатные платы">
+    <link rel="canonical" href="https://github.io">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://googletagmanager.com"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-GPHE3GSVLY');
-</script>
+    <!-- Разметка Open Graph (для Telegram, VK и соцсетей) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HWW Portfolio">
+    <meta property="og:title" content="HWW Portfolio | Software and Hardware Developer">
+    <meta property="og:description" content="Архитектурные исследования, разборы игровых движков и проектирование электроники полного цикла.">
+    <meta property="og:url" content="https://github.io">
+    <meta property="og:image" content="https://github.iopublic/habra/nd_gfs/nd_classes.drawio.svg.png">
+
+    <!-- Разметка для Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HWW Portfolio | Software and Hardware Developer">
+    <meta name="twitter:description" content="Архитектурные исследования, разборы игровых движков и проектирование электроники полного цикла.">
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://googletagmanager.com"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-GPHE3GSVLY');
+    </script>
     
   </head>
 
