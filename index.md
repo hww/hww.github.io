@@ -33,7 +33,7 @@ Russian (native), English (fluent)
 ## My Projects
 
 - [Projects](/projects) - The completed projects for employers <img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
-- [Personal Projects](/personal-projects) - Some of my projects for fun
+- [Personal Projects](/personal-projects) - Some of my projects for fun <img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
 - [Homebrew Projects](/homebrew) - Hardware projects for home
 - [Code Samples](/code-samples) - Code examples from various projects
 
