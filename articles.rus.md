@@ -33,18 +33,6 @@ _3.09.2022_
 
 [Три составные части успешной игровой студии](https://docs.google.com/document/d/e/2PACX-1vR4wdr1pJ59e6yJ3TOFRTnNyBJ3Za_xjlVOMJNWRSi9PJ0ANtXWhkpWmiN6g_5n6txgfdiY1gSom73X/pub)
 
-### Чек-лист нанимающего менеджера (специалиста)
-
-_Прочесть перед собеседованием с кандидатом_
-
-_5.08.2022_
-
-Для совершенствования процесса отбора кандидатов я предлагаю следующий проверочный список. Я просматриваю его всякий раз, перед собеседованием с кандидатом, и учитываю утверждения из него при принятии решений.
-
-[Чек-лист нанимающего менеджера (специалиста)](https://docs.google.com/document/d/e/2PACX-1vS8-1iUp4yFa3FYkX7MFRzjld9ik87vrk3Hg2H3TYC1H3Xj2j5ejgdmkgmdzZTYnc82-IkE5Kg-OMd5/pub)
-
-**Keywords** _Jobs_, _JobSearch_, _JobSearching_, _JobSearchTips_, _Resume_
-
 ### Методы разработчиков ААА-игр для инди-студии 
 
 _Общее в решениях Naughty Dog и Kojima Productions_
