@@ -79,7 +79,8 @@ _18.05.2022_
 
 Информация в файле - результат беглого _reverse engineering_, поэтому может содержать не полную и не точную информацию, но ее, в целом, достаточно чтобы понять суть предложенного метода.
 
-[Программирование игрового процесса _На примере игры The Last of Us_](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
+[Программирование игрового процесса _На примере игры The Last of Us_(Online)](https://hww.github.io/articles/nd_gfs/index)
+[Программирование игрового процесса _На примере игры The Last of Us_(PDF)](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
 
 **Keywords** _Object System_, _Runtime_, _Scripting_, _Finite State Machines_, _AI_, _Game Design_
 
