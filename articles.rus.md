@@ -53,8 +53,7 @@ _16.08.2022_
 
 В статье «Программирование игрового процесса — На примере игры The Last of Us» я рассматриваю только технические особенности — оставляя взгляд креативной команды в стороне. Поэтому в этой статье я приведу краткие выдержки на креативную сторону этого технического решения.
 
-*   📖 [Программирование игрового процесса _Пояснения для креативной команды_(Веб-версия)](https://hww.github.io/articles/nd_gfs_creative/index)
-*   💾 [качать полную версию статьи в формате PDF](https://docs.google.com/document/d/e/2PACX-1vSUy3AK03HaCGqjjiuuVVqfiFTGcdesL-f5VEdzvTILd3OFax75-0CV0RLK_G2JRi7_Ys_VgGZ7XKcf/pub)
+*   📖 [Программирование игрового процесса _Пояснения для креативной команды (Веб-версия)](https://hww.github.io/articles/nd_gfs_creative/index)
 
 **Keywords** _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
 
