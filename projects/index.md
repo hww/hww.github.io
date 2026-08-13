@@ -2,6 +2,10 @@
 
 A collection of links to some of my projects. Most of the information does not include design documentation.
 
+### R&D Projects
+
+[2026 - PPG - Medical PPG Wristband Prototype for the Smart Sports Project](/projects/ppg/index)
+
 ### Arcadia/VR Projects
 
 [2022 - Oculus Quest 2 - The haptic feedback rifle](/projects/ar_vr_rifle)
