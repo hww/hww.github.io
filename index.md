@@ -16,8 +16,8 @@
       ✉️ Telegram: <a href="https://t.me">@core_systems_eng</a>
     </p>
     <div style="display: flex; gap: 10px; margin-top: 5px;">
-      <a href="resume.md" style="background-color: #24292e; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: 600; display: inline-block;">Read CV (EN)</a>
-      <a href="resume_ru.md" style="background-color: #24292e; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: 600; display: inline-block;">Посмотреть резюме (RU)</a>
+      📄<a href="resume.md" style="background-color: #24292e; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: 600; display: inline-block;">Read CV (EN)</a>
+      📄<a href="resume_ru.md" style="background-color: #24292e; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: 600; display: inline-block;">Посмотреть резюме (RU)</a>
     </div>
   </div>
 </div>
