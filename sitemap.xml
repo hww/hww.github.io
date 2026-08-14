@@ -1,16 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://hww.github.io/</loc></url>
 <url><loc>https://hww.github.io/articles.html</loc></url>
 <url><loc>https://hww.github.io/articles.rus.html</loc></url>
 <url><loc>https://hww.github.io/articles/3_parts_game_studio/</loc></url>
 <url><loc>https://hww.github.io/articles/aaa_methods/</loc></url>
 <url><loc>https://hww.github.io/articles/nd_gfs/</loc></url>
 <url><loc>https://hww.github.io/articles/nd_gfs_creative/</loc></url>
-<url><loc>https://hww.github.io/code-samples.html</loc></url>
-<url><loc>https://hww.github.io/game_tools.html</loc></url>
-<url><loc>https://hww.github.io/homebrew.html</loc></url>
-<url><loc>https://hww.github.io/</loc></url>
-<url><loc>https://hww.github.io/personal-projects.html</loc></url>
 <url><loc>https://hww.github.io/projects/aleste/</loc></url>
 <url><loc>https://hww.github.io/projects/ar_vr_gloves/</loc></url>
 <url><loc>https://hww.github.io/projects/ar_vr_rifle/</loc></url>
@@ -37,10 +33,13 @@
 <url><loc>https://hww.github.io/projects/view_boy/</loc></url>
 <url><loc>https://hww.github.io/projects/webtraining/</loc></url>
 <url><loc>https://hww.github.io/projects/xialeste/</loc></url>
+<url><loc>https://hww.github.io/projects/rings/</loc></url>
+<url><loc>https://hww.github.io/personal-projects.html</loc></url>
 <url><loc>https://hww.github.io/resume.04/html</loc></url>
 <url><loc>https://hww.github.io/resume.html</loc></url>
 <url><loc>https://hww.github.io/resume_ru.html</loc></url>
 <url><loc>https://hww.github.io/resume_ru_ru.html</loc></url>
-<url><loc>https://hww.github.io/images/</loc></url>
-<url><loc>https://hww.github.io/projects/rings/</loc></url>
+<url><loc>https://hww.github.io/code-samples.html</loc></url>
+<url><loc>https://hww.github.io/game_tools.html</loc></url>
+<url><loc>https://hww.github.io/homebrew.html</loc></url>
 </urlset>
