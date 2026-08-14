@@ -1,29 +1,16 @@
-<div class="center" markdown="1">
+<div class="center" markdown="1">Valeriya Pudova</div>
 
-Valeriya Pudova
+<div class="center" markdown="1"><valery.hww@gmail.com></div>
 
-</div>
+<div class="center" markdown="1">18.05.2022</div>
 
-<div class="center" markdown="1">
-
-<valery.hww@gmail.com>
-
-</div>
-
-<div class="center" markdown="1">
-
-18.05.2022
-
-</div>
-
-<
 <div class="center" markdown="1">
 <img src="https://hww.github.io/articles/nd_gfs/images/the_last_of_us.jpg" height="512" alt="image" />
 </div>
 
 
 <details>
-  <summary><b>Отказ от ответственности (Disclaimer)</b></summary>
+  <summary><b>Disclaimer</b></summary>
   <p>
 I don’t work at *Naughty Dog*, nor do I have any secret knowledge of *The Last of Us*, except what I figured out myself from the disc. So a lot of this may well be wrong. Take it with a pinch of salt. Most of the code samples in this document are taken from the sources listed at the end of the document.
   </p>
