@@ -31,7 +31,7 @@ _3.09.2022_
 
 Значение этих вопросов в нашей бытовой жизни не вызывает ни у кого сомнений, однако, внутри игровых студий, зачастую, либо просто игнорируются, либо считаются второстепенными. Об этом данная статья:
 
-[Три составные части успешной игровой студии](https://docs.google.com/document/d/e/2PACX-1vR4wdr1pJ59e6yJ3TOFRTnNyBJ3Za_xjlVOMJNWRSi9PJ0ANtXWhkpWmiN6g_5n6txgfdiY1gSom73X/pub)
+*   📖 [Три составные части успешной игровой студии]([https://hww.github.io/articles/nd_gfs/index](https://hww.github.io/articles/3_parts_game_studio/index))
 
 ### Методы разработчиков ААА-игр для инди-студии 
 
@@ -41,7 +41,7 @@ _18.08.2022_
 
 Рассматривая AAA-игры как идеал, который невозможно достичь, инди-разработчики рискуют потерпеть неудачу. Я скажу напротив – такие проекты, как Death Stranding или The Last of Us, необходимо анализировать каждому, а подходы разработчиков применять и в своей практике. Об этом я предлагаю подумать в данной статье.
 
-[Методы разработчиков ААА-игр для инди-студии _Общее в решениях Naughty Dog и Kojima Productions_](https://docs.google.com/document/d/e/2PACX-1vQMQ9cl63Sk3agu_Fz0Gf1XCber4bU4HNFwDKYFZJWSNM-g-gOzNgMdcO7aXw8xPz9mwdcdFwCbU3ym/pub)
+*   📖 [Методы разработчиков ААА-игр для инди-студии _Общее в решениях Naughty Dog и Kojima Productions]((https://hww.github.io/articles/aaa_methods/index)
 
 **Keywords** _games_, _gamedesing_, _gamedev_, _indiegames_, _creative_, _animations_,  _pipeline_, _scripting_
 
