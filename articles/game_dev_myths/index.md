@@ -9,7 +9,7 @@
   <div style="flex: 1; min-width: 250px; line-height: 1.5;">
     <div style="font-size: 1.2em; font-weight: 700; color: #24292e;">Валерия Пудова</div>
     <p style="margin: 3px 0 0 0; font-size: 0.9em; color: #586069;">
-      💬 Telegram: <a href="https://t.me" style="text-decoration: none; color: #0366d6; font-weight: 600;">@core_systems_eng</a>
+      💬 Telegram: <a href="https://t.me" style="text-decoration: none; color: #0366d6; font-weight: 600;">@valery_h2w</a>
     </p>
     <p style="margin: 2px 0 0 0; font-size: 0.9em; color: #586069;">
       ✉️ Email: <a href="mailto:valery.hww@gmail.com" style="text-decoration: none; color: #0366d6;">valery.hww@gmail.com</a>

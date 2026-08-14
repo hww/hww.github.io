@@ -5,7 +5,7 @@
 <div style="text-align: center; max-width: 650px; margin: 20px auto; padding: 20px; border: 1px solid #e1e4e8; border-radius: 8px; background-color: #fafbfc;">
   <div style="font-size: 1.2em; font-weight: bold; margin-bottom: 5px; color: #24292e;">Valeriya Pudova</div>
   <p style="margin: 0 0 15px 0; color: #586069; font-size: 0.95em;">
-  💬 Telegram: <a href="https://t.me" style="text-decoration: none; color: #0366d6; font-weight: 600;">@core_systems_eng</a> 
+  💬 Telegram: <a href="https://t.me" style="text-decoration: none; color: #0366d6; font-weight: 600;">@valery_h2w</a> 
   &nbsp;|&nbsp; 
   ✉️ Business: <a href="mailto:valery.hww@gmail.com" style="text-decoration: none; color: #0366d6;">valery.hww@gmail.com</a> 
   &nbsp;|&nbsp; 

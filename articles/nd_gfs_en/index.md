@@ -4,7 +4,7 @@ The Last of Us” Case Study
 <div style="text-align: center; max-width: 650px; margin: 20px auto; padding: 20px; border: 1px solid #e1e4e8; border-radius: 8px; background-color: #fafbfc;">
   <div style="font-size: 1.2em; font-weight: bold; margin-bottom: 5px; color: #24292e;">Valeriya Pudova</div>
   <p style="margin: 0 0 15px 0; color: #586069; font-size: 0.95em;">
-  💬 Telegram: <a href="https://t.me" style="text-decoration: none; color: #0366d6; font-weight: 600;">@core_systems_eng</a> 
+  💬 Telegram: <a href="https://t.me" style="text-decoration: none; color: #0366d6; font-weight: 600;">@valery_h2w</a> 
   &nbsp;|&nbsp; 
   ✉️ Business: <a href="mailto:valery.hww@gmail.com" style="text-decoration: none; color: #0366d6;">valery.hww@gmail.com</a> 
   &nbsp;|&nbsp; 
@@ -26,27 +26,29 @@ I don’t work at *Naughty Dog*, nor do I have any secret knowledge of *The Last
 
 # Table of Contents
 
+- [Gameplay Developing](#gameplay-developing)
+- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Asset Management](#asset-management)
 - [World Editor](#world-editor)
 - [Object System](#object-system)
 - [Spawning](#spawning)
-- [Message System](#message-sysyem)
+- [Message Sysyem](#message-sysyem)
 - [States](#states)
 - [String ID](#string-id)
 - [DC Syntax](#dc-syntax)
-- [Animation States](#animation-states-secorg3216cbf)
-- [States (Scripting)](#states-1)
-- [Declaration of State Variables](#declaration-of-state-variables-secorg92c5bc2)
+- [Animation States \[sec:org3216cbf\]](#animation-states-secorg3216cbf)
+- [States](#states-1)
+- [Declaration of state variables \[sec:org92c5bc2\]](#declaration-of-state-variables-secorg92c5bc2)
 - [Multitasking](#multitasking)
 - [Reflection](#reflection)
 - [DC Compiler](#dc-compiler)
 - [SID-file](#sid-file)
 - [DCI-file](#dci-file)
-- [The Binary DC-file](#the-binary-dc-file)
+- [The binary DC-file](#the-binary-dc-file)
 - [VM](#vm)
 - [Instruction Set](#instruction-set)
-- [VM Registers and Constants](#vm-registers-and-constants)
+  - [VM Registers and Constants](#vm-registers-and-constants)
 - [Result](#result)
 - [Conclusion](#conclusion)
 
