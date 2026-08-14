@@ -1,15 +1,16 @@
 # Gameplay Developing
 The Last of Us” Case Study
 
-<div style="text-align: center; max-width: 600px; margin: 30px auto; padding: 20px; border: 1px solid #e1e4e8; border-radius: 8px; background-color: #fafbfc;">
-  <hp style="margin-top: 0; margin-bottom: 5px; font-size: 1.5em; border-bottom: none; padding-bottom: 0;">Valeriya Pudova</p>
+<div style="text-align: center; max-width: 650px; margin: 20px auto; padding: 20px; border: 1px solid #e1e4e8; border-radius: 8px; background-color: #fafbfc;">
+  <div style="font-size: 1.5em; font-weight: bold; margin-bottom: 5px; color: #24292e;">Valeriya Pudova</div>
   <p style="margin: 0 0 15px 0; color: #586069; font-size: 0.95em;">
     ✉️ <a href="mailto:valery.hww@gmail.com" style="text-decoration: none; color: #0366d6;">valery.hww@gmail.com</a> &nbsp;|&nbsp; 📅 18.05.2022
   </p>
-  <div style="margin: 15px 0; overflow: hidden; border-radius: 6px;">
-    <img src="https://hww.github.io/articles/nd_gfs/images/the_last_of_us.jpg" style="width: 100%; height: auto; display: block; max-height: 350px; object-fit: cover;" alt="The Last of Us Engine Analysis" />
+  <div style="margin: 15px 0; overflow: hidden; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+    <img src="https://hww.github.io/articles/nd_gfs/images/the_last_of_us.jpg" style="width: 100%; height: auto; display: block; max-height: 380px; object-fit: cover;" alt="The Last of Us Engine Analysis" />
   </div>
 </div>
+
 
 
 <details>
