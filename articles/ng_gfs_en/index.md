@@ -26,9 +26,6 @@ Valeriya Pudova
 
 </div>
 
-****Abstract****
-
-
 ****Disclaimer****
 
 I don’t work at *Naughty Dog*, nor do I have any secret knowledge of *The Last of Us*, except what I figured out myself from the disc. So a lot of this may well be wrong. Take it with a pinch of salt. Most of the code samples in this document are taken from the sources listed at the end of the document.
