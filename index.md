@@ -7,6 +7,7 @@
       <img src="pp/wendy.png" alt="hww" width="120" style="border-radius: 8px; display: block;"/>
     </td>
     <td valign="top" style="border: none; padding: 10px; line-height: 1.6;">
+      <div>
       <h1 style="margin-top: 0; margin-bottom: 8px; border-bottom: none;">Valeriya Pudova (hww)</h1>
       <p style="margin: 0 0 12px 0; font-size: 1.1em;">
         <strong>Systems Architect &nbsp;|&nbsp; R&D Infrastructure Engineer &nbsp;|&nbsp; Low-Level Specialist</strong>
@@ -24,6 +25,7 @@
         <a href="resume.ru.md" style="background-color: #24292e; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-size: 0.9em;">Посмотреть резюме (CV)</a>
         </strong>
       </p>      
+      </div>div>
     </td>
   </tr>
 </table>
