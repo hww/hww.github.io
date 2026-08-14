@@ -281,6 +281,8 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 *A curated list of my architectural research, reverse engineering, production pipelines, and creative team methodologies.*
 
+**Legend:** `[EN]` — English, `[RU]` — Russian
+
 ### 📄 2022
 
 1. **[RU] Three Core Components of a Successful Game Studio**
@@ -365,6 +367,4 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 `games` `gamedesign` `gamedev` `indiegames` `creative` `animations` `pipeline` `scripting` `object system` `runtime` `finite state machines` `AI` `programming` `simulation`
 
----
 
-**Legend:** `[EN]` — English, `[RU]` — Russian
