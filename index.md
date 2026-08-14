@@ -299,7 +299,7 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 4. **[RU] Gameplay Programming #1 — The Last of Us Case Study**
    *A brief reverse engineering analysis of Naughty Dog's Game Runtime Base Foundation System. Covers KIS principles and customization flexibility.*
-   [Read web version](https://hww.github.io/articles/nd_gfs/index)
+   [Read article](https://hww.github.io/articles/nd_gfs/index)
 
 5. **[EN] Game Developing — Clarification for the Creative Team**
    *A high-level overview of game development processes tailored for non-technical creative teams.*
@@ -307,7 +307,7 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 6. **[EN] Game Developing — The Last of Us Case Study**
    *A comprehensive architectural breakdown of Naughty Dog's engine and runtime systems.*
-   [Read web version](https://hww.github.io/articles/nd_gfs_en/index)
+   [Read article](https://hww.github.io/articles/nd_gfs_en/index)
 
 7. **[RU] Myths and Misconceptions of a Game Programmer**
    *Common fallacies and professional delusions encountered during game development. A reflective piece on mistakes and learning.*
