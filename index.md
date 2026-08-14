@@ -21,7 +21,7 @@
     </div>
   </div>
 </div>
-<hr style="height: 1px; border: none; background-color: #e1e4e8; margin: 20px 0 25px 0;" />
+
 ---
 
 ## About Me
