@@ -248,9 +248,6 @@ A comprehensive, reverse-chronological index of my system architecture, hardware
 
 ---
 
-
----
-
 ## Production Code Samples
 
 A curated showcase of my engineering style, demonstrating architectural patterns, low-overhead algorithms, and multi-paradigm programming.
