@@ -16,6 +16,10 @@
         💼 <a href="https://www.linkedin.com/in/valeriyap/">LinkedIn</a> &nbsp;|&nbsp; 
         ✉️ Telegram: <a href="https://t.me">@core_systems_eng</a>
       </p>
+      <!-- Ссылка на резюме в виде аккуратной кнопки -->
+      <p style="margin: 0;">
+        📄 <strong><a href="resume.md" style="background-color: #24292e; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-size: 0.9em;">Посмотреть резюме (CV)</a></strong>
+      </p>      
     </td>
   </tr>
 </table>
