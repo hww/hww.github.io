@@ -1,49 +1,369 @@
-## Hello I am Valery (hww)
+# Portfolio Navigator & Architectural Index
 
-I am a widely skilled hardware and software designer in the Moscow area. I have been working in the video game industry for the last 15 years. 
+<table>
+  <tr>
+    <td width="130" valign="top">
+      <img src="pp/wendy.png" alt="hww" width="120" style="border-radius: 8px;"/>
+    </td>
+    <td valign="top">
+      <h1>Valeriya Pudova (hww)</h1>
+      <p><strong>Systems Architect | R&D Infrastructure Engineer | Low-Level Specialist</strong></p>
+      <p>
+        🌐 <a href="https://github.com/hww">GitHub Profile</a> &nbsp;|&nbsp; 
+        💼 <a href="https://www.linkedin.com/in/valeriyap/">LinkedIn</a> &nbsp;|&nbsp; 
+        ✉️ Telegram: <a href="https://t.me">@core_systems_eng</a>
+      </p>
+    </td>
+  </tr>
+</table>
 
-![hww](/pp/pp_hww_08.jpg)
+---
 
-## Contact Me
+## About Me
 
-[Linkedin](https://www.linkedin.com/in/valeriyap/)
+I am a Full-Cycle Systems Architect and R&D Engineer specializing in the seamless convergence of hardware development, low-level execution layers, and high-performance software environments. My architectural expertise spans from raw hardware prototyping—including schematics design, in-circuit programming, FPGA/HDL development, and microcontrollers—to complex software infrastructure, embedded language interpreters, custom compilers, and digital signal processing (DSP) for real-time audio synthesis and processing.
 
-[GitHub](https://github.com/hww)
+The core of my engineering career is rooted in game development and deep-level runtime research. I specialize in the reverse engineering and architectural analysis of world-class proprietary AAA engines (including comprehensive teardowns of *Naughty Dog* and *Insomniac Games* pipelines). My structural work focuses on designing deterministic virtual machines, building customized Domain-Specific Languages (DSL), and deploying high-velocity scripting engines (such as custom embedded Lisp/Scheme runtimes) to completely replace high-ceremony native code with flexible, data-driven execution layers.
 
-## Courses & Certificates
+Beyond software architecture, I operate a fully equipped, modern hardware and manufacturing R&D laboratory. The facility integrates professional electrical engineering instrumentation with industrial fabrication capabilities, featuring CNC machinery, multi-axis milling, precision turning, and advanced additive manufacturing (3D printing). This infrastructure allows me to rapidly prototype complete Hardware-Software Complexes (HSC / ПАК), taking projects from raw schematic routing and mechanical fabrication to custom native runtime deployment.
 
-|          | Year | Course                                                            | Score |
-|----------|------|:------------------------------------------------------------------|-----|
-| BerkleyX | 2012 | CS188.1x: Artificial Intelligence                                 | 97% |
-| BerkleyX | 2012 | CS184.1x: Foundations of Computer Graphics                        | 100% |
-| BerkleyX | 2013 | TA<sup>1</sup> Team in CS184.1x: Foundations of Computer Graphics | - |
-| BerkleyX | 2014 | TA<sup>1</sup> Team in CS184.1x: Foundations of Computer Graphics | - |
+---
 
-<sup>1</sup> Teacher Assistance Team
+## Academic R&D & Credentials
 
-## Languages
+### Education & Courses
 
-Russian (native), English (fluent) 
+| Institution | Year | Course / Program | Score / Role |
+| :--- | :--- | :--- | :--- |
+| **BerkeleyX** | 2012 | CS188.1x: Artificial Intelligence | **97%** |
+| **BerkeleyX** | 2012 | CS184.1x: Foundations of Computer Graphics | **100%** |
+| **BerkeleyX** | 2013 | CS184.1x: Foundations of Computer Graphics | **Teaching Assistant (TA)** |
+| **BerkeleyX** | 2014 | CS184.1x: Foundations of Computer Graphics | **Teaching Assistant (TA)** |
 
-## My Articles 
+### Languages
 
-- [My articles (English)](/articles)
-- [My articles (Russian)](/articles.rus) 
+* **English:** Fluent / Professional Working Proficiency
+* **Russian:** Native speaker
 
-## My Projects
+## Projects & Engineering History
 
-- [Projects](/projects) - The completed projects for employers <img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
-- [Personal Projects](/personal-projects) - Some of my projects for fun <img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
-- [Homebrew Projects](/homebrew) - Hardware projects for home
-- [Code Samples](/code-samples) - Code examples from various projects
+A comprehensive, reverse-chronological index of my system architecture, hardware design, and software R&D projects.
 
-## News & Updates
+### 2026  
 
-Updating your page in reverse chronological order
+**Medical PPG Wristband Prototype** | *R&D Project* | [Documentation](/projects/ppg/index)
 
-- 2025 - [Lisp-Based Development Ecosystem for Resource-Constrained Platforms](projects/lisp)<img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
-- 2025 - [Aleste LX FPGA - A modern implementation of PC](https://github.com/hww/aleste-lx-fpga-sv)<img style="margin:0;padding:0;border:none;display:inline" src="images/new16.png"/> 
-- 10.01.2022 - (Hardware Project) [2022 - XiAleste an Amstrad CPC replica](/projects/xialeste) 
-- 22.10.2020 - (Статьи на русском) [Организация Art и GD-данных в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vTnqYfYVQCO-g15ix6BleTnnTVPP78fDevvDs7e0zTl2Gv27bzd6re7T3Rh0nyEyLwrcI-vhkRq3vce/pub#id.e30rzkidxxtw)
-- 05.10.2022 - (Статьи на русском) [Организация файлов проекта в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vRpuEZvmRUyhuAUDPyyZ-aw4TkZ9ASXlQPstAYfNOCmh8LHSSvoh_6C4wmdh-oOQ2kDXmMIERFwbHiq/pub)
-- 22.09.2022 - (Статьи на русском) [Именование файлов в Unity 3D](https://docs.google.com/document/d/e/2PACX-1vS3qR_vg_-AnNhv7eWRRUbA8_4-ssVMO2dpC5t2GLzU101CbTGHAxcUVCsRmgXSkyizKkovPKNUnAHx/pub)
+* Designed and engineered a high-precision medical photoplethysmogram (PPG) wristband prototype explicitly optimized for the Smart Sports platform.
+* ⚡ *Tech Stack:* In-Circuit Programming, Low-Power Microcontrollers, Biometric Sensor Fusion, Hardware Prototyping.
+  
+**KIRA Shark — Digital Signal Processor Module** | *Personal Project (PP)* | [Documentation](projects/kira_dsp_module/index)
+
+* Architected and manufactured a standalone, high-performance hardware digital signal processor (DSP) module for advanced real-time audio and data manipulation.
+* ⚡ *Tech Stack:* Schematic Design, DSP, Precision Electrical Engineering, PCB Layout, C/C++.
+  
+### 2025
+
+**Lisp-Based Development Ecosystem** | *Personal Project (PP)* | [Documentation](projects/lisp/index)
+
+* Engineered a lightweight, high-performance embedded Lisp development environment tailored explicitly for heavily resource-constrained hardware platforms.
+* ⚡ *Tech Stack:* Compiler Design, Interpreter Internals, Memory Sandboxing, Virtual Machine, Custom DSL.
+
+* **Aleste LX FPGA Computer** | *Personal Project (PP)* | [Source Code](https://github.com/hww/aleste-lx-fpga-sv)
+
+* Developed a modern, hardware-compatible FPGA implementation of the classic Aleste 520EX computer system from scratch using SystemVerilog.
+* ⚡ *Tech Stack:* SystemVerilog, FPGA, RTL Design, Hardware Emulation, Retro-Engineering.
+
+### 2022
+
+**Oculus Quest 2 — Haptic Feedback Rifle** | *Arcadia/VR Commercial Project* | [Documentation](/projects/ar_vr_rifle)
+
+* Designed the electrical engineering layout, custom I/O signaling, and mechanical interface for a VR haptic-feedback arcade rifle peripheral.
+* ⚡ *Tech Stack:* VR Interop, Haptics Firmware, Hardware-Software Complex (ПАК), Microcontrollers.
+  
+**XiGameTool — Unity 3D Data Pipeline** | *Personal Project (PP)* | [Source Code](https://github.com/hww/XiGameTool)
+
+* Built a highly optimized game data extraction, transformation, and serialization toolset designed to optimize asset pipelines inside the Unity Editor.
+* ⚡ *Tech Stack:* Unity 3D, C#, Data Serialization, Editor Tooling.
+
+**XiDebugDraw — Unity 3D Debugging Tool** | *Personal Project (PP)* | [Source Code](https://github.com/hww/XiDebugDraw)
+
+* Developed a zero-allocation, high-performance immediate-mode 3D runtime visual debugging and gizmo drawing framework for Unity.
+* ⚡ *Tech Stack:* Unity 3D, C#, Runtime Introspection, Graphics Rendering Pipeline.
+
+**XiKeyboard — Emacs Keyboard Subsystem** | *Personal Project (PP)* | [Source Code](https://github.com/hww/XiKeyboard)
+
+* Authored a custom menu and complex keyboard binding abstraction layer replicating GNU Emacs input paradigms directly inside the Unity Editor.
+* ⚡ *Tech Stack:* Unity 3D, C#, Editor Scripting, Input Mapping Systems.
+
+**Open GOAL Type System (Common Lisp)** | *Personal Project (PP)* | [Source Code](https://github.com/hww/open-goal-type-system-cl)
+
+* Implemented a standalone parser, validator, and compiler type analyzer for Naughty Dog's proprietary Open GOAL language using Common Lisp.
+* ⚡ *Tech Stack:* Common Lisp, AST Parsing, Type Systems, Reverse Engineering.
+
+**Open GOAL Type System (Racket)** | *Personal Project (PP)* | [Source Code](https://github.com/hww/open-goal-type-system-for-racket)
+
+* Developed an alternative, functional implementation of the Open GOAL type analyzer infrastructure using the Racket ecosystem.
+* ⚡ *Tech Stack:* Racket, Scheme Dialect, Functional Programming, Syntax Objects.
+
+### 2021
+
+**6DOF IMU Hand Tracking Gloves** | *Arcadia/VR Commercial Project* | [Documentation](/projects/ar_vr_gloves)
+
+* Architected the firmware, sensor fusion algorithms, and hardware layout for VR input gloves leveraging multi-node 6DOF IMU sensor arrays.
+* ⚡ *Tech Stack:* Firmware Development, IMU Sensor Fusion, Hardware Prototyping, Low-latency I/O.
+
+### 2020
+
+**Crazy Claw Emojis Arcade Game** | *Commercial Product (Rocket Amusements)* | [Documentation](/projects/crazy_claw_emojis)
+
+* Lead engineer for a physical arcade redemption machine. Wrote the complete game software execution layer and optimized runtime operations.
+* ⚡ *Tech Stack:* Unity 3D, C#, Game State Architecture, Arcade Hardware Interop.
+  
+### 2019
+
+**Rocket Amusements Cabinet I/O Board v2** | *Commercial Hardware* | [Documentation](/projects/ra_io_board2)
+
+* Designed and routed a high-reliability, low-latency master I/O motherboard revision for physical arcade cabinets, managing heavy industrial loads and sensor inputs.
+* ⚡ *Tech Stack:* Schematic Capture, PCB Routing, Industrial I/O, Hardware Security.
+
+### 2018
+
+**Crazy Claw Junior Arcade Machine** | *Commercial Product (Rocket Amusements)* | [Documentation](/projects/crazy_claw_jr)
+
+* Developed the software execution loop and deployment pipelines for the compact junior variant of the virtual claw machine line.
+* ⚡ *Tech Stack:* C#, Unity 3D, Embedded Logic, Automation.
+
+**Koch Fractals & Noise Flowfield Demos** | *Personal Projects (PP)* | [Fractals Repo](https://github.com/hww/koch_fractals) | [Flowfield Repo](https://github.com/hww/noise_flow_field)
+
+* Authored high-performance mathematical visualizers exploring vector fractals and fluid flowfields.
+* ⚡ *Tech Stack:* Unity 3D, Vector Mathematics, Procedural Rendering, Algorithmic Optimization.
+
+### 2017
+
+**Unity 3D MVC Architectural Framework** | *Personal Project (PP)* | [Source Code](https://github.com/hww/unity_mvc)
+
+* Developed a clean, lightweight Model-View-Controller structural pattern to enforce separation of concerns in complex Unity UI and state graphs.
+* ⚡ *Tech Stack:* Unity 3D, Software Design Patterns, C# Refactoring.
+  
+### 2016
+
+**Crazy Claw Original Arcade Machine** | *Commercial Product (Rocket Amusements)* | [Documentation](/projects/crazy_claw_original)
+
+* Architected the full software system, input routing, and device synchronization code for the flagship physical arcade redemption title, deployed in mass production in China.
+* ⚡ *Tech Stack:* Unity 3D, C#, Embedded Runtimes, Hardware Integration.
+
+**XiDebugMenu & XiSound Systems** | *Personal Projects (PP)* | [Debug Menu Repo](https://github.com/hww/XiDebugMenu) | [Sound Repo](https://github.com/hww/XiSound)
+
+* Created an in-game text-only debug interface overlay and a custom micro-allocated low-overhead sound system for resource-constrained Unity builds.
+* ⚡ *Tech Stack:* Unity 3D, UI Optimization, Audio Buffer Management.
+
+### 2015
+
+**Rocket Amusements Cabinet I/O Board v1** | *Commercial Hardware* | [Documentation](/projects/ra_io_board1)
+
+* Engineered the initial proprietary physical hardware I/O controller card to bridge arcade cabinet mechanical coin-ops, buttons, and lights with the PC engine layer.
+* ⚡ *Tech Stack:* Electrical Engineering, Microcontroller Firmware, Serial Interop, Hardware Layout.
+
+**VARP Oscilloscope Asset** | *Personal Project (PP)* | [Documentation](https://hww.github.io/projects/varp_oscilloscope/)
+
+* Authored a production-grade live runtime vector oscilloscope simulator asset published on the Unity Asset Store.
+* ⚡ *Tech Stack:* Graphics Math, Signal Visualization, Custom Inspectors.
+
+### 2012
+
+**Gamebryo with GambitC Integration** | *Commercial R&D* | [Documentation](/projects/gamebryo/)
+
+* Successfully embedded the GambitC Scheme interpreter directly into the Gamebryo C++ AAA engine architecture, enabling data-driven gameplay loops.
+* ⚡ *Tech Stack:* C++, Gamebryo Engine, GambitC Scheme, Embedded Runtimes, Script Interop.
+
+**3D Ray Tracer** | *Personal Project (PP)* | [Source Code](https://github.com/hww/RayTracer)
+
+* Built a pure, scratch-written deterministic 3D ray tracing rendering engine exploring lighting, reflection vectors, and spatial shadows.
+* ⚡ *Tech Stack:* C++, Software Rendering, Ray Tracing, Linear Algebra.
+
+### 2008 - 2011
+
+**Driver Training Interactive Courseware Platform** | *Commercial Enterprise Software* | [Documentation](/projects/webtraining)
+
+* Architected the simulation states, asset pipelines, and client-server synchronization logic for a highly distributed, scalable web-based interactive driving simulation platform.
+* ⚡ *Tech Stack:* Architecture, Simulation Logic, Enterprise Systems.
+
+### 2005 - 2007
+
+**Nintendo Game Boy Advance SP & DS "On TV" Hardware** | *Commercial Hardware Devices* | [Documentation](/projects/view_boy/)
+
+* Developing the proprietary LCD screen to TV interface for the Nintendo GBA SP and Nintendo DS handhelds. Engineered custom FPGA/hardware devices to capture, scale, and output pure digital console video feeds directly onto standard television monitors.
+* ⚡ *Tech Stack:* Reverse Engineering, Hardware Hacking, FPGA, High-Speed Video Processing, Signal Capture.
+
+**Aleste 520 Computer Emulator** | *Personal Project (PP)* | [Documentation](/projects/caprice32/)
+
+* Wrote a cycle-accurate software emulator for the unique domestic Aleste 520EX computer system to preserve legacy hardware logic on modern PC architectures.
+* ⚡ *Tech Stack:* C++, Low-Level Emulation, Assembly, Retro-Computing.
+  
+### 2004 - 2005
+
+**Pro Action Rocky — Nintendo Cheat Device** | *Commercial Consumer Hardware Product* | [Documentation](/projects/nintendo_cheat_device)
+
+* Developed the low-level firmware and dynamic memory injection hooking mechanics for the commercial Pro Action Rocky cheat cartridge hardware operating on Nintendo devices.
+
+* ⚡ Tech Stack: Assembly, Verilog, Actel, Firmware, Memory Injection, Reverse Engineering, SolidWorks.
+
+## 2003 - 2004
+
+* **SyberEngine 3D Development Platform** | Commercial Core Engine Product | Documentation
+  * Served as Core System Architect, engineering a high-velocity, cross-platform component-based game engine from scratch. Developed a proprietary bytecode VM (SyberScript), a custom FSM compiler, native Maya asset toolchains, and a live graphics debugger interface.
+  * ⚡ Tech Stack: C++, OpenGL, Core Engine Development, Custom Compiler, Bytecode VM, IDE Engineering.
+
+## Before 2000
+
+**Nintendo 64 Hardware Debugger Platform** | *R&D / Reverse Engineering* | [Documentation](/projects/n64_debugger)
+
+* Reverse-engineered the complex cartridge bus and memory mapping architecture of the Nintendo 64 console. Designed and manufactured a custom physical hardware platform to enable remote software loading, ROM emulation, and live execution debugging.
+* ⚡ *Tech Stack:* C++, Delphy, MaxII+, Altera, Reverse Engineering, Hardware Prototyping, Signal Analysis, Bus Sniffing, Microcode.
+
+**Nintendo 64 Custom Mini-Game** | *Personal Project (PP)* | [Documentation](/projects/n64_game)
+
+* Authored a low-level optimized mini-game for the Nintendo 64 architecture, writing custom software directly targeting the console's bare metal and proprietary graphics processing pipeline.
+* ⚡ *Tech Stack:* MIPS Assembly, C++, Low-Level Console Architecture, Reality Coprocessor (RCP) Interop.
+
+**Digital Signal Processing & Real-Time Audio Synthesis** | Commercial Audio Product | Documentation
+
+* Architected low-overhead firmware and assembly routines for dedicated Digital Signal Processors (DSP) to achieve real-time additive and subtractive hardware audio synthesis.
+* ⚡ Tech Stack: DSP Assembly, Audio Synthesis Algorithms, Fixed-Point Math, C++.
+
+**MagicSound Stereophonic Audio Card** for Aleste 520EX | Commercial Hardware Expansion | Documentation
+
+* Designed and routed the schematic architecture for the classic MagicSound expansion card, introducing high-fidelity multi-channel stereophonic audio and direct DMA mixing to the Aleste computer system.
+* ⚡ Tech Stack: Circuit Design, Sound Chip Interop, DMA, PCB Routing.
+
+**Aleste 520EX Home Computer System** | Commercial System Hardware Product | Documentation
+
+* Acted as the Lead Hardware and Systems Developer for the legendary, highly compatible domestic Aleste 520EX personal computer system, engineering core logic integration, memory mappers, and system bios runtimes.
+* ⚡ Tech Stack: Hardware Systems Engineering, Schematic Design, Z80 Assembly, Operating System Internals.
+
+---
+
+
+---
+
+## Production Code Samples
+
+A curated showcase of my engineering style, demonstrating architectural patterns, low-overhead algorithms, and multi-paradigm programming.
+
+### 1. Language Engineering & Abstract Syntax Trees (AST)
+
+* **[Open GOAL Type System (Common Lisp)](https://github.com/hww/open-goal-type-system-cl)** — *Language Parser & Semantic Analyzer*
+  * Demonstrates production-grade functional architecture, custom AST parsing, compiler type analysis, and reverse-engineering of Naughty Dog's proprietary engine typings.
+* **[XiJSON Serialization Engine](https://github.com/hww/XiJSON)** — *Lightweight Tokenizer & Parser*
+  * A zero-boilerplate, highly efficient compiler-like parsing module written to achieve ultra-fast data serialization without reflection overhead.
+
+### 2. High-Performance & Zero-Allocation Graphics
+
+* **[XiDebugDraw (C# / Unity 3D)](https://github.com/hww/XiDebugDraw)** — *Immediate-Mode Rendering Framework*
+  * Showcases memory-optimized, zero-allocation runtime 3D drawing algorithms, custom geometry generation, and direct interaction with the engine's low-level rendering loop.
+* **[Pure 3D Ray Tracer (C++)](https://github.com/hww/RayTracer)** — *Software Rendering & Linear Algebra*
+  * A scratch-written deterministic ray tracing core demonstrating deep understanding of vector mathematics, programmatic lighting calculations, shadow vectors, and spatial partitioning.
+
+### 3. Game Engine Tooling & Input Abstraction
+
+* **[XiKeyboard Interop Layer](https://github.com/hww/XiKeyboard)** — *Complex Input Abstraction Matrix*
+  * Implements a robust menu and keystroke handling state engine that fully replicates GNU Emacs complex modifier key bindings and contextual input schemas inside a host editor.
+* **[XiGameTool Asset Pipeline](https://github.com/hww/XiGameTool)** — *Data-Driven Workflow Automation*
+  * Demonstrates advanced editor workflow meta-data extraction, automated asset sanitization, and pipeline-level serialization architecture.
+
+Отлично! Вот полный, единый и отформатированный список всех ваших статей и заметок, отсортированный от самых свежих к самым старым, с языковыми префиксами и переведёнными на английский заголовками:
+
+---
+
+## Articles & Technical Papers
+
+*A curated list of my architectural research, reverse engineering, production pipelines, and creative team methodologies.*
+
+### 📄 2022
+
+1. **[RU] Three Core Components of a Successful Game Studio**
+   *How to unlock the creative potential of your team? Explores trust, communication culture, shared vision, and passion for the craft.*
+   [Read article](https://hww.github.io/articles/3_parts_game_studio/index)
+
+2. **[RU] AAA Game Development Methods for Indie Studios — Common Ground in Naughty Dog & Kojima Productions**
+   *Why indie developers should analyze AAA titles like Death Stranding and The Last of Us, and adapt their approaches in practice.*
+   [Read article](https://hww.github.io/articles/aaa_methods/index)
+
+3. **[RU] Gameplay Programming #2 — Clarification for the Creative Team**
+   *A creative-focused companion to the technical breakdown of The Last of Us. Bridges the gap between engineering and game design perspectives.*
+   [Read article](https://hww.github.io/articles/nd_gfs_creative/index)
+
+4. **[RU] Gameplay Programming #1 — The Last of Us Case Study**
+   *A brief reverse engineering analysis of Naughty Dog's Game Runtime Base Foundation System. Covers KIS principles and customization flexibility.*
+   - [Read web version](https://hww.github.io/articles/nd_gfs/index)
+   - [Download full PDF study](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
+
+5. **[EN] Game Developing — Clarification for the Creative Team**
+   *A high-level overview of game development processes tailored for non-technical creative teams.*
+   [Read article](https://hww.github.io/articles/nd_gfs_creative_en/index)
+
+6. **[EN] Game Developing — The Last of Us Case Study**
+   *A comprehensive architectural breakdown of Naughty Dog's engine and runtime systems.*
+   [Read article](https://drive.google.com/file/d/1R1u8fZQ5cPoLcReZ_OiVSzKKswbwg5pM/view?usp=sharing)
+
+7. **[RU] Myths and Misconceptions of a Game Programmer**
+   *Common fallacies and professional delusions encountered during game development. A reflective piece on mistakes and learning.*
+   [Read article](https://docs.google.com/document/d/e/2PACX-1vTbXMLVn-BG5nWvkXAVqVxqcduZHD78_4oxHJKqClbGva3q3DTfOAUD0jmKqGO3Vn0Hgo9zkRneUbQv/pub)
+
+8. **[RU] File Naming Conventions in Unity 3D**
+   *Part of a series on file organization. Covers core naming techniques for project clarity and team collaboration.*
+   [Read article](https://docs.google.com/document/d/e/2PACX-1vS3qR_vg_-AnNhv7eWRRUbA8_4-ssVMO2dpC5t2GLzU101CbTGHAxcUVCsRmgXSkyizKkovPKNUnAHx/pub#h.u8291nlml1yw)
+
+9. **[RU] Project File Organization in Unity 3D**
+   *Proposes a scalable project directory structure to streamline asset management and SCM workflows.*
+   [Read article](https://docs.google.com/document/d/e/2PACX-1vRpuEZvmRUyhuAUDPyyZ-aw4TkZ9ASXlQPstAYfNOCmh8LHSSvoh_6C4wmdh-oOQ2kDXmMIERFwbHiq/pub)
+
+---
+
+### 📄 2020
+
+10. **[RU] Orchestrating Art and Game Design Data in Unity 3D**
+    *Examines the boundary between creative assets and engine code. Details data-driven schema injections to decouple design iteration from native changes.*
+    [Read article](https://docs.google.com/document/d/e/2PACX-1vTnqYfYVQCO-g15ix6BleTnnTVPP78fDevvDs7e0zTl2Gv27bzd6re7T3Rh0nyEyLwrcI-vhkRq3vce/pub#id.e30rzkidxxtw)
+
+---
+
+### 📄 2013
+
+11. **[EN] Lisp-Based Scripting in Unity 3D: A Practical Case Study**
+    *Deep-dive white paper on integrating an embedded Scheme interpreter into Unity. Covers first-class continuations for coroutines, runtime REPL context injection, and reflection overhead mitigation.*
+    [Read article](https://hww.github.io/articles/lisp_with_unity/)
+
+---
+
+### 📄 2003
+
+12. **[EN] SyberEngine — Rapid Game Development System Overview**
+    *Original technical specification of a custom C++ component-based engine. Outlines bytecode VM design, native FSM compilers, and automated Maya asset-export pipelines.*
+    [Read article](https://hww.github.io/articles/syber_engine/index)
+
+13. **[EN] SyberEngine — The SyberScript Language Reference**
+    *Complete language reference for the SyberScript VM. Covers syntax, FSM declarations, class system, and built-in operators.*
+    [Read article](https://hww.github.io/articles/syber_engine/seslr)
+
+---
+
+### 📄 Quick Notes (2022)
+
+*Short technical notes for personal reference on specific Unity 3D topics.*
+
+- **[RU] Unity Spawning Methods** — *Methods for instantiating scene actors in Unity.*  
+  [Read note](https://docs.google.com/document/d/e/2PACX-1vR0pweSEJBM1_tijpxbuWvuoJ2URe8sqe_T6nSSsJCQL_MU0G8MLa1iqpKTRXkwkN73T7tSSbsPiORi/pub)
+
+- **[RU] Real-Time Simulation Specifics in Unity 3D** — *Peculiarities of real-time simulation within the Unity environment.*  
+  [Read note](https://docs.google.com/document/d/e/2PACX-1vQtzwW3zTA0COR5hWaUmwypO1qGHSPsl--Bl1te4aqy6N7OrbswYXQYXSXBbwuqvAKu2-uRasMQBI2H/pub)
+
+---
+
+### 🏷️ Keywords
+
+`games` `gamedesign` `gamedev` `indiegames` `creative` `animations` `pipeline` `scripting` `object system` `runtime` `finite state machines` `AI` `programming` `simulation`
+
+---
+
+**Legend:** `[EN]` — English, `[RU]` — Russian
