@@ -6,7 +6,7 @@ Valeriya Pudova
 
 <div class="center" markdown="1">
 
-valery.hww@gmail.com
+<valery.hww@gmail.com>
 
 </div>
 
@@ -28,29 +28,28 @@ valery.hww@gmail.com
 
 ****Abstract****
 
-**Keywords**
 
 ****Disclaimer****
 
 I don’t work at *Naughty Dog*, nor do I have any secret knowledge of *The Last of Us*, except what I figured out myself from the disc. So a lot of this may well be wrong. Take it with a pinch of salt. Most of the code samples in this document are taken from the sources listed at the end of the document.
 
-# Introduction [sec:org9a83c9c]
+# Introduction
 
 The company *Naughty Dog* *(ND)* uses a set of developer tools consisting of many different utilities. Some of these utilities have their own *GUI*, while others remain as commands for the console `\citep{jgregory2014}`{=latex}. This approach has some advantages over integrated development environments (*IDE*) for 3D games such as Unity 3D.
 
--   Less development overhead becasue *GUI* is not needed, so more resources can be spent on the game itself
+- Less development overhead becasue *GUI* is not needed, so more resources can be spent on the game itself
 
--   It is easier to organize the collaboration of the team as a whole
+- It is easier to organize the collaboration of the team as a whole
 
--   The *GUI* tools individually require fewer resources. And so they are more convenient for a specific task: *World*,*FX*, *Shaders*, editors, etc.
+- The *GUI* tools individually require fewer resources. And so they are more convenient for a specific task: *World*,*FX*, *Shaders*, editors, etc.
 
--   With this approach it is easier to organize production automation
+- With this approach it is easier to organize production automation
 
--   The tools do not work destructively: if the designer does not change anything, the project stays the same
+- The tools do not work destructively: if the designer does not change anything, the project stays the same
 
 The main feature of *ND* approach is based on the use of animations and dynamic updates of the runtime environment - no recompilation and restart of the project is required to see the result.
 
-# Asset Management [sec:org0d2544d]
+# Asset Management
 
 The *asset management* system is designed to organize collaboration on a project, versioning source files[^1], eliminate conflicts, and also to generate the current state of all project media-resources and save the result in an optimal format for streaming-loading. This system is based on a distributed database, which is implemented using *DB* or *xml* files[^2]. The database contains information about all source files inputs and allows you to create a project’s asset folder and fill it with content. Each entry contains not only import parameters, but also additional information such as comments for the team. To resolve conflicts, a history of actions on each file is stored: renaming, moving, deleting, etc.
 
@@ -61,7 +60,7 @@ The *asset management* system is designed to organize collaboration on a project
 
 Don’t neglect the asset management system: a lot depends on it, because making games is more about working with assets than programming.
 
-# World Editor [sec:org63336e6]
+# World Editor
 
 The editor has nothing to do with the engine itself and this is a[^3]. It uses text configuration files *schema*. Each file contains parameter descriptions for one type of scene object. For each field could be declared: type, default value, minimum and maximum, and the list of options for the enumerated types. After putting an empty object on the scene, the designer chooses which scheme file this object uses. Then, the designer can fill the fields, as the list of fields is described in the schema file. The designer has the ability to add or remove fields to the *schema* file himself. Eventually, the world editor will write down the structure of the whole scene, e.g. as *xml* or another file format. The approach illustrated in figure <a href="#fig:nd_schema" data-reference-type="ref" data-reference="fig:nd_schema">2</a>
 
@@ -72,19 +71,19 @@ The editor has nothing to do with the engine itself and this is a[^3]. It uses t
 
 There are the following types `\citep{jgregory2017}`{=latex} of scene objects:
 
--   *Spawner* - The point and process that instantiates the character
+- *Spawner* - The point and process that instantiates the character
 
--   {emph{Spline} - 3D curve
+- {emph{Spline} - 3D curve
 
--   *Region* - A world fragment
+- *Region* - A world fragment
 
--   {emph{Nav Mesh} - Navigation geometry (navigation grid)
+- {emph{Nav Mesh} - Navigation geometry (navigation grid)
 
--   *Static Background Geometry* - Static background geometry
+- *Static Background Geometry* - Static background geometry
 
 The object’s parameters list may include fields such as *archetype* and sometimes *parent-archetype*. These parameters define: which entity class will actually be used, which components it has and which fields has each component.
 
-# Object System [sec:org3c25e02]
+# Object System
 
 The class hierarchy is not deeply nested and is built from a single ancestor class. In my opinion, the system could theoretically be implemented as a dynamic component system`\citep{tcohen2010}`{=latex} or another variant of *Data Oriented* programming.
 
@@ -104,11 +103,11 @@ The base class of all characters *ProcessGameObject* and the classes inherited f
 
 The object system of the game is based on a *LISP*-like language which describes structures, classes, class instances together with the data stored in them, as well as variables and functions in the *.dc* file. This file is compiled into files *.h*, *.bin* and *.dci*. In addition to all of the above, the *.dc* file contains the source code of the state machines for the game objects. This code is organized as a set of parallel processes working in a cooperative multitasking environment. The processes have a synchronization mechanism based on signals.
 
--   *.h* - is intended to be built by the *C* compiler and provides a direct access to the dynamic data from the *C*
+- *.h* - is intended to be built by the *C* compiler and provides a direct access to the dynamic data from the *C*
 
--   *.bin* - contains only data structures and functions. Loaded by the game in the runtime
+- *.bin* - contains only data structures and functions. Loaded by the game in the runtime
 
--   *.dci* - text file with declaration of all files to *import* and all definitions for *export*.
+- *.dci* - text file with declaration of all files to *import* and all definitions for *export*.
 
 Changing of the *dc* file requires recompilation of the project only if the structure has changed, i.e. *.h* file has been changed. The functioning of the system is shown in figure <a href="#fig:nd_world" data-reference-type="ref" data-reference="fig:nd_world">5</a>.
 
@@ -117,7 +116,7 @@ Changing of the *dc* file requires recompilation of the project only if the stru
 <figcaption><span id="fig:nd_world" label="fig:nd_world"></span>The world model editing<span class="citation" data-cites="jgregory2017"></span></figcaption>
 </figure>
 
-# Spawning [sec:org3203487]
+# Spawning
 
 The basis of flexible creation *spawning* of new instances of game entities is the use of scripting processes. Such processes do all the necessary work to create objects, and then inject the necessary data. The *spawning* system uses an *object factory* which has a table of type names and archetypes and stores information about inheritance and class size. The system must also be able to move objects to use memory efficiently.
 
@@ -127,31 +126,31 @@ A more qualitative result can be given by the *Data Oriented* approach, which us
 
 In general, *spawning*-system should solve the following problems:
 
--   Keep the uniqueness of identifiers.
+- Keep the uniqueness of identifiers.
 
--   Create all necessary hierarchy of objects for single prototype *prefab*.
+- Create all necessary hierarchy of objects for single prototype *prefab*.
 
--   Configure all necessary dependencies.
+- Configure all necessary dependencies.
 
--   Efficient use of memory.
+- Efficient use of memory.
 
--   Use processor resources carefully. For example, to create an object in a few steps: query, create, initialize, request the creation of children, etc.
+- Use processor resources carefully. For example, to create an object in a few steps: query, create, initialize, request the creation of children, etc.
 
--   Be able to use the *priority queue* when creating objects
+- Be able to use the *priority queue* when creating objects
 
--   Allow to create the objects with different ways and with injection paramteres:
+- Allow to create the objects with different ways and with injection paramteres:
 
-    -   *Spawner* - by the *spawner* object in the world
+  - *Spawner* - by the *spawner* object in the world
 
-    -   *C* - with *C* code
+  - *C* - with *C* code
 
-    -   *Script* - with script code
+  - *Script* - with script code
 
-    -   *Cloning* - by copying of existing object
+  - *Cloning* - by copying of existing object
 
-    -   *Replication* - by network replication
+  - *Replication* - by network replication
 
-# Message Sysyem [sec:org845914c]
+# Message Sysyem
 
 The one of main objectives for a programmer is to create code with a minimum of dependencies. Two interacting objects should not know too much about each other. Instead, using polymorphism, they should talk to each other in an abstract language – the language of signals and messages.
 
@@ -159,13 +158,13 @@ The message is a data container with records as *key* and *value* pairs. The val
 
 Some time, instead of using pointer as value woulde be better to use names *StringId* or identifiers *Handler* as objects reference.
 
-# States [sec:orgc7af390]
+# States
 
 The game objects are updated using the *batched* and *bucket* methods.
 
--   *batched* - update all components of the same type *Data Oriented Programming*
+- *batched* - update all components of the same type *Data Oriented Programming*
 
--   *bucket* - update objects by priorities, to eliminate the interdependency problem
+- *bucket* - update objects by priorities, to eliminate the interdependency problem
 
 Below is an example of *batched* and *backed* updates `\citep{jgregory2017}`{=latex}.
 
@@ -222,7 +221,7 @@ while (true) // main game loop
 
 How objects need to be updated depends a lot on the game itself and the decision must be made on a case-by-case basis, for each specific.
 
-# String ID [sec:orgb3ab69d]
+# String ID
 
 All object names are converted to integer values using the *CRC32* algorithm. The *C* source code uses the macro *SID(s)* which is converted to *SID(n, s)* before compilation. The identifiers of all lines are collected in a separate text *.sid* file for debugging. An example macro in the source *C* file is shown below.
 
@@ -281,7 +280,7 @@ def crc32(s, init=0):
   return crc
 ```
 
-# DC Syntax [sec:org29fd967]
+# DC Syntax
 
 The DC language allows you to declare new types, below is an example of a four-component vector `\citep{dliebdold2008}`{=latex}.
 
@@ -453,7 +452,7 @@ Yet another example is given below, it has a tree different nodes that perform a
 
 Similar methods can be used to encode other game systems: *AI*, *Melee* `\citep{minglun2021}`{=latex}, etc.
 
-# States [sec:org48bc48d]
+# States
 
 In the *DC* language, a state refers to a particular set of processes that run for a particular host object or as independent processes in memory. An example of finite state machine with a single state of an animated scene is shown below`\citep{jgregory2006}`{=latex}.
 
@@ -492,7 +491,7 @@ A state can have its own variables for storing different values or exchanging da
   )
 ```
 
-# Multitasking [sec:org9475697]
+# Multitasking
 
 Each state of an object can be represented as a set of parallel process (tracks). Some of them are executed from beginning to end in each rendering frame, while others are paused and continue execution in the next frame or on response to a certain event. There are also separate tracks that are triggered by an event. Initialization code is executed at the beginning of state, and finalization code is executed at the end. The diagram <a href="#fig:nd_tracks" data-reference-type="ref" data-reference="fig:nd_tracks">7</a> illustrates one state.
 
@@ -539,29 +538,23 @@ The next state `\citep{jgregory2006}`{=latex} starts four tracks – four parall
 
 Ultimately, the track system is layered, with the upper levels controlling the lower levels. Examples of such layers from the top to the bottom are given below:
 
--   The top-level processes of the game, as well as global processes such as chaining a time of day or weather
-
--   Current scene processes
-
--   Current zone processes
-
--   Battle-zone processes
-
--   Group AI processes
-
--   Character processes
-
--   Processes of child objects
+- The top-level processes of the game, as well as global processes such as chaining a time of day or weather
+- Current scene processes
+- Current zone processes
+- Battle-zone processes
+- Group AI processes
+- Character processes
+- Processes of child objects
 
 Using a scripting is very efficient way with some drawbacks, such as:
 
--   Designers must be able to program in scripting language
+- Designers must be able to program in scripting language
 
--   The execution of code in tracks is not time-dependent, i.e., it cannot be executed in reverse order or make jumps in time.
+- The execution of code in tracks is not time-dependent, i.e., it cannot be executed in reverse order or make jumps in time.
 
 The latter, however, is possible in pure *Data-Driven* system.
 
-# Reflection [sec:org139422b]
+# Reflection
 
 The *DC* source code compiled into bytecode[^4]. Any way to integrate a dynamic language into the system requires a mechanism for this integration: *Reflection*, *FFI*, etc.
 
@@ -608,21 +601,21 @@ The *C* function *ScriptWaitAnimate* can now be declared in a dynamic programmin
   )
 ```
 
-# DC Compiler [sec:org12c9583]
+# DC Compiler
 
 Implemented in *Racket*, although it could have been implemented in *C*, *Go* or any other language. The use of *Racket* may be explained by the following reasons:
 
--   It is an environment specifically aimed at developing *DSL*
+- It is an environment specifically aimed at developing *DSL*
 
--   The Racket compiler supports a large number of languages already implemented for the platform, such as
+- The Racket compiler supports a large number of languages already implemented for the platform, such as
 
--   It’s a mature product, well proven in academic environments
+- It’s a mature product, well proven in academic environments
 
--   *Racket* has its own *IDE*, *DrRacket*. It is easy to install and use. The tools it provides are very clear and informative.
+- *Racket* has its own *IDE*, *DrRacket*. It is easy to install and use. The tools it provides are very clear and informative.
 
--   Advanced programmers can use another editor, e.g. *EMACS*
+- Advanced programmers can use another editor, e.g. *EMACS*
 
-# SID-file [sec:orga01e3cc]
+# SID-file
 
 The presence of such a file is my assumption. The file has a text format and is designed to store the text forms of each *StringId*. It can be useful when debugging programs. Below is an example of a fragment of this file.
 
@@ -634,13 +627,13 @@ dcf596c6 get-difficulty
 a86d881d get-dda
 ```
 
-# DCI-file [sec:org4b186de]
+# DCI-file
 
 This file is intended for linking modules. There are the next definitions in each file:
 
--   All imported files
+- All imported files
 
--   All exported definitions
+- All exported definitions
 
 Theoretically, in debug mode, all text forms can be placed in the file and another data.
 
@@ -656,7 +649,7 @@ Theoretically, in debug mode, all text forms can be placed in the file and anoth
 )
 ```
 
-# The binary DC-file [sec:org0ff4bc1]
+# The binary DC-file
 
 The binary file is undocumented and has not yet been fully investigated, but some conclusions can already be drawn. The file format is very simple and friendly for a runtime system. Each file starts with a 32 byte header.
 
@@ -712,17 +705,17 @@ struct DcDescriptor {
 }
 ```
 
-# VM [sec:orgca52f9d]
+# VM
 
 The virtual machine has a list of process, which contains pointers to a memory block storing the proces’s *environment*. The environment contains:
 
--   A pointer to the *lambda* function being executed.
+- A pointer to the *lambda* function being executed.
 
--   Index of the current instruction (PC)
+- Index of the current instruction (PC)
 
--   A pointer to the parent environment, if the environments are not organized as a stack
+- A pointer to the parent environment, if the environments are not organized as a stack
 
--   A block of registers, each of them is the *variant* type
+- A block of registers, each of them is the *variant* type
 
 The structure of the *VM* environment is shown in figure <a href="#fig:vm_runtime" data-reference-type="ref" data-reference="fig:vm_runtime">8</a>
 
@@ -731,7 +724,7 @@ The structure of the *VM* environment is shown in figure <a href="#fig:vm_runtim
 <figcaption><span id="fig:vm_runtime" label="fig:vm_runtime"></span>The VM Runtime <span class="citation" data-cites="jgregory2006"></span></figcaption>
 </figure>
 
-# Instruction Set [sec:orgd710770]
+# Instruction Set
 
 The instruction’s sequence consists of homogeneous instructions as an array of 32-bit values. Besides the operation code there are three operands *a*,*b*,*c*. For some instructions the *c* operand is used as a direct value *k*, for others the *b* and *c* operands are combined into a 16-bit value *kk*.
 
@@ -746,11 +739,11 @@ struct DcInstruction {
 
 The constants are accessed by the data address from the descriptor. The register value multiplied by N[^5] is used as the offset of the data area where they are stored records of types:
 
--   *I8,U8,I16,U16,I32,U32,I64,U64* numbers. However, in the game I investigated, only *I32* and *U32* are used
+- *I8,U8,I16,U16,I32,U32,I64,U64* numbers. However, in the game I investigated, only *I32* and *U32* are used
 
--   32-bit floating point numbers
+- 32-bit floating point numbers
 
--   C-strings
+- C-strings
 
 The table below shows the instruction set of the virtual machine. The *Q-ty* column gives the approximate number of the command uses in the game.
 
@@ -761,25 +754,25 @@ The table below shows the instruction set of the virtual machine. The *Q-ty* col
 |   0x00 | return            | 1412 | return aRes, b (allways equal a)       |
 |   0x01 | intAdd            |  130 | a = b + c                              |
 |   0x02 | intSub            |   19 | a = b - c                              |
-|   0x03 | intMul            |    1 | a = b \* c                             |
+|   0x03 | intMul            |    1 | a = b * c                              |
 |   0x04 | intDiv            |    0 | a = b / c                              |
 |   0x05 | floatAdd          |   32 | a = b + c                              |
 |   0x06 | floatSub          |   44 | a = b - c                              |
-|   0x07 | floatMul          |   68 | a = b \* c                             |
+|   0x07 | floatMul          |   68 | a = b * c                              |
 |   0x08 | floatDiv          |   30 | a = b / c                              |
-|   0x09 | loadStaticInt     |    0 | a = (int)data\[kk\*N\]                 |
-|   0x0A | loadStaticFloat   |    0 | a = (float)data\[kk\*N\]               |
-|   0x0B | loadStaticPointer |    0 | a = (char\*)data\[kk\*N\]              |
+|   0x09 | loadStaticInt     |    0 | a = (int)data[kk*N]                    |
+|   0x0A | loadStaticFloat   |    0 | a = (float)data[kk*N]                  |
+|   0x0B | loadStaticPointer |    0 | a = (char*)data[kk*N]                  |
 |   0x0C | loadImm           | 3577 | a = BC                                 |
-|   0x0D | loadInt           |   78 | a = (int)\*b                           |
-|   0x0E | loadFloat         |  129 | a = (float)\*b                         |
-|   0x0F | loadPointer       |    2 | a = (pointer)\*b                       |
-|   0x10 | storeInt          |    0 | (int\*)a = b                           |
-|   0x11 | storeFloat        |    0 | (float\*)a = b                         |
-|   0x12 | storePointer      |    0 | (char\*\*)a = b                        |
-|   0x13 | lookupInt         |    0 | a = (int)lookup((sid)data\[kk\*N\])    |
-|   0x14 | lookupFloat       |    0 | a = (float)lookuo((sid)data\[kk\*N\])  |
-|   0x15 | lookupPointer     | 8313 | a = (char\*)lookup((sid)data\[kk\*N\]) |
+|   0x0D | loadInt           |   78 | a = (int)*b                            |
+|   0x0E | loadFloat         |  129 | a = (float)*b                          |
+|   0x0F | loadPointer       |    2 | a = (pointer)*b                        |
+|   0x10 | storeInt          |    0 | (int*)a = b                            |
+|   0x11 | storeFloat        |    0 | (float*)a = b                          |
+|   0x12 | storePointer      |    0 | (char**)a = b                          |
+|   0x13 | lookupInt         |    0 | a = (int)lookup((sid)data[kk*N])       |
+|   0x14 | lookupFloat       |    0 | a = (float)lookuo((sid)data[kk*N])     |
+|   0x15 | lookupPointer     | 8313 | a = (char\*)lookup((sid)data[kk*N])    |
 |   0x16 | moveInt           |    0 | a = b                                  |
 |   0x17 | moveFloat         |    0 | a = b                                  |
 |   0x18 | movePointer       |    0 | a = b                                  |
@@ -788,8 +781,8 @@ The table below shows the instruction set of the virtual machine. The *Q-ty* col
 |   0x1B | call              | 1429 | Call script function(aArg, bRes, argc) |
 |   0x1C | callFf            | 6866 | Call native function(aArg, bRes, argc) |
 |   0x1D | cmpEqual          |  721 | a = b == c                             |
-|   0x1E | cmpGt             |   49 | a = b \> c                             |
-|   0x1F | cmpGtEqual        |   20 | a = b \>= c)                           |
+|   0x1E | cmpGt             |   49 | a = b > c                              |
+|   0x1F | cmpGtEqual        |   20 | a = b >= c)                            |
 
 Opcodes 0x00-0x1F
 
@@ -802,8 +795,8 @@ Opcodes 0x00-0x1F
 |   0x20 | cmpLt            |  141 | a = b \< c              |
 |   0x21 | cmpLtEqual       |   16 | a = b \<= c             |
 |   0x22 | cmpFloatEqual    |   19 | a = b == c              |
-|   0x23 | cmpFloatGt       |  108 | a = b \> c              |
-|   0x24 | cmpFloatGtEqual  |   31 | a = b \>= c             |
+|   0x23 | cmpFloatGt       |  108 | a = b > c               |
+|   0x24 | cmpFloatGtEqual  |   31 | a = b >= c              |
 |   0x25 | cmpFloatLt       |  153 | a = b \< c              |
 |   0x26 | cmpFloatLtEqual  |   44 | a = b \<= c             |
 |   0x27 | intMod           |    2 | a = mod(b)              |
@@ -828,9 +821,9 @@ Opcodes 0x00-0x1F
 |   0x3A | loadParmCnt      |    1 | a = argc                |
 |   0x3B | intAddImm        |  158 | a = b + k               |
 |   0x3C | intSubImm        |    0 | a = b - k               |
-|   0x3D | intMulImm        |    0 | a = b \* k              |
+|   0x3D | intMulImm        |    0 | a = b * k               |
 |   0x3E | intDivImm        |    0 | a = b / k               |
-|   0x3F | loadStaticI32Imm | 7128 | a = (i32)data\[kk\*N\]) |
+|   0x3F | loadStaticI32Imm | 7128 | a = (i32)data[kk*N])    |
 
 Opcodes 0x20-0x3F
 
@@ -840,24 +833,24 @@ Opcodes 0x20-0x3F
 
 | Opcode | Name              |  Q-ty | Comment                            |
 |-------:|:------------------|------:|:-----------------------------------|
-|   0x40 | loadStaticFloat   |  1699 | a = (float)data\[kk\*N\])          |
-|   0x41 | loadStaticPointer |   558 | a = (char\*)&data\[data\[kk\*N\]\] |
+|   0x40 | loadStaticFloat   |  1699 | a = (float)data[kk*N])             |
+|   0x41 | loadStaticPointer |   558 | a = (char*)&data[data[kk*N]]       |
 |   0x42 | intAsh            |     0 | a shift b bits left/right          |
 |   0x43 | move              | 27681 | a = b                              |
-|   0x44 | loadStaticU32     |     0 | a = (u32)data\[kk\*N\])            |
-|   0x45 | loadStaticI8      |     0 | a = (i8)data\[kk\*N\])             |
-|   0x46 | loadStaticU8      |     0 | a = (u8)data\[kk\*N\])             |
-|   0x47 | loadStaticI16     |     0 | a = (i16)data\[kk\*N\])            |
-|   0x48 | loadStaticU16     |     0 | a = (u16)data\[kk\*N\])            |
-|   0x49 | loadStaticI64     |     0 | a = (i64)data\[kk\*N\])            |
-|   0x4A | loadStaticU64     |     0 | a = (u64)data\[kk\*N\])            |
+|   0x44 | loadStaticU32     |     0 | a = (u32)data[kk*N])               |
+|   0x45 | loadStaticI8      |     0 | a = (i8)data[kk*N])                |
+|   0x46 | loadStaticU8      |     0 | a = (u8)data[kk*N])                |
+|   0x47 | loadStaticI16     |     0 | a = (i16)data[kk*N])               |
+|   0x48 | loadStaticU16     |     0 | a = (u16)data[kk*N])               |
+|   0x49 | loadStaticI64     |     0 | a = (i64)data[kk*N])               |
+|   0x4A | loadStaticU64     |     0 | a = (u64)data[kk*N])               |
 |        |                   |       |                                    |
 
 Opcodes 0x40-0x4A
 
 </div>
 
-## VM Registers and Constants [sec:orgf8b99c1]
+## VM Registers and Constants
 
 Here are a few examples. In the game *The Last of Us* there were no accesses to a register larger than *R34*. Perhaps therefore registers *R24* and higher were usually used to pass arguments.
 
@@ -954,41 +947,41 @@ The *variant* container can’t store a *StringId* value, instead *integer* valu
 
 Data types whose size exceeds *variant* container are passed as a pointer to an object or as a handrer.
 
-# Result [sec:org234a7b5]
+# Result
 
 Of course, this introduction is very simplified, it describing only the base of the game system and the pipeline as a whole. However, from this description you can get an idea of the most important points:
 
--   Avoid designing tools with an overloaded GUI; it’s better to use the effort on the game itself
+- Avoid designing tools with an overloaded GUI; it’s better to use the effort on the game itself
 
--   The distributed asset management system should be collaborative and should support multiple projects and their variants
+- The distributed asset management system should be collaborative and should support multiple projects and their variants
 
--   The game kernel should be productive and the designer’s tools should be flexible
+- The game kernel should be productive and the designer’s tools should be flexible
 
--   The use of *LISP*-like languages allows data and code to be conveniently described in a single file
+- The use of *LISP*-like languages allows data and code to be conveniently described in a single file
 
 The entire game process consists of thousands of parallel processes, each one similar to a movie script. I have observed that there are functions in the source code whose takes up several pages.
 
 In general, most of the approaches mentioned are applicable to other game development environments such as *Unity 3D* and *Unreal Engine*. I have completed commercial projects in *Unity 3D* using the principles outlined in this document. I estimate this result as successful.
 
-# Conclusion [sec:orgdace1df]
+# Conclusion
 
 As a conclusion, it is worth saying that the *{*The Last of Us on the Playstation 3} project required the following resources:
 
--   16 programmers.
+- 16 programmers.
 
-    -   two of them– *tool* programmers.
+  - two of them– *tool* programmers.
 
--   20 designers
+- 20 designers
 
--   120 animators
+- 120 animators
 
--   6000 DC files
+- 6000 DC files
 
-    -   120 Mb total volume of DC-source files
+  - 120 Mb total volume of DC-source files
 
-    -   45 Mb total size of DC-binary files
+  - 45 Mb total size of DC-binary files
 
-    -   Dynamically loaded in 5 Mb of heap
+  - Dynamically loaded in 5 Mb of heap
 
 There is something to think about.
 
