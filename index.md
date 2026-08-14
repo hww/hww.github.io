@@ -18,7 +18,11 @@
       </p>
       <!-- Ссылка на резюме в виде аккуратной кнопки -->
       <p style="margin: 0;">
-        📄 <strong><a href="resume.md" style="background-color: #24292e; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-size: 0.9em;">Посмотреть резюме (CV)</a></strong>
+        <strong>
+        <a href="resume.en.md" style="background-color: #24292e; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-size: 0.9em;">Read CV</a>
+        &nbsp;|&nbsp;
+        <a href="resume.ru.md" style="background-color: #24292e; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-size: 0.9em;">Посмотреть резюме (CV)</a>
+        </strong>
       </p>      
     </td>
   </tr>
