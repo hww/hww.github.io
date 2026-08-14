@@ -12,5 +12,3 @@ github:
 github.is_project_page: false
 github.owner_url: 
 github.public: true
-plugins:
-  - jekyll-sitemap
