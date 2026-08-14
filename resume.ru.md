@@ -4,11 +4,22 @@
 
 Проектирование программно-аппаратных комплексов (ПАК), низкоуровневого ПО и системных рантаймов
 
-* Портфолио: hww.github.io
-* GitHub: hww
-* LinkedIn: valeriyap
-* Telegram: valery_h2w (Контрактная разработка и ИБ-проекты)
-* Локация: Псков, Россия (Доступна для удаленной работы и краткосрочных R&D-командировок)
+<div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 25px; flex-wrap: wrap;">
+  <div style="flex-shrink: 0;">
+    <img src="pp/wendy.png" alt="hww" width="120" style="border-radius: 8px; display: block; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
+  </div>
+  <div style="flex: 1; min-width: 280px; line-height: 1.6;">
+    <h1 style="margin-top: 0; margin-bottom: 6px; border-bottom: none; padding-bottom: 0; font-size: 2em; font-weight: 700;">Valeriya Pudova (hww)</h1>
+    <p style="margin: 0 0 10px 0; font-size: 1.1em; color: #24292e; font-weight: 600;">
+      Systems Architect &nbsp;|&nbsp; R&D Infrastructure Engineer &nbsp;|&nbsp; Low-Level Specialist
+    </p>
+    <p style="margin: 0 0 14px 0; font-size: 0.95em;">
+      🌐 <a href="https://github.com">GitHub Profile</a> &nbsp;|&nbsp; 
+      💼 <a href="https://linkedin.com">LinkedIn</a> &nbsp;|&nbsp; 
+      ✉️ Telegram: <a href="https://t.me">@core_systems_eng</a>
+    </p>
+  </div>
+</div>
   
 ------------------------------
 
