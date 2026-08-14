@@ -24,6 +24,32 @@ I don’t work at *Naughty Dog*, nor do I have any secret knowledge of *The Last
   </p>
 </details>
 
+# Table of Contents
+
+- [Introduction](#introduction)
+- [Asset Management](#asset-management)
+- [World Editor](#world-editor)
+- [Object System](#object-system)
+- [Spawning](#spawning)
+- [Message System](#message-sysyem)
+- [States](#states)
+- [String ID](#string-id)
+- [DC Syntax](#dc-syntax)
+- [Animation States](#animation-states-secorg3216cbf)
+- [States (Scripting)](#states-1)
+- [Declaration of State Variables](#declaration-of-state-variables-secorg92c5bc2)
+- [Multitasking](#multitasking)
+- [Reflection](#reflection)
+- [DC Compiler](#dc-compiler)
+- [SID-file](#sid-file)
+- [DCI-file](#dci-file)
+- [The Binary DC-file](#the-binary-dc-file)
+- [VM](#vm)
+- [Instruction Set](#instruction-set)
+- [VM Registers and Constants](#vm-registers-and-constants)
+- [Result](#result)
+- [Conclusion](#conclusion)
+
 # Introduction
 
 The company *Naughty Dog* *(ND)* uses a set of developer tools consisting of many different utilities. Some of these utilities have their own *GUI*, while others remain as commands for the console `\citep{jgregory2014}`{=latex}. This approach has some advantages over integrated development environments (*IDE*) for 3D games such as Unity 3D.
