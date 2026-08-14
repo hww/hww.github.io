@@ -4,7 +4,7 @@
 
 *   📖 [Game Developing - The Last of Us Case Study (2022)](https://drive.google.com/file/d/1R1u8fZQ5cPoLcReZ_OiVSzKKswbwg5pM/view?usp=sharing)
 
-*   📖 [Lisp based scripting in Unity 3D (2013)](https://docs.google.com/document/d/e/2PACX-1vSx2Bilw0ZGgiUx9lbXfAR3JLs1i-kHJgqAUFN3sJWLG6si51pcFg8dTZqzzSoln6aiq24uS0w_6ZAC/pub)
+*   📖 [Lisp based scripting in Unity 3D (2013)](https://hww.github.io/articles/lisp_with_unity/)
 
 *   📖 [Rapid Game Development System Overview (2003)](https://hww.github.io/articles/syber_engine/index)
   
