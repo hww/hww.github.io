@@ -1,35 +1,27 @@
 # Portfolio Navigator & Architectural Index
 
 
-<table style="border: none; border-collapse: collapse; width: 100%;">
-  <tr style="border: none;">
-    <td width="140" valign="top" style="border: none; padding: 10px;">
-      <img src="pp/wendy.png" alt="hww" width="120" style="border-radius: 8px; display: block;"/>
-    </td>
-    <td valign="top" style="border: none; padding: 10px; line-height: 1.6;">
-      <div>
-      <h1 style="margin-top: 0; margin-bottom: 8px; border-bottom: none;">Valeriya Pudova (hww)</h1>
-      <p style="margin: 0 0 12px 0; font-size: 1.1em;">
-        <strong>Systems Architect &nbsp;|&nbsp; R&D Infrastructure Engineer &nbsp;|&nbsp; Low-Level Specialist</strong>
-      </p>
-      <p style="margin: 0;">
-        🌐 <a href="https://github.com/hww">GitHub Profile</a> &nbsp;|&nbsp; 
-        💼 <a href="https://www.linkedin.com/in/valeriyap/">LinkedIn</a> &nbsp;|&nbsp; 
-        ✉️ Telegram: <a href="https://t.me">@core_systems_eng</a>
-      </p>
-      <!-- Ссылка на резюме в виде аккуратной кнопки -->
-      <p style="margin: 0;">
-        <strong>
-        <a href="resume.en.md" style="background-color: #24292e; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-size: 0.9em;">Read CV</a>
-        &nbsp;|&nbsp;
-        <a href="resume.ru.md" style="background-color: #24292e; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-size: 0.9em;">Посмотреть резюме (CV)</a>
-        </strong>
-      </p>      
-      </div>
-    </td>
-  </tr>
-</table>
-
+<div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 25px; flex-wrap: wrap;">
+  <div style="flex-shrink: 0;">
+    <img src="pp/wendy.png" alt="hww" width="120" style="border-radius: 8px; display: block; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
+  </div>
+  <div style="flex: 1; min-width: 280px; line-height: 1.6;">
+    <h1 style="margin-top: 0; margin-bottom: 6px; border-bottom: none; padding-bottom: 0; font-size: 2em; font-weight: 700;">Valeriya Pudova (hww)</h1>
+    <p style="margin: 0 0 10px 0; font-size: 1.1em; color: #24292e; font-weight: 600;">
+      Systems Architect &nbsp;|&nbsp; R&D Infrastructure Engineer &nbsp;|&nbsp; Low-Level Specialist
+    </p>
+    <p style="margin: 0 0 14px 0; font-size: 0.95em;">
+      🌐 <a href="https://github.com">GitHub Profile</a> &nbsp;|&nbsp; 
+      💼 <a href="https://linkedin.com">LinkedIn</a> &nbsp;|&nbsp; 
+      ✉️ Telegram: <a href="https://t.me">@core_systems_eng</a>
+    </p>
+    <div style="display: flex; gap: 10px; margin-top: 5px;">
+      <a href="resume.md" style="background-color: #24292e; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: 600; display: inline-block;">Read CV (EN)</a>
+      <a href="resume_ru.md" style="background-color: #24292e; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: 600; display: inline-block;">Посмотреть резюме (RU)</a>
+    </div>
+  </div>
+</div>
+<hr style="height: 1px; border: none; background-color: #e1e4e8; margin: 20px 0 25px 0;" />
 ---
 
 ## About Me
