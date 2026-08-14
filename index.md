@@ -356,10 +356,10 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 *Short technical notes for personal reference on specific Unity 3D topics.*
 
 - **[RU] Unity Spawning Methods** — *Methods for instantiating scene actors in Unity.*  
-  [Read note](https://docs.google.com/document/d/e/2PACX-1vR0pweSEJBM1_tijpxbuWvuoJ2URe8sqe_T6nSSsJCQL_MU0G8MLa1iqpKTRXkwkN73T7tSSbsPiORi/pub)
+  [Read note](https://hww.github.io/articles/unity_spawning/index)
 
 - **[RU] Real-Time Simulation Specifics in Unity 3D** — *Peculiarities of real-time simulation within the Unity environment.*  
-  [Read note](https://docs.google.com/document/d/e/2PACX-1vQtzwW3zTA0COR5hWaUmwypO1qGHSPsl--Bl1te4aqy6N7OrbswYXQYXSXBbwuqvAKu2-uRasMQBI2H/pub)
+  [Read note](https://hww.github.io/articles/rtts_unity/index)
 
 ---
 
