@@ -4,7 +4,7 @@
 
 <div style="text-align: center; max-width: 600px; margin: 30px auto; padding: 20px; border: 1px solid #e1e4e8; border-radius: 8px; background-color: #fafbfc;">
   
-  <h2 style="margin-top: 0; margin-bottom: 5px; font-size: 1.5em; border-bottom: none; padding-bottom: 0;">Valeriya Pudova</h2>
+  <hp style="margin-top: 0; margin-bottom: 5px; font-size: 1.5em; border-bottom: none; padding-bottom: 0;">Valeriya Pudova</p>
   <p style="margin: 0 0 15px 0; color: #586069; font-size: 0.95em;">
     ✉️ <a href="mailto:valery.hww@gmail.com" style="text-decoration: none; color: #0366d6;">valery.hww@gmail.com</a> &nbsp;|&nbsp; 📅 18.05.2022
   </p>
