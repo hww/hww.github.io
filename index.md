@@ -293,19 +293,19 @@ A curated showcase of my engineering style, demonstrating architectural patterns
    *Why indie developers should analyze AAA titles like Death Stranding and The Last of Us, and adapt their approaches in practice.*
    [Read article](https://hww.github.io/articles/aaa_methods/index)
 
-3. **[RU] Gameplay Programming #2 — Clarification for the Creative Team**
+3. **[RU] Part 2 - Gameplay Programming — Clarification for the Creative Team**
    *A creative-focused companion to the technical breakdown of The Last of Us. Bridges the gap between engineering and game design perspectives.*
    [Read article](https://hww.github.io/articles/nd_gfs_creative/index)
 
-4. **[RU] Gameplay Programming #1 — The Last of Us Case Study**
+4. **[RU] Part 1 - Gameplay Programming — The Last of Us Case Study**
    *A brief reverse engineering analysis of Naughty Dog's Game Runtime Base Foundation System. Covers KIS principles and customization flexibility.*
    [Read article](https://hww.github.io/articles/nd_gfs/index)
 
-5. **[EN] Game Developing — Clarification for the Creative Team**
+5. **[EN] Part 2 - Game Developing — Clarification for the Creative Team**
    *A high-level overview of game development processes tailored for non-technical creative teams.*
    [Read article](https://hww.github.io/articles/nd_gfs_creative_en/index)
 
-6. **[EN] Game Developing — The Last of Us Case Study**
+6. **[EN] Part 1 - Game Developing — The Last of Us Case Study**
    *A comprehensive architectural breakdown of Naughty Dog's engine and runtime systems.*
    [Read article](https://hww.github.io/articles/nd_gfs_en/index)
 
@@ -313,23 +313,35 @@ A curated showcase of my engineering style, demonstrating architectural patterns
    *Common fallacies and professional delusions encountered during game development. A reflective piece on mistakes and learning.*
    [Read article](https://hww.github.io/articles/game_dev_myths/index)
 
+8. **[EN] Part 1 - File Naming Conventions in Unity 3D**
+   *Part of a series on file organization. Covers core naming techniques for project clarity and team collaboration.*
+   [Read article](https://github.com/hww/unity-style-guide-and-pipeline/01-naming/index.en.md)
+
+10. **[EN] Part 2 - Project File Organization in Unity 3D**
+   *Proposes a scalable project directory structure to streamline asset management and SCM workflows.*
+   [Read article](https://github.com/hww/unity-style-guide-and-pipeline/02-project/index.en.md)
+
+11. **[EN] Part 3 - Art- и GD-data Organization Unity 3D**
+   *Proposes a scalable project directory structure to streamline art and game asset management and SCM workflows.*
+   [Read article](https://github.com/hww/unity-style-guide-and-pipeline/03-art-gd/index.en.md)
+
 8. **[RU] Part 1 - File Naming Conventions in Unity 3D**
    *Part of a series on file organization. Covers core naming techniques for project clarity and team collaboration.*
-   [Read article](https://hww.github.io/articles/01-naming/index)
+   [Read article](https://github.com/hww/unity-style-guide-and-pipeline/01-naming/index.md)
 
 10. **[RU] Part 2 - Project File Organization in Unity 3D**
    *Proposes a scalable project directory structure to streamline asset management and SCM workflows.*
-   [Read article](https://hww.github.io/articles/02-project/index)
+   [Read article](https://github.com/hww/unity-style-guide-and-pipeline/02-project/index.md)
 
 11. **[RU] Part 3 - Art- и GD-data Organization Unity 3D**
    *Proposes a scalable project directory structure to streamline art and game asset management and SCM workflows.*
-   [Read article](https://hww.github.io/articles/03-art-gd/index)
+   [Read article](https://github.com/hww/unity-style-guide-and-pipeline/03-art-gd/index.md)
    
 ---
 
 ### 📄 2020
 
-12. **[RU] Orchestrating Art and Game Design Data in Unity 3D**
+1. **[RU] Orchestrating Art and Game Design Data in Unity 3D**
     *Examines the boundary between creative assets and engine code. Details data-driven schema injections to decouple design iteration from native changes.*
     [Read article](https://docs.google.com/document/d/e/2PACX-1vTnqYfYVQCO-g15ix6BleTnnTVPP78fDevvDs7e0zTl2Gv27bzd6re7T3Rh0nyEyLwrcI-vhkRq3vce/pub#id.e30rzkidxxtw)
 
@@ -345,11 +357,11 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 ### 📄 2003
 
-14. **[EN] SyberEngine — Rapid Game Development System Overview**
+1. **[EN] SyberEngine — Rapid Game Development System Overview**
     *Original technical specification of a custom C++ component-based engine. Outlines bytecode VM design, native FSM compilers, and automated Maya asset-export pipelines.*
     [Read article](https://hww.github.io/articles/syber_engine/index)
 
-15. **[EN] SyberEngine — The SyberScript Language Reference**
+2. **[EN] SyberEngine — The SyberScript Language Reference**
     *Complete language reference for the SyberScript VM. Covers syntax, FSM declarations, class system, and built-in operators.*
     [Read article](https://hww.github.io/articles/syber_engine/seslr)
 
