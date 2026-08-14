@@ -365,6 +365,6 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 ### 🏷️ Keywords
 
-`games` `gamedesign` `gamedev` `indiegames` `creative` `animations` `pipeline` `scripting` `object system` `runtime` `finite state machines` `AI` `programming` `simulation`
+`3d` `games` `gamedesign` `gamedev` `indiegames` `creative` `animations` `pipeline` `scripting` `multitasking` `object system` `runtime` `finite state machines` `AI` `programming` `simulation` `c++` `lisp` `golang` `dsp` `fpga` `verilog` `verilator` `eda` `xpedition` `hyperlynx` `solidworks` `nx`
 
 
