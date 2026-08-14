@@ -52,7 +52,7 @@ While the entire engine core is built in native C++, gameplay logic is intention
 
 Managing complex interactive logic manually becomes unmaintainable as a game grows. SyberScript solves this by introducing a clean, deterministic syntax explicitly designed for state handling:
 
-![Figure 1. The Syber’s FSM domain specific language](hww.github.io/articles/syber_engine/images/se_fsm.png)
+![Figure 1. The Syber’s FSM domain specific language](images/se_fsm.png)
 *Figure 1: SyberEngine's native Finite State Machine (FSM) Domain-Specific Language (DSL).*
 
 ---
@@ -71,7 +71,7 @@ Instead of forcing artists to adapt to a separate, clunky proprietary editor, we
 
 To support this seamless workflow, we engineered **over 40 custom plug-ins and tools for Maya**. This massive tooling ecosystem completely offloaded content-integration tasks from programmers, allowing them to focus entirely on core engine infrastructure.
 
-![Figure 2. The Maya integration tools](hww.github.io/articles/syber_engine/images/se_maya.jpg)
+![Figure 2. The Maya integration tools](images/se_maya.jpg)
 *Figure 2: Custom-programmed integration tools and toolbars inside Autodesk Maya.*
 
 ---
@@ -96,7 +96,7 @@ With a **single-click pipeline**, assets generated in *Autodesk Maya* are compil
 
 To bridge the gap between asset inspection, script execution, and live debugging, we engineered **SEDebugger**—a unified graphic runtime tool designed for both programmers and technical artists.
 
-![Figure 3. SEDebugger Interface](hww.github.io/articles/syber_engine/images/se_screen.png)
+![Figure 3. SEDebugger Interface](images/se_screen.png)
 *Figure 3: SyberEngine's native SEDebugger workspace layout.*
 
 ### Workspace Breakdown:
@@ -113,7 +113,7 @@ To bridge the gap between asset inspection, script execution, and live debugging
 
 The internal execution pipeline of SyberEngine is structurally divided to maximize iteration speed and platform independence. The vast majority of gameplay logic is decoupled from native binaries and driven entirely by the scripting subsystem.
 
-![Figure 4. SyberEngine assets flow diagram](hww.github.io/articles/syber_engine/images/se_diagram.png)
+![Figure 4. SyberEngine assets flow diagram](images/se_diagram.png)
 *Figure 4: SyberEngine's compiled asset serialization and VM execution pipeline.*
 
 ### The Compilation and Execution Loop:
