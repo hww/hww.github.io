@@ -25,7 +25,7 @@
         <a href="resume.ru.md" style="background-color: #24292e; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-size: 0.9em;">Посмотреть резюме (CV)</a>
         </strong>
       </p>      
-      </div>div>
+      </div>
     </td>
   </tr>
 </table>
