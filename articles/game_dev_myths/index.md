@@ -4,7 +4,7 @@
 
 <div style="display: flex; align-items: center; gap: 20px; max-width: 700px; margin: 25px 0; padding: 15px; border: 1px solid #e1e4e8; border-radius: 8px; background-color: #fafbfc; flex-wrap: wrap;">
   <div style="flex-shrink: 0;">
-    <img src="pp/wendy.png" alt="Валерия Пудова" width="70" style="border-radius: 50%; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"/>
+    <img src="/pp/wendy.png" alt="Валерия Пудова" width="70" style="border-radius: 50%; display: block; box-shadow: 0 2px 6px rgba(0,0,0,0.1);"/>
   </div>
   <div style="flex: 1; min-width: 250px; line-height: 1.5;">
     <div style="font-size: 1.2em; font-weight: 700; color: #24292e;">Валерия Пудова</div>
