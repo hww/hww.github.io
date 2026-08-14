@@ -1,14 +1,17 @@
 # Portfolio Navigator & Architectural Index
 
-<table>
-  <tr>
-    <td width="130" valign="top">
-      <img src="pp/wendy.png" alt="hww" width="120" style="border-radius: 8px;"/>
+
+<table style="border: none; border-collapse: collapse; width: 100%;">
+  <tr style="border: none;">
+    <td width="140" valign="top" style="border: none; padding: 10px;">
+      <img src="pp/wendy.png" alt="hww" width="120" style="border-radius: 8px; display: block;"/>
     </td>
-    <td valign="top">
-      <h1>Valeriya Pudova (hww)</h1>
-      <p><strong>Systems Architect | R&D Infrastructure Engineer | Low-Level Specialist</strong></p>
-      <p>
+    <td valign="top" style="border: none; padding: 10px; line-height: 1.6;">
+      <h1 style="margin-top: 0; margin-bottom: 8px; border-bottom: none;">Valeriya Pudova (hww)</h1>
+      <p style="margin: 0 0 12px 0; font-size: 1.1em;">
+        <strong>Systems Architect &nbsp;|&nbsp; R&D Infrastructure Engineer &nbsp;|&nbsp; Low-Level Specialist</strong>
+      </p>
+      <p style="margin: 0;">
         🌐 <a href="https://github.com/hww">GitHub Profile</a> &nbsp;|&nbsp; 
         💼 <a href="https://www.linkedin.com/in/valeriyap/">LinkedIn</a> &nbsp;|&nbsp; 
         ✉️ Telegram: <a href="https://t.me">@core_systems_eng</a>
@@ -295,8 +298,7 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 4. **[RU] Gameplay Programming #1 — The Last of Us Case Study**
    *A brief reverse engineering analysis of Naughty Dog's Game Runtime Base Foundation System. Covers KIS principles and customization flexibility.*
-   - [Read web version](https://hww.github.io/articles/nd_gfs/index)
-   - [Download full PDF study](https://drive.google.com/file/d/16Qsj_bQzOnvqss9vPU-P3rc8dkQzjkO1/view?usp=sharing)
+   [Read web version](https://hww.github.io/articles/nd_gfs/index)
 
 5. **[EN] Game Developing — Clarification for the Creative Team**
    *A high-level overview of game development processes tailored for non-technical creative teams.*
