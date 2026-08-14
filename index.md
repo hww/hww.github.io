@@ -311,7 +311,7 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 7. **[RU] Myths and Misconceptions of a Game Programmer**
    *Common fallacies and professional delusions encountered during game development. A reflective piece on mistakes and learning.*
-   [Read article](https://docs.google.com/document/d/e/2PACX-1vTbXMLVn-BG5nWvkXAVqVxqcduZHD78_4oxHJKqClbGva3q3DTfOAUD0jmKqGO3Vn0Hgo9zkRneUbQv/pub)
+   [Read article](https://hww.github.io/articles/game_dev_myths/index)
 
 8. **[RU] File Naming Conventions in Unity 3D**
    *Part of a series on file organization. Covers core naming techniques for project clarity and team collaboration.*
