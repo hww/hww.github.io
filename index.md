@@ -313,19 +313,23 @@ A curated showcase of my engineering style, demonstrating architectural patterns
    *Common fallacies and professional delusions encountered during game development. A reflective piece on mistakes and learning.*
    [Read article](https://hww.github.io/articles/game_dev_myths/index)
 
-8. **[RU] File Naming Conventions in Unity 3D**
+8. **[RU] Part 1 - File Naming Conventions in Unity 3D**
    *Part of a series on file organization. Covers core naming techniques for project clarity and team collaboration.*
-   [Read article](https://docs.google.com/document/d/e/2PACX-1vS3qR_vg_-AnNhv7eWRRUbA8_4-ssVMO2dpC5t2GLzU101CbTGHAxcUVCsRmgXSkyizKkovPKNUnAHx/pub#h.u8291nlml1yw)
+   [Read article](https://hww.github.io/articles/01-naming/index)
 
-9. **[RU] Project File Organization in Unity 3D**
+10. **[RU] Part 2 - Project File Organization in Unity 3D**
    *Proposes a scalable project directory structure to streamline asset management and SCM workflows.*
-   [Read article](https://docs.google.com/document/d/e/2PACX-1vRpuEZvmRUyhuAUDPyyZ-aw4TkZ9ASXlQPstAYfNOCmh8LHSSvoh_6C4wmdh-oOQ2kDXmMIERFwbHiq/pub)
+   [Read article](https://hww.github.io/articles/02-project/index)
 
+11. **[RU] Part 3 - Art- и GD-data Organization Unity 3D**
+   *Proposes a scalable project directory structure to streamline art and game asset management and SCM workflows.*
+   [Read article](https://hww.github.io/articles/03-art-gd/index)
+   
 ---
 
 ### 📄 2020
 
-10. **[RU] Orchestrating Art and Game Design Data in Unity 3D**
+12. **[RU] Orchestrating Art and Game Design Data in Unity 3D**
     *Examines the boundary between creative assets and engine code. Details data-driven schema injections to decouple design iteration from native changes.*
     [Read article](https://docs.google.com/document/d/e/2PACX-1vTnqYfYVQCO-g15ix6BleTnnTVPP78fDevvDs7e0zTl2Gv27bzd6re7T3Rh0nyEyLwrcI-vhkRq3vce/pub#id.e30rzkidxxtw)
 
@@ -333,7 +337,7 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 ### 📄 2013
 
-11. **[EN] Lisp-Based Scripting in Unity 3D: A Practical Case Study**
+13. **[EN] Lisp-Based Scripting in Unity 3D: A Practical Case Study**
     *Deep-dive white paper on integrating an embedded Scheme interpreter into Unity. Covers first-class continuations for coroutines, runtime REPL context injection, and reflection overhead mitigation.*
     [Read article](https://hww.github.io/articles/lisp_with_unity/)
 
@@ -341,11 +345,11 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 ### 📄 2003
 
-12. **[EN] SyberEngine — Rapid Game Development System Overview**
+14. **[EN] SyberEngine — Rapid Game Development System Overview**
     *Original technical specification of a custom C++ component-based engine. Outlines bytecode VM design, native FSM compilers, and automated Maya asset-export pipelines.*
     [Read article](https://hww.github.io/articles/syber_engine/index)
 
-13. **[EN] SyberEngine — The SyberScript Language Reference**
+15. **[EN] SyberEngine — The SyberScript Language Reference**
     *Complete language reference for the SyberScript VM. Covers syntax, FSM declarations, class system, and built-in operators.*
     [Read article](https://hww.github.io/articles/syber_engine/seslr)
 
