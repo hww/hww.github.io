@@ -8,6 +8,9 @@ https://hww.github.io/articles/3_parts_game_studio/index
 https://hww.github.io/articles/aaa_methods/
 https://hww.github.io/articles/nd_gfs/
 https://hww.github.io/articles/nd_gfs_creative/
+https://hww.github.io/articles/nd_gfs_creative_en/
+https://hww.github.io/articles/lisp_with_unity/
+https://hww.github.io/articles/syber_engine/
 https://hww.github.io/personal-projects.html
 https://hww.github.io/projects/aleste/
 https://hww.github.io/projects/ar_vr_gloves/
