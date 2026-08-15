@@ -336,6 +336,10 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 11. **[RU] Part 3 - Art- и GD-data Organization Unity 3D**
    *Proposes a scalable project directory structure to streamline art and game asset management and SCM workflows.*
    [Read article](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/03-art-gd/index.md)
+
+12. **[RU] Against the Loop: A Manifesto for Interactive Game DevelopmentD**
+   *This is not a technical manual. It is a consolidation of 25 years of hard-won insights — a manifesto arguing that runtime editing and instant feedback are not luxuries but necessities. Every second saved from the edit-compile-run cycle is not just time, but attention returned to the developer.*
+   [Read article](https://hww.github.io/articles/2022/edit_compile_run/)
    
 ---
 
