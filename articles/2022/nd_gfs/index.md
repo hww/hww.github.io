@@ -12,7 +12,7 @@
   📅 18.05.2022
   </p>
   <div style="margin: 15px 0; overflow: hidden; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-    <img src="https://hww.github.io/articles/nd_gfs/images/the_last_of_us.jpg" style="width: 100%; height: auto; display: block; max-height: 380px; object-fit: cover;" alt="The Last of Us Engine Analysis" />
+    <img src="./images/the_last_of_us.jpg" style="width: 100%; height: auto; display: block; max-height: 380px; object-fit: cover;" alt="The Last of Us Engine Analysis" />
   </div>
 </div>
 
@@ -78,7 +78,7 @@
 Система управления *ассетами* — предназначена для организации совместной работы над проектом, отслеживания различных версий исходных файлов (.psd, .tga, .mb, .fbx и т.д.), устранения конфликтных ситуаций, а также для генерации актуального состояния всех медиа ресурсов проекта и сохранения рузультата в оптимальной для поковой загрузки форме. Эта система основана на распределенной базе данных, которая реализована с использованием СУБД или *xml* файлов (Или комбинации обоих подходов). База данных содержит информацию о всех входных медиа-ресурсах и позволяет создать папку ассетов проекта и наполнить её контентом. Каждая запись содержит не только параметры импорта, но и дополнительную информацию, например, комментарии. Для разрешения конфликтов для каждого файла сохраняется история действий над ним: переименование, перемещение, удаление и т.д. Подход к организации данных и их синхронизации иллюстрирован на рисунке [(#fig:assets)].
 
 <a name="fig:assets"></a>
-<img src="https://hww.github.io/articles/nd_gfs/images/nd_assets.drawio.png" alt="Рисунок 1 — Управление ассетами" />
+<img src="./images/nd_assets.drawio.png" alt="Рисунок 1 — Управление ассетами" />
 <center><sub><i>Рисунок 1 — Управление ассетами</i></sub></center>
 
 <br>
@@ -90,7 +90,7 @@
 Редактор никак не связан с самим движком и это является преимуществом. Он использует текстовые конфигурационные файлы *schema*. Каждый файл содержит описание параметров для одного типа объектов сцены. Для каждого поля декларируются тип, значение по умолчанию, минимальное и максимальное значения, возможные значения для перечисляемых типов. Поставив пустой объект на сцену, дизайнер выбирает какую схему использует этот объект. После этого дизайнер может заполнять поля, так как список полей описан в файле схемы. Дизайнер имеет возможность самостоятельно добавлять или удалять поля в файл *schema*. В конечном итоге, редактор мира запишет структуру всей сцены, например, в виде *xml* или другого формата файла. Подход в целом иллюстрирован на рисунке [(#fig:nd_schema)].
 
 <a name="fig:nd_schema"></a>
-<img src="https://hww.github.io/articles/nd_gfs/images/nd_schema.drawio.svg.png" alt="Рисунок 2 — Редактор мира и файл schema" />
+<img src="./images/nd_schema.drawio.svg.png" alt="Рисунок 2 — Редактор мира и файл schema" />
 <center><sub><i>Рисунок 2 — Редактор мира и файл schema</i></sub></center>
 
 <br>
@@ -114,7 +114,7 @@
 Иерархия классов изображена на рисунке ниже. Она не имеет глубокой вложенности и построена от одного класса-предка. Теоретически система могла быть реализована как динамическая компонентная система [[Coh10](#tcohen2010)] или в другом варианте *Data-Oriented* программирования. Приблизительная структура классов изображена на диаграмме [3](#fig:nd_classes).
 
 <a name="fig:nd_classes"></a>
-<img src="https://hww.github.io/articles/nd_gfs/images/nd_classes.drawio.svg.png" alt="Рисунок 3 — Структура классов низкого уровня" />
+<img src="./images/nd_classes.drawio.svg.png" alt="Рисунок 3 — Структура классов низкого уровня" />
 <center><sub><i>Рисунок 3 — Структура классов низкого уровня [[Gre06](#jgregory2006)]</i></sub></center>
 
 <br>
@@ -124,7 +124,7 @@
 
 
 <a name="fig:nd_components"></a>
-<img src="https://hww.github.io/articles/nd_gfs/images/nd_components.drawio.png" alt="Рисунок 4 — Композиция игровых объектов" />
+<img src="./images/nd_components.drawio.png" alt="Рисунок 4 — Композиция игровых объектов" />
 <center><sub><i>Рисунок 4 — Композиция игровых объектов [[Gre06](#jgregory2006)]</i></sub></center>
 
 <br>
@@ -141,7 +141,7 @@
 
 
 <a name="fig:nd_world"></a>
-<img src="https://hww.github.io/articles/nd_gfs/images/nd_game_world_model.drawio.png" alt="Рисунок 5 — Редактирование модели мира" />
+<img src="./images/nd_game_world_model.drawio.png" alt="Рисунок 5 — Редактирование модели мира" />
 <center><sub><i>Рисунок 5 — Редактирование модели мира [[Gre17](#jgregory2017)]</i></sub></center>
 
 
@@ -263,7 +263,7 @@ while (true) // main game loop
 
 
 <a name="fig:nd_sider"></a>
-<img src="https://hww.github.io/articles/nd_gfs/images/nd_sider.drawio.svg.png" alt="Рисунок 6 — Обработка С-файлов перед компиляцией" />
+<img src="./images/nd_sider.drawio.svg.png" alt="Рисунок 6 — Обработка С-файлов перед компиляцией" />
 <center><sub><i>Рисунок 6 — Обработка С-файлов перед компиляцией</i></sub></center>
 
 <br>
@@ -525,7 +525,7 @@ Point pos = pLoc->m_trans;
 
 
 <a name="fig:nd_tracks"></a>
-<img src="https://hww.github.io/articles/nd_gfs/images/nw_flow.drawio.png" alt="Рисунок 7 — Треки одного состояния" />
+<img src="./images/nw_flow.drawio.png" alt="Рисунок 7 — Треки одного состояния" />
 <center><sub><i>Рисунок 7 — Треки одного состояния</i></sub></center>
 
 <br>
@@ -755,7 +755,7 @@ struct DcDescriptor {
 
 
 <a name="fig:vm_runtime"></a>
-<img src="https://hww.github.io/articles/nd_gfs/images/nd_vm_memory.drawio.png" alt="Рисунок 8 — Runtime виртуальной машины" />
+<img src="./images/nd_vm_memory.drawio.png" alt="Рисунок 8 — Runtime виртуальной машины" />
 <center><sub><i>Рисунок 8 — Runtime виртуальной машины [[Gre06](#jgregory2006)]</i></sub></center>
 
 

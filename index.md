@@ -303,11 +303,11 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 5. **[EN] Part 2 - Game Developing — Clarification for the Creative Team**
    *A high-level overview of game development processes tailored for non-technical creative teams.*
-   [Read article](https://hww.github.io/articles/nd_gfs_creative_en/index)
+   [Read article](https://hww.github.io/articles/2022/nd_gfs_creative_en/index)
 
 6. **[EN] Part 1 - Game Developing — The Last of Us Case Study**
    *A comprehensive architectural breakdown of Naughty Dog's engine and runtime systems.*
-   [Read article](https://hww.github.io/articles/nd_gfs_en/index)
+   [Read article](https://hww.github.io/articles/2022/nd_gfs_en/index)
 
 7. **[RU] Myths and Misconceptions of a Game Programmer**
    *Common fallacies and professional delusions encountered during game development. A reflective piece on mistakes and learning.*
@@ -372,10 +372,10 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 *Short technical notes for personal reference on specific Unity 3D topics.*
 
 - **[RU] Unity Spawning Methods** — *Methods for instantiating scene actors in Unity.*  
-  [Read note](https://hww.github.io/articles/unity_spawning/index)
+  [Read note](https://hww.github.io/articles/2022/unity_spawning/index)
 
 - **[RU] Real-Time Simulation Specifics in Unity 3D** — *Peculiarities of real-time simulation within the Unity environment.*  
-  [Read note](https://hww.github.io/articles/rtts_unity/index)
+  [Read note](https://hww.github.io/articles/2022/rtts_unity/index)
 
 ---
 

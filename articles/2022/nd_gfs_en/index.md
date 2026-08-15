@@ -11,7 +11,7 @@ The Last of Us” Case Study
   📅 18.05.2022
   </p>
   <div style="margin: 15px 0; overflow: hidden; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
-    <img src="https://hww.github.io/articles/nd_gfs/images/the_last_of_us.jpg" style="width: 100%; height: auto; display: block; max-height: 380px; object-fit: cover;" alt="The Last of Us Engine Analysis" />
+    <img src="./images/the_last_of_us.jpg" style="width: 100%; height: auto; display: block; max-height: 380px; object-fit: cover;" alt="The Last of Us Engine Analysis" />
   </div>
 </div>
 

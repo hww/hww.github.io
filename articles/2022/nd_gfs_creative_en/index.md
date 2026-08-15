@@ -9,7 +9,7 @@
 
 This document serves as an architectural and artistic supplement to the core technical research. If you are looking for a low-level teardown, bytecode specifications, custom virtual machine internals, and runtime reverse engineering, please refer to the first (technical) part:
 
-👉 **[Read Part 1: Gameplay Programming — Based on Naughty Dog's Engine (The Last of Us Case Study)](https://hww.github.io/articles/nd_gfs_en/index)**
+👉 **[Read Part 1: Gameplay Programming — Based on Naughty Dog's Engine (The Last of Us Case Study)](https://hww.github.io/articles/2022/nd_gfs_en/index)**
 
 ---
 ## Introduction: Animation and Visual Expressiveness
@@ -76,7 +76,7 @@ When a project lacks animation density, it inevitably feels static and sterile. 
 
 A prominent example of this design philosophy is **Ori and the Blind Forest**. By embedding interaction rules directly within a living, animated world asset-graph, the studio achieved world-class narrative expression while dramatically compressing development timelines and optimizing production ROI.
 
-<img src="https://hww.github.io/articles/nd_gfs_creative/images/ori.png" />
+<img src="./images/ori.png" />
 
 ## Conclusions & Resource Distribution
 
