@@ -1,4 +1,6 @@
 https://hww.github.io/
+https://hww.github.io/resume.en.html
+https://hww.github.io/resume.ru.html
 https://hww.github.io/articles/2022/3_parts_game_studio/index
 https://hww.github.io/articles/2022/aaa_methods/
 https://hww.github.io/articles/2020/edit_compile_run/
@@ -22,7 +24,6 @@ https://hww.github.io/projects/crazy_claw_jr/
 https://hww.github.io/projects/crazy_claw_original/
 https://hww.github.io/projects/gamebryo/
 https://hww.github.io/projects/hakko_fx100_clone/
-https://hww.github.io/projects/
 https://hww.github.io/projects/kira_dsp_module/
 https://hww.github.io/projects/lisp/
 https://hww.github.io/projects/magic_sound/
@@ -39,5 +40,3 @@ https://hww.github.io/projects/view_boy/
 https://hww.github.io/projects/webtraining/
 https://hww.github.io/projects/xialeste/
 https://hww.github.io/projects/rings/
-https://hww.github.io/resume.en.html
-https://hww.github.io/resume.ru.html
