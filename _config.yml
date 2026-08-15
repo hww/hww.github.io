@@ -1,15 +1,6 @@
 title: HWW Portfolio
-url: "https://hww.github.io"
 description: Software and Hardware Developer
-#theme: jekyll-theme-slate
 remote_theme: pages-themes/slate@v0.2.0
 plugins:
-- jekyll-remote-theme 
+  - jekyll-remote-theme
 show_downloads: false
-github:
-  is_project_page: false
-  owner_url: 
-  public: true
-github.is_project_page: false
-github.owner_url: 
-github.public: true
