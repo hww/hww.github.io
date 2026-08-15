@@ -287,19 +287,19 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 1. **[RU] Three Core Components of a Successful Game Studio**
    *How to unlock the creative potential of your team? Explores trust, communication culture, shared vision, and passion for the craft.*
-   [Read article](https://hww.github.io/articles/3_parts_game_studio/index)
+   [Read article](https://hww.github.io/articles/2022/3_parts_game_studio/index)
 
 2. **[RU] AAA Game Development Methods for Indie Studios — Common Ground in Naughty Dog & Kojima Productions**
    *Why indie developers should analyze AAA titles like Death Stranding and The Last of Us, and adapt their approaches in practice.*
-   [Read article](https://hww.github.io/articles/aaa_methods/index)
+   [Read article](https://hww.github.io/articles/2022/aaa_methods/index)
 
 3. **[RU] Part 2 - Gameplay Programming — Clarification for the Creative Team**
    *A creative-focused companion to the technical breakdown of The Last of Us. Bridges the gap between engineering and game design perspectives.*
-   [Read article](https://hww.github.io/articles/nd_gfs_creative/index)
+   [Read article](https://hww.github.io/articles/2022/nd_gfs_creative/index)
 
 4. **[RU] Part 1 - Gameplay Programming — The Last of Us Case Study**
    *A brief reverse engineering analysis of Naughty Dog's Game Runtime Base Foundation System. Covers KIS principles and customization flexibility.*
-   [Read article](https://hww.github.io/articles/nd_gfs/index)
+   [Read article](https://hww.github.io/articles/2022/nd_gfs/index)
 
 5. **[EN] Part 2 - Game Developing — Clarification for the Creative Team**
    *A high-level overview of game development processes tailored for non-technical creative teams.*
@@ -311,7 +311,7 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 7. **[RU] Myths and Misconceptions of a Game Programmer**
    *Common fallacies and professional delusions encountered during game development. A reflective piece on mistakes and learning.*
-   [Read article](https://hww.github.io/articles/game_dev_myths/index)
+   [Read article](https://hww.github.io/articles/2022/game_dev_myths/index)
 
 8. **[EN] Part 1 - File Naming Conventions in Unity 3D**
    *Part of a series on file organization. Covers core naming techniques for project clarity and team collaboration.*
@@ -341,17 +341,17 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 ### 📄 2020
 
-1. **[RU] Orchestrating Art and Game Design Data in Unity 3D**
-    *Examines the boundary between creative assets and engine code. Details data-driven schema injections to decouple design iteration from native changes.*
-    [Read article](https://docs.google.com/document/d/e/2PACX-1vTnqYfYVQCO-g15ix6BleTnnTVPP78fDevvDs7e0zTl2Gv27bzd6re7T3Rh0nyEyLwrcI-vhkRq3vce/pub#id.e30rzkidxxtw)
-
+1. **[RU] The Art of Motion: How Animation Shapes Game Design and How to Perfect It**
+    *The aesthetics of motion is the foundation of game design. This article breaks down how animation shapes gameplay, why quick prototypes matter, and how to polish movement until it becomes instinctive for the player.*
+    [Read article](https://hww.github.io/articles/2020/gd/)
+   
 ---
 
 ### 📄 2013
 
 13. **[EN] Lisp-Based Scripting in Unity 3D: A Practical Case Study**
     *Deep-dive white paper on integrating an embedded Scheme interpreter into Unity. Covers first-class continuations for coroutines, runtime REPL context injection, and reflection overhead mitigation.*
-    [Read article](https://hww.github.io/articles/lisp_with_unity/)
+    [Read article](https://hww.github.io/articles/2013/lisp_with_unity/)
 
 ---
 
@@ -359,11 +359,11 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 1. **[EN] SyberEngine — Rapid Game Development System Overview**
     *Original technical specification of a custom C++ component-based engine. Outlines bytecode VM design, native FSM compilers, and automated Maya asset-export pipelines.*
-    [Read article](https://hww.github.io/articles/syber_engine/index)
+    [Read article](https://hww.github.io/articles/2003/syber_engine/index)
 
 2. **[EN] SyberEngine — The SyberScript Language Reference**
     *Complete language reference for the SyberScript VM. Covers syntax, FSM declarations, class system, and built-in operators.*
-    [Read article](https://hww.github.io/articles/syber_engine/seslr)
+    [Read article](https://hww.github.io/articles/2003/syber_engine/seslr)
 
 ---
 
