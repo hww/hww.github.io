@@ -1,10 +1,15 @@
 https://hww.github.io/
 https://hww.github.io/articles/2022/3_parts_game_studio/index
 https://hww.github.io/articles/2022/aaa_methods/
+https://hww.github.io/articles/2020/edit_compile_run/
+https://hww.github.io/articles/2020/game_dev_myths/
 https://hww.github.io/articles/2022/nd_gfs/
 https://hww.github.io/articles/2022/nd_gfs_creative/
+https://hww.github.io/articles/2022/nd_gfs_en/
 https://hww.github.io/articles/2022/nd_gfs_creative_en/
-https://hww.github.io/articles/2020/gd/
+https://hww.github.io/articles/2022/gd/
+https://hww.github.io/articles/2022/rtts_unity/
+https://hww.github.io/articles/2022/unity_spawning/
 https://hww.github.io/articles/2013/lisp_with_unity/
 https://hww.github.io/articles/2003/syber_engine/
 https://hww.github.io/projects/aleste/
