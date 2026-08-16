@@ -37,9 +37,9 @@ I don’t work at *Naughty Dog*, nor do I have any secret knowledge of *The Last
 - [States](#states)
 - [String ID](#string-id)
 - [DC Syntax](#dc-syntax)
-- [Animation States \[sec:org3216cbf\]](#animation-states-secorg3216cbf)
+- [Animation States](#animation-states)
 - [States](#states-1)
-- [Declaration of state variables \[sec:org92c5bc2\]](#declaration-of-state-variables-secorg92c5bc2)
+- [Declaration of state variables](#declaration-of-state-variables)
 - [Multitasking](#multitasking)
 - [Reflection](#reflection)
 - [DC Compiler](#dc-compiler)
@@ -383,7 +383,7 @@ const Locator * pLoc = DcLookupSymbol("*player-start*");
 Point pos = pLoc->m_trans;
 ```
 
-# Animation States [sec:org3216cbf]
+# Animation States
 
 Animation states are implemented as data structures. A corresponding *C* code is required in order to interpret these states and to construct the necessary objects in the system memory. Below is a simple animation’s state*pirate-jump* `\citep{jgregory2017}`{=latex}.
 
@@ -495,7 +495,7 @@ In the *DC* language, a state refers to a particular set of processes that run f
 ...
 ```
 
-# Declaration of state variables [sec:org92c5bc2]
+# Declaration of state variables
 
 A state can have its own variables for storing different values or exchanging data.
 
