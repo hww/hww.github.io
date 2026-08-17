@@ -16,7 +16,7 @@ Design of hardware-software complexes (HSC), low-level software, and system runt
     <p style="margin: 0 0 14px 0; font-size: 0.95em;">
       🌐 <a href="https://github.com">GitHub Profile</a> &nbsp;|&nbsp; 
       💼 <a href="https://linkedin.com">LinkedIn</a> &nbsp;|&nbsp; 
-      ✉️ Telegram: <a href="https://t.me">@core_systems_eng</a>
+      ✉️ Telegram: <a href="https://t.me">@valery_h2w</a>
     </p>
   </div>
 </div>
