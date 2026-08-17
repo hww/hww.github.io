@@ -526,9 +526,9 @@ public class SettingControl<T> where T : SettingsData, new()
 
 ## Дополнительные материалы
 
-1. **Исходный код системы** — прилагается в файлах: `Connectable.cs`, `Connection.cs`, `Engine.cs`, `Settings.cs`.
-2. **OpenGOAL GitHub** — открытая реализация движка: [github.com/open-goal](https://github.com/open-goal)
-3. **GDC 2004 — Jak and Daxter** — доклад о технических решениях Naughty Dog.
+1. **OpenGOAL GitHub** — открытая реализация движка: [github.com/open-goal](https://github.com/open-goal)
+2. **GDC 2004 — Jak and Daxter** — доклад о технических решениях Naughty Dog.
+3. Game Engine Architecture — книга Джейсона Грегори (Jason Gregory), раздел о системах управления параметрами.
 
 ---
 
