@@ -317,31 +317,31 @@ A curated showcase of my engineering style, demonstrating architectural patterns
    *Part of a series on file organization. Covers core naming techniques for project clarity and team collaboration.*
    [Read article](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/01-naming/index.en.md)
 
-10. **[EN] Part 2 - Project File Organization in Unity 3D**
+9. **[EN] Part 2 - Project File Organization in Unity 3D**
    *Proposes a scalable project directory structure to streamline asset management and SCM workflows.*
    [Read article](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/02-project/index.en.md)
 
-11. **[EN] Part 3 - Art- и GD-data Organization Unity 3D**
+10. **[EN] Part 3 - Art- и GD-data Organization Unity 3D**
    *Proposes a scalable project directory structure to streamline art and game asset management and SCM workflows.*
    [Read article](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/03-art-gd/index.en.md)
 
-8. **[RU] Part 1 - File Naming Conventions in Unity 3D**
+11. **[RU] Part 1 - File Naming Conventions in Unity 3D**
    *Part of a series on file organization. Covers core naming techniques for project clarity and team collaboration.*
    [Read article](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/01-naming/index.md)
 
-10. **[RU] Part 2 - Project File Organization in Unity 3D**
+12. **[RU] Part 2 - Project File Organization in Unity 3D**
    *Proposes a scalable project directory structure to streamline asset management and SCM workflows.*
    [Read article](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/02-project/index.md)
 
-11. **[RU] Part 3 - Art- и GD-data Organization Unity 3D**
+13. **[RU] Part 3 - Art- и GD-data Organization Unity 3D**
    *Proposes a scalable project directory structure to streamline art and game asset management and SCM workflows.*
    [Read article](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/03-art-gd/index.md)
 
-12. **[RU] Against the Loop: A Manifesto for Interactive Game DevelopmentD**
+14. **[RU] Against the Loop: A Manifesto for Interactive Game DevelopmentD**
    *This is not a technical manual. It is a consolidation of 25 years of hard-won insights — a manifesto arguing that runtime editing and instant feedback are not luxuries but necessities. Every second saved from the edit-compile-run cycle is not just time, but attention returned to the developer.*
    [Read article](https://hww.github.io/articles/2022/edit_compile_run/)
 
-13. **[RU] Sweet Spot для GPU: правила оптимизации графики под мобильные платформы**
+15. **[RU] Sweet Spot для GPU: правила оптимизации графики под мобильные платформы**
    *This article breaks down the physical reality of mobile and VR hardware, shattering the myth that optimization is just about lowering polygon counts. It serves as a rigorous engineering checklist for 3D artists, explaining how texture bandwidth, overdraw, and vertex duplication on UV seams can break a game's performance long before the triangles do.*
    [Read article](https://hww.github.io/articles/2022/vr_gpu/)
    
@@ -357,7 +357,7 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 ### 📄 2013
 
-13. **[EN] Lisp-Based Scripting in Unity 3D: A Practical Case Study**
+1. **[EN] Lisp-Based Scripting in Unity 3D: A Practical Case Study**
     *Deep-dive white paper on integrating an embedded Scheme interpreter into Unity. Covers first-class continuations for coroutines, runtime REPL context injection, and reflection overhead mitigation.*
     [Read article](https://hww.github.io/articles/2013/lisp_with_unity/)
 
