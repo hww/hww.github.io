@@ -348,6 +348,10 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 16. **[EN] Oculus Quest Performance: Engineering Techniques for Mobile VR Optimization**
    *This article serves as a deep dive into mobile VR architecture, combining Meta’s official guidelines with real-world R&D experience. It covers the critical physical constraints of Tile-Based Rendering, Early-Z optimization, and custom sub-system compilation (Physics and Occlusion), providing a comprehensive 14-point engineering checklist for programmers.*
    [Read article](https://hww.github.io/articles/2022/vr_oculus/)
+
+17. **[EN] Two-Way Sub-System Matrices: Architecture Lessons from OpenGOAL**
+   *This article tears down standard OOP entity-component hierarchies to reveal how Naughty Dog's OpenGOAL tech managed deterministic, cache-friendly simulation loops. It examines the deep data-oriented mechanics of orthogonal double-linked lists (horizontal for subsystem engine loops and vertical for entity data alignment), proving how O(1) deactivation and hardware-level cache performance are achieved in practice.*
+   [Read article](https://hww.github.io/articles/2022/nd_engines/)
    
 ---
 
