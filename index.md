@@ -340,6 +340,10 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 12. **[RU] Against the Loop: A Manifesto for Interactive Game DevelopmentD**
    *This is not a technical manual. It is a consolidation of 25 years of hard-won insights — a manifesto arguing that runtime editing and instant feedback are not luxuries but necessities. Every second saved from the edit-compile-run cycle is not just time, but attention returned to the developer.*
    [Read article](https://hww.github.io/articles/2022/edit_compile_run/)
+
+13. **[RU] Sweet Spot для GPU: правила оптимизации графики под мобильные платформы**
+   *This article breaks down the physical reality of mobile and VR hardware, shattering the myth that optimization is just about lowering polygon counts. It serves as a rigorous engineering checklist for 3D artists, explaining how texture bandwidth, overdraw, and vertex duplication on UV seams can break a game's performance long before the triangles do.*
+   [Read article](https://hww.github.io/articles/2022/vr_gpu/)
    
 ---
 
