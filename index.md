@@ -344,6 +344,10 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 15. **[RU] Sweet Spot для GPU: правила оптимизации графики под мобильные платформы**
    *This article breaks down the physical reality of mobile and VR hardware, shattering the myth that optimization is just about lowering polygon counts. It serves as a rigorous engineering checklist for 3D artists, explaining how texture bandwidth, overdraw, and vertex duplication on UV seams can break a game's performance long before the triangles do.*
    [Read article](https://hww.github.io/articles/2022/vr_gpu/)
+
+16. **[EN] Oculus Quest Performance: Engineering Techniques for Mobile VR Optimization**
+   *This article serves as a deep dive into mobile VR architecture, combining Meta’s official guidelines with real-world R&D experience. It covers the critical physical constraints of Tile-Based Rendering, Early-Z optimization, and custom sub-system compilation (Physics and Occlusion), providing a comprehensive 14-point engineering checklist for programmers.*
+   [Read article](https://hww.github.io/articles/2022/vr_oculus/)
    
 ---
 
