@@ -350,7 +350,7 @@ A curated showcase of my engineering style, demonstrating architectural patterns
    [Read article](https://hww.github.io/articles/2022/vr_oculus/)
 
 17. **[EN] Two-Way Sub-System Matrices: Architecture Lessons from OpenGOAL**
-   *This article tears down standard OOP entity-component hierarchies to reveal how Naughty Dog's OpenGOAL tech managed deterministic, cache-friendly simulation loops. It examines the deep data-oriented mechanics of orthogonal double-linked lists (horizontal for subsystem engine loops and vertical for entity data alignment), proving how O(1) deactivation and hardware-level cache performance are achieved in practice.*
+   *his article tears down standard OOP entity-component hierarchies to reveal how Naughty Dog's OpenGOAL engine managed dynamic parameter blending and state orchestration. It examines the deep data-oriented mechanics of orthogonal double-linked lists (horizontal for active subsystem engine loops and vertical for rapid O(1) entity deactivation), proving that architectural flexibility and top-level game logic control do not require a full ECS paradigm shift.*
    [Read article](https://hww.github.io/articles/2022/nd_engines/)
    
 ---
