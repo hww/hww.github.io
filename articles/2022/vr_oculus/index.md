@@ -167,9 +167,18 @@ Oculus Quest использует TBR-архитектуру. Экран раз�
 
 ### Complex Mesh vs Large Game Object — важное различие
 
-|![Complex Mesh 4244 треугольников](images/figure_complex.png)|![Simple Mesh 1236 треугольников](images/figure_simple.png)|
-| :---: | :---: |
-| *Figure 7 — Complex Mesh: 4244 треугольника, много деталей.* | *Figure 8 — Simple Mesh: 1236 треугольников, деталей меньше.* |
+<table style="width: 100%; table-layout: fixed; border: none;">
+  <tr style="border: none;">
+    <td style="width: 50%; text-align: center; border: none; padding: 5px;">
+      <img src="images/figure_complex.png" alt="Complex Mesh" style="width: 100%; max-width: 400px; height: auto;"><br>
+      <small><i>Figure 7 — Complex Mesh: 4244 треугольника, много деталей.</i></small>
+    </td>
+    <td style="width: 50%; text-align: center; border: none; padding: 5px;">
+      <img src="images/figure_simple.png" alt="Simple Mesh" style="width: 100%; max-width: 400px; height: auto;"><br>
+      <small><i>Figure 8 — Simple Mesh: 1236 треугольников, деталей меньше.</i></small>
+    </td>
+  </tr>
+</table>
 
 **Complex Mesh** — это когда много треугольников. Деталей много, но цена — производительность.
 
@@ -226,9 +235,19 @@ Unity рендерит объекты от ближних к дальним, ч�
 - Для UI предпочитай SpriteRenderer вместо UI Image.
 - Уменьшай время жизни частиц.
 
-|![Tight Mesh Sprite](images/tight_mesh_sprite.png)|![Самопересечение](images/sprite_renderer.png)|
-| :---: | :---: |
-| *Figure 11 — Tight Mesh Sprite* | *Figure 12 — Самопересекающаяся геометрия. Такие объекты стоит разбивать на две непересекающиеся части.* |
+
+<table style="width: 100%; table-layout: fixed; border: none;">
+  <tr style="border: none;">
+    <td style="width: 50%; text-align: center; border: none; padding: 5px;">
+      <img src="images/tight_mesh_sprite.png" alt="Complex Mesh" style="width: 100%; max-width: 400px; height: auto;"><br>
+      <small><i>Figure 10 — Tight Mesh Sprite.</i></small>
+    </td>
+    <td style="width: 50%; text-align: center; border: none; padding: 5px;">
+      <img src="images/sprite_renderer.png" alt="Simple Mesh" style="width: 100%; max-width: 400px; height: auto;"><br>
+      <small><i>Figure 11 — SpriteRenderer.</i></small>
+    </td>
+  </tr>
+</table>
 
 
 ---
