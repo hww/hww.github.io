@@ -218,7 +218,7 @@ Unity рендерит объекты от ближних к дальним, ч�
 
 |![Проблема Skydome](images/figure_skydome.png)|![Самопересечение](images/figure4.png)|
 | :---: | :---: |
-| *Figure 9 — Skydome. Объект находится близко к центру, но должен рендериться последним.* | *Figure 10 — Самопересекающаяся геометрия. Такие объекты стоит разбивать на две непересекающиеся части.* |
+| *Figure 9 — Skydome. Объект находится близко к центру, но должен рендериться последним.* | *Figure 10 —  Самопересекающаяся геометрия. Такие объекты необходимо принудительно разрезать в коде или на этапе импорта.* |
 
 **Решение:** разбивайте большие объекты на несколько, чтобы Unity использовал более точный origin для сортировки.
 
@@ -235,20 +235,16 @@ Unity рендерит объекты от ближних к дальним, ч�
 - Для UI предпочитай SpriteRenderer вместо UI Image.
 - Уменьшай время жизни частиц.
 
-
-<table style="width: 100%; table-layout: fixed; border: none;">
-  <tr style="border: none;">
-    <td style="width: 50%; text-align: center; border: none; padding: 5px;">
-      <img src="images/tight_mesh_sprite.png" alt="Complex Mesh" style="width: 100%; max-width: 400px; height: auto;"><br>
-      <small><i>Figure 10 — Tight Mesh Sprite.</i></small>
-    </td>
-    <td style="width: 50%; text-align: center; border: none; padding: 5px;">
-      <img src="images/sprite_renderer.png" alt="Simple Mesh" style="width: 100%; max-width: 400px; height: auto;"><br>
-      <small><i>Figure 11 — SpriteRenderer.</i></small>
-    </td>
-  </tr>
-</table>
-
+<div style="display: flex; justify-content: space-between; align-items: flex-top; gap: 15px; width: 100%;">
+  <div style="flex: 1; text-align: center;">
+    <img src="images/tight_mesh_sprite.png" alt="Tight Mesh Sprite" style="width: 100%; height: auto;">
+    <p><small><i>Figure 10 — Tight Mesh Sprite (срез невидимой альфа-зоны).</i></small></p>
+  </div>
+  <div style="flex: 1; text-align: center;">
+    <img src="images/sprite_renderer.png" alt="SpriteRenderer UI" style="width: 100%; height: auto;">
+    <p><small><i>Figure 11 — SpriteRenderer для элементов UI в VR-пространстве.</i></small></p>
+  </div>
+</div>
 
 ---
 
