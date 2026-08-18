@@ -18,6 +18,7 @@
     <div style="display: flex; gap: 10px; margin-top: 5px;">
       <a href="resume.en" style="background-color: #24292e; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: 600; display: inline-block;">Read CV (EN)</a>
       <a href="resume.ru" style="background-color: #24292e; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: 600; display: inline-block;">Посмотреть резюме (RU)</a>
+      <a href="acknowledgments/" style="background-color: #24292e; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: 600; display: inline-block;">Acknowledgments</a>
     </div>
   </div>
 </div>
