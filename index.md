@@ -283,6 +283,12 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 **Legend:** `[EN]` — English, `[RU]` — Russian
 
+### 📄 2026
+
+1. **[RU] Вектор Времени: Как спроектировать нелинейный таймлайн в Unity и не сойти с ума**
+   *Хроника архитектурного поиска. Разбор подходов контроля времени, изоляция сущностей от глобального состояния, оптимизация кадров (Load Balancing) и концепция точки сингулярности.*
+   [Read article](https://hww.github.io/articles/2026/time_vector/)
+
 ### 📄 2022
 
 1. **[RU] Three Core Components of a Successful Game Studio**
