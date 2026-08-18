@@ -34,7 +34,7 @@ Gary is a remarkably kind soul and an incredibly fascinating human being. He is 
 
 ## Ronald Siller
 
-Founder and CEO of Rocket Amusements (Amusement Machine Manufacturer)
+Founder and CEO of Rocket Amusements (Amusement Machine Manufacturer) [IMDb](https://www.imdb.com/name/nm2458756/)
 
 A distinguished industry veteran with decades of experience in the fields of coin-op amusement machines and consumer gaming.
 Key Achievements and Roles:
@@ -49,7 +49,7 @@ Beyond his immense professional legacy, Ron is a wonderful father, a passionate 
 
 ## David Siller
 
-Director, Producer, and Legendary Video Game Designer
+Director, Producer, and Legendary Video Game Designer [IMDb](https://www.imdb.com/name/nm1469199/)
 
 David is a seminal video game director, producer, and designer whose roots trace back to the dawn of modern gaming in 1985. Over his illustrious career, he has shaped projects and collaborated with giants like Sony Interactive Entertainment, Capcom, SEGA, and Naughty Dog.
 Key Projects and Legacy:
@@ -60,9 +60,6 @@ Key Projects and Legacy:
 * Later Milestones: Directed the critically acclaimed action-adventure title Maximo: Ghosts to Glory for Capcom.
 
 David is a beautiful human being and a deeply loving husband. He possesses an incredibly gifted, emotional, and artistic soul, with a lifelong affection for scale-modeling historic racing cars. He is my dear friend, my guide, and my mentor.
-
-* [The GRAY THINGIE](dave.s/The%20Grey%20Thingie.pdf)
-* [David Siller on IMDb](https://www.imdb.com/name/nm1469199/)
 
 ------------------------------
 
