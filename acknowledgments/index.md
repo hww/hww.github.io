@@ -53,21 +53,26 @@ David is a beautiful human being and a deeply loving husband. He possesses an in
 
 ------------------------------
 
-## Terrance Cohen
+## Terence Cohen
 
 Senior Engine Programmer at Insomniac Games
 
-A man with over 13 years in the game industry behind him. He's been a Technical Lead at Riot Games on League of Legends, Director of Technology at Disney, VP Platform at Survios, and worked on BioShock, Medal of Honor, and Marvel's Spider-Man. That's an impressive résumé, but for me, something else matters entirely.
+Senior Engine Programmer and Technology Director
+A phenomenal systems engineer with over two decades of heavy lifting in the AAA games industry. Terrance has served as a Technical Lead at Riot Games (League of Legends), Director of Technology at Disney, and VP of Platform at Survios, alongside his foundational engine work on titles like BioShock, Medal of Honor, and Marvel's Spider-Man.
+While his résumé is world-class, it is his profound human qualities that mean the world to me.
 
-I reached out to him at a time when I desperately needed help. And he didn't just say yes — he showed genuine care, took the time, patiently explained complex things in simple terms, and literally broke everything down for me. He taught me what you don't learn from textbooks. It wasn't just a "consultation" — it was a real lesson, one I will remember for a long time.
+A Personal Tribute:
 
-Terrance, thank you for your warmth, for your willingness to help, and for so generously sharing your experience. You have changed my perspective on so many things, and I am endlessly grateful to you for that.
+* An Unwavering Support: I reached out to him at a crossroads when I desperately needed guidance. Without a moment's hesitation, Terrance stepped up—not just to consult, but to genuinely care.
+* The Masterclass: He patiently deconstructed massive, complex low-level engine concepts into pure, accessible logic. He selflessly taught me engineering truths that you will never find in any textbook. It was a masterclass in mentorship that completely reshaped my perspective.
+
+Terrance, thank you for your incredible warmth, your open heart, and your boundless generosity in sharing your hard-earned wisdom. I am endlessly and deeply grateful to you.
 
 ------------------------------
 
 ## Vladimir Timofeev
 
-Principal R&D Prototyping / Hardware & Software Engineer solos
+Principal R&D Prototyping / Hardware & Software Engineer
 
 An extraordinarily gifted hardware designer driven by a pure, unyielding passion for electronics engineering. Vladimir is the epitome of a true master craftsman with "hands of gold." He didn't just architect complex digital circuitry on paper; he built these intricate, cutting-edge hardware devices entirely from scratch with his own hands.
 Key Contributions:
