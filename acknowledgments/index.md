@@ -4,18 +4,16 @@ I would like to express my deepest gratitude to the people I have been fortunate
 
 ------------------------------
 
-## Ronald Siller
+## Vladimir Timofeev
 
-Founder and CEO of Rocket Amusements (Amusement Machine Manufacturer)
+Principal R&D Prototyping / Hardware & Software Engineer
 
-A distinguished industry veteran with decades of experience in the fields of coin-op amusement machines and consumer gaming.
-Key Achievements and Roles:
+An extraordinarily gifted hardware designer driven by a pure, unyielding passion for electronics engineering. Vladimir is the epitome of a true master craftsman with "hands of gold." He didn't just architect complex digital circuitry on paper; he built these intricate, cutting-edge hardware devices entirely from scratch with his own hands.
+Key Contributions:
 
-* Award-Winning Designer and Innovator: An accomplished game designer, holding numerous industry patents and operating as a dedicated arcade hardware manufacturer.
-* R&D Leadership: As a Director of Development, he spearheaded the creation of legendary arcade machines, bar games, merchandisers, as well as proprietary gaming hardware and software architectures. He is the founder and driving force behind companies such as: SyberSoft (Riga), Intrec Consulting (Cyprus), Digital Chile (USA), Game Tools (USA), and Rocket Amusements (USA).
-* Executive-Level Consultant: Provided strategic technical and management consulting for some of the biggest names in the industry, including Nichibutsu USA, Bandai America, Sega, AMD, 3Dfx, THQ, and many others.
+* Computer History: His role in the creation of the Aleste 520EX computer system and the legendary Magic Sound audio card was absolutely pivotal. Simply put, without his brilliance and physical craftsmanship, these groundbreaking hardware projects would have never seen the light of day.
 
-Beyond his immense professional legacy, Ron is a wonderful father, a passionate karting racer, an inspiring leader, and my dear friend.
+Vladimir is a devoted father, my former university classmate, a brilliant colleague, and a lifelong friend.
 
 ------------------------------
 
@@ -31,6 +29,21 @@ Key Highlights:
 * Technical Leadership: Served as the trusted Chief Technology Officer (CTO) for our core engineering group for many years, driving innovation and architecture for SyberSoft (Riga), Intrec Consulting (Cyprus), Digital Chile (USA), Game Tools (USA), and Rocket Amusements (USA).
 
 Gary is a remarkably kind soul and an incredibly fascinating human being. He is one of those rare, brilliant hidden gems who might not seek the spotlight, but once you know him, he reveals himself as a true engineering treasure. He is my friend, my mentor, and my teacher.
+
+------------------------------
+
+## Ronald Siller
+
+Founder and CEO of Rocket Amusements (Amusement Machine Manufacturer)
+
+A distinguished industry veteran with decades of experience in the fields of coin-op amusement machines and consumer gaming.
+Key Achievements and Roles:
+
+* Award-Winning Designer and Innovator: An accomplished game designer, holding numerous industry patents and operating as a dedicated arcade hardware manufacturer.
+* R&D Leadership: As a Director of Development, he spearheaded the creation of legendary arcade machines, bar games, merchandisers, as well as proprietary gaming hardware and software architectures. He is the founder and driving force behind companies such as: SyberSoft (Riga), Intrec Consulting (Cyprus), Digital Chile (USA), Game Tools (USA), and Rocket Amusements (USA).
+* Executive-Level Consultant: Provided strategic technical and management consulting for some of the biggest names in the industry, including Nichibutsu USA, Bandai America, Sega, AMD, 3Dfx, THQ, and many others.
+
+Beyond his immense professional legacy, Ron is a wonderful father, a passionate karting racer, an inspiring leader, and my dear friend.
 
 ------------------------------
 
@@ -70,13 +83,28 @@ Terrance, thank you for your incredible warmth, your open heart, and your boundl
 
 ------------------------------
 
-## Vladimir Timofeev
+## Jason Gregory
 
-Principal R&D Prototyping / Hardware & Software Engineer
+Lead Programmer at Naughty Dog and Author
+Although we have never met in person, his impact on my engineering journey is monumental. His seminal book Game Engine Architecture and his deep-dive technical lectures served as a master key for me, locking into place the chaotic puzzle of modern real-time runtime environments.
+My Gratitude:
 
-An extraordinarily gifted hardware designer driven by a pure, unyielding passion for electronics engineering. Vladimir is the epitome of a true master craftsman with "hands of gold." He didn't just architect complex digital circuitry on paper; he built these intricate, cutting-edge hardware devices entirely from scratch with his own hands.
-Key Contributions:
+* The Blueprint of Thinking: His work completely demystified the sheer complexity of low-level game loops, memory architectures, and hardware-software interaction for me. It provided a concrete frame of reference when I was analyzing complex engine codebases.
+* The Silent Mentor: Through his clear, uncompromising, and deeply structured approach to explaining core runtime systems, he became a silent mentor to my technical perspective.
 
-* Computer History: His role in the creation of the Aleste 520EX computer system and the legendary Magic Sound audio card was absolutely pivotal. Simply put, without his brilliance and physical craftsmanship, these groundbreaking hardware projects would have never seen the light of day.
+Jason, thank you for writing the ultimate guide for engine architects and for raising the bar for system developers worldwide. Your work remains a constant source of inspiration under the hood of my own projects.
 
-Vladimir is a devoted father, my former university classmate, a brilliant colleague, and a lifelong friend.
+------------------------------
+
+## Ivan Pudov
+
+Audio Engineer, DSP Programmer & 3D Generalist Developer
+
+Ivan is a versatile engineer with a strong track record in both real-time 3D interactive graphics and digital signal processing. He began his journey as a 3D Generalist Developer at HelloIO (phygital tech), contributing to several highly successful interactive installations. Later, he took on a leadership role as a Lead Developer at Rocket Amusements, where he managed a dev team and successfully shipped titles like Monster Blaster and Crazy Claw Rings.
+
+My Gratitude:
+
+* Technical Rock & Analytical Mind: I am profoundly grateful to Ivan for his unwavering support across my own projects. His deep technical analysis when dissecting complex low-level bottlenecks and his consistently wise engineering counsel have been invaluable frame of references for me.
+* Inspirational Research: Beyond his guidance, his cutting-edge research and brilliant, clean-room developments in the fields of sound synthesis and digital signal processing (DSP) remain a constant source of professional inspiration.
+
+Ivan, thank you for being a brilliant colleague, a visionary developer, and a vital partner in pushing the boundaries of what our hardware and software can achieve together.
