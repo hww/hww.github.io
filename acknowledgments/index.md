@@ -53,6 +53,18 @@ David is a beautiful human being and a deeply loving husband. He possesses an in
 
 ------------------------------
 
+## Terrance Cohen
+
+Senior Engine Programmer at Insomniac Games
+
+A man with over 13 years in the game industry behind him. He's been a Technical Lead at Riot Games on League of Legends, Director of Technology at Disney, VP Platform at Survios, and worked on BioShock, Medal of Honor, and Marvel's Spider-Man. That's an impressive résumé, but for me, something else matters entirely.
+
+I reached out to him at a time when I desperately needed help. And he didn't just say yes — he showed genuine care, took the time, patiently explained complex things in simple terms, and literally broke everything down for me. He taught me what you don't learn from textbooks. It wasn't just a "consultation" — it was a real lesson, one I will remember for a long time.
+
+Terrance, thank you for your warmth, for your willingness to help, and for so generously sharing your experience. You have changed my perspective on so many things, and I am endlessly grateful to you for that.
+
+------------------------------
+
 ## Vladimir Timofeev
 
 Principal R&D Prototyping / Hardware & Software Engineer solos
@@ -63,15 +75,3 @@ Key Contributions:
 * Computer History: His role in the creation of the Aleste 520EX computer system and the legendary Magic Sound audio card was absolutely pivotal. Simply put, without his brilliance and physical craftsmanship, these groundbreaking hardware projects would have never seen the light of day.
 
 Vladimir is a devoted father, my former university classmate, a brilliant colleague, and a lifelong friend.
-
-------------------------------
-
-## Terrance Cohen
-
-Senior Engine Programmer at Insomniac Games
-
-A man with over 13 years in the game industry behind him. He's been a Technical Lead at Riot Games on League of Legends, Director of Technology at Disney, VP Platform at Survios, and worked on BioShock, Medal of Honor, and Marvel's Spider-Man. That's an impressive résumé, but for me, something else matters entirely.
-
-I reached out to him at a time when I desperately needed help. And he didn't just say yes — he showed genuine care, took the time, patiently explained complex things in simple terms, and literally broke everything down for me. He taught me what you don't learn from textbooks. It wasn't just a "consultation" — it was a real lesson, one I will remember for a long time.
-
-Terrance, thank you for your warmth, for your willingness to help, and for so generously sharing your experience. You have changed my perspective on so many things, and I am endlessly grateful to you for that.
