@@ -57,19 +57,21 @@ If your team is struggling with non-deterministic simulation bugs, garbage colle
 
 ### Areas of Expertise:
 
-*   **Core Systems & Runtime Design**: Architecting fully isolated simulation runtimes, custom task schedulers, and lightweight state-machine frameworks (FSM/Coroutines) independent of standard engine-heavy mono-behaviours.
-*   **Memory Optimization & Zero GC**: Auditing codebases to transition critical gameplay systems to complete Zero-GC operation (object pooling, low-level explicit C# structures, cache-friendly data layouts, and memory compacting strategies).
-*   **Systemic Determinism & Lock-Step**: Building core logic frameworks suitable for lock-step networking, robust deterministic replay systems, and automated regression simulation testing.
-*   **Architectural Audits & Peer Review**: Providing independent expertise to detect high-coupling anti-patterns, frame-order dependencies, hidden state loops, and race conditions inside your game loop.
+* **Core Systems & Runtime Design**: Architecting fully isolated simulation runtimes, custom task schedulers, and lightweight state-machine frameworks (FSM/Coroutines) independent of standard engine-heavy mono-behaviours.
+* **Memory Optimization & Zero GC**: Auditing codebases to transition critical gameplay systems to complete Zero-GC operation (object pooling, low-level explicit C# structures, cache-friendly data layouts, and memory compacting strategies).
+* **Systemic Determinism & Lock-Step**: Building core logic frameworks suitable for lock-step networking, robust deterministic replay systems, and automated regression simulation testing.
+* **Architectural Audits & Peer Review**: Providing independent expertise to detect high-coupling anti-patterns, frame-order dependencies, hidden state loops, and race conditions inside your game loop.
 
 ### 📩 Contact Information
 
 If you are facing complex low-level engineering challenges or require a deep architectural audit for your project, feel free to reach out directly:
 
-*   **Telegram**: [@valery_h2w]
-*   **Email**: [valery.hww@gmail.com]
+* **Telegram**: [@valery_h2w]
+* **Email**: [valery.hww@gmail.com]
 
 *Open to remote Tech Lead / Core Systems Architect roles on challenging, high-engineering projects with a stable technological backing.*
+
+---
 
 ## Projects & Engineering History
 
@@ -275,26 +277,23 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 ### 1. Language Engineering & Abstract Syntax Trees (AST)
 
+* **[SOOT](https://github.com/hww/soot)** — *SOOT: Scriptable Object-Oriented Toolkit*
+  * SOOT is an embeddable Lisp interpreter, inherited from GOOS and engineered with modern C++, designed to orchestrate automation toolkits for constrained hardware (CPUs, MCUs, DSPs). It serves as the high-level control center, bridging the gap between raw source code and final deployment.
 * **[Open GOAL Type System (Common Lisp)](https://github.com/hww/open-goal-type-system-cl)** — *Language Parser & Semantic Analyzer*
   * Demonstrates production-grade functional architecture, custom AST parsing, compiler type analysis, and reverse-engineering of Naughty Dog's proprietary engine typings.
-* **[XiJSON Serialization Engine](https://github.com/hww/XiJSON)** — *Lightweight Tokenizer & Parser*
-  * A zero-boilerplate, highly efficient compiler-like parsing module written to achieve ultra-fast data serialization without reflection overhead.
-
-### 2. High-Performance & Zero-Allocation Graphics
-
-* **[XiDebugDraw (C# / Unity 3D)](https://github.com/hww/XiDebugDraw)** — *Immediate-Mode Rendering Framework*
-  * Showcases memory-optimized, zero-allocation runtime 3D drawing algorithms, custom geometry generation, and direct interaction with the engine's low-level rendering loop.
-* **[Pure 3D Ray Tracer (C++)](https://github.com/hww/RayTracer)** — *Software Rendering & Linear Algebra*
-  * A scratch-written deterministic ray tracing core demonstrating deep understanding of vector mathematics, programmatic lighting calculations, shadow vectors, and spatial partitioning.
 
 ### 3. Game Engine Tooling & Input Abstraction
 
-* **[XiKeyboard Interop Layer](https://github.com/hww/XiKeyboard)** — *Complex Input Abstraction Matrix*
-  * Implements a robust menu and keystroke handling state engine that fully replicates GNU Emacs complex modifier key bindings and contextual input schemas inside a host editor.
 * **[XiGameTool Asset Pipeline](https://github.com/hww/XiGameTool)** — *Data-Driven Workflow Automation*
   * Demonstrates advanced editor workflow meta-data extraction, automated asset sanitization, and pipeline-level serialization architecture.
+* **[XiDebugDraw (C# / Unity 3D)](https://github.com/hww/XiDebugDraw)** — *Immediate-Mode Rendering Framework*
+  * Showcases memory-optimized, zero-allocation runtime 3D drawing algorithms, custom geometry generation, and direct interaction with the engine's low-level rendering loop.
 
-Отлично! Вот полный, единый и отформатированный список всех ваших статей и заметок, отсортированный от самых свежих к самым старым, с языковыми префиксами и переведёнными на английский заголовками:
+### 2. Hardware Description 
+
+* **[Aleste LX FPGA](https://github.com/hww/aleste-lx-fpga-sv)** — *A modern and compatible FPGA implementation of the Aleste 520EX computer with enhancements.*
+  * This project is a modern FPGA implementation of the Aleste 520EX computer, aiming for full hardware compatibility while enhancing it with modern capabilities like SDRAM, advanced sound, and video output.
+
 
 ---
 
