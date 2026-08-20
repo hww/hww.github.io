@@ -33,7 +33,27 @@ The core of my engineering career is rooted in game development and deep-level r
 
 Beyond software architecture, I operate a fully equipped, modern hardware and manufacturing R&D laboratory. The facility integrates professional electrical engineering instrumentation with industrial fabrication capabilities, featuring CNC machinery, multi-axis milling, precision turning, and advanced additive manufacturing (3D printing). This infrastructure allows me to rapidly prototype complete Hardware-Software Complexes (HSC / ПАК), taking projects from raw schematic routing and mechanical fabrication to custom native runtime deployment.
 
----
+## 💡 Architectural Consulting & Collaboration
+
+With extensive background in core engine architecture, memory optimization, and custom game runtime development, I am open to **project-based collaboration, technical consulting, and architectural code audits**. 
+
+If your team is struggling with non-deterministic simulation bugs, garbage collector spikes, or spaghetti-like game state logic, I can help you establish a reliable, high-performance foundation.
+
+### Areas of Expertise:
+
+*   **Core Systems & Runtime Design**: Architecting fully isolated simulation runtimes, custom task schedulers, and lightweight state-machine frameworks (FSM/Coroutines) independent of standard engine-heavy mono-behaviours.
+*   **Memory Optimization & Zero GC**: Auditing codebases to transition critical gameplay systems to complete Zero-GC operation (object pooling, low-level explicit C# structures, cache-friendly data layouts, and memory compacting strategies).
+*   **Systemic Determinism & Lock-Step**: Building core logic frameworks suitable for lock-step networking, robust deterministic replay systems, and automated regression simulation testing.
+*   **Architectural Audits & Peer Review**: Providing independent expertise to detect high-coupling anti-patterns, frame-order dependencies, hidden state loops, and race conditions inside your game loop.
+
+### 📩 Contact Information
+
+If you are facing complex low-level engineering challenges or require a deep architectural audit for your project, feel free to reach out directly:
+
+*   **Telegram**: [@valery_h2w]
+*   **Email**: [valery.hww@gmail.com]
+
+*Open to remote Tech Lead / Core Systems Architect roles on challenging, high-engineering projects with a stable technological backing.*
 
 ## Academic R&D & Credentials
 
@@ -53,26 +73,6 @@ Beyond software architecture, I operate a fully equipped, modern hardware and ma
 
 Вот готовый, профессионально выверенный текст для вашей главной страницы (или раздела контактов/резюме) на GitHub. Он написан на русском языке, но оформлен в строгом международном стиле, который сразу позиционирует вас как независимого эксперта и системного архитектора высшей квалификации.
 Вы можете скопировать этот Markdown-блок:
-
-## 💡 Консалтинг и Сотрудничество / Architectural Consulting
-
-Обладая многолетним опытом проектирования сложных высоконагруженных систем и кастомных игровых рантаймов, я открыта для проектного сотрудничества, архитектурного аудита и технического консалтинга.
-
-### Чем я могу помочь вашему проекту:*   
-
-**Проектирование Core-архитектуры**: Разработка изолированных логических рантаймов, легковесных планировщиков задач и кастомных систем управления кадрами (FSM/Корутины) поверх или вместо стандартных коробочных движков.*   
-**Оптимизация производительности и Памяти**: Глубокий аудит кодовой базы, перевод критических систем на рельсы Zero GC (работа с пулами объектов, минимизация аллокаций в куче, низкоуровневые C#-структуры и оптимизация кэша CPU).*   
-**Внедрение системного детерминизма**: Проектирование архитектуры для lock-step мультиплеера, честных воспроизводимых реплеев и систем автоматизированного регрессионного тестирования логики рантайма.*   
-**Архитектурный аудит и Ревью**: Независимая экспертиза текущей структуры вашего проекта, выявление скрытых уязвимостей связности (High Coupling), гонок состояний и неявных зависимостей кадра.
-
-### 📩 Контакты для связи / Get in Touch
-
-Если вашей команде нужен нестандартный инженерный подход, решение сложных низкоуровневых задач или аудит производительности ядра системы, вы можете связаться со мной напрямую:
-
-*   **Telegram**: [@valery_h2w]
-*   **Email**: [valery.hww@gmail.com]
-
-*Рассматриваю предложения удаленного сотрудничества уровня Tech Lead / System Architect на сложных, амбициозных проектах с надежным технологическим тылом.*
 
 ## Projects & Engineering History
 
