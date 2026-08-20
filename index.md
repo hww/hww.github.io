@@ -47,7 +47,7 @@ Beyond software architecture, I operate a fully equipped, modern hardware and ma
     *   **Decision Making under Uncertainty:** Designed and deployed explicit Markov Decision Processes (MDPs) and dynamic value/policy iteration frameworks.
     *   **Reinforcement Learning:** Engineered autonomous agents using model-free and model-based reinforcement learning (Q-Learning, temporal difference methods) operating in non-deterministic simulation environments.
 
-### Education & Courses
+#### Score
 
 | Institution | Year | Course / Program | Score / Role |
 | :--- | :--- | :--- | :--- |
