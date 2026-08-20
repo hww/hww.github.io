@@ -27,7 +27,9 @@ Design of hardware-software complexes (HSC), low-level software, and system runt
 
 I am a full-cycle system architect and R&D engineer, specializing at the intersection of hardware development, low-level execution layers (runtimes), and high-performance software environments. My expertise covers the entire lifecycle of creating complex systems: from designing physical hardware (schematic design, multi-layer PCB routing, pre/post-layout signal integrity analysis, in-circuit programming, FPGA/HDL, and microcontrollers) to writing custom system software (language interpreters, virtual machines, compilers, and digital signal processing (DSP) for real-time sound synthesis).
 
-The foundation of my engineering practice is rooted in game engine development and deep research into runtime architecture. I specialize in reverse engineering and low-level analysis of proprietary AAA engines of world-class caliber (including detailed breakdown of Naughty Dog and Insomniac Games pipelines). In software engineering, I focus on designing deterministic virtual machines, developing custom domain-specific languages (DSLs), and implementing high-speed scripting engines (such as embedded Lisp/Scheme-based runtimes) that replace heavy native code with flexible, data-driven pipelines.
+The foundation of my engineering practice is rooted in game engine development and deep research into runtime architectures. Over the years, I have served as a Lead Developer at pioneering game studios SyberSoft and Rocket Amusements, collaborating directly with industry veterans Ronald Siller and the legendary creator of Aero the Acro-Bat and Crash Bandicoot, David Siller.
+
+This unique background shaped my specialization in reverse engineering and low-level analysis of world-class proprietary AAA engines (including detailed breakdown of Naughty Dog and Insomniac Games pipelines). In software engineering, I focus on designing deterministic virtual machines, developing custom domain-specific languages (DSLs), and implementing high-speed scripting engines (such as embedded Lisp/Scheme-based runtimes) that replace heavy native code with flexible, data-driven pipelines.
 
 Beyond software design, I run my own fully equipped hardware development and prototyping laboratory. The space combines professional electrical measurement and testing equipment with industrial machinery, including CNC systems, multi-axis milling, lathe work, and additive manufacturing (3D printing). This infrastructure allows me to independently and rapidly create complete hardware-software complexes (HSC) — from PCB routing and mechanical fabrication to writing custom runtimes for the target hardware.
 
@@ -79,10 +81,12 @@ Founder, System Architect & R&D Engineer
 #### Hardware-Software Complex (HSC) for an Arcade Machine from Scratch
 
 * Runtime Architecture (C# / Unity): Designed and implemented a deterministic execution core (engine) for game logic. Developed a hierarchical process system, ECS architecture (Data-Oriented), and a custom Task Manager for strict control of the game loop and elimination of data races.
+* Led the development and designed the architecture for Rocket Amusements studio projects, including the games Crazy Claw - Rings and Monster Blaster.
 * CARBON Virtual Machine: Created an isolated cross-platform low-level code execution environment to abstract logic from the target hardware.
 * SOOT LISP Interpreter: Developed a high-performance interpreter for metaprogramming, cross-compilation, and dynamic resource management. Designed a multi-pass cross-compiler for 8-bit architectures with automatic memory offset calculation.
 * Network Stack and Backend (Golang): Wrote a lightweight UDP server for real-time communication, a custom binary data exchange protocol, an HTTP monitoring server, and an SQLite storage layer.
 * Hardware: Designed the architecture and topology of several multi-layer I/O boards based on Nordic MCUs and ESP32. Wrote firmware in C++ (on bare metal / Zephyr / RTOS) for handling peripheral signals of the arcade machine.
+* Participation in a collaborative project with the legendary game designer and producer Dave Siller (lead producer of the original Crash Bandicoot and Aero the Acro-Bat). Technical prototyping and hardware development for "The Secret Life of Guido", an exclusive project developed under the patronage of Capcom USA.
 
 #### Wearable R&D System for Optical Monitoring and 3D Telemetry Visualization (PPG)
 
@@ -122,9 +126,10 @@ CTO / Head of Hardware & Software Department
 
 ### Rocket Amusements
 
-Lead Software & Hardware Developer
+Lead Software & Hardware Engineer
 2014 — 2020 | Saint Petersburg (RF) / New Braunfels (USA) / Guangzhou (China)
 
+* Participation in a collaborative project with the legendary game designer and producer Dave Siller (lead producer of the original Crash Bandicoot and Aero the Acro-Bat).
 * Electronics Design: Designed from scratch two revisions of programmable I/O boards for arcade machines.
 * Enclosure Design: Performed mechanical design and strength calculations for a two-seat arcade cabinet (ticket redemption class) in SolidWorks and PTC Creo for serial production. Designed injection-molded plastic components.
 * 3D Game Development: Wrote game software in Unity for a line of 3D arcade games, put into mass production in China:
@@ -151,12 +156,13 @@ Lead Hardware-Software Solutions Engineer
 
 ### Sybersoft
 
-Technical Director & Lead Developer
+Lead Software and Hardware Engineer
 2002 — 2004 | Riga (Latvia) / Limassol (Cyprus)
 
 * Led a team of developers in the game department.
 * The team developed the internal 3D game engine SyberEngine, optimized for rapid prototyping and game production. Game prototypes created on it included the 3D shooter "Metal Dogs" and the arcade racing comedy "Psycho Racers".
 * JAMMA Platform Development: Developed two generations of JAMMA-standard arcade platforms for interfacing arcade cabinets with PC-compatible motherboards. The boards included an advanced VGA2TV video converter, USB-HID support, USB-DAC audio systems, and USB bulk storage.
+* Participation in a collaborative project with the legendary game designer and producer Dave Siller (lead producer of the original Crash Bandicoot and Aero the Acro-Bat). Technical prototyping and hardware development for "The Secret Life of Guido", "MetalDogs", "PsychoRacers" an exclusive project developed under the patronage of Capcom USA.
 
 ### REMIS Lab
 
