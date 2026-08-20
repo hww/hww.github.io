@@ -33,7 +33,19 @@ The core of my engineering career is rooted in game development and deep-level r
 
 Beyond software architecture, I operate a fully equipped, modern hardware and manufacturing R&D laboratory. The facility integrates professional electrical engineering instrumentation with industrial fabrication capabilities, featuring CNC machinery, multi-axis milling, precision turning, and advanced additive manufacturing (3D printing). This infrastructure allows me to rapidly prototype complete Hardware-Software Complexes (HSC / ПАК), taking projects from raw schematic routing and mechanical fabrication to custom native runtime deployment.
 
-## Academic R&D & Credentials
+### Advanced Coursework & Applied Competencies
+
+*   **CS184.1x: Foundations of Computer Graphics (UC BerkeleyX)**
+    *   **Global Standing:** Ranked in the **Top 20 worldwide** among thousands of participants; subsequently invited as a **Teaching Assistant (TA)** for multiple consecutive terms.
+    *   **Core Engineering & Mathematics:** Intensive, code-verified implementation of 3D linear algebra, including affine transformations, forward/inverse kinematics, complex matrix pipelines, and quaternion-based rotation mechanics.
+    *   **Computational Geometry & Physics:** Engineered robust 3D collision detection and resolution algorithms for diverse geometric primitives and multi-shape rigid bodies.
+    *   **Rendering Pipelines:** Developed scratch-written ray tracing (Ray Tracing / Whitted Ray Tracer) infrastructure, implementing spatial acceleration structures, light transport, and physics-based shading models.
+    *   **Execution:** 100% automated grading verification based on exact pixel-output matching, performance benchmarks, and mathematical correctness of custom source code runtimes.
+
+*   **CS188.1x: Artificial Intelligence (UC BerkeleyX)**
+    *   **Core Systems:** Deep algorithmic implementation of state-space search, heuristic optimization, and probabilistic reasoning engines with zero-tolerance automated code verification.
+    *   **Decision Making under Uncertainty:** Designed and deployed explicit Markov Decision Processes (MDPs) and dynamic value/policy iteration frameworks.
+    *   **Reinforcement Learning:** Engineered autonomous agents using model-free and model-based reinforcement learning (Q-Learning, temporal difference methods) operating in non-deterministic simulation environments.
 
 ### Education & Courses
 
