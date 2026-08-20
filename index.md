@@ -282,17 +282,17 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 * **[Open GOAL Type System (Common Lisp)](https://github.com/hww/open-goal-type-system-cl)** — *Language Parser & Semantic Analyzer*
   * Demonstrates production-grade functional architecture, custom AST parsing, compiler type analysis, and reverse-engineering of Naughty Dog's proprietary engine typings.
 
-### 3. Game Engine Tooling & Input Abstraction
+### 2. Game Engine Tooling 
 
 * **[XiGameTool Asset Pipeline](https://github.com/hww/XiGameTool)** — *Data-Driven Workflow Automation*
   * Demonstrates advanced editor workflow meta-data extraction, automated asset sanitization, and pipeline-level serialization architecture.
 * **[XiDebugDraw (C# / Unity 3D)](https://github.com/hww/XiDebugDraw)** — *Immediate-Mode Rendering Framework*
   * Showcases memory-optimized, zero-allocation runtime 3D drawing algorithms, custom geometry generation, and direct interaction with the engine's low-level rendering loop.
 
-### 2. Hardware Description 
+### 3. Hardware Description
 
 * **[Aleste LX FPGA](https://github.com/hww/aleste-lx-fpga-sv)** — *A modern and compatible FPGA implementation of the Aleste 520EX computer with enhancements.*
-  * This project is a modern FPGA implementation of the Aleste 520EX computer, aiming for full hardware compatibility while enhancing it with modern capabilities like SDRAM, advanced sound, and video output.
+  * Aleste LX FPGA is a modern FPGA implementation of the Aleste 520EX computer, aiming for full hardware compatibility while enhancing it with modern capabilities like SDRAM, advanced sound, and HDMI video output.
 
 
 ---

@@ -498,3 +498,10 @@ Edit → Compile → Deploy → Run → Test → Fail → Repeat
 - Wikipedia - Software release life cycle.
 - Пудова В.А. "Процесс разработки игр" — ARCADIA 2022.
 - Пудова В.А. "Эстетика движения: почему геймдизайн рождается из анимации" — 2022.
+
+## Полезный код
+
+- [XiDebugMenu - The elegant and easy to use debug menu for Unity 3D](https://github.com/hww/XiDebugMenu)
+- [extDebug - Debug Tools for Unity](https://github.com/Iam1337/extDebug)
+- [XiDebugDraw Debugging drawing tool for Unity 3D](https://github.com/hww/XiDebugDraw)
+- [XiKeyboard manager and menu system for Unity 3D](https://github.com/hww/XiKeyboard)
