@@ -286,9 +286,11 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 ### 📄 2026
 
-1. **[RU] In Search of Lost Determinism: Architecting an Isolated C# Game Runtime Inspired by Naughty Dog**
+1. **In Search of Lost Determinism: Architecting an Isolated C# Game Runtime Inspired by Naughty Dog**
    *Modern game engines create an illusion of control while leaving execution order, lifecycle predictability, and memory behavior hidden inside a non-deterministic "black box". This architectural guide details how to build a fully isolated, 100% deterministic, and Zero-GC logical runtime on top of Unity using C#.*
-   *Inspired by Naughty Dog's GOAL technology, the article explores the dualism of flat process buckets versus hierarchical trees, explains the micro-nuanced state transition lifecycle (GoHook), and reveals how to safely decouple simulation logic from visual scenes using lightweight Proxy and Entity layers. It provides production-ready strategies for mastering deterministic queues, edge-case hot reloading, and exact probability distribution without relying on standard RNG.*   
+   
+   *Inspired by Naughty Dog's GOAL technology, the article explores the dualism of flat process buckets versus hierarchical trees, explains the micro-nuanced state transition lifecycle (GoHook), and reveals how to safely decouple simulation logic from visual scenes using lightweight Proxy and Entity layers. It provides production-ready strategies for mastering deterministic queues, edge-case hot reloading, and exact probability distribution without relying on standard RNG.*
+   
    [Read article](https://hww.github.io/articles/2026/gfs_runtime/)
    
 3. **[RU] Вектор Времени: Как спроектировать нелинейный таймлайн в Unity и не сойти с ума**
