@@ -33,6 +33,22 @@ The core of my engineering career is rooted in game development and deep-level r
 
 Beyond software architecture, I operate a fully equipped, modern hardware and manufacturing R&D laboratory. The facility integrates professional electrical engineering instrumentation with industrial fabrication capabilities, featuring CNC machinery, multi-axis milling, precision turning, and advanced additive manufacturing (3D printing). This infrastructure allows me to rapidly prototype complete Hardware-Software Complexes (HSC / ПАК), taking projects from raw schematic routing and mechanical fabrication to custom native runtime deployment.
 
+## Academic R&D & Credentials
+
+### Education & Courses
+
+| Institution | Year | Course / Program | Score / Role |
+| :--- | :--- | :--- | :--- |
+| **BerkeleyX** | 2012 | CS188.1x: Artificial Intelligence | **97%** |
+| **BerkeleyX** | 2012 | CS184.1x: Foundations of Computer Graphics | **100%** |
+| **BerkeleyX** | 2013 | CS184.1x: Foundations of Computer Graphics | **Teaching Assistant (TA)** |
+| **BerkeleyX** | 2014 | CS184.1x: Foundations of Computer Graphics | **Teaching Assistant (TA)** |
+
+### Languages
+
+* **English:** Fluent / Professional Working Proficiency
+* **Russian:** Native speaker
+
 ## 💡 Architectural Consulting & Collaboration
 
 With extensive background in core engine architecture, memory optimization, and custom game runtime development, I am open to **project-based collaboration, technical consulting, and architectural code audits**. 
@@ -54,25 +70,6 @@ If you are facing complex low-level engineering challenges or require a deep arc
 *   **Email**: [valery.hww@gmail.com]
 
 *Open to remote Tech Lead / Core Systems Architect roles on challenging, high-engineering projects with a stable technological backing.*
-
-## Academic R&D & Credentials
-
-### Education & Courses
-
-| Institution | Year | Course / Program | Score / Role |
-| :--- | :--- | :--- | :--- |
-| **BerkeleyX** | 2012 | CS188.1x: Artificial Intelligence | **97%** |
-| **BerkeleyX** | 2012 | CS184.1x: Foundations of Computer Graphics | **100%** |
-| **BerkeleyX** | 2013 | CS184.1x: Foundations of Computer Graphics | **Teaching Assistant (TA)** |
-| **BerkeleyX** | 2014 | CS184.1x: Foundations of Computer Graphics | **Teaching Assistant (TA)** |
-
-### Languages
-
-* **English:** Fluent / Professional Working Proficiency
-* **Russian:** Native speaker
-
-Вот готовый, профессионально выверенный текст для вашей главной страницы (или раздела контактов/резюме) на GitHub. Он написан на русском языке, но оформлен в строгом международном стиле, который сразу позиционирует вас как независимого эксперта и системного архитектора высшей квалификации.
-Вы можете скопировать этот Markdown-блок:
 
 ## Projects & Engineering History
 
