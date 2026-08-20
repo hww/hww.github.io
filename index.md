@@ -71,7 +71,6 @@ Beyond software architecture, I operate a fully equipped, modern hardware and ma
 
 *   **Telegram**: [@valery_h2w]
 *   **Email**: [valery.hww@gmail.com]
-*   **GitHub**: [hww.github.io](https://hww.github.io)
 
 *Рассматриваю предложения удаленного сотрудничества уровня Tech Lead / System Architect на сложных, амбициозных проектах с надежным технологическим тылом.*
 
