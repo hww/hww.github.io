@@ -33,6 +33,11 @@ The core of my engineering career is rooted in game development and deep-level r
 
 Beyond software architecture, I operate a fully equipped, modern hardware and manufacturing R&D laboratory. The facility integrates professional electrical engineering instrumentation with industrial fabrication capabilities, featuring CNC machinery, multi-axis milling, precision turning, and advanced additive manufacturing (3D printing). This infrastructure allows me to rapidly prototype complete Hardware-Software Complexes (HSC / ПАК), taking projects from raw schematic routing and mechanical fabrication to custom native runtime deployment.
 
+### Languages
+
+* **English:** Fluent / Professional Working Proficiency
+* **Russian:** Native speaker
+
 ### Advanced Coursework & Applied Competencies
 
 *   **CS184.1x: Foundations of Computer Graphics (UC BerkeleyX)**
@@ -55,11 +60,6 @@ Beyond software architecture, I operate a fully equipped, modern hardware and ma
 | **BerkeleyX** | 2012 | CS184.1x: Foundations of Computer Graphics | **100%** |
 | **BerkeleyX** | 2013 | CS184.1x: Foundations of Computer Graphics | **Teaching Assistant (TA)** |
 | **BerkeleyX** | 2014 | CS184.1x: Foundations of Computer Graphics | **Teaching Assistant (TA)** |
-
-### Languages
-
-* **English:** Fluent / Professional Working Proficiency
-* **Russian:** Native speaker
 
 ## 💡 Architectural Consulting & Collaboration
 
