@@ -326,13 +326,17 @@ A curated showcase of my engineering style, demonstrating architectural patterns
    
    [Read article](https://hww.github.io/articles/2026/gfs_runtime/)
    
-2. **[RU] Вектор Времени: Как спроектировать нелинейный таймлайн в Unity и не сойти с ума**
-   *Хроника архитектурного поиска. Разбор подходов контроля времени, изоляция сущностей от глобального состояния, оптимизация кадров (Load Balancing) и концепция точки сингулярности.*
+2. **[RU] Time Vector: How to Design a Non-Linear Timeline in Unity and Stay Sane**
+   *A chronicle of architectural exploration. An in-depth look at time-control approaches, isolating entities from the global state, frame optimization (Load Balancing), and the singularity point concept.*
    [Read article](https://hww.github.io/articles/2026/time_vector/)
 
-3. **[RU] : Инжинерный манифест: стандарт организации файлов и папок**
-   *Принципы организации файлового архива или массива проектов на компютере.*
+3. **[RU] Engineering Manifest: File & Folder Organization Standard**
+   *Principles of organizing file archives or project spaces on a computer.Read article*
    [Read article](https://hww.github.io/articles/2026/engineering-manifest/)
+
+3. **[EN] Engineering Manifest: File & Folder Organization Standard**
+   *Principles of organizing file archives or project spaces on a computer.Read article*
+   [Read article](https://hww.github.io/articles/2026/engineering-manifest/index.en)
 
 ### 📄 2022
 
