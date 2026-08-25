@@ -257,3 +257,8 @@ D:\projects\
 
 1. Перемещаются в папку `_archive`
 2. Добавляется суффикс `.archive` или `.deprecated`
+
+
+## Ссылки 
+
++ [Github версия этого документа](https://github.com/hww/engineering-manifest)
