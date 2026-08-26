@@ -332,11 +332,11 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 3. **[RU] Engineering Manifest: File & Folder Organization Standard**
    *Principles of organizing file archives or project spaces on a computer.Read article*
-   [Read article](https://hww.github.io/articles/2026/engineering-manifest/)
+   [Read article](https://hww.github.io/articles/2026/engineering-manifest/manifest.ru)
 
 3. **[EN] Engineering Manifest: File & Folder Organization Standard**
    *Principles of organizing file archives or project spaces on a computer.Read article*
-   [Read article](https://hww.github.io/articles/2026/engineering-manifest/index.en)
+   [Read article](https://hww.github.io/articles/2026/engineering-manifest/manifest.en)
 
 ### 📄 2022
 
