@@ -294,8 +294,8 @@ void ScriptEventSystem::Init()
 //allocate a component of type, add it to host's component chain,
 //  and optionally park a prius in the component
 //  returns null if no space is available for allocation
-Component*        DynamicComponent::Allocate( Type type, HostHandle host_handle,
-                                              Chain* chain, void* prius = NULL );
+Component* DynamicComponent::Allocate( Type type, HostHandle host_handle,
+                                        Chain* chain, void* prius = NULL );
 ```
 
 В контексте системы компонентов, Prius — это «легкое транспортное средство для передачи данных инициализации». Это просто указатель `void*`, который передается в метод `Allocate()` и затем передается в метод `Init()` компонента. Компонент должен привести указатель к ожидаемому типу.
