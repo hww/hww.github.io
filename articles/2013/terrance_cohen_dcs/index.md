@@ -435,3 +435,7 @@ class ShotAction : public DynamicComponent::Component
 ```
 
 Этот подход позволяет иметь единый код логики на SPU, работающий с простыми структурами, и полиморфный, удобный код управления на PPU.
+
+## Cсылки
+
+* [A Dynamic Component Architecture for High Performance Gameplay](ADynamicComponentArchitectureForHighPerformanceGameplay.pptx)
