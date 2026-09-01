@@ -423,7 +423,10 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 1. **[EN] Lisp-Based Scripting in Unity 3D: A Practical Case Study**
     *Deep-dive white paper on integrating an embedded Scheme interpreter into Unity. Covers first-class continuations for coroutines, runtime REPL context injection, and reflection overhead mitigation.*
     [Read article](https://hww.github.io/articles/2013/lisp_with_unity/)
-
+2. **[RU] A Dynamic Component Architecture for High Performance Gameplay**
+    *A comprehensive overview of a high-performance, data-oriented component system for game development, based on Terrence Cohen's 2010 lecture. Includes memory pooling, handle-based safety, asynchronous SPU processing, and a unified component model for gameplay logic and scriptable events.*
+    [Read article](https://hww.github.io/articles/2013/terrance_cohen_dcs/)
+   
 ---
 
 ### 📄 2003
