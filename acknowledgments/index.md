@@ -63,7 +63,7 @@ David is a beautiful human being and a deeply loving husband. He possesses an in
 
 ------------------------------
 
-## Terence Cohen
+## Terance Cohen
 
 Senior Engine Programmer at Insomniac Games
 
