@@ -177,10 +177,10 @@
 
 ```cs
 // Выделяем долгоживущий трек процесса
-ComponentHandle track = ComponentSystem.Allocate<Track>(host_handle, chain);
+DcsHandle track = ComponentSystem.Allocate<Track>(host_handle, chain);
 // Создание сигналов, привязанных к конкретному треку (сахар над ComponentSystem.Allocate)
-ComponentHandle signalA = Signal.Allocate(host_handle, track);
-ComponentHandle signalB = Signal.Allocate(host_handle, track);
+DcsHandle signalA = Signal.Allocate(host_handle, track);
+DcsHandle signalB = Signal.Allocate(host_handle, track);
 // Проверка наличия и реактивное ветвлениеif (Signal.Check(signalA))
 {
     // Активируем следующий сигнал в цепочке
