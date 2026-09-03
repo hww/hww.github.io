@@ -268,7 +268,7 @@ A comprehensive, reverse-chronological index of my system architecture, hardware
 * Authored a low-level optimized mini-game for the Nintendo 64 architecture, writing custom software directly targeting the console's bare metal and proprietary graphics processing pipeline.
 * ⚡ *Tech Stack:* MIPS Assembly, C++, Low-Level Console Architecture, Reality Coprocessor (RCP) Interop.
 
-**Digital Signal Processing & Real-Time Audio Synthesis** | Commercial Audio Product | Documentation
+**Digital Signal Processing & Real-Time Audio Synthesis** | Commercial Audio Product | [Documentation](https://hww.github.io/projects/remis/)
 
 * Architected low-overhead firmware and assembly routines for dedicated Digital Signal Processors (DSP) to achieve real-time additive and subtractive hardware audio synthesis.
 * ⚡ Tech Stack: DSP Assembly, Audio Synthesis Algorithms, Fixed-Point Math, C++.
