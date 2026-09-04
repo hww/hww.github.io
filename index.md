@@ -98,7 +98,7 @@ A comprehensive, reverse-chronological index of my system architecture, hardware
 * Designed and engineered a high-precision medical photoplethysmogram (PPG) wristband prototype explicitly optimized for the Smart Sports platform.
 * ⚡ *Tech Stack:* In-Circuit Programming, Low-Power Microcontrollers, Biometric Sensor Fusion, Hardware Prototyping.
   
-**KIRA Shark — Digital Signal Processor Module** | *Personal Project (PP)* | [Documentation](projects/kira_dsp_module/index)
+**KIRA Sharc — Digital Signal Processor Module** | *Personal Project (PP)* | [Documentation](projects/kira_dsp_module/index)
 
 * Architected and manufactured a standalone, high-performance hardware digital signal processor (DSP) module for advanced real-time audio and data manipulation.
 * ⚡ *Tech Stack:* Schematic Design, DSP, Precision Electrical Engineering, PCB Layout, C/C++.
