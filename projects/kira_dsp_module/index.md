@@ -1,4 +1,4 @@
-# KIRA Shark — Digital Signal Processor Module
+# KIRA Sharc — Digital Signal Processor Module
 
 Встраиваемый аудио-вычислитель на базе процессоров SHARC
 
