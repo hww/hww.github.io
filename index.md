@@ -115,6 +115,13 @@ A comprehensive, reverse-chronological index of my system architecture, hardware
 * Developed a modern, hardware-compatible FPGA implementation of the classic Aleste 520EX computer system from scratch using SystemVerilog.
 * ⚡ *Tech Stack:* SystemVerilog, FPGA, RTL Design, Hardware Emulation, Retro-Engineering.
 
+**Dynamic Component System for Unity** | *Research and implementation* | [→ GitHub Repositry](https://github.com/hww/dcs)
+
+* Adaptation of Insomniac Games' Dynamic Component Architecture for the Unity Ecosystem Featuring Dense Pools, Safe Handlers, and an Event System 
+* [→ Translation and analysis](https://hww.github.io/articles/2013/terrance_cohen_dcs/index)
+* [→ Developing Manifest](https://hww.github.io/articles/2013/terrance_cohen_dcs/manifest)
+* [→ Unity Considerations](https://hww.github.io/articles/2013/terrance_cohen_dcs/unity-version)
+
 ### 2022
 
 **Oculus Quest 2 — Haptic Feedback Rifle** | *Arcadia/VR Commercial Project* | [Documentation](/projects/ar_vr_rifle)
@@ -426,7 +433,10 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 2. **[RU] A Dynamic Component Architecture for High Performance Gameplay**
     *A comprehensive overview of a high-performance, data-oriented component system for game development, based on Terrence Cohen's 2010 lecture. Includes memory pooling, handle-based safety, asynchronous SPU processing, and a unified component model for gameplay logic and scriptable events.*
     [Read article](https://hww.github.io/articles/2013/terrance_cohen_dcs/)
-   
+    [→ Developing Manifest](https://hww.github.io/articles/2013/terrance_cohen_dcs/manifest)
+    [→ Unity Considerations](https://hww.github.io/articles/2013/terrance_cohen_dcs/unity-version)
+    [→ GitHub Repositry](https://github.com/hww/dcs)   
+
 ---
 
 ### 📄 2003
