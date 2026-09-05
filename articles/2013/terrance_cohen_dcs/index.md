@@ -438,3 +438,8 @@ class ShotAction : public DynamicComponent::Component
 ## Cсылки
 
 * [A Dynamic Component Architecture for High Performance Gameplay](ADynamicComponentArchitectureForHighPerformanceGameplay.pptx)
+* [Перевод и анализ презентации Коэна](https://hww.github.io/articles/2013/terrance_cohen_dcs/index)
+* [Манифкст разработки](https://hww.github.io/articles/2013/terrance_cohen_dcs/manifest)
+* [Решения для адаптации на Unity](https://hww.github.io/articles/2013/terrance_cohen_dcs/unity-version)
+* [Исходный код Unity](https://github.com/hww/dcs)
+ 
