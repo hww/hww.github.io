@@ -110,7 +110,7 @@ A comprehensive, reverse-chronological index of my system architecture, hardware
 * Engineered a lightweight, high-performance embedded Lisp development environment tailored explicitly for heavily resource-constrained hardware platforms.
 * ⚡ *Tech Stack:* Compiler Design, Interpreter Internals, Memory Sandboxing, Virtual Machine, Custom DSL.
 
-* **Aleste LX FPGA Computer** | *Personal Project (PP)* | [Source Code](https://github.com/hww/aleste-lx-fpga-sv)
+**Aleste LX FPGA Computer** | *Personal Project (PP)* | [Source Code](https://github.com/hww/aleste-lx-fpga-sv)
 
 * Developed a modern, hardware-compatible FPGA implementation of the classic Aleste 520EX computer system from scratch using SystemVerilog.
 * ⚡ *Tech Stack:* SystemVerilog, FPGA, RTL Design, Hardware Emulation, Retro-Engineering.
