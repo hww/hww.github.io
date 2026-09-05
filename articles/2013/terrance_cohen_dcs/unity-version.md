@@ -6,7 +6,9 @@
 
 * [A Dynamic Component Architecture for High Performance Gameplay](ADynamicComponentArchitectureForHighPerformanceGameplay.pptx)
 * [Динамическая компонентная архитектура для высокопроизводительного игрового процесса](index)
-
+* [Манифкст разработки](manifest)
+* [Исходный код Unity](https://github.com/hww/dcs)
+* 
 ------------------------------
 
 ## 1. Ограничения C# и предлагаемые решения
