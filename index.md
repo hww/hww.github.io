@@ -118,7 +118,7 @@ A comprehensive, reverse-chronological index of my system architecture, hardware
 **Dynamic Component System for Unity** | *Research and implementation* | [→ GitHub Repositry](https://github.com/hww/dcs)
 
 * Adaptation of Insomniac Games' Dynamic Component Architecture for the Unity Ecosystem Featuring Dense Pools, Safe Handlers, and an Event System 
-⚡ *Tech Stack:* С#. Architecture, Data Oriented Programming
+* ⚡ *Tech Stack:* С#. Architecture, Data Oriented Programming
 
 ### 2022
 
