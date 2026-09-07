@@ -305,7 +305,7 @@ A curated showcase of my engineering style, demonstrating architectural patterns
 
 * **[XiGameTool Asset Pipeline](https://github.com/hww/XiGameTool)** — *Data-Driven Workflow Automation*
   * Demonstrates advanced editor workflow meta-data extraction, automated asset sanitization, and pipeline-level serialization architecture.
-* **[A Dynamic Component Architecture for High Performance Gameplay](https://github.com/hww/dcs)**
+* **[Dynamic Component System (DCS)](https://github.com/hww/dcs)**
     *A comprehensive overview of a high-performance, data-oriented component system for game development, based on Terrence Cohen's 2010 lecture. Includes memory pooling, handle-based safety, asynchronous SPU processing, and a unified component model for gameplay logic and scriptable events.*
 
 ### 3. Hardware Description
