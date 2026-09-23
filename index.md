@@ -13,7 +13,8 @@
     <p style="margin: 0 0 14px 0; font-size: 0.95em;">
       🌐 <a href="https://github.com/hww">GitHub Profile</a> &nbsp;|&nbsp; 
       💼 <a href="https://linkedin.com">LinkedIn</a> &nbsp;|&nbsp; 
-      ✉️ Telegram: <a href="https://t.me">@core_systems_eng</a>
+      ✉️ Telegram: @valery_h2w
+      ✉️ Email: valery.hww@gmail.com
     </p>
     <div style="display: flex; gap: 10px; margin-top: 5px;">
       <a href="resume.en" style="background-color: #24292e; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: 600; display: inline-block;">Read CV (EN)</a>
