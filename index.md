@@ -12,8 +12,8 @@
     </p>
     <p style="margin: 0 0 14px 0; font-size: 0.95em;">
       🌐 <a href="https://github.com/hww">GitHub Profile</a> &nbsp;|&nbsp; 
-      💼 <a href="https://linkedin.com">LinkedIn</a> &nbsp;|&nbsp; 
-      ✉️ Telegram: @valery_h2w
+      💼 <a href="https://www.linkedin.com/in/valeriyap/">LinkedIn</a> &nbsp;|&nbsp; 
+      ✉️ Telegram: @valery_h2w &nbsp;|&nbsp; 
       ✉️ Email: valery.hww@gmail.com
     </p>
     <div style="display: flex; gap: 10px; margin-top: 5px;">
