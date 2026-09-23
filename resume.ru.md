@@ -14,7 +14,7 @@
       Systems Architect &nbsp;|&nbsp; R&D Infrastructure Engineer &nbsp;|&nbsp; Low-Level Specialist
     </p>
     <p style="margin: 0 0 14px 0; font-size: 0.95em;">
-      🌐 <a href="https://github.com">GitHub Profile</a> &nbsp;|&nbsp; 
+      🌐 <a href="https://github.com/hww">GitHub Profile</a> &nbsp;|&nbsp; 
       💼 <a href="https://linkedin.com">LinkedIn</a> &nbsp;|&nbsp; 
       ✉️ Telegram: <a href="https://t.me">@valery_h2w</a>
     </p>
