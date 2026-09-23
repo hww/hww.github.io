@@ -11,10 +11,10 @@
       Systems Architect &nbsp;|&nbsp; R&D Infrastructure Engineer &nbsp;|&nbsp; Low-Level Specialist
     </p>
     <p style="margin: 0 0 14px 0; font-size: 0.95em;">
-      🌐 <a href="https://github.com/hww">GitHub Profile</a> &nbsp;|&nbsp; 
-      💼 <a href="https://www.linkedin.com/in/valeriyap/">LinkedIn</a> &nbsp;|&nbsp; 
-      ✉️ Telegram: @valery_h2w &nbsp;|&nbsp; 
-      ✉️ Email: valery.hww@gmail.com
+      🌐 <a href="https://github.com/hww" target="_blank" rel="noopener">GitHub Profile</a> &nbsp;|&nbsp; 
+      💼 <a href="https://www.linkedin.com/in/valeriyap/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;|&nbsp; 
+      ✉️ Telegram: <a href="https://t.me/valery_h2w" target="_blank" rel="noopener">@valery_h2w</a> &nbsp;|&nbsp; 
+      ✉️ Email: <a href="mailto:valery.hww@gmail.com">valery.hww@gmail.com</a>
     </p>
     <div style="display: flex; gap: 10px; margin-top: 5px;">
       <a href="resume.en" style="background-color: #24292e; color: #ffffff; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 0.85em; font-weight: 600; display: inline-block;">Read CV (EN)</a>
