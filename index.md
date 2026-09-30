@@ -41,6 +41,14 @@ Beyond software architecture, I operate a fully equipped, modern hardware and ma
 * **English:** Fluent / Professional Working Proficiency
 * **Russian:** Native speaker
 
+### Page Content
+
+- [Advanced Coursework & Applied Competencies](#advanced-coursework--applied-competencies)
+- [Architectural Consulting & Collaboration](#-architectural-consulting--collaboration)
+- [Projects & Engineering History](#projects--engineering-history)
+- [Production Code Samples](#production-code-samples)
+- [Articles & Technical Papers](#articles--technical-papers)
+
 ### Advanced Coursework & Applied Competencies
 
 *   **CS184.1x: Foundations of Computer Graphics (UC BerkeleyX)**
