@@ -348,10 +348,14 @@ A curated showcase of my engineering style, demonstrating architectural patterns
    *Principles of organizing file archives or project spaces on a computer.Read article*
    [Read article](https://hww.github.io/articles/2026/engineering-manifest/manifest.ru)
 
-3. **[EN] Engineering Manifest: File & Folder Organization Standard**
+4. **[EN] Engineering Manifest: File & Folder Organization Standard**
    *Principles of organizing file archives or project spaces on a computer.Read article*
    [Read article](https://hww.github.io/articles/2026/engineering-manifest/manifest.en)
 
+5. **[RU] Building a Data-Oriented System in Unity: Where Theory Breaks Against Reality**
+   *A personal experiment report. Dynamic component system, Lua scripting layer and spatial data pipeline in Unity. What held up, what fell apart, and why data-oriented programming is not a silver bullet.*
+   [Read article](https://hww.github.io/articles/2026/dcs_unity/)
+   
 ### 📄 2022
 
 1. **[RU] Three Core Components of a Successful Game Studio**
