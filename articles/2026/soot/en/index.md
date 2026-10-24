@@ -2,7 +2,7 @@
 
 **A compiler and virtual machine for a strictly typed language with interactive development**
 
-**English** | [Русский](README.ru.md)
+**English** | [Русский](../ru/index.md)
 
 ---
 
