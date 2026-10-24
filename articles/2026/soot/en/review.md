@@ -2,14 +2,17 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [Origins](#origins)
-- [The Type System and the Interpreter](#the-type-system-and-the-interpreter)
-- [Metaprogramming](#metaprogramming)
-- [The Virtual Machine](#the-virtual-machine)
-- [File Format](#file-format)
-- [Summary](#summary)
-- [Project Status](#project-status)
+- [SOOT Architecture Overview](#soot-architecture-overview)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Origins](#origins)
+  - [The Type System and the Interpreter](#the-type-system-and-the-interpreter)
+  - [Metaprogramming](#metaprogramming)
+  - [The Virtual Machine](#the-virtual-machine)
+    - [How the Virtual Machine Works](#how-the-virtual-machine-works)
+  - [File Format](#file-format)
+  - [Summary](#summary)
+  - [Project Status](#project-status)
 
 ---
 
@@ -17,7 +20,9 @@
 
 This article is an overview of SOOT's architecture: how the project arrived at its current shape, what parts it consists of (the type system, the interpreter, the compiler, the virtual machine, the file format), and what decisions were made along the way. Individual subsystems are covered in more detail in other articles in the series.
 
-> **Project independence.** SOOT is an independent project. It is not affiliated with Naughty Dog, Sony Interactive Entertainment, or the authors of OpenGOAL, and it does not use their code. The ideas discussed in this article are based on publicly available materials: talks, articles, and documentation. The names of games and projects belong to their respective rights holders and are mentioned only to explain sources of inspiration. Direct compatibility with those projects is not a goal of SOOT.
+The name SOOT reflects the character of the project. It has developed unevenly and is far from the polish of the systems that inspired it: OpenGOAL and Naughty Dog's scripting systems. In that sense it can be called dirty, but without a negative connotation. It is honest, though: it is an attempt to build something of my own, by my own principles, studying other people's solutions and open code without carrying someone else's project over wholesale. Hence the name: the work is dirty, but honest. The virtual machine is called Carbon, to tell it apart from the compiler. The names are related in meaning: soot consists mostly of carbon.
+
+> **Project independence.** SOOT is an independent project. It is not affiliated with Naughty Dog, Sony Interactive Entertainment, or the authors of OpenGOAL. It is neither a copy nor a fork of someone else's project: the architecture and implementation were developed by me, and the ideas are based on publicly available materials (talks, articles, documentation) and on studying OpenGOAL's open-source code. In some places, fragments of OpenGOAL code, which is distributed as an open-source project, are used. The names of games and projects belong to their respective rights holders and are mentioned only to explain sources of inspiration. Direct compatibility with those projects is not a goal of SOOT.
 
 ---
 
