@@ -105,6 +105,8 @@ The SOOT compiler is adapted to its own virtual machine and to running that mach
 
 In addition, the SOOT compiler combines object-oriented programming with high-level constructs such as state-script for describing game logic. The language is oriented toward animation programming.
 
+![Soot & Carbon System](../images/SOOT_CARBON_SYSTEM.webp)
+
 ---
 
 ## Project Status

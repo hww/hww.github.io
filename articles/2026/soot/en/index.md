@@ -40,6 +40,9 @@ In this series I share the engineering decisions behind the project: the alterna
    The story of how SOOT was developed and an overview of its architecture: the path from several restarts in different languages to a type system, an interpreter, and a C++ compiler; why the compiler targets a virtual machine rather than a processor; how the VM works (32-bit instructions, a tree of `StackFrame`s) and the binary file format.
 2. [Incremental Interactive Compilation: Combining a Strict Compiler with a REPL](./incremental-repl.md)
    How the REPL uses the same compiler that builds the project: a module per input, a global name table, `top-level` initialization, and a deliberate decision not to unload modules.
+3. [Memory Management in SOOT: From Reference Counting to a Simple Garbage Collector](./memory-manager.md)
+   How the memory model evolved: from passing values and reference counting through per-frame data to a simple non-moving garbage collector; type descriptors that keep the memory manager independent of the VM, arenas and size classes, a pass number instead of clearing marks, incremental sweep, known limitations, and plans for improvement.
+
 
 More articles will be added here as they are published.
 
