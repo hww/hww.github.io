@@ -42,8 +42,9 @@ In this series I share the engineering decisions behind the project: the alterna
    How the REPL uses the same compiler that builds the project: a module per input, a global name table, `top-level` initialization, and a deliberate decision not to unload modules.
 3. [Memory Management in SOOT: From Reference Counting to a Simple Garbage Collector](./memory-manager.md)
    How the memory model evolved: from passing values and reference counting through per-frame data to a simple non-moving garbage collector; type descriptors that keep the memory manager independent of the VM, arenas and size classes, a pass number instead of clearing marks, incremental sweep, known limitations, and plans for improvement.
-
-
+4. [Anatomy of the SOOT Interpreter: Three Engineering Decisions](./script-debug.md)
+   How the interpreter helps track down errors: `TextDb` links S-expressions to places in the source code, `vararg_check` describes the argument contract of built-in functions in one line, and trace accumulation with error handlers written in the language itself gives controlled execution; where these mechanisms come from in GOOS and what they cost.
+   
 More articles will be added here as they are published.
 
 ## Status
