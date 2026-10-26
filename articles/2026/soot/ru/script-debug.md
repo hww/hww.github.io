@@ -138,6 +138,7 @@ vararg_check(form, args, {{ObjectType::INT, ObjectType::FLOAT}}, {});
 // (define имя значение [:env окружение])
 vararg_check(form, args, {{ObjectType::SYMBOL}, {}}, {{"env", {false, {}}}});
 ```
+{% endraw %}
 
 Правила чтения такого описания:
 
