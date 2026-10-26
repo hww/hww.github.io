@@ -138,6 +138,7 @@ vararg_check(form, args, {{ObjectType::INT, ObjectType::FLOAT}}, {});
 // (define name value [:env environment])
 vararg_check(form, args, {{ObjectType::SYMBOL}, {}}, {{"env", {false, {}}}});
 ```
+{% endraw %}
 
 Rules for reading such a description:
 
