@@ -12,7 +12,6 @@
     - [How the Virtual Machine Works](#how-the-virtual-machine-works)
   - [File Format](#file-format)
   - [Summary](#summary)
-  - [Project Status](#project-status)
 
 ---
 
@@ -109,6 +108,6 @@ In addition, the SOOT compiler combines object-oriented programming with high-le
 
 ---
 
-## Project Status
+[Project Status](./project-status.mb)
 
-The project is not finished and is under development.
+---

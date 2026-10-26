@@ -245,3 +245,9 @@ When you write a small interpreter, attention goes to the language itself: numbe
 You need to keep the link between expressions and the source so that errors are easy to find. You need to check arguments so that built-in functions behave uniformly. You need to organize error propagation so that the interpreter can not only report a problem but also hand control to a user-defined handler.
 
 `TextDb` separates information about the source from the representation of an expression and keeps the link between them. `vararg_check` expresses a typical contract in one line instead of repetitive checking logic. The error system uses the execution context and lets the program take part in reacting to an error. All three decisions are fairly local, and none of them tries to turn the interpreter into a universal framework. They remove specific sources of complexity where that is justified, and in this the approach resembles the rest of SOOT's architecture: a simple solution is chosen wherever a complex one does not pay off.
+
+---
+
+[Project Status](./project-status.mb)
+
+---

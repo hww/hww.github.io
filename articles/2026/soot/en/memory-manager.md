@@ -202,3 +202,9 @@ There is one condition. The check only answers "the address is inside the region
 The garbage collector in SOOT does not aim to be efficient. It is non-moving, with no compaction and no parallelism, and it has no generations in the classical sense, although the pass number in the header gives something similar to an age. But it is simple, predictable, and sufficient for the tasks the language faces: game code, where most data lives for a single frame, while long-lived structures are rare and few in number.
 
 As in the other parts of the project, a simple option was chosen where a complex one is not justified. The limitations are known and written down, and the ways to overcome them are clear.
+
+---
+
+[Project Status](./project-status.mb)
+
+---

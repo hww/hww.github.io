@@ -2,16 +2,20 @@
 
 ## Table of Contents
 
-- [Introduction](#introduction)
-- [A Strict Compiler with an Interactive REPL](#a-strict-compiler-with-an-interactive-repl)
-- [Every Input Is a New Module](#every-input-is-a-new-module)
-- [How a New Module Sees Everything That Came Before](#how-a-new-module-sees-everything-that-came-before)
-- [Module Naming in the REPL](#module-naming-in-the-repl)
-- [Saving a Session](#saving-a-session)
-- [Module Initialization at Runtime](#module-initialization-at-runtime)
-- [How a Module with Dependencies Is Loaded](#how-a-module-with-dependencies-is-loaded)
-- [Conclusion](#conclusion)
-- [Project Status](#project-status)
+- [Incremental Interactive Compilation: Combining a Strict Compiler with a REPL](#incremental-interactive-compilation-combining-a-strict-compiler-with-a-repl)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [A Strict Compiler with an Interactive REPL](#a-strict-compiler-with-an-interactive-repl)
+  - [Every Input Is a New Module](#every-input-is-a-new-module)
+  - [How a New Module Sees Everything That Came Before](#how-a-new-module-sees-everything-that-came-before)
+    - [What Happens on Redefinition](#what-happens-on-redefinition)
+  - [Module Naming in the REPL](#module-naming-in-the-repl)
+  - [Saving a Session](#saving-a-session)
+  - [Module Initialization at Runtime](#module-initialization-at-runtime)
+    - [Why `top-level` Is Separate](#why-top-level-is-separate)
+  - [How a Module with Dependencies Is Loaded](#how-a-module-with-dependencies-is-loaded)
+    - [What This Gives Us](#what-this-gives-us)
+  - [Conclusion](#conclusion)
 
 ---
 
@@ -195,6 +199,6 @@ This approach has a price: memory in the REPL grows with the number of inputs, a
 
 ---
 
-## Project Status
+[Project Status](./project-status.mb)
 
-SOOT is a young project. It has grown from an experimental interpreter into a compiler with a runtime, incremental development, and its own module model, but it is still far from a complete tool.
+---

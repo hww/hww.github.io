@@ -1,0 +1,3 @@
+# Project Status
+
+SOOT is a young project. It has grown from an experimental interpreter into a compiler with a runtime, incremental development, and its own module model, but it is still far from a complete tool.
