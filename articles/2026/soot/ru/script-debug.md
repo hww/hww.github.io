@@ -124,6 +124,7 @@ S-выражения                                           TextDb
 
 Вот реальные примеры:
 
+{% raw %}
 ```cpp
 // (string-length s) — одна строка
 vararg_check(form, args, {{ObjectType::STRING}}, {});

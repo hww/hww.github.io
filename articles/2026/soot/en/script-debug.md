@@ -124,6 +124,7 @@ In SOOT every built-in function starts with a call to `vararg_check`. It takes t
 
 Here are real examples:
 
+{% raw %}
 ```cpp
 // (string-length s): one string
 vararg_check(form, args, {{ObjectType::STRING}}, {});
