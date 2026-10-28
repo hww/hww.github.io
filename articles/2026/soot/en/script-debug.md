@@ -250,6 +250,4 @@ You need to keep the link between expressions and the source so that errors are 
 
 ---
 
-[Project Status](./project-status.mb)
-
----
+[Project Status](./project-status.md)

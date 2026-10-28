@@ -199,6 +199,4 @@ top-level:
 
 ---
 
-[Статус проекта](./project-status.mb)
-
----
+[Статус проекта](./project-status.md)

@@ -108,6 +108,4 @@ In addition, the SOOT compiler combines object-oriented programming with high-le
 
 ---
 
-[Project Status](./project-status.mb)
-
----
+[Project Status](./project-status.md)

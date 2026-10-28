@@ -46,6 +46,10 @@ In this series I share the engineering decisions behind the project: the alterna
    How the interpreter helps track down errors: `TextDb` links S-expressions to places in the source code, `vararg_check` describes the argument contract of built-in functions in one line, and trace accumulation with error handlers written in the language itself gives controlled execution; where these mechanisms come from in GOOS and what they cost.
 5. [Variant: The Universal Data Container of the Virtual Machine](./variant.md)
    How the registers of the virtual machine are built: a tag plus a union of three types (integer, float, pointer); why storing the type as a CRC turned out to be a dead end; why the surrogate types (boolean, `StringId`, string) had to be dropped, since the instruction set cannot guarantee that they are set correctly; how to show values in the terminal on the tooling side; the connection to the garbage collector and how arguments are passed to native functions.
+6. [The Global Scope: Why SOOT Has No Private Names](./globals.md)
+   Why every definition of every module lives in a single global scope: what module isolation would cost a virtual machine where every call starts with a lookup by name, how the `Globals` index works, what the decision costs (name collisions, no real encapsulation) and how naming discipline compensates for it, and the planned `define private` with a file format that splits definitions into public and private parts.
+7. [Polymorphism in SOOT](./polymorphism.md)
+   How the same call `(-> obj method)` works for different kinds of objects: why methods on structures do not give polymorphism by themselves, why the `basic` type carries a type identifier in its header, why that is a SID and not a pointer (to allow module reloading), how the `CallMethod` instruction deals with the shortage of operands, and what all this costs; with a walkthrough of an example from Lisp to assembly.
   
 More articles will be added here as they are published.
 

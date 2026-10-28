@@ -151,5 +151,3 @@ There is one more observation: keeping so few types in a value is possible only 
 ---
 
 [Project Status](./project-status.md)
-
----

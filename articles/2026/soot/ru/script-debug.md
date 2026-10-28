@@ -251,5 +251,3 @@ vararg_check(form, args, {{ObjectType::SYMBOL}, {}}, {{"env", {false, {}}}});
 ---
 
 [Статус проекта](./project-status.mb)
-
----

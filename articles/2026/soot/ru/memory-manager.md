@@ -188,6 +188,4 @@ gc::finish_pass();
 
 ---
 
-[Статус проекта](./project-status.mb)
-
----
+[Статус проекта](./project-status.md)

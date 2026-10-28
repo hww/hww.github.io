@@ -199,6 +199,5 @@ This approach has a price: memory in the REPL grows with the number of inputs, a
 
 ---
 
-[Project Status](./project-status.mb)
+[Project Status](./project-status.md)
 
----

@@ -205,6 +205,4 @@ As in the other parts of the project, a simple option was chosen where a complex
 
 ---
 
-[Project Status](./project-status.mb)
-
----
+[Project Status](./project-status.md)
