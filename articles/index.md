@@ -13,6 +13,9 @@ Technical research, reverse engineering, runtime architecture, production pipeli
 
 ### 2026
 
+- **[EN] SOOT: A Scriptable Lisp-Based Development Ecosystem** — an embedded Lisp environment for interactive development, build automation, and runtime architecture. [Read article](https://hww.github.io/articles/2026/soot/en/)
+- **[RU] SOOT: Скриптовая среда разработки на основе Lisp** — встраиваемая Lisp-среда для интерактивной разработки, автоматизации сборки и архитектуры runtime. [Читать статью](https://hww.github.io/articles/2026/soot/ru/)
+
 - **[RU] In Search of Lost Determinism: Architecting an Isolated C# Game Runtime Inspired by Naughty Dog** — deterministic execution, isolated simulation, and Zero-GC runtime design. [Read article](https://hww.github.io/articles/2026/gfs_runtime/)
 - **[RU] Time Vector: How to Design a Non-Linear Timeline in Unity and Stay Sane** — time control, state isolation, and load balancing. [Read article](https://hww.github.io/articles/2026/time_vector/)
 - **[RU] Building a Data-Oriented System in Unity: Where Theory Breaks Against Reality** — a practical experiment with component architecture and data pipelines. [Read article](https://hww.github.io/articles/2026/dcs_unity/)
