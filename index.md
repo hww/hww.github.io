@@ -50,43 +50,29 @@ I focus on the engineering problems beneath the surface: execution models, memor
 
 ## Selected Engineering Projects
 
-### Runtime Architecture & Data-Oriented Design
+### Runtime Architecture & Embedded Tooling
 
-**[Dynamic Component System for Unity](https://github.com/hww/dcs)**
+**[SOOT: Scriptable Object-Oriented Toolkit](https://github.com/hww/soot)**
 
-An exploration of data-oriented gameplay architecture featuring dense component pools, safe handles, and event-driven communication.
-
-**[Open GOAL Type System — Common Lisp](https://github.com/hww/open-goal-type-system-cl)**
-
-A parser, validator, and type-analysis implementation for the Open GOAL programming language.
-
-**[Lisp-Based Development Ecosystem](/projects/lisp/index)**
-
-Embedded language tooling and runtime architecture for resource-constrained platforms.
+An embeddable Lisp-based automation and runtime environment for resource-constrained platforms, including MCUs and DSPs. Combines an interactive REPL, scriptable build orchestration, source preprocessing, and a virtual-machine execution layer through the SOOT and Carbon ecosystem.
 
 ### Hardware, FPGA & Embedded Systems
 
-**[Aleste LX FPGA Computer](https://github.com/hww/aleste-lx-fpga-sv)**
-
-An FPGA implementation of a classic computer architecture using SystemVerilog.
-
 **[KIRA SHARC DSP Module](/projects/kira_dsp_module/index)**
 
-A standalone digital signal-processing hardware project for real-time audio and data processing.
+Designed a standalone digital signal-processing module for real-time audio processing, combining dedicated DSP hardware with embedded software.
 
-**[Medical PPG Wristband Prototype](/projects/ppg/index)**
+**[6DOF IMU Hand Tracking Gloves — Arcadia/VR Commercial Project](/projects/ar_vr_gloves)**
 
-An embedded biometric sensing and hardware-prototyping project.
+Architected firmware, sensor-fusion algorithms, and hardware integration for VR input gloves using a distributed array of 6DOF IMU sensors.
 
-### Graphics & Performance Tools
+**[Aleste LX FPGA Computer](https://github.com/hww/aleste-lx-fpga-sv)**
 
-**[XiDebugDraw](https://github.com/hww/XiDebugDraw)**
+Implemented a classic computer architecture in SystemVerilog on FPGA, exploring hardware design and digital system integration.
 
-A low-allocation runtime visualization and debug-drawing tool for Unity.
+**[Oculus Quest 2 — Haptic Feedback Rifle | Arcadia/VR Commercial Project](/projects/ar_vr_rifle)**
 
-**[3D Ray Tracer](https://github.com/hww/RayTracer)**
-
-A software ray tracer exploring rendering algorithms and graphics mathematics.
+Designed the electrical system, custom I/O signaling, and mechanical interface for a haptic-feedback rifle peripheral used in commercial VR experiences.
 
 [Browse all projects →](/projects/)
 
@@ -94,23 +80,19 @@ A software ray tracer exploring rendering algorithms and graphics mathematics.
 
 ## Selected Articles
 
-**[In Search of Lost Determinism: Architecting an Isolated C# Game Runtime Inspired by Naughty Dog](https://hww.github.io/articles/2026/gfs_runtime/)**
+### [SOOT: A Compiler and Virtual Machine for a Strictly Typed Language](/articles/2026/soot/en/)
 
-Deterministic simulation, runtime isolation, and performance-oriented architecture.
+An evolving language runtime combining a compiler, virtual machine, incremental REPL, garbage collector, and a fixed-tick scheduler for scripted state machines. A series exploring the architectural decisions and engineering trade-offs behind the system.
 
-**[Time Vector: How to Design a Non-Linear Timeline in Unity and Stay Sane](https://hww.github.io/articles/2026/time_vector/)**
+### [Game Developing — The Last of Us Case Study](https://hww.github.io/articles/2022/nd_gfs_en/index)
 
-Designing time control and state isolation in complex interactive systems.
+An architectural study of Naughty Dog's game runtime, exploring its object model, scripting language, compiler, virtual machine, and data-driven development workflow.
 
-**[Building a Data-Oriented System in Unity: Where Theory Breaks Against Reality](https://hww.github.io/articles/2026/dcs_unity/)**
+### [Lisp-Based Scripting in Unity 3D: A Practical Case Study](https://hww.github.io/articles/2013/lisp_with_unity/)
 
-Practical engineering trade-offs in data-oriented architecture.
+Integrating Scheme scripting into Unity, covering runtime integration, interactive development, bytecode execution, and the connection between a dynamic language and a game engine.
 
-**[Lisp-Based Scripting in Unity 3D: A Practical Case Study](https://hww.github.io/articles/2013/lisp_with_unity/)**
-
-Embedded scripting, runtime integration, and language tooling in a game engine.
-
-[Browse all articles & technical papers →](/articles/)
+[Browse all articles and technical papers →](/articles/)
 
 ---
 

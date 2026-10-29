@@ -1,54 +1,47 @@
-# Lisp-Based Development Ecosystem for Resource-Constrained Platforms
+# SOOT: Scriptable Object-Oriented Toolkit
 
-A comprehensive development ecosystem has been successfully created for my project, addressing the challenge of building software for resource-constrained target platforms. Since development directly on target devices is not feasible (such as on gaming consoles that lack development tools), the following architecture has been implemented:
+**An Embedded Lisp Environment for Runtime Orchestration, Build Automation, and Constrained Hardware**
 
-## Implemented System Components
+[**GitHub Repository →**](https://github.com/hww/soot) · [**Script Language Reference →**](https://github.com/hww/soot/blob/main/common/script/README.md) · [**Standard Library Documentation →**](https://github.com/hww/soot/blob/main/common/script/README.LIB.md)
 
-**Lisp Interpreter** - The core of the system, providing Lisp code execution with enhanced S-expression parsing capabilities. The interpreter is optimized for resource-constrained environments similar to gaming consoles.
+SOOT is an embeddable Lisp interpreter and automation environment designed to orchestrate development workflows for resource-constrained platforms, including CPUs, microcontrollers, and digital signal processors.
 
-**REPL Interactive Environment** - A full-featured environment for interactive development, debugging, and code testing. The REPL is integrated with the type system and virtual machine, providing immediate feedback that is particularly valuable for reverse engineering.
+The project explores how a programmable, interactive environment can unify source transformation, build orchestration, target deployment, and runtime inspection. Instead of relying entirely on external scripts and disconnected tools, developers can use Lisp to describe and control the development process through a single extensible environment.
 
-![Diagram](images/xi_repl.png)
+SOOT is part of a broader ecosystem that includes **Carbon**, a dedicated execution layer with its own virtual machine and compiler.
 
-**Type System** - An advanced type system providing static type checking and runtime safety. The type system is closely integrated with the compiler and virtual machine, using approaches similar to OpenGoal.
+## Architecture: SOOT and Carbon
 
-**Virtual Machine and Bytecode Format** - A high-performance virtual machine executing specially designed bytecode. The bytecode format is optimized for fast loading and execution on resource-constrained platforms, inspired by solutions discovered during Uncharted analysis.
+The ecosystem separates high-level development automation from low-level code execution.
 
-## Development Methodology
+### SOOT — Scripting and Orchestration
 
-The development is based on OpenGoal principles - an open approach to reverse engineering game systems, focusing on:
+SOOT provides the high-level control layer. Its Lisp interpreter can be used to automate development tasks, transform source files, coordinate compilation and linking, and manage interactions with target hardware.
 
-- Analysis of existing binary files and data formats
-- Recreating development toolchains used by original creators
-- Building compatible runtime environments
+Key capabilities include:
 
-Reverse engineering techniques similar to those used in studying engines like Uncharted are applied, including:
+- **Embedded Lisp interpreter:** A programmable scripting environment designed for integration with development tools and constrained systems.
+- **Interactive REPL:** An iterative environment for evaluating expressions, experimenting with code, inspecting state, and debugging automation workflows.
+- **Build orchestration:** Lisp scripts can coordinate build steps, invoke external tools, and manage project-specific workflows.
+- **Source preprocessing:** Scripts can modify source files dynamically as part of a build or deployment pipeline.
+- **Project-aware file operations:** Project context and configurable path resolution support reusable automation scripts.
+- **Network REPL:** A network-accessible interactive interface supports remote development workflows and integration with external editors.
 
-- Analysis of executable files and libraries
-- Investigation of data formats and resources
-- Reconstruction of memory systems and resource management
+### Carbon — Virtual Machine and Compiler
 
-## Current Development Status
+Carbon is the execution layer associated with SOOT. It provides a dedicated virtual machine and a compiler intended to connect high-level development workflows with code execution on target platforms.
 
-All core system components have been completed and tested:
+The **Carbon Virtual Machine is functional**, while the **Carbon Compiler remains under active development**. The compiler should therefore be considered an ongoing part of the project rather than a completed component.
 
-- Lisp interpreter with full S-expression support
-- REPL interactive environment with debugging capabilities
-- Type system with static type checking
-- Virtual machine with optimized bytecode format
+Keeping the interpreter and execution layer separate allows SOOT to coordinate the development process without making its orchestration logic dependent on the implementation details of the target execution environment.
 
-Active development is currently underway on the compiler and integrated debug environment. The compiler transforms Lisp code into bytecode for the virtual machine and also generates C source files for compilation to native code on the target platform.
+## Interactive Development Workflow
 
-## Architectural Advantages
+The REPL is central to SOOT's development model. It provides a feedback loop in which scripts and tools can be tested and refined interactively rather than only through repeated, fully automated builds.
 
-![Diagram](images/xi_lisp_dev.png)
+A typical workflow can include:
 
-This ecosystem provides:
-
-- Controlled multitasking and secure execution environment
-- Crash protection - errors generate clear messages pointing to the problem source
-- Cross-platform compatibility (supports RISC-V, ARM, microcontrollers)
-- Efficient use of limited resources
-- Compatibility with existing game assets and data formats
-
-The project demonstrates the practical applicability of Lisp approaches in embedded systems and gaming platforms, continuing active development to meet the requirements of target projects in the spirit of OpenGoal.
+1. **Prepare:** Configure a project and define its build or deployment procedures.
+2. **Transform:** Use Lisp scripts to preprocess or generate source files.
+3. **Orchestrate:** Coordinate compilation, linking, and other external tools.
+4. **Deploy:** Automate
