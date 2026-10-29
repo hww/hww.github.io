@@ -66,7 +66,7 @@ Architected firmware, sensor-fusion algorithms, and hardware integration for VR 
 
 Implemented a classic computer architecture in SystemVerilog on FPGA, exploring hardware design and digital system integration.
 
-**[Oculus Quest 2 — Haptic Feedback Rifle | Arcadia/VR Commercial Project](/projects/ar_vr_rifle)**
+**[Oculus Quest 2 — Haptic Feedback Rifle](/projects/ar_vr_rifle)**
 
 Designed the electrical system, custom I/O signaling, and mechanical interface for a haptic-feedback rifle peripheral used in commercial VR experiences.
 
