@@ -38,6 +38,8 @@ For example, `bar.sc` defines `greet` as `"hello"`, and `baz.sc` defines it as `
 
 **Important:** this rule applies to the runtime. It does not mean that the compiler mixes definitions from different files.
 
+![Modules](../images/soot-module-system.webp)
+
 ### 4. What Happens in the REPL
 
 The REPL is an interactive console. The compiler treats code entered in it as a separate virtual file, e.g. `<repl>` or `<repl-N>`.
