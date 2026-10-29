@@ -14,6 +14,8 @@ SOOT is part of a broader ecosystem that includes **Carbon**, a dedicated execut
 
 The ecosystem separates high-level development automation from low-level code execution.
 
+![Soot Carbon System](../../images/soot_carbon_system.webp)
+
 ### SOOT — Scripting and Orchestration
 
 SOOT provides the high-level control layer. Its Lisp interpreter can be used to automate development tasks, transform source files, coordinate compilation and linking, and manage interactions with target hardware.
