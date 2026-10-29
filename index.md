@@ -32,19 +32,15 @@ I design software runtimes, game-engine architecture, embedded systems, and hard
 
 I focus on the engineering problems beneath the surface: execution models, memory layout, system boundaries, performance, and the integration of software with physical hardware.
 
-[GitHub](https://github.com/hww) · [LinkedIn](https://www.linkedin.com/in/valeriyap/) · [Telegram](https://t.me/valery_h2w) · [Email](mailto:valery.hww@gmail.com)
-
-[English CV](/resume.en) · [Резюме на русском](/resume.ru) · [Acknowledgments](/acknowledgments/)
-
 ---
 
 ## Explore
 
-| | |
-|---|---|
+|                                                  |                                                                                                                                |
+|--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | **[Projects & Engineering History](/projects/)** | Selected engineering projects across runtime architecture, programming languages, Unity, embedded systems, FPGA, and hardware. |
-| **[Articles & Technical Papers](/articles/)** | Technical writing on game architecture, deterministic runtimes, performance engineering, and development practices. |
-| **[About Me](/about/)** | Professional background, core competencies, education, and contact information. |
+| **[Articles & Technical Papers](/articles/)**    | Technical writing on game architecture, deterministic runtimes, performance engineering, and development practices.            |
+| **[About Me](/about/)**                          | Professional background, core competencies, education, and contact information.                                                |
 
 ---
 
