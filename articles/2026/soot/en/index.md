@@ -50,7 +50,9 @@ In this series I share the engineering decisions behind the project: the alterna
    Why every definition of every module lives in a single global scope: what module isolation would cost a virtual machine where every call starts with a lookup by name, how the `Globals` index works, what the decision costs (name collisions, no real encapsulation) and how naming discipline compensates for it, and the planned `define private` with a file format that splits definitions into public and private parts.
 7. [Polymorphism in SOOT](./polymorphism.md)
    How the same call `(-> obj method)` works for different kinds of objects: why methods on structures do not give polymorphism by themselves, why the `basic` type carries a type identifier in its header, why that is a SID and not a pointer (to allow module reloading), how the `CallMethod` instruction deals with the shortage of operands, and what all this costs; with a walkthrough of an example from Lisp to assembly.
-  
+8. [Modular SOOT System: Complete Guide](./modules.md)
+   How the compiler and runtime handle names, how `require` differs from `load-module`, what `save-session` and `save-module` save, working with SIDBase, and common pitfalls.
+
 More articles will be added here as they are published.
 
 ## Status
