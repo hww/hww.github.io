@@ -1,6 +1,5 @@
 # Portfolio Navigator & Architectural Index
 
-
 <div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 25px; flex-wrap: wrap;">
   <div style="flex-shrink: 0;">
     <img src="images/wendy.png" alt="hww" width="120" style="border-radius: 8px; display: block; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
@@ -11,9 +10,9 @@
       Systems Architect &nbsp;|&nbsp; R&D Infrastructure Engineer &nbsp;|&nbsp; Low-Level Specialist
     </p>
     <p style="margin: 0 0 14px 0; font-size: 0.95em;">
-      🌐 <a href="https://github.com/hww" target="_blank" rel="noopener">GitHub Profile</a> &nbsp;|&nbsp; 
-      💼 <a href="https://www.linkedin.com/in/valeriyap/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;|&nbsp; 
-      ✉️ Telegram: <a href="https://t.me/valery_h2w" target="_blank" rel="noopener">@valery_h2w</a> &nbsp;|&nbsp; 
+      🌐 <a href="https://github.com/hww" target="_blank" rel="noopener">GitHub Profile</a> &nbsp;|&nbsp;
+      💼 <a href="https://www.linkedin.com/in/valeriyap/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;|&nbsp;
+      ✉️ Telegram: <a href="https://t.me/valery_h2w" target="_blank" rel="noopener">@valery_h2w</a> &nbsp;|&nbsp;
       ✉️ Email: <a href="mailto:valery.hww@gmail.com">valery.hww@gmail.com</a>
     </p>
     <div style="display: flex; gap: 10px; margin-top: 5px;">
@@ -36,13 +35,67 @@ I focus on the engineering problems beneath the surface: execution models, memor
 
 ## Explore
 
-|                                                  |                                                                                                                                |
-|--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| **[Projects & Engineering History](/projects/)** | Selected engineering projects across runtime architecture, programming languages, Unity, embedded systems, FPGA, and hardware. |
-| **[Articles & Technical Papers](/articles/)**    | Technical writing on game architecture, deterministic runtimes, performance engineering, and development practices.            |
-| **[About Me](/about/)**                          | Professional background, core competencies, education, and contact information.                                                |
+<style>
+table {
+  border-collapse: collapse !important;
+  border: none !important;
+  width: 100%; /* или нужная вам ширина */
+}
 
----
+/* Жестко убираем ВСЕ рамки со всех ячеек */
+table th, 
+table td {
+  border: none !important;
+  background-color: #07081b;
+  padding: 12px 16px; /* добавьте отступы, чтобы текст не лип к линиям */
+  vertical-align: middle;
+  color: #D0D0D0;
+}
+
+/* Оставляем ТОЛЬКО горизонтальную линию между строками */
+table tr + tr > td,
+table tr + tr > th {
+  border-top: 1px solid #ccc !important;
+}
+</style>
+<table>
+<tbody>
+<tr>
+<td width="200px">
+<img src="/images/projects-256.png" alt="Projects"/>
+</td>
+<td>
+
+**[Projects & Engineering History](/projects/)**
+Selected engineering projects across runtime architecture, programming languages, Unity, embedded systems, FPGA, and hardware.
+
+</td>
+</tr>
+<tr>
+<td>
+<img src="./images/articles-256.png" width="200" height="200" alt="Articles"/>
+</td>
+
+<td>
+
+**[Articles & Technical Papers](/articles/)**  
+Technical writing on game architecture, deterministic runtimes, performance engineering, and development practices.            |
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="./images/about-me-256.png"  width="200"  height="200" alt="About Me"/>
+</td>
+<td>
+
+**[About Me](/about/)**  
+Professional background, core competencies, education, and contact information.  
+
+</td>
+</tr>
+</tbody>
+</table>
 
 ## Selected Engineering Projects
 
