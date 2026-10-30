@@ -60,6 +60,9 @@ table tr + tr > td,
 table tr + tr > th {
   border-top: 1px solid #ccc !important;
 }
+table img {
+    border: none !important;
+}
 </style>
 <table>
 <tbody>
@@ -75,7 +78,7 @@ Selected engineering projects across runtime architecture, programming languages
 </td>
 </tr>
 <tr>
-<td>
+<td width="200px">
 <img src="./images/articles-256.png" width="200" height="200" alt="Articles"/>
 </td>
 
@@ -87,7 +90,7 @@ Technical writing on game architecture, deterministic runtimes, performance engi
 </tr>
 
 <tr>
-<td>
+<td width="200px">
 <img src="./images/about-me-256.png"  width="200"  height="200" alt="About Me"/>
 </td>
 <td>
