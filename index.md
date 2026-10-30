@@ -63,6 +63,9 @@ table tr + tr > th {
 table img {
     border: none !important;
 }
+table a {
+    color: rgb(15, 121, 208) !important;
+}
 </style>
 <table>
 <tbody>
