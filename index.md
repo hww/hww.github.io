@@ -39,37 +39,41 @@ I focus on the engineering problems beneath the surface: execution models, memor
 table {
   border-collapse: separate;
   border-spacing: 0;
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
   border: none !important;
   width: 100%;
 }
 
-table th, 
+table th,
 table td {
   border: none !important;
-  background-color: #07081b;
+  background-color: #373741;
   padding: 16px; /* Чуть увеличил отступы для красоты */
   vertical-align: middle;
-  color: #D0D0D0;
+  color: #e4e2e2;
 }
 
 /* Линия между строками */
 table tr + tr > td,
 table tr + tr > th {
-  border-top: 1px solid #2a2b3d !important; /* Сделал цвет линии темнее, #ccc на темном фоне слишком яркий */
+  border-top: 1px solid #696b8b !important; /* Сделал цвет линии темнее, #ccc на темном фоне слишком яркий */
 }
 
 table img {
-  border: none !important;
+  margin: 10px 0px;
+  padding: 0px;
+  border-color: red;
+  border: 1px solid #69697e !important; /* Тонкий бордюр цвета чуть светлее фона */
   max-width: 100%;
   height: auto;
   display: block;
 }
 
+
 /* Стили для ссылок */
 table a {
-  color: #0f79d0 !important;
+  color: #198be9 !important;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1em;
@@ -86,6 +90,7 @@ table p {
   margin: 0;
   line-height: 1.5;
 }
+
 </style>
 
 <table>
