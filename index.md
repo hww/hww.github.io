@@ -37,9 +37,12 @@ I focus on the engineering problems beneath the surface: execution models, memor
 
 <style>
 table {
-  border-collapse: collapse !important;
+border-collapse: separate; /* Важно! Вместо collapse */
+  border-spacing: 0;         /* Убираем зазоры между ячейками */
+  border-radius: 12px;       /* Радиус скругления */
+  overflow: hidden;          /* Обрезаем всё, что вылезает за скругления */
   border: none !important;
-  width: 100%; /* или нужная вам ширина */
+  width: 100%;
 }
 
 /* Жестко убираем ВСЕ рамки со всех ячеек */
