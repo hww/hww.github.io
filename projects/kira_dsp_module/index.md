@@ -1,44 +1,50 @@
-# KIRA Sharc — Digital Signal Processor Module
+# KIRA SHARC — Digital Signal Processor Module
 
-Встраиваемый аудио-вычислитель на базе процессоров SHARC
+*An embedded audio computing module based on SHARC processors*
 
-## Назначение и форм-фактор
+## Purpose and Form Factor
 
-KIRA DSP — это компактный встраиваемый модуль цифровой обработки сигналов. Он разработан для интеграции в современную цифровую и цифрово-аналоговую аппаратуру. Основная сфера применения устройства — профессиональное аудиооборудование и аппаратные синтезаторы звука.
-Модуль выполнен в ультракомпактном форм-факторе SODIMM DDR2. Это позволяет минимизировать габариты материнской платы устройства-носителя и обеспечивает быструю замену или модернизацию вычислительного узла.
+KIRA DSP is a compact embedded digital signal processing module designed for integration into modern digital and digital-analog equipment. Its primary applications are in professional audio equipment and hardware sound synthesizers.
+
+The module features an ultra-compact DDR2 SODIMM form factor. This minimizes the footprint of the host device's motherboard and allows for quick replacement or upgrades of the computing module.
 
 ![Aleste 520EX](/projects/kira_dsp_module/pcb.jpg)
 
-## Вычислительное ядро и память
+## Processing Core and Memory
 
-* Центральный процессор: Мощный специализированный ADSP-21584 от компании Analog Devices.
-* Оперативная память: Динамическая память DDR3 объемом 2 Гбит с разрядностью шины 16 бит. Частота системной шины составляет 400 млн транзакций в секунду.
-* Энергонезависимая память: Высокоскоростная Quad SPI Flash-память для хранения прошивки и пользовательских алгоритмов.
+- **Processor:** High-performance ADSP-21584 dedicated audio DSP from Analog Devices.
+- **RAM:** 2 Gbit of DDR3 memory with a 16-bit data bus. The memory bus operates at 400 million transfers per second.
+- **Non-volatile memory:** High-speed Quad SPI Flash memory for storing firmware and user-defined algorithms.
 
-## Синхронизация и тактирование
+## Synchronization and Clocking
 
-Для достижения минимального уровня джиттера и максимального качества обработки звука на плате установлены два высококачественных стабильных кварцевых генератора:
+To achieve minimal jitter and the highest possible audio processing quality, the board features two high-quality, highly stable crystal oscillators:
 
-* 49,152 МГц — специализированная частота для аудиосистем (кратная сетке 48 кГц).
-* 24,000 МГц — для тактирования системной периферии.
+- **49.152 MHz** — A dedicated audio clock frequency, aligned with the 48 kHz sampling-rate family.
+- **24.000 MHz** — For clocking system peripherals.
 
-Внутренняя рабочая частота процессора гибко настраивается программным путем.
+The processor's internal operating frequency can be flexibly configured through software.
 
-## Периферия и интерфейсы
+## Peripherals and Interfaces
 
-Все ключевые сигналы выведены на краевой разъем модуля. В распоряжении разработчика:
+All key signals are routed to the module's edge connector, providing developers with access to the following interfaces:
 
-* Звуковые интерфейсы: Все сигналы специализированной аудиошины DAI (Digital Audio Interface).
-* Интерфейсы связи: USB, SPI, а также четыре двухпроводных интерфейса.
-* Общего назначения: 16-битный порт ввода-вывода GPIO.
-* Отладка: Выделенный интерфейс JTAG для программирования и трассировки.
+- **Audio interfaces:** All signals of the dedicated DAI (Digital Audio Interface) bus.
+- **Communication interfaces:** USB, SPI, and four two-wire interfaces.
+- **General-purpose I/O:** 16-bit GPIO port.
+- **Debugging:** Dedicated JTAG interface for programming and debugging.
 
-## Питание и индикация
+## Power Supply and Status Indicators
 
-* Питание: Модуль питается от одного внешнего источника напряжением 5 В.
-* Стабилизация: На борту установлены высокоэффективные импульсные понижающие регуляторы. Они формируют независимые линии питания для ядра процессора, периферии и памяти.
-* Контроль и управление: На плате размещены аппаратные перемычки (джамперы) для выбора режима загрузки (Boot Mode), а также светодиодные индикаторы:
-* Наличие корректного питания
-   * Штатный рабочий режим
-   * Индикация ошибки (Fail)
+- **Power supply:** The module operates from a single external 5 V power source.
+- **Voltage regulation:** High-efficiency switching buck regulators are integrated directly onto the board. They provide independent power rails for the processor core, peripherals, and memory.
+- **Monitoring and control:** The board features hardware jumpers for selecting the boot mode, along with LED status indicators for:
+  - Power supply status
+  - Normal operation
+  - Failure indication (FAIL)
 
+## PCB Stackup and Signal Integrity
+
+The six-layer PCB stackup proved to be close to its practical limits. The board design provides only two pairs of closely spaced layers, significantly constraining the available routing options and limiting flexibility in impedance control and return-path management. Furthermore, the top layer has limited routing capacity due to the dense placement of the BGA package and other SMD components, leaving little room for critical signal traces.
+
+Signal integrity and power integrity analyses were performed using Siemens HyperLynx to verify the design and assess its electrical performance.
