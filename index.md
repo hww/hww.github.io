@@ -37,74 +37,98 @@ I focus on the engineering problems beneath the surface: execution models, memor
 
 <style>
 table {
-border-collapse: separate; /* Важно! Вместо collapse */
-  border-spacing: 0;         /* Убираем зазоры между ячейками */
-  border-radius: 12px;       /* Радиус скругления */
-  overflow: hidden;          /* Обрезаем всё, что вылезает за скругления */
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
   border: none !important;
   width: 100%;
 }
 
-/* Жестко убираем ВСЕ рамки со всех ячеек */
 table th, 
 table td {
   border: none !important;
   background-color: #07081b;
-  padding: 12px 16px; /* добавьте отступы, чтобы текст не лип к линиям */
+  padding: 16px; /* Чуть увеличил отступы для красоты */
   vertical-align: middle;
   color: #D0D0D0;
 }
 
-/* Оставляем ТОЛЬКО горизонтальную линию между строками */
+/* Линия между строками */
 table tr + tr > td,
 table tr + tr > th {
-  border-top: 1px solid #ccc !important;
+  border-top: 1px solid #2a2b3d !important; /* Сделал цвет линии темнее, #ccc на темном фоне слишком яркий */
 }
+
 table img {
-    border: none !important;
+  border: none !important;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
+
+/* Стили для ссылок */
 table a {
-    color: rgb(15, 121, 208) !important;
+  color: #0f79d0 !important;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 8px;
+}
+
+table a:hover {
+  text-decoration: underline;
+}
+
+/* Убираем отступы у абзацев, чтобы таблица не раздувалась */
+table p {
+  margin: 0;
+  line-height: 1.5;
 }
 </style>
+
 <table>
 <tbody>
 <tr>
 <td width="200px">
-<img src="/images/projects-256.png" alt="Projects"/>
+  <img src="/images/projects-256.png" alt="Projects"/>
 </td>
 <td>
-
-**[Projects & Engineering History](/projects/)**
-Selected engineering projects across runtime architecture, programming languages, Unity, embedded systems, FPGA, and hardware.
-
-</td>
-</tr>
-<tr>
-<td width="200px">
-<img src="./images/articles-256.png" width="200" height="200" alt="Articles"/>
-</td>
-
-<td>
-
-**[Articles & Technical Papers](/articles/)**  
-Technical writing on game architecture, deterministic runtimes, performance engineering, and development practices.            |
+  <!-- Ссылка теперь оборачивает текст заголовка -->
+  <a href="/projects/" title="Projects & Engineering History">Projects & Engineering History</a>
+  <p>
+    Selected engineering projects across runtime architecture, programming languages, Unity, embedded systems, FPGA, and hardware.
+  </p>
 </td>
 </tr>
 
 <tr>
 <td width="200px">
-<img src="./images/about-me-256.png"  width="200"  height="200" alt="About Me"/>
+  <img src="./images/articles-256.png" width="200" height="200" alt="Articles"/>
 </td>
 <td>
+  <a href="/articles/" title="Articles & Technical Papers">Articles & Technical Papers</a>
+  <p>
+    Technical writing on game architecture, deterministic runtimes, performance engineering, and development practices.
+  </p>
+</td>
+</tr>
 
-**[About Me](/about/)**  
-Professional background, core competencies, education, and contact information.  
-
+<tr>
+<td width="200px">
+  <img src="./images/about-me-256.png" width="200" height="200" alt="About Me"/>
+</td>
+<td>
+  <a href="/about/" title="About Me">About Me</a>
+  <p>
+    Professional background, core competencies, education, and contact information.
+  </p>
 </td>
 </tr>
 </tbody>
 </table>
+
 
 ## Selected Engineering Projects
 
