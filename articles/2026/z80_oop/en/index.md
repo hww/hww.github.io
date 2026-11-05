@@ -4,6 +4,8 @@
 
 I abandoned this project. But along the way, a few ideas emerged that still seem interesting to me for anyone who loves the Z80: how to give an 8-bit machine structures, inheritance, and virtual methods without losing a single extra clock cycle and without drowning in magic numbers. Below is what managed to work, and an honest note of what didn't.
 
+![Z80 OOP](../images/oop_z80.webp)
+
 ## 1. How It All Started: Drivers for Aleste
 
 The original task was down-to-earth. For the Aleste LX platform and its BIOS, I was writing a specification for drivers (video, audio, file systems) for a Z80 at roughly 4 MHz with banked memory. The architecture's motto: **speed through predictability**.
