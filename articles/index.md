@@ -20,6 +20,9 @@ Technical research, reverse engineering, runtime architecture, production pipeli
 - **[RU] Time Vector: How to Design a Non-Linear Timeline in Unity and Stay Sane** — time control, state isolation, and load balancing. [Read article](https://hww.github.io/articles/2026/time_vector/)
 - **[RU] Building a Data-Oriented System in Unity: Where Theory Breaks Against Reality** — a practical experiment with component architecture and data pipelines. [Read article](https://hww.github.io/articles/2026/dcs_unity/)
 
+- **[EN] OOP on the Z80: Structures, vtables, and Types Without Overhead** — notes on an abandoned Lisp meta-assembler project for the Zilog Z80 that knew about types, covering driver vtables, compile-time type offsets, and virtual method dispatch on an 8-bit machine. [Read article](https://hww.github.io/articles/2026/z80_oop/en/)
+- **[RU] ООП на Z80: структуры, vtable и типы без накладных расходов** — заметки о брошенном проекте Lisp-метаассемблера для Zilog Z80, который знал про типы: драйверные vtable, смещения полей на этапе компиляции и виртуальные методы на 8-битной машине. [Читать статью](https://hww.github.io/articles/2026/z80_oop/ru/)
+
 ### 2022
 
 - **[RU] AAA Game Development Methods for Indie Studios — Common Ground in Naughty Dog & Kojima Productions.** [Read article](https://hww.github.io/articles/2022/aaa_methods/index)
