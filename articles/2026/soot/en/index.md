@@ -52,6 +52,8 @@ In this series I share the engineering decisions behind the project: the alterna
    How the same call `(-> obj method)` works for different kinds of objects: why methods on structures do not give polymorphism by themselves, why the `basic` type carries a type identifier in its header, why that is a SID and not a pointer (to allow module reloading), how the `CallMethod` instruction deals with the shortage of operands, and what all this costs; with a walkthrough of an example from Lisp to assembly.
 8. [Modular SOOT System: Complete Guide](./modules.md)
    How the compiler and runtime handle names, how `require` differs from `load-module`, what `save-session` and `save-module` save, working with SIDBase, and common pitfalls.
+9. [Incremental Builds Inside the Compiler: How sootc Decides What to Rebuild](./incremental-builds.md)
+   Why incremental compilation has to live inside the compiler rather than in an external build system: a `.bin` that carries its own `build-info` (hashes of the source, dependencies, compiler version and platform), the `--force` and `--incremental` modes, build scripts written in soot itself, and the deliberate choice not to use separate compilation and linking.
 
 More articles will be added here as they are published.
 
