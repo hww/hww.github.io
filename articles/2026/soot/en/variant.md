@@ -43,6 +43,8 @@ Every operation on the container selects its implementation by type: for example
 
 For a while the system worked exactly this way. After going down this path, I reduced the number of types to a minimum. But even the minimum had to be defined deliberately.
 
+![Reducing Types](../images/variant-1200.png)
+
 ---
 
 ## Surrogate Types: The Idea and Why I Dropped It
