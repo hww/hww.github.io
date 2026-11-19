@@ -35,6 +35,7 @@ This page organizes selected projects by technical area. For the complete chrono
 
 ## Embedded Systems, FPGA & Hardware
 
+- **[LX-GPU — Programmable 2D Graphics Coprocessor](https://github.com/hww/lx-gpu-rtl)** — SystemVerilog RTL implementation, C++ functional emulator, and microcode toolchain.
 - **[Medical PPG Wristband Prototype](/projects/ppg/index)** — biometric sensing and embedded prototyping.
 - **[KIRA SHARC DSP Module](/projects/kira_dsp_module/index)** — digital signal processing hardware.
 - **[Aleste LX FPGA Computer](https://github.com/hww/aleste-lx-fpga-sv)** — FPGA implementation using SystemVerilog.
@@ -44,6 +45,8 @@ This page organizes selected projects by technical area. For the complete chrono
 - **[Nintendo 64 Mini-Game](/projects/n64_game)** — low-level console development.
 - **[Digital Signal Processing & Real-Time Audio](/projects/remis/)** — DSP firmware and audio synthesis.
 - **[Pro Action Rocky Cheat Device](/projects/nintendo_cheat_device)** — low-level firmware and hardware interaction.
+- **[Aleste LX Platform & BIOS Development Kit](https://github.com/hww/aleste-xi-bios)** — virtual 8-bit hardware platform, Z80 assembly BIOS, modular driver ABI, and GDB-enabled emulator.
+- **[Buildex — Hardware Architecture Documentation Generator](https://github.com/hww/buildex)** — Python tool generating SVG diagrams, register maps, and validated Markdown specs from YAML.
 
 ## Commercial Products, Arcade & VR
 
