@@ -16,6 +16,7 @@ This page organizes selected projects by technical area. For the complete chrono
 - **[SyberEngine 3D Development Platform](https://hww.github.io/articles/2003/syber_engine/index)** — component-based engine architecture, bytecode VM, scripting language, and development tools.
 - **[Unity MVC Framework](https://github.com/hww/unity_mvc)** — lightweight Model–View–Controller architecture for Unity.
 - **[SOOT — Scriptable Object-Oriented Toolkit](https://github.com/hww/soot)** — embeddable Lisp interpreter and automation toolkit.
+- **[Godot-SOOT — Lisp Scripting & Live REPL for Godot 4](https://github.com/hww/godot-soot)** — C++ GDExtension integrating the SOOT Lisp compiler and Carbon VM into Godot.
 
 ## Programming Languages & Compilers
 
@@ -47,7 +48,8 @@ This page organizes selected projects by technical area. For the complete chrono
 - **[Pro Action Rocky Cheat Device](/projects/nintendo_cheat_device)** — low-level firmware and hardware interaction.
 - **[Aleste LX Platform & BIOS Development Kit](https://github.com/hww/aleste-xi-bios)** — virtual 8-bit hardware platform, Z80 assembly BIOS, modular driver ABI, and GDB-enabled emulator.
 - **[Buildex — Hardware Architecture Documentation Generator](https://github.com/hww/buildex)** — Python tool generating SVG diagrams, register maps, and validated Markdown specs from YAML.
-
+- **[Magic Sound STM Player — Z80 Disassembly](https://github.com/hww/magic-sound-player)** — reverse-engineered and annotated Z80 assembly source of the 1993 4-channel DMA audio tracker player for the Aleste 520EX.
+- 
 ## Commercial Products, Arcade & VR
 
 - **[Oculus Quest 2 Haptic Feedback Rifle](/projects/ar_vr_rifle)** — VR peripheral hardware and integration.
