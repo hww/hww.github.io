@@ -1,7 +1,7 @@
 # Crazy Claw Rings
 **Arcade redemption skill game · Developed for Rocket Amusements**
 
-*[Hero image: the machine or in-game screenshot]*
+![](./scr1.png)
 
 Crazy Claw Rings is a physics-driven arcade skill game for the amusement industry. I was the primary engineer on the project and handled the complete technical implementation: the game and its custom runtime, internal tools, the Go backend, and the integration with the physical machine. The only part I did not build was the firmware of the external controller board.
 
@@ -22,8 +22,6 @@ Instead of relying only on standard game frameworks, I built a custom runtime th
 The game depends on real-time physics, so the performance-critical parts are written with Unity Burst. I also developed AI algorithms that distribute prizes across the game scene while respecting the operator's configured parameters.
 
 The **demo mode** is driven by AI as well. It doesn't replay recordings: the AI plays the actual game in real time and aims to behave like a human player, so the attract mode always looks natural.
-
-![Screenshot](./scr1.png)
 
 ## Uninterrupted gameplay
 
