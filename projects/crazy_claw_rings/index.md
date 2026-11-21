@@ -41,6 +41,10 @@ I wrote the backend in Go. It uses a custom UDP protocol to talk to the machines
 
 I developed the software layer that connects the game to the machine's control electronics over serial and USB, and coordinates hardware operations with the game runtime.
 
+## External references
+
+[RocketAmusements Official Site](https://www.rocketamusements.com)
+
 ---
 
 **Tech:** Unity · C# · Burst · Go · MySQL · UDP · HTTP · Serial/USB
