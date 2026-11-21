@@ -9,7 +9,7 @@ Crazy Claw Rings is a physics-driven arcade skill game for the amusement industr
 
 The game received the **AMOA Innovator Award** on March 20, 2024, at Amusement Expo International. The award recognizes excellence in developing and delivering unique ideas to the amusement industry. On the certificate the game appears under the name *Claw the Rings*.
 
-![AMOA Innovator Award](./rings-award-800.jpg)
+![AMOA Innovator Award](./rings-award-600.jpg)
 
 ## Custom runtime and state machines
 
