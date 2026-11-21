@@ -56,7 +56,7 @@ This page organizes selected projects by technical area. For the complete chrono
 - **[Oculus Quest 2 Haptic Feedback Rifle](/projects/ar_vr_rifle)** — VR peripheral hardware and integration.
 - **[6DOF IMU Hand Tracking Gloves](/projects/ar_vr_gloves)** — embedded firmware and motion-sensor integration.
 - **[Crazy Claw Emojis Arcade Game](/projects/crazy_claw_emojis)** — software for a commercial arcade product.
-- **[Crazy Claw Rings](/projects/crazy_claw_rings)**
+- **[Crazy Claw Rings](/projects/crazy_claw_rings)** — Crazy Claw Rings is a physics-driven arcade skill game for the amusement industry.
 - **[Crazy Claw Junior](/projects/crazy_claw_jr)** and **[Crazy Claw Original](/projects/crazy_claw_original)** — arcade game software.
 - **[Rocket Amusements Cabinet I/O Board v2](/projects/ra_io_board2)** and [v1](/projects/ra_io_board1) — arcade hardware and I/O integration.
 - **[Driver Training Interactive Courseware](/projects/webtraining)** — interactive simulation and distributed application architecture.
