@@ -7,6 +7,7 @@ At its core, KIRA features a high-performance, data-oriented DSP architecture op
 
 The development of KIRA involves ongoing research into the mathematics and physics of sound, synthesis algorithms, and sound generation methods. The primary focus is on building a precise, predictable sound engine while expanding the possibilities of sound design and musical composition.
 
+**UI Inrterface**
 ![UI Interface](./images/kira-ui.webp)
 
 ## PCB Simulation in HyperLynx 
