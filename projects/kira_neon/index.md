@@ -22,6 +22,8 @@ The synthesis architecture is designed to encourage experimentation with complex
 
 The KIRA hardware platform is built around a custom six-layer PCB designed to integrate digital signal processing, analog audio circuitry, power management, and user interfaces into a compact form factor.
 
+![Kira Neon PCB](./images/pcb-ren.webp)
+
 The board layout presented several engineering challenges, particularly in high-density component placement and memory interface routing. All components were required to be placed on a single side of the PCB, while maintaining controlled impedance and signal integrity across the microcontroller and external memory interfaces. The large pin count of the main microcontroller, combined with relatively long memory signal paths, required careful routing, length matching, and timing considerations.
 
 The power management system incorporates multiple voltage domains generated from a 14 V input, including +12 V, −12 V, and dedicated analog power supplies. The board also features electronically controlled power switching, an audio codec, a MIDI interface, and a USB connection for firmware updates.
