@@ -37,6 +37,7 @@ This page organizes selected projects by technical area. For the complete chrono
 ## Embedded Systems, FPGA & Hardware
 
 - **[LX-GPU — Programmable 2D Graphics Coprocessor](https://github.com/hww/lx-gpu-rtl)** — SystemVerilog RTL implementation, C++ functional emulator, and microcode toolchain.
+- **[KIRA Neon](./kira_neon/)** — a compact, portable, low-cost synthesizer built on a custom hardware DSP platform and powered by proprietary sound synthesis firmware developed by our team.
 - **[Medical PPG Wristband Prototype](/projects/ppg/index)** — biometric sensing and embedded prototyping.
 - **[KIRA SHARC DSP Module](/projects/kira_dsp_module/index)** — digital signal processing hardware.
 - **[Aleste LX FPGA Computer](https://github.com/hww/aleste-lx-fpga-sv)** — FPGA implementation using SystemVerilog.
