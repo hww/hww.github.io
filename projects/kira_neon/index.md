@@ -10,7 +10,27 @@ The development of KIRA involves ongoing research into the mathematics and physi
 **UI Inrterface**
 ![UI Interface](./images/kira-ui.webp)
 
-## PCB Simulation in HyperLynx 
+## Sound Engine & Synthesis Architecture
+
+KIRA combines a range of modulation and control tools inspired by West Coast synthesis and modular synthesizer philosophy. Mathematical function generators, waveform modifiers, and real-time recording of user gestures provide a flexible environment for building complex sound systems and generative compositions.
+
+At the core of the sound engine are a wavetable oscillator and a zero-delay feedback (ZDF) filter topology. The main signal path incorporates a feedback-based tonal delay line, complemented by additional processing modules and creative sound transformation tools.
+
+The synthesis architecture is designed to encourage experimentation with complex modulation structures, nonlinear interactions, and evolving sonic textures, bridging the gap between conventional synthesizer design and experimental sound art.
+
+## Hardware Design & PCB Layout
+
+The KIRA hardware platform is built around a custom six-layer PCB designed to integrate digital signal processing, analog audio circuitry, power management, and user interfaces into a compact form factor.
+
+The board layout presented several engineering challenges, particularly in high-density component placement and memory interface routing. All components were required to be placed on a single side of the PCB, while maintaining controlled impedance and signal integrity across the microcontroller and external memory interfaces. The large pin count of the main microcontroller, combined with relatively long memory signal paths, required careful routing, length matching, and timing considerations.
+
+The power management system incorporates multiple voltage domains generated from a 14 V input, including +12 V, −12 V, and dedicated analog power supplies. The board also features electronically controlled power switching, an audio codec, a MIDI interface, and a USB connection for firmware updates.
+
+Additional hardware interfaces include an SD card slot, an LCD display connector, and dedicated connections to the synthesizer's front panel controls.
+
+The overall design focuses on integrating complex digital and analog subsystems into a compact, reliable hardware platform while maintaining signal integrity, power stability, and accessibility for further development.
+
+## PCB Simulation in HyperLynx
 
 Simulation of the **STM32H743 + Winbond W9812G6KH SDRAM** interface fully validated the PCB layout and caught critical component-value issues prior to manufacturing.
 
