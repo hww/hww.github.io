@@ -153,4 +153,6 @@ That is why Aleste XI occupies a special place in the history of the project.
 
 It became the embodiment of the Aleste EX idea without compromises — a computer in which the capabilities of expansion, sound, graphics, and peripheral interaction are determined not so much by the limitations of the original design as by the capabilities of the architecture itself.
 
+## Schematic
 
+[Xi Aleste Schematic Diagram](https://github.com/hww/XiAleste_PCB/blob/main/pcb/Output/XiAleste.PDF)
