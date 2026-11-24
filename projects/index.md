@@ -48,6 +48,7 @@ This page organizes selected projects by technical area. For the complete chrono
 - **[Digital Signal Processing & Real-Time Audio](/projects/remis/)** — DSP firmware and audio synthesis.
 - **[Pro Action Rocky Cheat Device](/projects/nintendo_cheat_device)** — low-level firmware and hardware interaction.
 - **[Aleste LX Platform & BIOS Development Kit](https://github.com/hww/aleste-xi-bios)** — virtual 8-bit hardware platform, Z80 assembly BIOS, modular driver ABI, and GDB-enabled emulator.
+- **[Aleste XI](https://github.com/hww/xialeste)** — An Attempt to Create the Most Perfect Hardware Implementation of Aleste EX.
 - **[Buildex — Hardware Architecture Documentation Generator](https://github.com/hww/buildex)** — Python tool generating SVG diagrams, register maps, and validated Markdown specs from YAML.
 - **[Magic Sound STM Player — Z80 Disassembly](https://github.com/hww/magic-sound-player)** — reverse-engineered and annotated Z80 assembly source of the 1993 4-channel DMA audio tracker player for the Aleste 520EX.
 - **[NuBridge — RISC-V NUBUS Controller](https://github.com/hww/nubridge)** — Verilog implementation of a NuBus controller (arbiter, master, and slave) with SystemVerilog testbenches, designed for RISC-V (PicoRV32) integration.
