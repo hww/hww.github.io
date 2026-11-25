@@ -57,6 +57,8 @@ But the most interesting part of the sound architecture is associated with three
 
 Each of these connectors is designed for connecting a board with two analog filters. As a result, the system supports up to six independently controlled analog filters, forming a six-voice analog synthesizer.
 
+![Sound Bus Connectors](./music-bus-preview.png)
+
 The connectors are mechanically implemented in a format reminiscent of PCI Express, but electrically they are a specialized Aleste XI interface designed specifically for analog sound boards.
 
 The idea is to combine digital control with analog sound processing.
@@ -81,9 +83,13 @@ In Aleste XI, we decided to eliminate this limitation as well.
 
 The board received three full-featured expansion slots with Daisy Chain Bus Mastering support.
 
+![Bus Connectors](./slots-preview.png)
+
 This means that expansion devices can independently become initiators of operations on the system bus, not limited to simple data exchange at the command of the central processor.
 
 For arbitration, a sequential bus grant scheme is used, reminiscent of the solutions employed in the Apple IIgs.
+
+![Bus Arbitter](./arbitter-preview.png)
 
 The system includes dedicated arbitration logic that takes into account requests from expansion devices and ensures transfer of bus control between slots.
 
