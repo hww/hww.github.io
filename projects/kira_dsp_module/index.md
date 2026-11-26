@@ -8,7 +8,7 @@ KIRA DSP is a compact embedded digital signal processing module designed for int
 
 The module features an ultra-compact DDR2 SODIMM form factor. This minimizes the footprint of the host device's motherboard and allows for quick replacement or upgrades of the computing module.
 
-![Aleste 520EX](/projects/kira_dsp_module/pcb.jpg)
+![Kira DSP Module](/projects/kira_dsp_module/pcb.jpg)
 
 ## Processing Core and Memory
 
