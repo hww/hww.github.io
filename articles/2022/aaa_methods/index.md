@@ -1,77 +1,77 @@
-# Методы разработчиков ААА-игр для инди-студии
-> **Общее в решениях Naughty Dog и Kojima Productions**  
-> *Материал из R&D-архива проекта hww.*  
-> *Автор: Валерия Пудова*  
-> *Дата написания: 18.08.2022.*
+# Text or Nodes? Two Ways AAA Studios Let Designers Build Games
+
+*What Naughty Dog and Kojima Productions can teach an indie studio*
+
+*By Valeria Pudova*
 
 ---
 
-<img src="./images/unnamed.png"/>
+Indie developers sometimes treat AAA games as an ideal that can never be reached, and that attitude is a risk in itself. I would argue the opposite: projects like *Death Stranding* and *The Last of Us* should be studied by everyone, and their methods borrowed for our own work.
 
-Рассматривая AAA-игры как идеал, который невозможно достичь, инди-разработчики рискуют потерпеть неудачу. Я скажу напротив — такие проекты, как *Death Stranding* или *The Last of Us*, необходимо анализировать каждому, а подходы разработчиков применять и в своей практике.
+This article compares the development approaches of *Kojima Productions* and *Naughty Dog*. The key finding is that there are **two main ways to describe game logic and data: visual and textual.** Both work. Both studios shipped excellent games with them, and the two studios are often seen as opposites. But beneath that difference, their architectures share the same foundation, and that foundation is what an indie team should copy. At the end, I will also say honestly which side I lean toward, and why.
 
-Вышеозначенные проекты в качестве примера я привела неслучайно: этот документ — их сравнительный анализ. Давайте посмотрим на примере *Kojima Productions* и *Naughty Dog*, что общего в подходах разработчиков и каковы различия — для того чтобы сформулировать позитивный опыт, который будет очень полезен для инди-студии.
+## The vision and how well it was realized
 
-## Замысел и соответствие реализации
+To compare the two games without emotion, look at what the creators set out to do and how closely the result matches it. By that measure, both games are flawless:
 
-Сравнивая игры *Death Stranding* и *The Last of Us* без эмоций, необходимо сфокусироваться на замысле создателей и том, насколько реализация соответствует этому замыслу. В этом смысле обе игры безупречны:
+- **The Last of Us** is a game-as-cinema, where the direction of each moment matters most. Everything serves one purpose: revealing the characters and driving the drama forward. The player is an observer, deeply absorbed in the relationships between the heroes, in tense encounters, and sometimes frightening events.
+- **Death Stranding** is a game-as-journey. Its characters are deliberately abstract. The goal is to speak directly to the player: place them in a set of circumstances, give them tools, make them act, and then confront them, in freedom, with obstacles and opposing forces.
 
-* **The Last of Us** — игра-кино, в которой режиссура момента имеет наибольшее значение. Всё — каждый аспект — подчиняется главной цели: раскрыть персонажей и двигать драматургическое действие вперёд. Игрок здесь — наблюдатель, который глубоко погружен во взаимоотношения героев, в напряженную динамику увлекательных столкновений и, порой, пугающих событий.
-* **Death Stranding** — игра-путешествие, в которой характеры условны, а главная задача — обратиться напрямую к игроку, поместить его в предлагаемые обстоятельства, дать ему необходимые инструменты и заставить действовать, а затем — сталкивать его в условиях свободы с препятствиями и силами антагонизма.
-
-> 📊 **Критический фактор успеха:**  
-> Для успеха недостаточно просто завершить работу в срок. Успешность проекта зависит от того, насколько много времени было уделено тем важным деталям, за которые игроки любят эту игру. А это требует высокой эффективности, гибкости и масштабируемости инструментов разработки (**Tooling**).
-
----
-## Сходства технологических платформ
-
-Так как обе команды разработчиков достигли желаемого результата, то их технологии и инструменты напрямую способствовали успеху.
-
-* В компании **Naughty Dog** игровые дизайнеры используют специализированный текстовый **DC-скрипт язык**. Это *Domain Specific Language* (DSL), который одинаково хорошо подходит как для описания сложных структур данных, так и для имплементации логики. 
-* Компания **Kojima Productions** использует движок **Decima** (от *Guerrilla Games*, известного по *Horizon Zero Dawn*), где основной способ декларации структур данных и логики — это **графическое нодовое программирование**.
-
-Несмотря на фундаментальную разницу в способе ввода (текст против графики), между архитектурами систем есть фундаментальное сходство:
-
-### ⚙️ Четыре столпа эффективного рантайма:
-
-1. **Двухуровневая архитектура:** В основе ядра всегда лежат два независимых слоя — высокопроизводительный базис на **C++** и высокоуровневый код игровой логики на динамическом проблемно-ориентированном языке (**DSL**).
-2. **Полная автономность дизайна:** Игровой дизайнер может самостоятельно создать любую необходимую структуру данных или поведение **без участия программиста** и без изменения исходного кода движка.
-3. **Бесшовная итеративность (Hot Reload):** Технология позволяет мгновенно вносить изменения и тестировать их **без перезапуска игры** (даже в процессе отладки на удаленной целевой платформе/консоли).
-4. **Параллельное производство:** Инструменты изначально рассчитаны на одновременную работу большой распределенной группы людей и технически сводят к минимуму взаимные коллизии при слиянии ассетов.
-
-> 🚀 Эти четыре пункта являются ключевыми. Их внедрение способно многократно повысить скорость и качество работы любой инди-студии.
+Finishing on time is not enough to achieve this. A project succeeds in proportion to the time spent on the important details players love, and that requires development **tooling** that is efficient, flexible and scalable. The tools are what buy the team that time.
 
 ---
 
-## Различия: Текст против Графики
+## Two answers to the same question
 
-Сравнивая графический и текстовый способы ввода, необходимо зафиксировать: **графическое программирование не является более совершенным**. В конечном итоге большинство программ в мире написаны именно текстом, и это не случайно. 
+Both teams got the result they wanted, so their technology clearly helped. But they chose opposite ways of letting designers define data and logic:
 
-* **Иллюзия простоты:** Единственное реальное преимущество графического способа (визуальных нод) заключается в том, что дизайнеру проще научиться им пользоваться. Однако *проще научиться* не означает *проще и эффективнее использовать* в долгосрочной перспективе. 
-* **Фактор эффективности:** Декларативный или проблемно-ориентированный текстовый язык программирования (**DSL**) в разы эффективнее при масштабировании систем. Именно поэтому текстовый подход *Naughty Dog* является более рациональным и сбалансированным, чем нодовый подход движка *Decima* у *Kojima Productions*.
-
-> 📉 **Ресурсный маркер:** Для жесткого подтверждения стоило бы сравнить бюджеты и человеко-часы, потраченные на оба проекта. Относительно точно известны лишь данные *Naughty Dog*, а цифры по *Kojima Productions* в открытых источниках противоречивы. Однако имеющиеся в индустрии данные позволяют утверждать, что проект Хидэо Кодзимы потребовал кратно больших ресурсов для достижения сопоставимого результата.
+- **Naughty Dog: text.** Game designers use a specialized text-based **DC script language**, a *Domain Specific Language* (DSL) that works equally well for describing complex data structures and for implementing logic.
+- **Kojima Productions: visual nodes.** They use the **Decima** engine (from *Guerrilla Games*, the studio behind *Horizon Zero Dawn*), where data structures and logic are declared mainly through **graphical node-based programming**.
 
 ---
 
-## Выводы
+## What both approaches have in common
 
-В основе эффективных методов разработки AAA-уровня, применимых в инди-сегменте, лежат два фундаментальных постулата:
+Despite the fundamental difference in how designers enter their work (text versus graphics), the two architectures are strikingly similar. Four principles hold in both:
 
-1. 🔄 **Разработка игры — это итерационный процесс.** Необходимо аппаратно минимизировать или полностью исключить для дизайнеров и контент-мейкеров потребность в компиляции кода и перезапуске игрового клиента.
-2. 👥 **Разработка игры — это коллективный процесс.** Когда над проектом одновременно работают десятки людей, архитектура инструментов обязана минимизировать любые взаимные коллизии (merge conflicts) и время ожидания процессов.
+1. **Two layers.** At the core are two independent layers: a high-performance base in **C++**, and high-level game logic in a dynamic, domain-specific language.
+2. **Designer autonomy.** A game designer can create any data structure or behavior they need **without a programmer** and without touching the engine's source code.
+3. **Seamless iteration (hot reload).** Changes can be made and tested instantly **without restarting the game**, even while debugging on a remote target platform or console.
+4. **Parallel production.** The tools are built from the start for a large, distributed team to work at once, and they technically minimize conflicts when assets are merged.
 
-Чтобы добиться наилучшего результата, стоит учиться у технологических лидеров индустрии. Проектировать игры эффективными методами можно и нужно даже в рамках скромных инди-бюджетов — эти архитектурные принципы **универсальны и применимы вне зависимости от выбранного движка или целевой платформы**.
+These four points are the real lesson. Whether you choose text or nodes, adopting them can multiply the speed and quality of any indie studio's work.
 
-Изучая и внедряя практики ведущих студий, вы не просто экономите ресурсы здесь и сейчас, но и качественно повышаете профессионализм своей команды. А это напрямую определяет финальный результат — вашу великолепную, отзывчивую и коммерчески успешную игру.
+---
+
+## Where they differ: text versus visuals
+
+Neither approach is wrong, and I do not claim that graphical programming is inferior in every case. Still, I personally lean toward Naughty Dog's text-based approach, for these reasons:
+
+- **Ease of use over the long term.** The one clear advantage of visual nodes is that a designer learns them faster. But *easier to learn* is not the same as *easier and more efficient to use* over years of production. Most programs in the world are written as text, and that is not an accident.
+- **Readability.** For me, text is simply easier to read and to work with.
+- **Decomposition.** It is easy to split a complex system into components such as modules.
+- **Merging.** Text merges cleanly when several people change the same material, which matters a great deal for parallel production.
+- **Flexibility.** This is the most important point. A text-based DSL is far more flexible than any visual tool, especially when combined with domain-specific and **data-oriented programming**. It also scales better as the system grows.
+
+To be fair, the comparison I would most like to make is one of budgets and person-hours spent on both projects. Reliable figures exist only for *Naughty Dog*; the numbers for *Kojima Productions* are contradictory in open sources. Industry data suggests that Kojima's project needed considerably more resources for a comparable result, but this is not conclusive, and I treat it as a hint rather than proof.
 
 ---
 
-## Ссылки и источники
+## Conclusions
 
-* **[1]** *More than half of Death Stranding’s team defected from Konami* (Аналитика кадрового состава Kojima Productions).
-* **[2]** *Outernauts: From AAA Console to AAA Flash Games*, Joe Valenzuela, Insomniac Games (Применение AAA-методологии в малых проектах).
-* **[3]** *Unsynced: The Last of Us Melee System*, Anthony Newman, Naughty Dog, Inc. (Спецификация DSL и систем данных в рантайме).
+Two principles lie at the heart of AAA-level development methods that an indie studio can apply:
+
+1. **Making a game is an iterative process.** Tools should remove, or at least minimize, the need for designers and content creators to compile code or restart the game client.
+2. **Making a game is a collective process.** When dozens of people work on one project at the same time, the architecture of the tools must minimize merge conflicts and waiting time.
+
+Text or nodes is a choice you can make freely, and I have explained why I choose text. These principles, however, are **universal and apply regardless of engine or target platform.**
+
+By studying and adopting the practices of industry leaders, you save resources today and raise your team's professionalism, which determines the final result: a responsive, polished and commercially successful game.
 
 ---
-#tags #unitygames #gamedeveloper #unity3d #madewithunity #indiegaming #gamedevelopment #indiedev #gamedev #indiegamedev #indiegame
+
+## References
+
+- **\[1\]** *More than half of Death Stranding’s team defected from Konami* (analysis of the Kojima Productions team composition).
+- **\[2\]** *Outernauts: From AAA Console to AAA Flash Games*, Joe Valenzuela, Insomniac Games (applying AAA methodology to small projects).
+- **\[3\]** *Unsynced: The Last of Us Melee System*, Anthony Newman, Naughty Dog, Inc. (specification of the DSL and runtime data systems).

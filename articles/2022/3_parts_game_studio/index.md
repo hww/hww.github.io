@@ -1,101 +1,98 @@
-# Три составные части успешной игровой студии
->
-> **Как раскрыть творческий потенциал команды?**  
-> *Материал из управленческого архива.*  
-> *Автор: Валерия Пудова*  
-> *Дата написания: 10.09.2022.*
+# Creativity Comes From Within: Three Foundations of a Successful Game Studio
+
+*How to unlock the creative potential of your team*
+
+*By Valeria Pudova*
 
 ---
 
-По моему мнению, самым важным для любой студии являются **люди, их взаимоотношения и творческие взаимодействия** на проектах.
+I am not a psychologist, so take this as an observation from practice rather than a scientific claim. But after years in game development, I am convinced of one thing: **creativity comes from inside a person, not from outside.**
 
-Чтобы сформировать подходящую культуру для таких взаимоотношений, я предлагаю развивать три ключевых направления:
+The desire to create has to exist in someone *before* they receive a task. You cannot install it with deadlines, bonuses or a well-configured task tracker. What you can do is either protect that inner impulse or smother it. Most of what goes wrong in studios, I believe, is the second option, done with the best of intentions.
 
-* **Доверие в коллективе**
-* **Культуру коммуникаций и общее видение проекта**
-* **Любовь к тому, что делаешь**
+That is why I think the most important thing in any studio is **people, their relationships, and the way they create together.** And if creativity grows from within, then management's real job is to build the conditions in which it can grow. I see three of them:
 
-Значение этих вопросов в нашей бытовой жизни не вызывает ни у кого сомнений, однако внутри игровых студий они, зачастую, либо просто игнорируются, либо считаются второстепенными.
+- **Trust within the team**
+- **A culture of communication and a shared vision of the project**
+- **Love for what you do**
 
-Рассмотрим, почему это не так.
-
----
-
-## Доверие в коллективе
-
-Для построения устойчивых взаимоотношений необходимо доверие. В его отсутствие отношения неизбежно трансформируются в хаос.
-
-Часто для упорядочивания этого хаоса руководство использует жесткую вертикальную систему управления и таск-трекеры. При этом создается видимость организованного порядка, но **это лишь иллюзия**. Такая система способна гарантировать выполнение задачи строго в срок, но она **никогда не обеспечит надлежащее качество результата**.
-
-> 💡 **Суть творческого потенциала:**
-> Желание творить должно быть в человеке *до того*, как он получит задачу. Без этого исходного внутреннего импульса замотивировать сотрудника извне практически невозможно. Намного эффективнее использовать уже имеющийся потенциал, а для этого необходимы доверительные отношения в команде.
-
-### Социальная безопасность и удержание кадров
-
-Доверие в компании создает комфортную среду **социальной безопасности**. Без нее студия будет терять ключевых специалистов даже в том случае, если предлагает им высокую оплату труда.
-
-* **Факты и статистика:** Доверие — это первый фундамент успешной студии. Сотрудники, которые чувствуют, что их работа по-настоящему важна для руководителя, команды и коллег, вовлечены в процесс **на 67% сильнее**.
+In everyday life nobody doubts that these things matter. Inside game studios, though, they are often ignored or treated as secondary. Let's look at why they are not.
 
 ---
 
-## Культура коммуникаций и общее видение
+## 1. Trust within the team
 
-Игра — это сложнейший программный продукт, требующий синхронной работы большого числа специалистов. Для успеха проекта необходимы:
+Stable relationships need trust. Without it, they slide into chaos.
 
-* Четкий производственный план.
-* Жестко обозначенная суть и смысл реализации игры.
-* Выверенные приоритеты при распределении ресурсов.
+To contain that chaos, management often reaches for a rigid vertical hierarchy and task trackers. This creates the appearance of order, but it is only an illusion. Such a system can make sure a task is finished on time. It will never make sure the result is *good*, because quality depends on the person's own willingness to put themselves into the work, and control cannot produce that.
 
-> 🎯 **Главный закон целеполагания:**  
-> Все, что мы делаем для игры, должно быть сделано не потому, что мы *можем*, а потому, что это *необходимо* — в этом заключается замысел. Каждый элемент обязан работать на общую цель. Департаменты должны делать ровно то, что требуется для достижения этой цели, но не более того.
+It is far more effective to build on the potential people already have. And that requires trust.
 
-Если доверие — это атмосфера компании, то развитая **культура коммуникации** — это механизм совместной работы над общей задачей.
+### Psychological safety and retention
 
-### Культуру нельзя активировать приказом
+Trust creates an environment of **psychological safety**. Without it, a studio will lose its key people even when it pays them well. Money does not compensate for feeling unsafe or unseen.
 
-Технические средства (чаты, таск-трекеры) полезны, но главным фактором остается уровень культуры сотрудников: их способность слушать, говорить и обучаться. Развитие этого механизма строится на двух уровнях:
-
-1. **Кадровая работа:** Первоначальный отбор людей, способных к диалогу.
-2. **Целенаправленное обучение:** Коммуникативные навыки, способность решать конфликты, умение убеждать и работать в команде — все это можно и нужно развивать внутри компании.
-
-Самым главным навыком в команде разработчиков я считаю **умение слушать и слышать**. Этот сложный, длительный процесс должен постоянно находиться в фокусе внимания руководства.
+There is a simple measure of how much this matters: employees who feel their work genuinely matters to their lead, their team and their colleagues are, by one commonly cited figure, **67% more engaged** in the process. Trust is the first foundation of a successful studio.
 
 ---
 
-## Любовь к тому, что делаешь
+## 2. A culture of communication and a shared vision
 
-Если процесс создания игры не приносит удовольствия тем, кто её создает, то может ли такая игра быть по-настоящему интересной для игрока?
+If trust is the *atmosphere* of a company, communication culture is the *mechanism* of working together.
 
-Любовь к своей игре на протяжении всего цикла разработки — это обязательное условие для получения сильного результата. Но этот ресурс ограничен, и он имеет свойство истощаться. Безусловно, доверие, культура коммуникации и четкое видение цели помогают сотруднику поддерживать внутренний огонь.
+A game is an extremely complex software product that requires many specialists to work in sync. For that to happen, a project needs:
 
-Однако этого мало. Необходимо внедрять набор **технических и организационных практик**, которые позволяют работать над сложным проектом, не перегружая коллектив и сохраняя творческую атмосферу. Иначе процесс разработки становится утомительным, неэффективным, а результат перестает впечатлять.
+- A clear production plan.
+- A sharply defined idea of what the game is and why it is being made.
+- Well-considered priorities in how resources are spent.
 
-### Продуктовая среда вместо каторги
+The guiding principle is this: **everything we do for the game should be done not because we *can*, but because it is *necessary*.** Every element must serve the common goal. Each department should do exactly what that goal requires, and no more.
 
-Основная задача руководства — полностью исключить факторы, выжигающие команду:
+This ties directly back to creativity. People can only create freely inside a frame they understand and believe in. A clear shared vision is not a constraint on creativity; it is what gives it direction. Without it, everyone's inner drive pulls in a different direction, or stalls.
 
-* Монотонность рутинной работы.
-* Длительные, пустые ожидания завершения процессов (сборки билдов, импорта ассетов).
-* Бесчисленное множество хаотичных переделок.
+### Culture cannot be activated by decree
 
-Набор повседневных действий сотрудника (например, по имплементации и отладке игровых механик) должен стать больше похож на увлекательную игру, нежели на изнурительную работу.
+Chats and task trackers help, but the deciding factor is the culture of the people themselves: their ability to listen, to speak, and to learn. It is built on two levels:
 
-> 🛠 **ГЛАВНЫЙ ПОСТУЛАТ ТЕХНИЧЕСКОГО ДИРЕКТОРА:**  
-> Важно понимать, что любовь к тому, что ты делаешь, на протяжении всего проекта обеспечивается, главным образом, **с помощью грамотных технических решений**. Это и есть основная, первоочередная задача для **СТО**.
+1. **Hiring.** Selecting people who are capable of dialogue in the first place.
+2. **Deliberate training.** Communication skills, conflict resolution, persuasion and teamwork can and should be developed inside the company.
+
+The most important skill in a development team, in my view, is **the ability to listen and actually hear.** It is a slow, difficult process, and it deserves constant attention from leadership.
+
+---
+
+## 3. Love for what you do
+
+If making a game gives no joy to the people making it, can the game be truly interesting for the player?
+
+Love for the game throughout the whole development cycle is a prerequisite for a strong result. But this resource is limited, and it runs out. Trust, communication and a clear goal help people keep their inner fire going, yet that is not enough on its own.
+
+A studio also needs **technical and organizational practices** that let people work on a complex project without burning out. Otherwise development becomes exhausting and inefficient, and the result stops being impressive.
+
+### A productive environment instead of a grind
+
+Leadership's main task is to remove everything that burns a team out:
+
+- The monotony of routine work.
+- Long, empty waits for processes to finish (builds, asset imports).
+- An endless stream of chaotic rework.
+
+A developer's daily routine, such as implementing and debugging game mechanics, should feel closer to an absorbing game than to exhausting labor.
+
+> **A note for the CTO:** love for what you do is sustained across a whole project mainly through **well-designed technical solutions.** This is the first-priority task of the CTO.
 
 ---
 
-## Выводы
+## Conclusion
 
-Подводя итоги, успешная и эффективная разработка держится на следующих фундаментальных принципах:
+Everything above comes back to one idea: creative energy belongs to the person, and the studio's job is to protect it and give it direction, not to extract it by force. If we block it with control and imposed tasks, we block the most valuable thing a team has.
 
-* **Люди — это цель, а не инструмент:** Компания — это в первую очередь люди, которые создают продукт. Чтобы каждый работал эффективно и с удовольствием, сотрудники должны стать главной целью управления, а не просто ресурсом для достижения KPI.
-* **Непрерывное развитие коллектива:** Каждый сотрудник вносит свой вклад в общий результат. Именно поэтому важен не только жесткий первоначальный отбор специалистов, но и непрерывный процесс их обучения и синергии внутри всей команды.
-* **Техническая ликвидация барьеров:** Необходимо на уровне архитектуры применять технические и организационные решения, чтобы свести к минимуму суммарное время ожидания процессов (компиляция, деплой) и исключить взаимные коллизии сотрудников.
-* **Приоритет увлекательности процессов:** Решения, превращающие рутинную работу разработчиков в увлекательный процесс, всегда должны быть в приоритете. Критически важно избегать внесения изменений в первоначальный план на поздних этапах разработки (защита от хаотичных правок).
-* **Единое информационное поле:** Система внутренних коммуникаций должна быть развита настолько, чтобы у каждого сотрудника сохранялось абсолютно единое видение конечной цели на всех этапах жизни проекта.
+In practice, that means:
 
-Все это позволит вашей студии выйти на совершенно новый уровень эффективности и полностью раскрыть творческий потенциал вашей команды.
+- **People are the goal, not a tool.** A company is, first of all, the people who build the product. For everyone to work effectively and with enjoyment, employees must be the main object of management, not merely a resource for hitting KPIs.
+- **Keep developing the team.** Everyone contributes to the result. That is why strict selection at the start is not enough; continuous learning and synergy across the team matter just as much.
+- **Remove barriers technically.** Use architecture and organizational solutions to minimize total waiting time (compilation, deployment) and to keep people from getting in each other's way.
+- **Make the process engaging.** Solutions that turn routine into something absorbing should always take priority. Avoid changing the original plan late in development, which is what causes chaotic rework.
+- **One shared picture.** Internal communication should be developed enough that every employee keeps the same view of the final goal at every stage of the project.
 
----
-# tags #unitygames #gamedeveloper #unity3d #madewithunity #indiegaming #gamedevelopment #indiedev #gamedev #indiegamedev #indiegame
+Build these conditions, and your studio can reach a new level of effectiveness and fully unlock the creative potential of your team.
