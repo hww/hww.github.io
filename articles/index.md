@@ -26,7 +26,7 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 
 - **Text or Nodes? Two Ways AAA Studios Let Designers Build Games.** [EN](https://hww.github.io/articles/2022/aaa_methods/index)
 - **Gameplay Programming — The Last of Us Case Study.** [RU](https://hww.github.io/articles/2022/nd_gfs/index) · [EN](https://hww.github.io/articles/2022/nd_gfs_en/index)
-- **Gameplay Programming — Clarification for the Creative Team.** [EN](https://hww.github.io/articles/2022/nd_gfs_creative/index) · [RU](https://hww.github.io/articles/2022/nd_gfs_creative_en/index) · [EN](https://hww.github.io/articles/2022/nd_gfs_creative_en/index)
+- **Gameplay Programming — Clarification for the Creative Team.** [RU](https://hww.github.io/articles/2022/nd_gfs_creative_en/index) · [EN](https://hww.github.io/articles/2022/nd_gfs_creative_en/index)
 - **Two-Way Sub-System Matrices: Architecture Lessons from OpenGOAL.** [EN](https://hww.github.io/articles/2022/nd_engines/index.ru.html) · [EN](https://hww.github.io/articles/2022/nd_engines/)
 - **Against the Loop: A Manifesto for Interactive Game Development.** [RU](https://hww.github.io/articles/2022/edit_compile_run/index.ru.html) · [EN](https://hww.github.io/articles/2022/edit_compile_run/)
 - **Three Core Components of a Successful Game Studio.** [EN](https://hww.github.io/articles/2022/3_parts_game_studio/index)
