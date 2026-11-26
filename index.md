@@ -1,4 +1,4 @@
-# Portfolio Navigator & Architectural Index
+**Engineering Portfolio**
 
 <div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 25px; flex-wrap: wrap;">
   <div style="flex-shrink: 0;">
@@ -7,7 +7,7 @@
   <div style="flex: 1; min-width: 280px; line-height: 1.6;">
     <h1 style="margin-top: 0; margin-bottom: 6px; border-bottom: none; padding-bottom: 0; font-size: 2em; font-weight: 700;">Valeriya Pudova (hww)</h1>
     <p style="margin: 0 0 10px 0; font-size: 1.1em; color: #24292e; font-weight: 600;">
-      Systems Architect &nbsp;|&nbsp; R&D Infrastructure Engineer &nbsp;|&nbsp; Low-Level Specialist
+      Systems Architect · R&D Engineer · Software, Embedded & Hardware Systems
     </p>
     <p style="margin: 0 0 14px 0; font-size: 0.95em;">
       🌐 <a href="https://github.com/hww" target="_blank" rel="noopener">GitHub Profile</a> &nbsp;|&nbsp;
@@ -24,8 +24,6 @@
 </div>
 
 ---
-
-**Systems Architect & R&D Engineer**
 
 I design and build software and hardware systems — from runtime architectures, interpreters, compilers, and virtual machines to embedded firmware, FPGA logic, custom PCBs, and integrated prototypes.
 
@@ -109,7 +107,7 @@ table p {
     Game-engine architecture, runtime environments, programming languages, compilers, virtual machines, data-oriented systems, graphics tools, and performance engineering.
   </p>
   <p>
-    <a href="/projects/soft.html" title="Explore software projects and related articles">Explore software projects and related articles</a>
+    <a href="/projects/soft.html" title="Explore software project">Explore software projects</a>
   </p>
 </td>
 </tr>
@@ -124,7 +122,7 @@ table p {
     Microcontroller firmware, FPGA/HDL, DSP platforms, PCB design, electronics, mechanical integration, and hardware-software prototypes.
   </p>
   <p>
-    <a href="/projects/hard.html" title="Explore hardware projects and related articles">Explore hardware projects and related articles</a>
+    <a href="/projects/hard.html" title="Explore hardware projects">Explore hardware projects</a>
   </p>  
 </td>
 </tr>
@@ -198,7 +196,9 @@ Integrating Scheme scripting into Unity, covering runtime integration, interacti
 
 ## Architectural Consulting & Collaboration
 
-I am open to project-based collaboration, technical consulting, architecture reviews, and challenging engineering roles.
+I am open to full-time engineering positions,
+contract work, project-based R&D collaboration,
+technical consulting, and architecture reviews.
 
 Areas where I can contribute include:
 
@@ -210,20 +210,3 @@ Areas where I can contribute include:
 For inquiries, contact me via [Telegram](https://t.me/valery_h2w) or [email](mailto:valery.hww@gmail.com).
 
 ---
-
-## Background
-
-My engineering foundation combines game-engine development, low-level software architecture, and hands-on hardware R&D. My experience includes work at SyberSoft and Rocket Amusements, as well as independent research into runtime systems, graphics, and embedded development.
-
-Selected academic work includes:
-
-- **UC BerkeleyX CS184.1x — Foundations of Computer Graphics:** 100% score; subsequently invited to serve as a Teaching Assistant in 2013 and 2014.
-- **UC BerkeleyX CS188.1x — Artificial Intelligence:** 97% score.
-
-I work in **English** and **Russian**.
-
-For more about my background and experience, see [About Me](/about/) and the [CV in English](/resume.en) or [CV in Russian](/resume.ru).
-
----
-
-[GitHub](https://github.com/hww) · [LinkedIn](https://www.linkedin.com/in/valeriyap/) · [Telegram](https://t.me/valery_h2w) · [Email](mailto:valery.hww@gmail.com) · [Acknowledgments](/acknowledgments/)
