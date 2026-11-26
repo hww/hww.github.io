@@ -1,5 +1,3 @@
-**Engineering Portfolio**
-
 <div style="display: flex; align-items: flex-start; gap: 20px; margin-bottom: 25px; flex-wrap: wrap;">
   <div style="flex-shrink: 0;">
     <img src="images/wendy.png" alt="hww" width="120" style="border-radius: 8px; display: block; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"/>
