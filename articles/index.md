@@ -17,11 +17,10 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 
 #### 2026
 
-- **SOOT: A Scriptable Lisp-Based Development Ecosystem** — an embedded Lisp environment for interactive development, build automation, and runtime architecture. [RU](https://hww.github.io/articles/2026/soot/ru/) · [EN](https://hww.github.io/articles/2026/soot/en/) 
-- **SOOT: Скриптовая среда разработки на основе Lisp** — встраиваемая Lisp-среда для интерактивной разработки, автоматизации сборки и архитектуры runtime. [RU](https://hww.github.io/articles/2026/soot/ru/) · [EN](https://hww.github.io/articles/2026/soot/en/)
+- **SOOT: A Scriptable Lisp-Based Development Ecosystem** — an embedded Lisp environment for interactive development, build automation, and runtime architecture. [RU](https://hww.github.io/articles/2026/soot/ru/) · [EN](https://hww.github.io/articles/2026/soot/en/)
 - **In Search of Lost Determinism: Architecting an Isolated C# Game Runtime Inspired by Naughty Dog** — deterministic execution, isolated simulation, and Zero-GC runtime design. [RU](https://hww.github.io/articles/2026/gfs_runtime/index.ru.html) · [EN](https://hww.github.io/articles/2026/gfs_runtime/index.html)
-- **Time Vector: How to Design a Non-Linear Timeline in Unity and Stay Sane** — time control, state isolation, and load balancing. [RU](https://hww.github.io/articles/2026/time_vector/index.ru.md) · [EN](https://hww.github.io/articles/2026/time_vector/)
-- **Building a Data-Oriented System in Unity: Where Theory Breaks Against Reality** — a practical experiment with component architecture and data pipelines. [EN](https://hww.github.io/articles/2026/dcs_unity/index.ru.md) · [EN](https://hww.github.io/articles/2026/dcs_unity/)
+- **Time Vector: How to Design a Non-Linear Timeline in Unity and Stay Sane** — time control, state isolation, and load balancing. [RU](https://hww.github.io/articles/2026/time_vector/index.ru.html) · [EN](https://hww.github.io/articles/2026/time_vector/)
+- **Building a Data-Oriented System in Unity: Where Theory Breaks Against Reality** — a practical experiment with component architecture and data pipelines. [EN](https://hww.github.io/articles/2026/dcs_unity/index.ru.html) · [EN](https://hww.github.io/articles/2026/dcs_unity/)
 
 #### 2022
 
@@ -50,12 +49,12 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 
 #### Unity Style Guide & Pipeline — 2022
 
-- **File Naming Conventions in Unity 3D.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/01-naming/index.en.md) · [RU](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/01-naming/index.md)
-- **Project File Organization in Unity 3D.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/02-project/index.en.md) · [RU](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/02-project/index.md)
-- **Art and Game-Design Data Organization.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/03-art-gd/index.en.md) · [RU](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/03-art-gd/index.md)
-- **File Naming Conventions in Unity 3D.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/01-naming/index.md)
-- **Project File Organization in Unity 3D.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/02-project/index.md)
-- **Art and Game-Design Data Organization.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/03-art-gd/index.md)
+- **File Naming Conventions in Unity 3D.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/01-naming/index.en.html) · [RU](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/01-naming/index.html)
+- **Project File Organization in Unity 3D.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/02-project/index.en.html) · [RU](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/02-project/index.html)
+- **Art and Game-Design Data Organization.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/03-art-gd/index.en.html) · [RU](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/03-art-gd/index.html)
+- **File Naming Conventions in Unity 3D.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/01-naming/index.html)
+- **Project File Organization in Unity 3D.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/02-project/index.html)
+- **Art and Game-Design Data Organization.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/03-art-gd/index.html)
 - **A Dynamic Component Architecture for High Performance Gameplay (2013).** [EN](https://hww.github.io/articles/2013/terrance_cohen_dcs/)
 
 ### Graphics, Performance & VR
