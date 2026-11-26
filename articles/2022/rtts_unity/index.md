@@ -1,85 +1,84 @@
-# Особенности симуляции реального времени в Unity3D
+# Real-Time Simulation Specifics in Unity3D
 
-**Валерия Пудова**  
-4 декабря 2020
-
----
-
-## Введение
-
-Анализ особенностей программирования процессов реального времени в дискретной системе симуляции на примере Unity3D.
-
-Цель документа — подтвердить или опровергнуть, что методы `Update` или `FixedUpdate` не гарантируют точность внутренних часов (`Time`). Документ должен ответить на два вопроса:
-
-1. Может ли быть гарантирован вызов метода `FixedUpdate` через равные промежутки времени?
-2. Может ли `FixedUpdate` быть вызван предсказуемое число раз за определённый промежуток реального времени?
-
-Ниже вопросы сформулированы более конкретно, и на них даны ответы.
+**Valeriya Pudova**
+December 4, 2020
 
 ---
 
-## Вызывается ли `FixedUpdate` в реальном времени?
+## Introduction
 
-Если `fixedDeltaTime` равна 10 мс, будет ли метод вызываться строго каждые 10 миллисекунд?
+An analysis of the specifics of programming real-time processes in a discrete simulation system using Unity3D as an example.
 
-**Нет, не будет.**  
-Время обновления физики (TFPU — time for physics update) в зависимости от ситуации может быть меньше или больше, чем `fixedDeltaTime`.
+The purpose of this document is to confirm or refute that the `Update` or `FixedUpdate` methods do not guarantee the accuracy of the internal clock (`Time`). The document should answer two questions:
 
-Будет ли гарантировано, что за реальное время `T` метод `FixedUpdate` будет вызван согласно выражению:
+1. Can the `FixedUpdate` method be guaranteed to be called at equal time intervals?
+2. Can `FixedUpdate` be called a predictable number of times over a certain real-time interval?
+
+Below, the questions are formulated more concretely, and answers are given to them.
+
+---
+
+## Is `FixedUpdate` called in real time?
+
+If `fixedDeltaTime` equals 10 ms, will the method be called strictly every 10 milliseconds?
+
+**No, it will not.**
+The physics update time (TFPU — time for physics update), depending on the situation, may be less than or greater than `fixedDeltaTime`.
+
+Will it be guaranteed that over real time `T`, the `FixedUpdate` method will be called according to the expression:
 
 ```
 Nfu = T / Fdt
 ```
 
-где:  
-- `Nfu` — количество вызовов `FixedUpdate`  
-- `T` — реальное время  
-- `Fdt` — значение `fixedDeltaTime`
+where:
+- `Nfu` — the number of `FixedUpdate` calls
+- `T` — real time
+- `Fdt` — the value of `fixedDeltaTime`
 
-**Нет, не будет.**  
-В ситуации, когда TFPU больше, чем `fixedDeltaTime`, физический движок не сможет достичь времени `T`, даже если загрузит процессор эксклюзивно. Поскольку физика пытается догнать реальное время и непрерывно выполняется `Nfus` раз подряд, пока `fixedTime` меньше `T`, это приводит к замораживанию рендеринга на неопределённое время (*Frame-skipping mode*).
+**No, it will not.**
+In a situation where TFPU is greater than `fixedDeltaTime`, the physics engine will not be able to reach time `T`, even if it loads the processor exclusively. Since physics tries to catch up with real time and continuously executes `Nfus` times in a row while `fixedTime` is less than `T`, this leads to freezing of rendering for an indefinite time (*Frame-skipping mode*).
 
-Чтобы минимизировать этот эффект, существует параметр `maximumDeltaTime`. Он не позволяет физике выполняться подряд дольше заданной величины. Когда произведение `fixedDeltaTime * Nfus` достигает значения, большего или равного `maximumDeltaTime`, физика «откладывает» обновление, пропуская фрагмент реального времени (*Wall of molasses mode*).
+To minimize this effect, there is a `maximumDeltaTime` parameter. It does not allow physics to execute in a row longer than a specified value. When the product `fixedDeltaTime * Nfus` reaches a value greater than or equal to `maximumDeltaTime`, physics "defers" the update, skipping a fragment of real time (*Wall of molasses mode*).
 
-Иначе говоря, **время в виртуальном мире не может быть гарантированно синхронизировано с реальным временем**. Об этом чётко написано в руководстве Unity3D:
+In other words, **time in the virtual world cannot be guaranteed to be synchronized with real time**. This is clearly stated in the Unity3D manual:
 
 > *If frame will take longer than specified value, then less physics and other fixed frame rate updates will be performed. That will temporarily slow down the gameplay, but will allow frame rate to catch up, avoiding nasty stuttering.*
 
 ---
 
-## Может ли `Time.time` быть рассинхронизировано с `Time.fixedTime`?
+## Can `Time.time` be desynchronized from `Time.fixedTime`?
 
-**Не может.** Одно зависит от другого, что может быть описано упрощённой формулой:
+**It cannot.** One depends on the other, which can be described by a simplified formula:
 
 ```
 Tvn = Tvn-1 + Fdt * Nfus
 ```
 
-где:  
-- `Tvn` — время в кадре `n`  
-- `Tvn-1` — время в кадре `n-1`  
-- `Fdt` — значение `fixedDeltaTime`  
-- `Nfus` — количество вызовов `FixedUpdate` между `Tn` и `Tn-1`
+where:
+- `Tvn` — time in frame `n`
+- `Tvn-1` — time in frame `n-1`
+- `Fdt` — the value of `fixedDeltaTime`
+- `Nfus` — the number of `FixedUpdate` calls between `Tn` and `Tn-1`
 
 ---
 
-## Вывод
+## Conclusion
 
-Unity3D не манипулирует значением `timeScale` и не замедляет время. Вместо этого, когда TFPU больше `Fdt` и если `Fdt * Nfus` превышает `maximumDeltaTime`, Unity3D принудительно прерывает обновление физики, отдавая предпочтение другим операциям (например, рендерингу). Это косвенно замедляет время внутри Unity3D.
+Unity3D does not manipulate the `timeScale` value and does not slow down time. Instead, when TFPU is greater than `Fdt` and if `Fdt * Nfus` exceeds `maximumDeltaTime`, Unity3D forcibly interrupts the physics update, giving preference to other operations (e.g., rendering). This indirectly slows down time inside Unity3D.
 
-- Система **не может гарантировать** вызов метода `FixedUpdate` через равные промежутки времени.  
-- Система **не может вызвать** `FixedUpdate` предсказуемое число раз за определённый промежуток реального времени.
+- The system **cannot guarantee** that the `FixedUpdate` method will be called at equal time intervals.
+- The system **cannot call** `FixedUpdate` a predictable number of times over a certain real-time interval.
 
-Когда система испытывает нехватку вычислительных ресурсов, используется один из двух возможных сценариев (иногда называемых):
+When the system experiences a shortage of computational resources, one of two possible scenarios is used (sometimes called):
 
-- **Frame-skipping mode** — подтормаживание рендеринга при нормальной скорости анимаций.  
-- **Wall of molasses mode** — замедление анимаций физических объектов при нормальной скорости рендеринга.
+- **Frame-skipping mode** — stuttering of rendering at normal animation speed.
+- **Wall of molasses mode** — slowing down animations of physical objects at normal rendering speed.
 
-То же самое справедливо и для других движков.
+The same is true for other engines.
 
 ---
 
-## Ссылки
+## References
 
 - [1] [Timesteps and Achieving Smooth Motion in Unity](https://www.google.com/url?q=https://www.kinematicsoup.com/news/2016/8/9/rrypp5tkubynjwxhxjzd42s3o034o8&sa=D&source=editors&ust=1786723807161712&usg=AOvVaw1PwaMuaDVtfwChZXjupB9v)
-

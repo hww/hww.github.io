@@ -60,14 +60,14 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 
 ### Graphics, Performance & VR
 
-- **[RU] Sweet Spot для GPU: правила оптимизации графики под мобильные платформы (2022).** [EN](https://hww.github.io/articles/2022/vr_gpu/)
-- **[EN] Oculus Quest Performance: Engineering Techniques for Mobile VR Optimization (2022).** [EN](https://hww.github.io/articles/2022/vr_oculus/)
-- **[RU] The Art of Motion: How Animation Shapes Game Design and How to Perfect It (2020).** [EN](https://hww.github.io/articles/2020/gd/)
+- **[RU] Sweet Spot для GPU: правила оптимизации графики под мобильные платформы (2022).** [RU](https://hww.github.io/articles/2022/vr_gpu/index.ru.html) · [EN](https://hww.github.io/articles/2022/vr_gpu/)
+- **[EN] Oculus Quest Performance: Engineering Techniques for Mobile VR Optimization (2022).** [RU](https://hww.github.io/articles/2022/vr_oculus/index.ru.html) · [EN](https://hww.github.io/articles/2022/vr_oculus/)
+- **[RU] The Art of Motion: How Animation Shapes Game Design and How to Perfect It (2020).** [RU](https://hww.github.io/articles/2020/gd/index.ru.html) · [EN](https://hww.github.io/articles/2020/gd/)
 
 ### Quick Notes
 
-- **[RU] Unity Spawning Methods (2022).** [Read note](https://hww.github.io/articles/2022/unity_spawning/index)
-- **[RU] Real-Time Simulation Specifics in Unity 3D (2022).** [Read note](https://hww.github.io/articles/2022/rtts_unity/index)
+- **[RU] Unity Spawning Methods (2022).** [RU](https://hww.github.io/articles/2022/unity_spawning/index/index.ru.html) · [EN](https://hww.github.io/articles/2022/unity_spawning/index)
+- **[RU] Real-Time Simulation Specifics in Unity 3D (2022).** [RU](https://hww.github.io/articles/2022/rtts_unity/index/index.ru.html) · [EN](https://hww.github.io/articles/2022/rtts_unity/index)
 
 ## Embedded Systems & Hardware
 
@@ -90,8 +90,8 @@ Available for selected R&D projects, architecture reviews, technical consulting,
 
 Areas of interest include runtime architecture, programming-language tooling, embedded firmware, FPGA/DSP systems, and hardware-software integration.
 
-For inquiries, contact me via [Telegram](https://t.me/) or email.
+For inquiries, contact me via [Telegram](@valery_h2w) or email.
 
 ---
 
-Explore the [project catalog](/projects/), read [About Me](/about/), or return to the [main portfolio](/).
+Explore the [project catalog](/projects/) or return to the [main portfolio](/).

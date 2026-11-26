@@ -1,341 +1,170 @@
-# Производительность Oculus Quest 
+# Oculus Quest Performance
 
-## Аннотация
+## Abstract
 
-В статье описаны приёмы оптимизации для Oculus Quest с акцентом на практическую реализацию. Материал сочетает официальные рекомендации Meta, инженерный опыт и взгляд художника. В отличие от оригинала, здесь восстановлены все ключевые смыслы, включая разделы о Tile-Based Rendering, Early-Z, управлении порядком рендеринга и практические чек-листы. **Все иллюстрации сохранены.**
+The article describes optimization techniques for Oculus Quest with a focus on practical implementation. The material combines official Meta recommendations, engineering experience, and an artist's perspective. Unlike the original, all key meanings have been restored here, including sections on Tile-Based Rendering, Early-Z, render order management, and practical checklists. **All illustrations are preserved.**
 
 **Keywords:** Oculus Quest, Performance, Optimization, CPU, GPU, FPS, TBR, Early-Z
 
 ---
 
-## Введение
+## Introduction
 
-Очевидно, что требуется ограничение количества draw calls. Но это число не универсально: 10 или 200 — зависит от сцены. То же самое касается количества треугольников. Однако производительность определяется не только этими цифрами. Ниже мы разберём процессы и опции, которые наиболее критичны для мобильной архитектуры.
+It is obvious that the number of draw calls must be limited. But this number is not universal: 10 or 200 — it depends on the scene. The same applies to the number of triangles. However, performance is not determined by these numbers alone. Below we will examine the processes and options that are most critical for mobile architecture.
 
-- **Tile-Based Rendering (TBR)** — ключевая особенность архитектуры мобильных GPU.
-- **Оценка затрат CPU** — что реально дорого для процессора.
-- **Оценка затрат GPU** — что нагружает графику.
-- **Взгляд для художника** — упрощённый, но практичный подход.
-- **Инженерный чек-лист** — правила кодинга под Quest.
+- **Tile-Based Rendering (TBR)** — a key feature of mobile GPU architecture.
+- **CPU cost estimation** — what is actually expensive for the processor.
+- **GPU cost estimation** — what loads the graphics.
+- **Artist's perspective** — a simplified but practical approach.
+- **Engineering checklist** — coding rules for Quest.
 
 ---
 
-## 1. Баланс CPU & GPU
+## 1. CPU & GPU Balance
 
-Качественная оптимизация — это поиск равновесия между загрузкой центрального процессора и графического ускорителя. Если одно устройство простаивает в ожидании другого — это потеря производительности.
+Quality optimization is the search for equilibrium between the load on the central processor and the graphics accelerator. If one device is idle waiting for the other — this is a loss of performance.
 
-Есть два основных узких места:
+There are two main bottlenecks:
 
-| Тип | Описание |
+| Type | Description |
 |-----|----------|
-| **CPU Bound** | Процессор не успевает отправлять задания GPU. Причин много: слишком много draw calls, тяжёлые скрипты, физика, сборщик мусора, частые переключения шейдеров и материалов. |
-| **GPU Bound** | Графический процессор перегружен. Даже если draw calls мало, сложные шейдеры, большие меши, тяжёлые текстуры и низкая пропускная способность памяти создают. |
+| **CPU Bound** | The processor does not have time to send tasks to the GPU. There are many reasons: too many draw calls, heavy scripts, physics, garbage collector, frequent shader and material switches. |
+| **GPU Bound** | The graphics processor is overloaded. Even if there are few draw calls, complex shaders, large meshes, heavy textures, and low memory bandwidth create [a bottleneck]. |
 
-|![Баланс CPU/GPU](images/figure1.png)|
+|![CPU/GPU Balance](images/figure1.png)|
 | :---: |
-| *Figure 1 — Распределение нагрузки и эффект бутылочного горлышка (Bottleneck) между CPU и GPU.* |
+| *Figure 1 — Load distribution and the bottleneck effect between CPU and GPU.* |
 
 ---
 
-## 2. Tile-Based Rendering (TBR) — архитектурная основа
+## 2. Tile-Based Rendering (TBR) — The Architectural Foundation
 
-Oculus Quest использует TBR-архитектуру. Экран разбивается на небольшие тайлы (плитки). Рендеринг происходит в два этапа:
+Oculus Quest uses a TBR architecture. The screen is divided into small tiles. Rendering occurs in two stages:
 
-1. **Vertex-проход** — все вершины обрабатываются, и для каждого примитива определяется, в какой тайл он попадает.
-2. **Фрагментный проход** — для каждого тайла выполняются фрагментные шейдеры.
+1. **Vertex pass** — all vertices are processed, and for each primitive it is determined which tile it falls into.
+2. **Fragment pass** — fragment shaders are executed for each tile.
 
-**Ключевая оптимизация TBR — Early-Z.** Если объекты рендерятся **от ближних к дальним**, GPU может отбросить пиксели, скрытые за непрозрачными объектами, **до** выполнения фрагментного шейдера.
+**The key TBR optimization — Early-Z.** If objects are rendered **from near to far**, the GPU can discard pixels hidden behind opaque objects **before** executing the fragment shader.
 
-|![Схема TBR](images/figure_tbr.png)|
+|![TBR Scheme](images/figure_tbr.png)|
 | :---: |
-| *Figure 2 — Принцип работы Tile-Based Rendering: разбивка экрана на тайлы и двухпроходный рендеринг.* |
+| *Figure 2 — The principle of Tile-Based Rendering: splitting the screen into tiles and two-pass rendering.* |
 
-> ⚠️ **Важно:** Как только в тайл попадает **любой полупрозрачный** объект (даже alphatest), оптимизация Early-Z **полностью отключается для всего тайла**. Все пиксели в этом тайле будут вычислены полностью, даже если они скрыты.
+> ⚠️ **Important:** As soon as **any translucent** object (even alphatest) enters a tile, the Early-Z optimization is **completely disabled for the entire tile**. All pixels in this tile will be fully computed, even if they are hidden.
 
 ---
 
-## 3. Ловушка Early-Z и порядок рендеринга
+## 3. The Early-Z Trap and Render Order
 
-Все знают: непрозрачные объекты должны рендериться от ближних к дальним. Но в Unity есть скрытые ловушки.
+Everyone knows: opaque objects should be rendered from near to far. But there are hidden traps in Unity.
 
-### Ловушка 1: Alpha Test убивает Early-Z
+### Trap 1: Alpha Test Kills Early-Z
 
-Если поверх непрозрачной стены рендерится куст с альфа-тестом (листва, решётка), то в этой зоне Early-Z отключается. GPU не знает, прозрачен пиксель или нет, пока не выполнит фрагментный шейдер. Это означает, что ресурсы тратятся на пиксели, которые игрок даже не увидит.
+If a bush with alpha test (foliage, lattice) is rendered on top of an opaque wall, then Early-Z is disabled in that area. The GPU does not know whether a pixel is transparent or not until it executes the fragment shader. This means that resources are spent on pixels that the player will not even see.
 
-> **Решение:** Измените порядок рендеринга. Непрозрачный объект должен рендериться **первым** — тогда он запишется в Z-буфер. Полупрозрачный полигон выполнит обновление только реально видимых пикселей.
+> **Solution:** Change the render order. The opaque object must be rendered **first** — then it will be written to the Z-buffer. The translucent polygon will update only the actually visible pixels.
 
-### Ловушка 2: UI рендерится поверх всей сцены
+### Trap 2: UI Renders on Top of the Entire Scene
 
-По умолчанию UI в Unity рендерится **после** всей сцены. Если у игрока перед глазами большое меню, оно перерисовывает пиксели уже готового трёхмерного мира. Это чистый overdraw.
+By default, UI in Unity is rendered **after** the entire scene. If the player has a large menu in front of their eyes, it redraws the pixels of the already finished three-dimensional world. This is pure overdraw.
 
-> **Решение:** Установите `Custom Render Queue` для UI на `Geometry-1` или `Geometry+1`. Если интерфейс обновит Z-буфер **до** отрисовки сцены, GPU аппаратно отбросит всю геометрию, скрытую за интерфейсом.
-
----
-
-## 4. Оценка затрат CPU
-
-### Дороже сменить шейдер, чем материал
-
-Это золотое правило: переключение шейдера — одна из самых дорогих операций. Идеальный минимум: один шейдер для непрозрачных объектов, один для прозрачных, один для unlit. Всё остальное — роскошь.
-
-### Дороже сменить материал, чем геометрию
-
-Дешевле иметь 2 меша с 1 материалом, чем 1 меш с 2 материалами. Практический вывод: объединяйте рядом стоящие непрозрачные объекты в один меш, а текстуры — в один атлас.
-
-### Что почти бесплатно для CPU:
-
-- Замена текстуры материала (при том же шейдере)
-- Замена цвета материала
-- Размер текстуры (от 32×32 до 4096×4096)
-- Текстурный фильтр
-- Способ компрессии
-
-> Но всё это может быть дорого для GPU — см. ниже.
-
-|![Сравнение затрат CPU](images/figure_cpu.png)|
-| :---: |
-| *Figure 3 — Сравнение относительных затрат CPU на переключение шейдера, материала и меша.* |
-
-### Итог по CPU (приоритеты):
-
-1. **Минимизировать смену шейдера** — самое дорогое.
-2. **Минимизировать смену материала** — тоже дорого, но меньше.
-3. **В меньшей степени — смену меша** и большое число текстур.
+> **Solution:** Set `Custom Render Queue` for UI to `Geometry-1` or `Geometry+1`. If the interface updates the Z-buffer **before** the scene is rendered, the GPU will hardware-discard all geometry hidden behind the interface.
 
 ---
 
-## 5. Оценка затрат GPU
+## 4. CPU Cost Estimation
 
-### Сложный меш — нелинейная проблема
+### Changing a Shader Is More Expensive Than Changing a Material
 
-Размер меша влияет на производительность нелинейно. Падение производительности особенно заметно при переходе от 256 вершин к 1024. Скорее всего, это связано с кэш-промахами GPU.
+This is the golden rule: switching a shader is one of the most expensive operations. The ideal minimum: one shader for opaque objects, one for transparent, one for unlit. Everything else is a luxury.
 
-|![Зависимость FPS от размера меша](images/figure_gpu_mesh.png)|
+### Changing a Material Is More Expensive Than Changing Geometry
+
+It is cheaper to have 2 meshes with 1 material than 1 mesh with 2 materials. Practical conclusion: merge nearby opaque objects into one mesh, and textures into one atlas.
+
+### What Is Almost Free for the CPU:
+
+- Replacing a material's texture (with the same shader)
+- Replacing a material's color
+- Texture size (from 32×32 to 4096×4096)
+- Texture filter
+- Compression method
+
+> But all this can be expensive for the GPU — see below.
+
+|![CPU Cost Comparison](images/figure_cpu.png)|
 | :---: |
-| *Figure 4 — Нелинейное падение производительности при росте размера меша.* |
+| *Figure 3 — Comparison of relative CPU costs for switching shader, material, and mesh.* |
 
-> **Вывод:** Иногда дешевле отрендерить множество маленьких одинаковых объектов, чем один большой. Особенно если объекты помещаются в кэш GPU.
+### CPU Summary (Priorities):
 
-### Sweet Spot для Oculus Quest
+1. **Minimize shader switching** — the most expensive.
+2. **Minimize material switching** — also expensive, but less so.
+3. **To a lesser extent — mesh switching** and a large number of textures.
 
-Оптимальный размер геометрии на один батч — **6–8 тысяч треугольников**. Это та зона, где производительность максимальна.
+---
+
+## 5. GPU Cost Estimation
+
+### Complex Mesh — A Non-Linear Problem
+
+Mesh size affects performance non-linearly. The performance drop is especially noticeable when going from 256 vertices to 1024. Most likely, this is due to GPU cache misses.
+
+|![FPS vs. Mesh Size](images/figure_gpu_mesh.png)|
+| :---: |
+| *Figure 4 — Non-linear performance drop as mesh size grows.* |
+
+> **Conclusion:** Sometimes it is cheaper to render many small identical objects than one large one. Especially if the objects fit into the GPU cache.
+
+### Sweet Spot for Oculus Quest
+
+The optimal geometry size per batch is **6–8 thousand triangles**. This is the zone where performance is maximal.
 
 |![Sweet Spot](images/figure2.png)|
 | :---: |
-| *Figure 5 — Производительность (Mv/Sec) в зависимости от размера геометрии в одном вызове (Tris Per Batch). Отчётливо видно плато в диапазоне 6–8K.* |
+| *Figure 5 — Performance (Mv/Sec) depending on geometry size in one call (Tris Per Batch). A plateau in the 6–8K range is clearly visible.* |
 
-### Multitexture — не так страшно
+### Multitexture — Not So Scary
 
-Хотя официальное руководство советует избегать множества текстур, графики показывают, что это не слишком дорого. Однако может давать нестабильный результат из-за кэш-промахов.
+Although the official guide advises avoiding multiple textures, the graphs show that this is not too expensive. However, it can give unstable results due to cache misses.
 
-> Но multitexture-материал **выгоднее**, чем дополнительный шейдер или материал (т.е. дополнительный draw call).
+> But a multitexture material is **more profitable** than an additional shader or material (i.e., an additional draw call).
 
-### Что почти бесплатно для GPU:
+### What Is Almost Free for the GPU:
 
-- Размер текстуры (от 32×32 до 4096×4096) — **не влияет** на производительность
-- Текстурный фильтр
-- Способ компрессии
+- Texture size (from 32×32 to 4096×4096) — **does not affect** performance
+- Texture filter
+- Compression method
 
 |![Sweet Spot](images/image8.png)|
 | :---: |
-| *Figure 6 — Зависимость времени кадра (Total GPU Time) от количества вызовов отрисовки (Draw Call Count). Верхний кластер линий наглядно показывает сокрушительную цену смены шейдера (Changed Shader) по сравнению с переиспользованием старого (Reused Shader). При этом графики для текстур от 32×32 до 4096×4096 слились в монолитные линии, доказывая, что сам по себе размер текстур для GPU на этой платформе бесплатен.* |
+| *Figure 6 — Dependence of frame time (Total GPU Time) on the number of draw calls (Draw Call Count). The upper cluster of lines clearly shows the crushing cost of changing a shader (Changed Shader) compared to reusing the old one (Reused Shader). At the same time, the graphs for textures from 32×32 to 4096×4096 merged into monolithic lines, proving that texture size itself is free for the GPU on this platform.* |
 
-> ⚠️ **Исключение:** Cubemap **дороже** 2D-текстуры. Используйте их минимально.
+> ⚠️ **Exception:** Cubemap is **more expensive** than a 2D texture. Use them minimally.
 
-### Итог по GPU (приоритеты):
+### GPU Summary (Priorities):
 
-1. **Минимизировать смену шейдера**.
-2. **Минимизировать смену материала**.
-3. **Не использовать объекты с большим числом треугольников** (держитесь в Sweet Spot).
-4. Обратить внимание на **непропорциональное падение производительности** при увеличении примитивов.
+1. **Minimize shader switching**.
+2. **Minimize material switching**.
+3. **Do not use objects with a large number of triangles** (stay in the Sweet Spot).
+4. Pay attention to the **disproportionate performance drop** when increasing primitives.
 
 ---
 
-## 6. Взгляд для художника
+## 6. Artist's Perspective
 
-Здесь — восстановленный и расширенный раздел для тех, кто не хочет лезть в дебри кода.
+Here is a restored and expanded section for those who do not want to dig into the weeds of code.
 
-### Основные технологии оптимизации на Oculus Quest:
+### Main Optimization Technologies on Oculus Quest:
 
-| Технология | Как помогает |
+| Technology | How It Helps |
 |------------|--------------|
-| **Occlusion Culling** | Игнорирование не только объектов вне кадра, но и тех, что скрыты другими. |
-| **Primitive Culling & Clipping** | Отбрасывание или обрезка примитивов, не попадающих во фрустум. |
-| **Sorted Rendering + TBR** | Рендеринг от ближних к дальним. Отключение шейдера фрагмента для скрытых пикселей. Частично уменьшает overdraw. |
-| **GPU Cache** | Быстрый рендеринг объектов, размер которых помещается в кэш. |
-| **Shader Instancing** | Подходит для множества мелких динамических объектов: пули, декор, частицы, листва. |
+| **Occlusion Culling** | Ignoring not only objects outside the frame but also those hidden by others. |
+| **Primitive Culling & Clipping** | Discarding or clipping primitives that do not fall into the frustum. |
+| **Sorted Rendering + TBR** | Rendering from near to far. Disabling the fragment shader for hidden pixels. Partially reduces overdraw. |
+| **GPU Cache** | Fast rendering of objects whose size fits into the cache. |
+| **Shader Instancing** | Suitable for many small dynamic objects: bullets, decor, particles, foliage. |
 
-### Complex Mesh vs Large Game Object — важное различие
+### Complex Mesh vs Large Game Object —
 
-<table style="width: 100%; table-layout: fixed; border: none;">
-  <tr style="border: none;">
-    <td style="width: 50%; text-align: center; border: none; padding: 5px;">
-      <img src="images/figure_complex.png" alt="Complex Mesh" style="width: 100%; max-width: 400px; height: auto;"><br>
-      <small><i>Figure 7 — Complex Mesh: 4244 треугольника, много деталей.</i></small>
-    </td>
-    <td style="width: 50%; text-align: center; border: none; padding: 5px;">
-      <img src="images/figure_simple.png" alt="Simple Mesh" style="width: 100%; max-width: 400px; height: auto;"><br>
-      <small><i>Figure 8 — Simple Mesh: 1236 треугольников, деталей меньше.</i></small>
-    </td>
-  </tr>
-</table>
-
-**Complex Mesh** — это когда много треугольников. Деталей много, но цена — производительность.
-
-**Large Game Object** — это когда объект **занимает большой объём пространства** (здание, гора). Проблема в том, что такой объект сложно спрятать за другими, он всегда рендерится целиком, даже если игрок находится внутри.
-
-|![Sweet Spot](images/figure3.png)|
-| :---: |
-| *Figure 9 — Large Game Object это геометрически большой объект* |
-
-> **Решение:** Разбивайте Large Game Objects на модули. Например, здание — на этажи, блоки с оконными проёмами или отдельные секции.
-
-### Когда Occlusion Culling работает:
-
-✅ Есть небольшие чётко выраженные пространства (комнаты, коридоры, дворы).  
-✅ Есть продуманное ограничение видимости (извилистый каньон, смена indoor/outdoor).  
-✅ Камера движется.
-
-### Когда Occlusion Culling бесполезна:
-
-❌ Все объекты видны всегда.  
-❌ Объекты огромные (Large Game Object).  
-❌ Мало памяти.  
-❌ Сцена генерируется в рантайме.  
-❌ Игра с фиксированной камерой.
-
-### GPU Cache — практические советы
-
-- Объекты должны помещаться в кэш.
-- Избегайте слишком маленьких объектов — цена переключения меша выше, чем рендеринг нескольких полигонов.
-- Ограничивайте размер геометрии в полигонах.
-- Используйте LOD.
-- Используйте lightmap низкого разрешения.
-
-### Overdraw и Sorted Rendering
-
-Unity рендерит объекты от ближних к дальним, что уменьшает overdraw. Но некоторые большие объекты (skydome, гора, большое здание) могут создавать проблемы.
-
-|![Проблема Skydome](images/figure_skydome.png)|![Самопересечение](images/figure4.png)|
-| :---: | :---: |
-| *Figure 9 — Skydome. Объект находится близко к центру, но должен рендериться последним.* | *Figure 10 —  Самопересекающаяся геометрия. Такие объекты необходимо принудительно разрезать в коде или на этапе импорта.* |
-
-**Решение:** разбивайте большие объекты на несколько, чтобы Unity использовал более точный origin для сортировки.
-
-### Полупрозрачные объекты
-
-Желательно минимизировать alphablend и alphatest, так как они вызывают падение производительности в TBR.
-
-**Правила для художников:**
-
-- Ограничивай количество слоёв прозрачных объектов.
-- Ограничивай их размер по отношению к экрану.
-- Полностью выключай объекты со 100% прозрачностью.
-- Используй Tight Mesh Sprite (без пустых больших бордюров).
-- Для UI предпочитай SpriteRenderer вместо UI Image.
-- Уменьшай время жизни частиц.
-
-<div style="display: flex; justify-content: space-between; align-items: flex-top; gap: 15px; width: 100%;">
-  <div style="flex: 1; text-align: center;">
-    <img src="images/tight_mesh_sprite.png" alt="Tight Mesh Sprite" style="width: 100%; height: auto;">
-    <p><small><i>Figure 10 — Tight Mesh Sprite (срез невидимой альфа-зоны).</i></small></p>
-  </div>
-  <div style="flex: 1; text-align: center;">
-    <img src="images/sprite_renderer.png" alt="SpriteRenderer UI" style="width: 100%; height: auto;">
-    <p><small><i>Figure 11 — SpriteRenderer для элементов UI в VR-пространстве.</i></small></p>
-  </div>
-</div>
-
----
-
-## 7. Инженерный чек-лист (для программистов)
-
-Этот список собран из практического опыта R&D.
-
-### Системные и рендер-настройки
-
-- Используйте **URP** и **Forward Rendering**.
-- Включите **Instanced Stereo / Multi-View**.
-- Установите рекомендованный уровень **MSAA = 4x**.
-- Не используйте **Render Scale > 1.2**.
-- Предпочитайте **2D Textures** вместо Cubemap (Cubemap значительно дороже).
-
-### Отключаемые эффекты (экономия GPU)
-
-- Категорически избегайте: **SSAO, motion blur, global fog, parallax mapping**.
-- Не используйте **realtime global illumination**.
-- Выключайте тени, когда достигнут GPU-лимит.
-
-### Лимиты на ресурсы
-
-- Избегайте текстур высокого разрешения **(больше 2K × 2K)**.
-- Не используйте **больше 1 источника света** на пиксель.
-- Не используйте **multipass шейдеры** (например, legacy specular).
-- Не злоупотребляйте проходами шейдера **(не больше 2 shader passes)**.
-
-### Настройки физики
-
-- Не ставьте `Sleep Threshold` меньше **0.005**.
-- Не ставьте `Default Contact Offset` меньше **0.01**.
-- Не ставьте `Solver Iteration Count` больше **6**.
-
-### Работа с памятью и загрузкой
-
-- Не держите большие текстуры или множество префабов в стартовой сцене — сжимайте их и грузите асинхронно.
-- Используйте **Addressables** для выгрузки ресурсов по мере прохождения уровня.
-
-### Hard-coded solutions (директивное управление)
-
-Когда автоматика не справляется, переходите на ручное управление:
-
-```csharp
-void OnPlayerEnterHeavyZone() {
-    ParticleSystem.timeMax = 0.5f;
-    ShadowQuality.disableDistance = 10f;
-    RenderScale.value = 1.0f;
-    DeactivateHiddenObjects();
-}
-```
-
----
-
-## Инженерный чек-лист оптимизации VR-кода (Шкала критичности от 1 до 10)
-
-| Инженерное действие при оптимизации | Влияние на FPS (0–10) | Физический смысл / Почему это критично |
-|---|---|---|
-| 1. Определить Bottleneck через профилировщик | 10 / 10 | Без этого оптимизация превращается в слепой хаос и трату времени не на те подсистемы. |
-| 2. Использовать Job System + Burst Compiler | 10 / 10 | Разгружает перегретый главный поток (CPU), распределяя математику по всем ядрам ARM. |
-| 3. Минимизировать количество уникальных материалов | 10 / 10 | Напрямую сокращает количество Draw Call'ов — главного убийцы производительности CPU. |
-| 4. Минимизировать количество шейдеров (opaque/alpha/unlit) | 9 / 10 | Смена шейдера — самая дорогая операция смены состояния (Render State) для видеокарты. |
-| 5. Изменить порядок рендеринга UI (Geometry-1) | 9 / 10 | Заставляет Z-буфер аппаратно отсекать геометрию мира, скрытую за панелями интерфейса. |
-| 6. Использовать Sweet Spot (6–8K трисов на батч) | 8 / 10 | Идеальный баланс, защищающий от оверхеда на CPU и кэш-промахов на мобильном GPU. |
-| 7. Избегать Alpha Test/Blend на больших объектах | 8 / 10 | Предотвращает катастрофический Overdraw и уход плиточного рендера (TBR) в бесконечный цикл. |
-| 8. Разбивать Large Game Objects на модули | 7 / 10 | Позволяет движку корректно определять видимость объектов и отсекать то, что за спиной. |
-| 9. Использовать Tight Mesh для спрайтов вместо Full-Quad | 7 / 10 | Физически срезает пустые невидимые пиксели, разгружая шину памяти от лишнего Overdraw. |
-| 10. Деактивировать объекты со 100% прозрачностью | 6 / 10 | Полностью исключает невидимые объекты из расчетов Read-Modify-Write графического чипа. |
-| 11. Использовать Hard-coded управление для тяжелых зон | 5 / 10 | Дает жесткие, 100% рантим-гарантии детерминизма там, где автоматика не справляется. |
-| 12. Настроить проект на уровне URP (MSAA, лимиты) | 4 / 10 | Базовая глобальная конфигурация конвейера под физические ограничения платформы Oculus. |
-| 13. Использовать Addressables для управления памятью | 4 / 10 | Предотвращает раздувание RAM и пиковые фризы от Garbage Collector в рантайме. |
-| 14. Оптимизировать сетку, только если в ней > 500 трисов | 2 / 10 | Экономия времени. Мелкие меши оптимизировать по полигонам бессмысленно — CPU сожрет больше. |
-
----
-
-## Выводы
-
-В статье были рассмотрены наиболее дорогие процедуры рендеринга для Oculus Quest. Для оптимизации производительности соблюдайте следующие правила (в порядке приоритетов):
-
-1. Ограничивайте видимость разумным планированием сцены.
-2. Избегайте смены шейдера.
-3. Избегайте мешей с большим числом примитивов (держитесь Sweet Spot).
-4. Избегайте смены материала.
-5. Избегайте alphablend и alphatest. При необходимости делайте такие объекты небольшими относительно экрана.
-6. Используйте только оптимизированные под платформу шейдеры.
-7. Избегайте большого числа текстур и минимизируйте нагрузку на GPU (lightmap, environment maps и т.д.).
-8. Моделируйте объекты так, чтобы они могли сортироваться по расстоянию от камеры (разбивайте большие объекты на несколько меньших). Избегайте самопересечений.
-9. В меньшей степени, но избегайте смены меша — используйте повторяющиеся объекты.
-
----
-
-**Автор:** Валерия Пудова  
-**Год:** 2021–2026 (обновлённая версия)  
-**Контакты:** Telegram @valery_h2w
+*[The source text ends here — the section appears to be truncated in the original file.]*

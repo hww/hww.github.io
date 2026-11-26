@@ -1,174 +1,174 @@
 # Unity Spawning Methods
 
-## Методы инстанцирования актёров сцены в Unity
+## Methods of Instantiating Scene Actors in Unity
 
-**Валерия Пудова**  
+**Valeriya Pudova**
 2008
 
 ---
 
-## Содержание
+## Table of Contents
 
-- Введение
-- Описание подхода
-- Инстанцирование актёров
-- Структуры объектов сцены и данных кода
-- Пример API
-- Выводы
-
----
-
-## Введение
-
-Существует множество способов инстанцирования объектов сцены в Unity и запуска процессов, связанных с этими актёрами. Перечислим их:
-
-1. **Использование Unity Runtime System**  
-   а. Префаб, размещённый в сцене в режиме редактора с последующим запуском игры.  
-   б. Префаб, установленный в сцене в рантайме (Drag&Drop), или использование метода `GameObject.Instantiate`.
-
-2. **Собственный рантайм игры**, в котором специальный спаун-процесс инстанцирует префаб методом `GameObject.Instantiate`, запускает необходимые процессы и обновляет состояния объектов. При этом сам префаб не запускает никаких процессов (см. диаграмму 1).
-
-У каждого из перечисленных способов есть свои достоинства и недостатки.  
-Например, метод (1а) позволяет точно видеть положение, ориентацию и размер персонажа в его окружении прямо в редакторе.  
-Метод (1б) привычен и работает с купленными ассетами, однако он неэффективен с точки зрения производительности — «проснувшийся» актёр или множество актёров могут создать высокую вычислительную нагрузку.
-
-В этом документе я сосредоточусь на методе (2), который был успешно применён в нескольких проектах.
+- Introduction
+- Description of the Approach
+- Instantiating Actors
+- Scene Object Structures and Code Data Structures
+- API Example
+- Conclusions
 
 ---
 
-## Описание подхода
+## Introduction
 
-На диаграмме (1) упрощённо изображена структура метода (2). В сцене расположен единственный объект (`Main GameObject`), который вызывает методы в `TaskManager`.
+There are many ways to instantiate scene objects in Unity and to launch processes associated with these actors. Let us list them:
 
-![Собственный рантайм игры](images/diag1.png)
-**Диаграмма 1.** Собственный рантайм игры.
+1. **Using the Unity Runtime System**
+   a. A prefab placed in the scene in editor mode, followed by launching the game.
+   b. A prefab placed in the scene at runtime (Drag&Drop), or using the `GameObject.Instantiate` method.
 
-`TaskManager` запускает процессы, которые могут создавать и обновлять актёров. Процессы бывают двух видов:
+2. **A custom game runtime**, in which a special spawn process instantiates a prefab via the `GameObject.Instantiate` method, launches the necessary processes, and updates the states of objects. In this case, the prefab itself does not launch any processes (see Diagram 1).
 
-- Самостоятельные процессы без актёров (процессы i…ii на диаграмме)
-- Процессы актёров (процессы j…jj и k…kk на диаграмме)
+Each of the listed methods has its own advantages and disadvantages.
+For example, method (1a) allows you to see precisely the position, orientation, and size of a character in its environment right in the editor.
+Method (1b) is familiar and works with purchased assets; however, it is inefficient from a performance standpoint — an "awakened" actor, or many actors, can create a high computational load.
 
----
-
-## Инстанцирование актёров
-
-Для начала определим составные части актёра сцены. На диаграмме (2) показаны основные компоненты, необходимые для инстанцирования.
-
-![Основные элементы актёра сцены](images/diag2.png)
-**Диаграмма 2.** Основные элементы актёра сцены.
-
-- **Actor** — анимированный персонаж игры, управляемый процессами.
-- **ActorPrototype** — объект с параметрами, созданный в редакторе Unity. Это может быть один или несколько префабов и ассетов.
-- **SpawnData** — объект сцены в редакторе, содержащий информацию о том, какой `SpawnProcess` использовать, а также когда, где и какой прототип инстанцировать, и какие параметры ему установить после инстанцирования (специализация актёра, подобие инъекции).
-- **SpawnProcess** — программа, выполняющая все операции для инстанцирования актёра. При запуске процесс получает в качестве аргумента `SpawnData` и, возможно, дополнительные аргументы.
-- **StateProcess** — набор процессов, управляющих персонажем в определённый момент времени (определённое состояние).
-
-Несмотря на то, что множество разных архетипов могут использовать одну и ту же реализацию `SpawnProcess`, сам `SpawnProcess` можно считать начальным состоянием актёра.
+In this document, I will focus on method (2), which has been successfully applied in several projects.
 
 ---
 
-## Структуры данных модели мира
+## Description of the Approach
 
-Структуры объектов сцены не должны повторять структуры данных модели мира. Иерархия сцены или префаба создаётся художниками исходя из интуитивного понимания сущности, а также по техническим причинам — скелет и меш должны иметь определённую иерархию.
+Diagram (1) shows a simplified structure of method (2). The scene contains a single object (`Main GameObject`), which calls methods in `TaskManager`.
 
-Поскольку структура данных, используемая кодом, не обязана совпадать со структурой объекта сцены, на `ActorPrototype` лучше смотреть как на комбинацию из двух контейнеров:
+![Custom game runtime](images/diag1.png)
+**Diagram 1.** Custom game runtime.
 
-- **Type** или **Archetype** — кодовая модель прототипа.
-- **Prefab** — визуальная модель прототипа.
+`TaskManager` launches processes that can create and update actors. Processes are of two kinds:
 
-Это позволяет использовать разные архетипы на одном и том же префабе (например, `Cyborg` и `Cyborg_Ragdoll`).
-
-В предлагаемом решении именно процессы порождают актёров со своими процессами. В обычном подходе Unity процессы создаются компонентами актёров.
+- Standalone processes without actors (processes i…ii in the diagram)
+- Actor processes (processes j…jj and k…kk in the diagram)
 
 ---
 
-## Пример API
+## Instantiating Actors
 
-Ниже приведён небольшой фрагмент API. Он состоит, в основном, из двух групп методов:
+First, let us define the constituent parts of a scene actor. Diagram (2) shows the main components required for instantiation.
 
-- **Spawning** — запуск самостоятельных процессов или процессов актёра сцены.
-- **Instantiating** — инстанцирование актёра и запуск его процессов.
+![Main elements of a scene actor](images/diag2.png)
+**Diagram 2.** Main elements of a scene actor.
 
-Для начала определим следующие типы данных:
+- **Actor** — an animated game character controlled by processes.
+- **ActorPrototype** — an object with parameters created in the Unity editor. This may be one or several prefabs and assets.
+- **SpawnData** — a scene object in the editor containing information about which `SpawnProcess` to use, as well as when, where, and which prototype to instantiate, and what parameters to set for it after instantiation (actor specialization, akin to injection).
+- **SpawnProcess** — a program that performs all operations to instantiate an actor. Upon launch, the process receives `SpawnData` as an argument, and possibly additional arguments.
+- **StateProcess** — a set of processes that control the character at a given moment in time (a given state).
 
-- `IProcess` — интерфейс или базовый класс процесса. Процессы организованы в дерево, и у каждого есть обработчик событий.
-- `State` — именованное состояние процесса (точнее, множество процессов). В состоянии заданы код инициализации и выхода, а также обработчик событий.
-- `ProcessBucket` — список гомогенных структур (процессов), обрабатываемых за один проход. В игре может быть несколько таких списков.
-- `SpawnData` — параметры инстанцирования, например, параметры специальной точки сцены, называемой `Spawner`.
-- `Archetype` — архетип актёра — совокупность всех данных, необходимых для его конструирования. Обычно в качестве архетипа используется `SerializedObject`.
-- `Actor` — объект сцены, созданный на основе архетипа. Как правило, `Actor` — это компонент Unity.
+Despite the fact that many different archetypes can use the same `SpawnProcess` implementation, the `SpawnProcess` itself can be considered the initial state of the actor.
 
-Ещё один важный тип — `ResultCode`, который сообщает об ошибках внутри методов. Это не только отладочный инструмент: в зависимости от ошибки процессы могут менять своё поведение.
+---
+
+## World Model Data Structures
+
+Scene object structures must not replicate world model data structures. The scene or prefab hierarchy is created by artists based on an intuitive understanding of the essence, as well as for technical reasons — the skeleton and mesh must have a certain hierarchy.
+
+Since the data structure used by the code does not have to match the structure of the scene object, it is better to view `ActorPrototype` as a combination of two containers:
+
+- **Type** or **Archetype** — the code model of the prototype.
+- **Prefab** — the visual model of the prototype.
+
+This allows different archetypes to be used on the same prefab (e.g., `Cyborg` and `Cyborg_Ragdoll`).
+
+In the proposed solution, it is the processes that spawn actors with their own processes. In the usual Unity approach, processes are created by the actors' components.
+
+---
+
+## API Example
+
+Below is a small fragment of the API. It consists mainly of two groups of methods:
+
+- **Spawning** — launching standalone processes or scene actor processes.
+- **Instantiating** — instantiating an actor and launching its processes.
+
+First, let us define the following data types:
+
+- `IProcess` — the interface or base class of a process. Processes are organized into a tree, and each has an event handler.
+- `State` — a named state of a process (more precisely, a set of processes). The state defines the initialization and exit code, as well as an event handler.
+- `ProcessBucket` — a list of homogeneous structures (processes) processed in a single pass. A game may have several such lists.
+- `SpawnData` — instantiation parameters, for example, the parameters of a special scene point called a `Spawner`.
+- `Archetype` — the actor archetype — the totality of all data needed to construct it. Usually a `SerializedObject` is used as the archetype.
+- `Actor` — a scene object created based on an archetype. As a rule, `Actor` is a Unity component.
+
+Another important type is `ResultCode`, which reports errors inside methods. This is not only a debugging tool: depending on the error, processes may change their behavior.
 
 ```csharp
 public enum ResultCode
 {
-    Invalid,             // < не инициализирован (значение по умолчанию)
-    Null,                // < равен null (пустой результат)
-    Success,             // < успешная операция
-    Allocated,           // < объект был выделен
-    NotAllocated,        // < в пуле нет свободных объектов
-    InvalidState,        // < переход в неверное неопределённое состояние
-    InvalidStateReturn,  // < доставка сообщения в FSM не удалась
-    InvalidReturn        // < невозможно вернуть корректное значение
+    Invalid,             // < not initialized (default value)
+    Null,                // < equals null (empty result)
+    Success,             // < successful operation
+    Allocated,           // < the object was allocated
+    NotAllocated,        // < no free objects in the pool
+    InvalidState,        // < transition to an invalid undefined state
+    InvalidStateReturn,  // < message delivery to the FSM failed
+    InvalidReturn        // < unable to return a valid value
 }
 ```
 
-Для работы с пулом существует метод поиска свободного процесса или освобождения занятого:
+For working with the pool, there is a method for finding a free process or releasing an occupied one:
 
 ```csharp
-// Найти свободный процесс или высвободить процесс с низким приоритетом
+// Find a free process or release a low-priority process
 public IProcess FindFreeOrReusable(ProcessBucket headObject, bool forced);
 ```
 
-Следующий набор методов предназначен для управления процессами без актёров:
+The following set of methods is intended for managing processes without actors:
 
 ```csharp
-// Создать процесс, дочерний к имеющемуся
+// Create a process as a child of an existing one
 SpawnResult SpawnProcess(IProcess parent,
                          Archetype type,
                          State state,
                          params object[] args);
 
-// Создать процесс на основе спаунера — точки в пространстве сцены.
-// Этот процесс может создать одного или множество актёров
+// Create a process based on a spawner — a point in scene space.
+// This process can create one or many actors
 SpawnResult SpawnProcess(SpawnData data,
                          IProcess parent = null);
 
-// Создать процесс для существующего актёра сцены
+// Create a process for an existing scene actor
 SpawnResult SpawnProcess(Actor entity,
                          Archetype type,
                          State state,
                          IProcess parent = null,
                          params object[] args);
 
-// Инициализировать процесс параметрами архетипа и состояния.
-// Метод вызывается после получения процесса из пула
+// Initialize a process with archetype and state parameters.
+// The method is called after retrieving the process from the pool
 SpawnResult InitProcess(IProcess process,
                         Archetype type,
                         State state,
                         params object[] args);
 
-// Остановить процесс и высвободить его в пул
+// Stop the process and release it to the pool
 SpawnResult TerminateProcess(IProcess process,
                              bool terminateEvent = true);
 ```
 
-Далее идут методы для работы с актёрами. Эти методы являются заменой `GameObject.Instantiate`:
+Next come the methods for working with actors. These methods are a replacement for `GameObject.Instantiate`:
 
 ```csharp
 T Instantiate<T>(IProcess process,
                  GameObject prefab,
                  Archetype type) where T : Actor;
 
-// Инстанцировать актёра для имеющегося процесса в точке
+// Instantiate an actor for an existing process at a point
 T Instantiate<T>(IProcess process,
                  GameObject prefab,
                  Archetype type,
                  Vector3 position,
                  Quaternion rotation) where T : Actor;
 
-// Инстанцировать дочернего актёра для процесса в точке и с поворотом
+// Instantiate a child actor for a process at a point and with rotation
 T Instantiate<T>(IProcess process,
                  GameObject prefab,
                  Archetype type,
@@ -176,46 +176,46 @@ T Instantiate<T>(IProcess process,
                  Quaternion rotation,
                  Transform parent) where T : Actor;
 
-// Удалить процесс вместе с его актёром или актёрами
+// Destroy the process together with its actor or actors
 void DestroyActor(IProcess process);
 ```
 
-Для остановки процессов состояния существует метод `Go`:
+To stop state processes, there is the `Go` method:
 
 ```csharp
-// Остановить текущие процессы и создать новые
+// Stop the current processes and create new ones
 process.Go(IProcess parent, State state, params object[] args);
 ```
 
-Однако на практике использовался другой способ перехода в новое состояние. Поскольку у каждого состояния был код `OnEnter`, вызов этого метода автоматически осуществлял переход:
+However, in practice, a different method of transitioning to a new state was used. Since each state had an `OnEnter` code, calling this method automatically performed the transition:
 
 ```csharp
-// Остановить текущие процессы и создать новые
+// Stop the current processes and create new ones
 ResultCode Goto_WalkingState(params object[] args)
 {
-    // Код инициализации состояния и запуска необходимых процессов
+    // State initialization code and launch of necessary processes
 }
 
-// Пример передачи параметров состоянию
-Goto_WalkingState(/* указать цель пути, если есть */ currentZoneExitPoint);
+// Example of passing parameters to a state
+Goto_WalkingState(/* specify the path target, if any */ currentZoneExitPoint);
 ```
 
-Порядок инстанцирования не начинается с `GameObject.Instantiate`. Этот метод выполняется внутри процесса и не всегда обязателен. Иными словами, программист создаёт контейнеры данных и алгоритмы их модификации. Алгоритм изменяет состояние мира, а также инстанцирует и обновляет объекты сцены (см. диаграмму 3).
+The instantiation order does not begin with `GameObject.Instantiate`. This method is executed inside a process and is not always mandatory. In other words, the programmer creates data containers and algorithms for modifying them. The algorithm changes the state of the world, as well as instantiates and updates scene objects (see Diagram 3).
 
-![Инстанцирование актёра сцены](images/diag3.png)
-**Диаграмма 3.** Инстанцирование актёра сцены.
+![Instantiating a scene actor](images/diag3.png)
+**Diagram 3.** Instantiating a scene actor.
 
-Процесс инстанцирования актёров должен распределять нагрузку между кадрами. Некоторые объекты должны создаваться быстро — без задержек. Для таких процессов стоит ограничить время инстанцирования двумя кадрами: `Instantiate → Spawn`. Другие объекты (например, фоновые актёры) могут создаваться с большей задержкой.
+The actor instantiation process must distribute the load across frames. Some objects must be created quickly — without delays. For such processes, it is worth limiting the instantiation time to two frames: `Instantiate → Spawn`. Other objects (e.g., background actors) can be created with a longer delay.
 
 ---
 
-## Выводы
+## Conclusions
 
-Предложенная терминология и API могут быть усовершенствованы, но сам подход с использованием собственного рантайма игры оказался очень эффективным. Ниже перечислены достоинства метода:
+The proposed terminology and API can be improved, but the approach of using a custom game runtime has proven to be very effective. The advantages of the method are listed below:
 
-- Производительность инстанцирования актёров не вызывает заметных задержек (spikes).
-- Производительность обновления структур данных значительно выше, чем у рантайм-системы Unity.
-- Отсутствуют проблемы «одного кадра» — ситуации, когда один объект неожиданно обновляется раньше или позже другого, что приводит к ошибкам.
-- Упрощение пайплайна за счёт того, что код в гораздо большей степени отделён от данных, в отличие от компонентной системы Unity.
+- Actor instantiation performance does not cause noticeable spikes.
+- Data structure update performance is significantly higher than that of the Unity runtime system.
+- There are no "single frame" problems — situations where one object unexpectedly updates before or after another, leading to errors.
+- Pipeline simplification due to the fact that code is much more separated from data, unlike in the Unity component system.
 
-Начиная новый проект в Unity, обязательно подумайте о том, как организовать рантайм-систему, чтобы минимизировать риски.
+When starting a new project in Unity, be sure to think about how to organize the runtime system to minimize risks.
