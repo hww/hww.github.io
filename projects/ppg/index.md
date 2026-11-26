@@ -1,40 +1,36 @@
-# Разработка прототипа медицинского PPG-браслета (Проект заморожен)
+# Medical PPG Bracelet Prototype Development (Project on Hold)
 
-Делюсь результатами работы над одним интересным R&D проектом, который, к сожалению, пришлось поставить на паузу на этапе прототипа из-за недобросовестности заказчика. Тем не менее, инженерная часть получилась объемной и рабочей — не хочется отправлять её "в стол".
+Sharing the results of my work on an interesting R&D project that, unfortunately, had to be put on pause at the prototype stage due to unforeseen circumstances on the client's side. Nevertheless, the engineering part turned out to be substantial and fully functional, so I don't want to just shelve it.
 
-## Задача
+## Objective
 
-Разработать прототип медицинского носимого браслета для непрерывного анализа пульсовой волны методом фотоплетизмографии (PPG).
-Главный упор делался не на сверхминиатюрность (как в коммерческих фитнес-трекерах), а на точность данных и надежность. Устройство проектировалось под жесткие требования: низкая себестоимость, повторяемость конструкции и высокая автономность.
+Develop a prototype of a medical wearable bracelet for continuous pulse wave analysis using photoplethysmography (PPG).
+The main focus was not on ultra-miniaturization (as in commercial fitness trackers), but on data accuracy and reliability. The device was designed under strict requirements: low BOM cost, design repeatability, and long battery life.
 
-## Что было сделано:
+## What Was Done:
 
-   1. Оптика и физика процесса:
-   * Рассчитана и подобрана оптическая схема взаимного расположения светодиодов и фотоприемников.
-      * Подобраны компоненты с правильной длиной волны для глубокого анализа прозрачности кожи и сосудов.
-   2. Схемотехника и Hardware:
-   * Спроектирована и изготовлена тестовая плата датчиков.
-      * На борту: оптический сенсор, IMU-датчик (акселерометр/гироскоп для фильтрации артефактов движения) и датчик температуры.
-      * Разработана архитектура финального браслета в виде двухплатного «бутерброда» под будущий корпус.
-   3. Software & Firmware:
-   * Написан первичный код (драйверы периферии, опрос датчиков).
-      * Реализован протокол связи с хост-компьютером.
-      * Написана хостовая утилита на Python для сбора данных и визуализации графиков пульса в реальном времени.
-   
+1. **Optics and Physics:**
+   * Calculated and selected the optical layout for the relative positioning of LEDs and photodetectors.
+   * Selected components with optimal wavelengths for deep analysis of skin and vascular transparency.
+2. **Circuit Design & Hardware:**
+   * Designed and manufactured a sensor test board.
+   * Onboard components: optical sensor, IMU sensor (accelerometer/gyroscope for filtering motion artifacts), and a temperature sensor.
+   * Developed the final bracelet architecture as a two-board "sandwich" layout tailored for the future enclosure.
+3. **Software & Firmware:**
+   * Wrote the initial firmware (peripheral drivers, sensor polling).
+   * Implemented a communication protocol with the host computer.
+   * Built a Python host utility for data acquisition and real-time pulse waveform visualization.
 
-![Test Board](/projects/ppg/pcb-mnf.jpg)
-Изготовленная тестовая плата для первичной обкатки датчиков и софта.
+![Test Board](https://githubusercontent.com)
+Manufactured test board for initial sensor and software validation.
 <br>
-![Test Board](/projects/ppg/pcb-construction.png)
-Стадия Placement в Altium Designer. Двухплатная компоновка компонентов внутри габаритов будущего браслета. Проект заморожен прямо перед трассировкой дорожек.
+![Test Board](https://githubusercontent.com)
+Placement stage in Altium Designer. Two-board component layout within the dimensions of the future bracelet. The project was paused right before PCB routing.
 <br>
-![Test Board](/projects/ppg/screen.jpg)
-Интерфейс хост-программы на Python. Вывод сырых данных с оптического сенсора для последующего анализа пульсовой волны.
+![Test Board](https://githubusercontent.com)
+Python host application interface. Real-time raw data output from the optical sensor for subsequent pulse wave analysis.
 
-
-## Текущий статус
-На данный момент проект полностью заморожен, юридические вопросы с заказчиком в процессе решения. Плата находится в состоянии "компоновка утверждена, компоненты расставлены".
-В будущем, возможно, допаяю и разведу этот прототип уже как собственный пет-проект. Опыт в подборе оптики и фильтрации PPG-сигналов [1] получился отличный!
-Буду рад обсудить в комментариях особенности проектирования носимой медицинской электроники.
-
-
+## Current Status
+The project was paused at the prototype stage, and organizational matters with the client are currently being resolved. The sensor electronics, firmware, and real-time data acquisition software were developed and tested, while the final board is at the "placement approved, components positioned" stage.
+In the future, I may finish routing and assembling this prototype as a personal pet project. It was a great experience in optical component selection and PPG signal filtering!
+I’d be happy to discuss the nuances of wearable medical electronics design in the comments.
