@@ -109,7 +109,7 @@ table p {
     Game-engine architecture, runtime environments, programming languages, compilers, virtual machines, data-oriented systems, graphics tools, and performance engineering.
   </p>
   <p>
-    <a href="/projects/soft.md" title="Explore software projects and related articles">Explore software projects and related articles</a>
+    <a href="/projects/soft.html" title="Explore software projects and related articles">Explore software projects and related articles</a>
   </p>
 </td>
 </tr>
@@ -124,7 +124,7 @@ table p {
     Microcontroller firmware, FPGA/HDL, DSP platforms, PCB design, electronics, mechanical integration, and hardware-software prototypes.
   </p>
   <p>
-    <a href="/projects/hard.md" title="Explore hardware projects and related articles">Explore hardware projects and related articles</a>
+    <a href="/projects/hard.html" title="Explore hardware projects and related articles">Explore hardware projects and related articles</a>
   </p>  
 </td>
 </tr>
