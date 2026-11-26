@@ -7,7 +7,7 @@
 
 ---
 
-## Abstract / Введение
+## Abstract
 
 This document outlines the core architecture of **SyberEngine**, a high-performance system designed for rapid game development. It establishes the asset pipelines, data-driven execution paradigms, and tooling structures implemented to bridge the gap between engine code and content creation.
 
