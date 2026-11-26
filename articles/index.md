@@ -62,8 +62,8 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 
 ### Quick Notes
 
-- **Unity Spawning Methods (2022).** [RU](https://hww.github.io/articles/2022/unity_spawning/index/index.ru.html) · [EN](https://hww.github.io/articles/2022/unity_spawning/index)
-- **Real-Time Simulation Specifics in Unity 3D (2022).** [RU](https://hww.github.io/articles/2022/rtts_unity/index/index.ru.html) · [EN](https://hww.github.io/articles/2022/rtts_unity/index)
+- **Unity Spawning Methods (2022).** [RU](https://hww.github.io/articles/2022/unity_spawning/index.ru.html) · [EN](https://hww.github.io/articles/2022/unity_spawning/index)
+- **Real-Time Simulation Specifics in Unity 3D (2022).** [RU](https://hww.github.io/articles/2022/rtts_unity/index.ru.html) · [EN](https://hww.github.io/articles/2022/rtts_unity/index)
 
 ## Embedded Systems & Hardware
 
