@@ -1,0 +1,52 @@
+---
+title: Embedded Systems, Hardware & Integrated Systems
+description: Microcontrollers, firmware, FPGA logic, DSP, PCB design, electronics, mechanical systems, and integrated hardware-software products.
+---
+
+# Embedded Systems, Hardware & Integrated Systems
+
+Microcontrollers, firmware, FPGA logic, DSP, PCB design, electronics, mechanical systems, and prototyping.
+
+Projects are grouped by their primary engineering focus. Many combine several disciplines — for example, firmware, electronics, runtime software, and mechanical design — so cross-disciplinary projects may appear in more than one context or carry multiple topic tags.
+
+## Embedded Systems, FPGA & Hardware
+
+- **[LX-GPU — Programmable 2D Graphics Coprocessor](https://github.com/hww/lx-gpu-rtl)** — SystemVerilog RTL implementation, C++ functional emulator, and microcode toolchain. `[emulation]`
+- **[KIRA Neon](./kira_neon/)** — compact, portable, low-cost synthesizer built on a custom hardware DSP platform and powered by proprietary sound synthesis firmware developed by our team. `[firmware]`
+- **[Medical PPG Wristband Prototype](/projects/ppg/index)** — biometric sensing and embedded prototyping. `[firmware]`
+- **[KIRA SHARC DSP Module](/projects/kira_dsp_module/index)** — digital signal processing hardware. `[DSP]`
+- **[Aleste LX FPGA Computer](https://github.com/hww/aleste-lx-fpga-sv)** — FPGA implementation using SystemVerilog.
+- **[Nintendo GBA SP & DS Video Hardware](/projects/view_boy/)** — custom hardware for capturing and outputting handheld-console video.
+- **[Aleste 520 Computer Emulator](/projects/caprice32/)** — software emulation of legacy hardware. `[software]`
+- **[Nintendo 64 Hardware Debugger](/projects/n64_debugger)** — hardware-assisted console debugging.
+- **[Nintendo 64 Mini-Game](/projects/n64_game)** — low-level console development. `[software]`
+- **[Digital Signal Processing & Real-Time Audio](/projects/remis/)** — DSP firmware and audio synthesis. `[DSP]`
+- **[Pro Action Rocky Cheat Device](/projects/nintendo_cheat_device)** — low-level firmware and hardware interaction. `[firmware]`
+- **[Aleste LX Platform & BIOS Development Kit](https://github.com/hww/aleste-xi-bios)** — virtual 8-bit hardware platform, Z80 assembly BIOS, modular driver ABI, and GDB-enabled emulator. `[emulation]`
+- **[Aleste XI Computer](/projects/xialeste)** — an attempt to create the most perfect hardware implementation of Aleste EX.
+- **[Buildex — Hardware Architecture Documentation Generator](https://github.com/hww/buildex)** — Python tool generating SVG diagrams, register maps, and validated Markdown specs from YAML. `[software]`
+- **[Magic Sound STM Player — Z80 Disassembly](https://github.com/hww/magic-sound-player)** — reverse-engineered and annotated Z80 assembly source of the 1993 4-channel DMA audio tracker player for the Aleste 520EX. `[software]`
+- **[NuBridge — RISC-V NUBUS Controller](https://github.com/hww/nubridge)** — Verilog implementation of a NuBus controller (arbiter, master, and slave) with SystemVerilog testbenches, designed for RISC-V (PicoRV32) integration.
+
+## Integrated Systems (Hardware + Software)
+
+Projects in which software architecture, embedded firmware, electronics, and mechanical design form one hardware-software system.
+
+- **[Oculus Quest 2 Haptic Feedback Rifle](/projects/ar_vr_rifle)** — VR peripheral hardware and integration. `[software]`
+- **[6DOF IMU Hand Tracking Gloves](/projects/ar_vr_gloves)** — embedded firmware and motion-sensor integration. `[software]`
+- **[Crazy Claw Emojis Arcade Game](/projects/crazy_claw_emojis)** — software for a commercial arcade product. `[software]`
+- **[Crazy Claw Rings](/projects/crazy_claw_rings)** — physics-driven arcade skill game for the amusement industry. `[software]`
+- **[Crazy Claw Junior](/projects/crazy_claw_jr)** and **[Crazy Claw Original](/projects/crazy_claw_original)** — arcade game software. `[software]`
+- **[Rocket Amusements Cabinet I/O Board v2](/projects/ra_io_board2)** and [v1](/projects/ra_io_board1) — arcade hardware and I/O integration. `[firmware]`
+- **[KIRA Neon](./kira_neon/)** — hardware DSP platform + proprietary synthesis firmware. `[firmware]`
+- **[Medical PPG Wristband Prototype](/projects/ppg/index)** — biometric sensing + embedded prototyping. `[firmware]`
+
+## Related Resources
+
+- [Articles & Technical Papers](/articles/)
+- [About Me](/about/)
+- [English CV](/resume.en)
+- [Резюме на русском](/resume.ru)
+- [GitHub repositories](https://github.com/hww)
+
+[← Return to the main portfolio](/)

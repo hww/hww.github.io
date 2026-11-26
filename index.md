@@ -25,11 +25,11 @@
 
 ---
 
-**Systems Architect · R&D Engineer · Runtime & Low-Level Specialist**
+**Systems Architect & R&D Engineer**
 
-I design software runtimes, game-engine architecture, embedded systems, and hardware-software solutions. My work spans deterministic simulation, data-oriented programming, virtual machines, compilers, FPGA development, and real-time digital signal processing.
+I design and build software and hardware systems — from runtime architectures, interpreters, compilers, and virtual machines to embedded firmware, FPGA logic, custom PCBs, and integrated prototypes.
 
-I focus on the engineering problems beneath the surface: execution models, memory layout, system boundaries, performance, and the integration of software with physical hardware.
+My work focuses on system architecture, execution models, performance, resource management, and the integration of software with physical hardware.
 
 ---
 
@@ -70,7 +70,10 @@ table img {
   display: block;
 }
 
-
+/* Заголовки */
+table h3 {
+  color: #1ec973 !important;
+}
 /* Стили для ссылок */
 table a {
   color: #198be9 !important;
@@ -97,14 +100,32 @@ table p {
 <tbody>
 <tr>
 <td width="200px">
-  <img src="/images/projects-256.png" alt="Projects"/>
+  <img src="/images/projects-soft-256.png" alt="Projects"/>
 </td>
 <td>
   <!-- Ссылка теперь оборачивает текст заголовка -->
-  <a href="/projects/" title="Projects & Engineering History">Projects & Engineering History</a>
+  <h3>Software & Runtime Systems</h3>
   <p>
-    Selected engineering projects across runtime architecture, programming languages, Unity, embedded systems, FPGA, and hardware.
+    Game-engine architecture, runtime environments, programming languages, compilers, virtual machines, data-oriented systems, graphics tools, and performance engineering.
   </p>
+  <p>
+    <a href="/projects/soft.md" title="Explore software projects and related articles">Explore software projects and related articles</a>
+  </p>
+</td>
+</tr>
+
+<tr>
+<td width="200px">
+  <img src="/images/projects-hard-256.png" alt="Projects"/>
+</td>
+<td>
+  <h3>Embedded Systems & Hardware</h3>
+  <p>
+    Microcontroller firmware, FPGA/HDL, DSP platforms, PCB design, electronics, mechanical integration, and hardware-software prototypes.
+  </p>
+  <p>
+    <a href="/projects/hard.md" title="Explore hardware projects and related articles">Explore hardware projects and related articles</a>
+  </p>  
 </td>
 </tr>
 
@@ -113,24 +134,16 @@ table p {
   <img src="./images/articles-256.png" width="200" height="200" alt="Articles"/>
 </td>
 <td>
-  <a href="/articles/" title="Articles & Technical Papers">Articles & Technical Papers</a>
+  <h3>Articles & Technical Papers</h3>
   <p>
-    Technical writing on game architecture, deterministic runtimes, performance engineering, and development practices.
+    Technical articles, architectural studies, implementation notes, and engineering experiments across software, embedded systems, and hardware.
+  </p>
+  <p>
+    <a href="/articles/" title="Browse all articles">Browse all articles</a>
   </p>
 </td>
 </tr>
 
-<tr>
-<td width="200px">
-  <img src="./images/about-me-256.png" width="200" height="200" alt="About Me"/>
-</td>
-<td>
-  <a href="/about/" title="About Me">About Me</a>
-  <p>
-    Professional background, core competencies, education, and contact information.
-  </p>
-</td>
-</tr>
 </tbody>
 </table>
 
