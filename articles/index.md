@@ -42,8 +42,7 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 
 #### Engineering Manifest — 2026
 
-- **Engineering Manifest: File & Folder Organization Standard.** [EN](https://hww.github.io/articles/2026/engineering-manifest/manifest.ru) · [EN](https://hww.github.io/articles/2026/engineering-manifest/manifest.en)
-- **Engineering Manifest: File & Folder Organization Standard.** [EN](https://hww.github.io/articles/2026/engineering-manifest/manifest.en)
+- **Engineering Manifest: File & Folder Organization Standard.** [RU](https://hww.github.io/articles/2026/engineering-manifest/manifest.ru) · [EN](https://hww.github.io/articles/2026/engineering-manifest/manifest.en)
 
 #### Unity Style Guide & Pipeline — 2022
 
@@ -57,7 +56,7 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 
 ### Graphics, Performance & VR
 
-- **Sweet Spot для GPU: правила оптимизации графики под мобильные платформы (2022).** [RU](https://hww.github.io/articles/2022/vr_gpu/index.ru.html) · [EN](https://hww.github.io/articles/2022/vr_gpu/)
+- **GPU Sweet Spot: Graphics Optimization Rules for Mobile Platforms (2022).** [RU](https://hww.github.io/articles/2022/vr_gpu/index.ru.html) · [EN](https://hww.github.io/articles/2022/vr_gpu/)
 - **Oculus Quest Performance: Engineering Techniques for Mobile VR Optimization (2022).** [RU](https://hww.github.io/articles/2022/vr_oculus/index.ru.html) · [EN](https://hww.github.io/articles/2022/vr_oculus/)
 - **The Art of Motion: How Animation Shapes Game Design and How to Perfect It (2020).** [RU](https://hww.github.io/articles/2020/gd/index.ru.html) · [EN](https://hww.github.io/articles/2020/gd/)
 
@@ -71,7 +70,6 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 Microcontroller firmware, FPGA/HDL, DSP, electronics, PCB design, signal integrity, and hardware prototyping.
 
 - **OOP on the Z80: Structures, vtables, and Types Without Overhead** — notes on an abandoned Lisp meta-assembler project for the Zilog Z80 that knew about types, covering driver vtables, compile-time type offsets, and virtual method dispatch on an 8-bit machine. [EN](https://hww.github.io/articles/2026/z80_oop/en/) · [RU](https://hww.github.io/articles/2026/z80_oop/ru/)
-- **ООП на Z80: структуры, vtable и типы без накладных расходов** — заметки о брошенном проекте Lisp-метаассемблера для Zilog Z80, который знал про типы: драйверные vtable, смещения полей на этапе компиляции и виртуальные методы на 8-битной машине. [RU](https://hww.github.io/articles/2026/z80_oop/ru/) · [EN](https://hww.github.io/articles/2026/z80_oop/en/)
 
 ## Cross-Disciplinary Engineering
 
