@@ -1,263 +1,263 @@
-# В поисках потерянного детерминизма: Проектируем изолированный игровой рантайм на C# по канонам Naughty Dog
+# In Search of Lost Determinism: Designing an Isolated C# Game Runtime According to Naughty Dog's Canons
 
-> 20.08.2026, Валерия Пудова, hww.github.io 
+> 20.08.2026, Valeria Pudova, hww.github.io
 > ![JackDaxter](images/Jak-Daxter-IMDb.webp)
 
-## Введение: Иллюзия контроля в современных движках
+## Introduction: The Illusion of Control in Modern Engines
 
-Большинство современных игровых движков, включая Unity, предлагают компонентно-ориентированный подход, где визуальное представление объекта жестко связано с его логикой. Однако за удобство редактора приходится платить тремя фундаментальными проблемами:
+Most modern game engines, including Unity, offer a component-oriented approach where an object's visual representation is tightly coupled to its logic. However, this convenience of the editor comes at the cost of three fundamental problems:
 
-   1. Недетерминизм вызовов: Порядок выполнения стандартных обновлений (Update) между сотнями объектов не гарантирован, что делает рантайм непредсказуемым.
-   2. Размытый жизненный цикл: Родные менеджеры потоков и корутин работают как «черный ящик». Вы не можете развернуть время вспять, заморозить изолированную группу задач или предсказать точный кадр переключения логики.
-   3. Связанность с визуальной сценой: Иерархия объектов в коде вынуждена повторять физическую структуру сцены.
+   1. Non-determinism of calls: The execution order of standard updates (Update) between hundreds of objects is not guaranteed, which makes the runtime unpredictable.
+   2. Blurred lifecycle: Native thread managers and coroutines operate as a "black box." You cannot rewind time, freeze an isolated group of tasks, or predict the exact frame when logic switches.
+   3. Coupling to the visual scene: The object hierarchy in code is forced to mirror the physical structure of the scene.
 
-Главный тезис этой архитектуры: Дерево логических процессов не обязано и не должно совпадать с деревом визуальной сцены.
+The central thesis of this architecture: The tree of logical processes does not have to and should not coincide with the tree of the visual scene.
 
-Для достижения 100% детерминизма исполнения, lock-step синхронизации или реализации честной системы реплеев логический рантайм должен быть полностью изолирован. Мы изолируем его в виде кастомного диспетчера процессов, вдохновленного идеями движков серий Crash Bandicoot и Jak and Daxter (компиляторная среда GOAL/OpenGOAL), где каждый игровой элемент — это предсказуемый микропроцесс со строго контролируемым жизненным циклом
+To achieve 100% execution determinism, lock-step synchronization, or an honest replay system, the logical runtime must be fully isolated. We isolate it as a custom process dispatcher inspired by the ideas of the Crash Bandicoot and Jak and Daxter engine series (the GOAL/OpenGOAL compiler environment), where each game element is a predictable microprocess with a strictly controlled lifecycle.
 
-## Глава 1 Макроархитектура: Плоские бакеты против Иерархических деревьев
+## Chapter 1 Macroarchitecture: Flat Buckets vs. Hierarchical Trees
 
-При проектировании изолированного рантайма разработчик сталкивается с выбором структуры хранения активных задач: плоские бакеты (группы) или иерархическое дерево.
-На первый взгляд это противоположные подходы, но в реальности иерархическая система процессов является генерализацией (супермножеством) плоской бакетной системы. Иерархическая система позволяет создавать объекты иерархии, которые объединяют в себе то, что внутри является бакетом.
+When designing an isolated runtime, the developer faces a choice of how to store active tasks: flat buckets (groups) or a hierarchical tree.
+At first glance, these are opposite approaches, but in reality, a hierarchical process system is a generalization (superset) of a flat bucket system. A hierarchical system allows you to create hierarchy objects that combine what is internally a bucket.
 
-|*Process Buckets: Плоская бакетная система, Process Tree: Иерархическая система процессов*|
+|*Process Buckets: Flat bucket system, Process Tree: Hierarchical process system*|
 |--|
-|![Варианты обновления процессов](images/ra_dev_notes_buckets.drawio.png)|
+|![Process update options](images/ra_dev_notes_buckets.drawio.png)|
 
-### 1.1 Сравнительный анализ подходов через призму детерминизма
+### 1.1 Comparative Analysis of Approaches Through the Lens of Determinism
 
-| Критерий | Плоские бакеты (Flat Buckets) | Иерархическое дерево процессов (ProcessTree) |
+| Criterion | Flat Buckets | Hierarchical Process Tree (ProcessTree) |
 | -- | -- | -- |
-| Суть структуры | Массив или плоский список объектов, разбитый по фазам (AI, Physics, UI). | Граф (дерево), где узел хранит ссылки на parent, child и brother. |
-| Контроль порядка | Идеальный детерминизм внутри одного бакета (строго по индексу массива). | Детерминизм определяется строгим алгоритмом обхода дерева (например, DFS — Parents Before Children). |
-| Связи объектов | Объекты изолированы. Логические связи (кто чей спутник/оружие) приходится хранить в виде внешних ID. | Логические связи заложены в саму структуру рантайма. Оружие — это дочерний процесс персонажа. |
-| Дистрибуция событий | Каждому объекту сообщение шлется напрямую или через глобальный бродкаст. | Направленная дистрибуция. Сообщение спускается по ветке иерархии процессов. |
-| Управление ресурсами | При удалении родителя нужно вручную итерировать и зачищать списки зависимых объектов в бакетах. | Каскадное отсечение. Если родитель переходит в статус dead, вся его дочерняя ветка мгновенно исключается из рантайма. |
-| Затраты на итерацию | Низкие | Средние |
+| Nature of the structure | An array or flat list of objects, divided by phases (AI, Physics, UI). | A graph (tree) where a node stores references to parent, child, and brother. |
+| Order control | Ideal determinism within a single bucket (strictly by array index). | Determinism is determined by a strict tree traversal algorithm (e.g., DFS — Parents Before Children). |
+| Object relationships | Objects are isolated. Logical relationships (who is whose satellite/weapon) have to be stored as external IDs. | Logical relationships are embedded in the runtime structure itself. A weapon is a child process of the character. |
+| Event distribution | Each object is sent a message directly or via global broadcast. | Directed distribution. A message descends along the hierarchy branch of processes. |
+| Resource management | When a parent is deleted, dependent objects in buckets must be manually iterated and cleaned up. | Cascading pruning. If a parent transitions to dead status, its entire child branch is instantly excluded from the runtime. |
+| Iteration cost | Low | Medium |
 
-Иерархическая система позволяет использовать корневые или промежуточные узлы дерева в качестве изолированных бакетов (например, выделить ветки default pool, camera pool, target pool, entity pool, display pool).
+The hierarchical system allows root or intermediate tree nodes to be used as isolated buckets (e.g., to allocate default pool, camera pool, target pool, entity pool, display pool branches).
 
-![Иерархическая система процессов альтернативное исполнение](images/ar_dev_notes_tree_execution_1.drawio.png)
-*Вариант A: Исполнение корневого процесса*
+![Hierarchical process system alternative execution](images/ar_dev_notes_tree_execution_1.drawio.png)
+*Option A: Root process execution*
 
-При этом каждый бакет (или поддерево) получает возможность работать изолированно. Дерево процессов может доставлять сообщения по иерархии, искать объекты по иерархии, но это будет именно управляемая иерархия процессов, а не иерархия визуальных схем сцены
+At the same time, each bucket (or subtree) gains the ability to operate in isolation. The process tree can deliver messages through the hierarchy, search for objects through the hierarchy, but this will be a managed hierarchy of processes, not a hierarchy of visual scene graphs.
 
-### 1.2 Реализация компактного дерева: Структура из трех указателей
+### 1.2 Implementing a Compact Tree: The Three-Pointer Structure
 
-Классическое представление иерархии через списки дочерних элементов (например, List<Process> children) не подходит для детерминированного Zero GC рантайма. Динамические списки неизбежно порождают скрытые аллокации памяти в куче при изменении структуры дерева, а также размывают кэш процессора, распределяя узлы по разным адресам.
-Элегантным низкоуровневым решением этой проблемы является организация структуры дерева процессов всего на трех фиксированных указателях (ссылках) внутри каждого объекта ProcessTree:
+The classic representation of a hierarchy through child lists (e.g., List<Process> children) is not suitable for a deterministic Zero GC runtime. Dynamic lists inevitably generate hidden heap allocations when the tree structure changes, and they also blur the CPU cache by distributing nodes across different addresses.
+An elegant low-level solution to this problem is to organize the process tree structure using just three fixed pointers (references) inside each ProcessTree object:
 
-* parent — прямая ссылка на родительский узел верхнего уровня.
-* child — ссылка на первого (старшего) ребенка в локальной группе.
-* sibling (или brother) — ссылка на следующий соседний узел (брата) того же уровня.
+* parent — a direct reference to the parent node of the upper level.
+* child — a reference to the first (eldest) child in the local group.
+* sibling (or brother) — a reference to the next neighboring node (brother) of the same level.
 
 ```cs
 public abstract class ProcessTree 
 {
     protected ProcessTree parent;
-    protected ProcessTree firstChild;   // Старший ребенок в группе
-    protected ProcessTree nextSibling;  // Следующий соседний узел (брат)
+    protected ProcessTree firstChild;   // Eldest child in the group
+    protected ProcessTree nextSibling;  // Next neighboring node (brother)
 }
 ```
 
 ![Parent Child Sibling Tree](images/parent-child-sibling.drawio.png)
 
-### 1.3 Технические преимущества подхода
+### 1.3 Technical Advantages of the Approach
 
-   1. Фиксированный размер памяти: Каждый узел весит строго одинаково. Структура дерева полностью статична с точки зрения выделения памяти, что исключает фрагментацию кучи при добавлении или удалении сотен объектов в кадре.
-   2. Эффективность обхода: Алгоритмы детерминированной итерации (такие как DFS — обход в глубину) реализуются в виде простых циклов while, которые последовательно переходят по ссылкам child и sibling. Это работает на максимальной скорости CPU без создания промежуточных итераторов и накладных расходов.
+   1. Fixed memory size: Each node weighs strictly the same. The tree structure is completely static from a memory allocation perspective, which eliminates heap fragmentation when adding or removing hundreds of objects in a frame.
+   2. Traversal efficiency: Deterministic iteration algorithms (such as DFS — depth-first traversal) are implemented as simple while loops that sequentially follow child and sibling references. This runs at maximum CPU speed without creating intermediate iterators or overhead.
 
-## Глава 2 Анатомия детерминированного обхода: Правила итерации
+## Chapter 2 Anatomy of Deterministic Traversal: Iteration Rules
 
-Чтобы обход дерева процессов был строго детерминированным и не порождал сайд-эффектов (когда объект, обновленный раньше, меняет состояние объекта, обновляемого позже, непредсказуемым образом), рантайм использует фиксированные типы обхода на базе функций высшего порядка.
+To ensure that process tree traversal is strictly deterministic and does not produce side effects (when an object updated earlier changes the state of an object updated later in an unpredictable way), the runtime uses fixed traversal types based on higher-order functions.
 
-### 2.1 Основные паттерны обхода
+### 2.1 Main Traversal Patterns
 
-* PBC (Parents Before Children): Сначала выполняется функция для процесса, а затем для всех его детей. Выполнение терминируется, если процесс возвращает ошибку ErrorCode.InvalidReturn. Если родитель в текущем кадре переходит в статус dead, рантайм мгновенно прекращает спуск по его ветке, гарантируя, что «осиротевшие» объекты не выполнят логику в полуразрушенном состоянии.
-* PBCH (Parents Before Children Ignore Top): Пропускает топовый процесс дерева, выполняя обход PBC для всех дочерних поддеревьев.
-* CBP (Children Before Parents): Сначала функция выполняется для всех детей, и только затем для самого родительского процесса.
-* CBPH (Children Before Parents Ignore Top): Обход CBP с игнорированием корневого узла.
+* PBC (Parents Before Children): The function is first executed for the process, and then for all its children. Execution terminates if the process returns an error ErrorCode.InvalidReturn. If the parent transitions to dead status in the current frame, the runtime instantly stops descending into its branch, guaranteeing that "orphaned" objects will not execute logic in a half-destroyed state.
+* PBCH (Parents Before Children Ignore Top): Skips the top process of the tree, executing PBC traversal for all child subtrees.
+* CBP (Children Before Parents): The function is first executed for all children, and only then for the parent process itself.
+* CBPH (Children Before Parents Ignore Top): CBP traversal with the root node ignored.
 
-Процесс выполнения дерева может идти строго последовательно от родительских узлов к дочерним группами (букетами).
+Process execution of the tree can proceed strictly sequentially from parent nodes to child groups (buckets).
 
-![Варианты обхода](images/figure12_updating_the_process_tree.png)
+![Traversal options](images/figure12_updating_the_process_tree.png)
 
-При необходимости главный цикл может эксклюзивно выполнять определенные изолированные узлы, чтобы более точно контролировать порядок вызовов на макроуровне.
+If necessary, the main loop can exclusively execute certain isolated nodes to more precisely control the order of calls at the macro level.
 
-![Иерархическая система процессов альтернативное исполнение](images/ar_dev_notes_tree_execution_2.drawio.png)
-*Вариант B: Прямое исполнение дочерних эдементов*
+![Hierarchical process system alternative execution](images/ar_dev_notes_tree_execution_2.drawio.png)
+*Option B: Direct execution of child elements*
 
-### 2.2 Битовые маски процессов: Многократный обход и контекстная фильтрация
+### 2.2 Process Bitmasks: Multiple Traversal and Contextual Filtering
 
-Дерево процессов в рамках одного кадра может обходиться рантаймом не один, а несколько раз — в зависимости от текущей системной задачи или фазы игрового цикла. Каждая итерация запускается под конкретное глобальное событие:
+The process tree may be traversed by the runtime not once but several times within a single frame — depending on the current system task or game loop phase. Each iteration is launched for a specific global event:
 
-* Основное обновление логики (Update-loop).
-* Физический шаг дискретизации времени (FixedUpdate-loop).
-* Позднее обновление анимаций и камер (PostUpdate-loop).
-* Системные сквозные операции (например, каскадный сбор данных для создания детерминированного с Snapshot'а сохранения игры).
+* Main logic update (Update-loop).
+* Physics time discretization step (FixedUpdate-loop).
+* Late animation and camera update (PostUpdate-loop).
+* System cross-cutting operations (e.g., cascading data collection to create a deterministic game save Snapshot).
 
-При многократном обходе рантайм обязан мгновенно отсекать узлы, которые не должны реагировать на текущее событие. Для этого у каждого процесса Process есть маска процесса (Process Mask) — 32- или 64-битное поле, где каждый бит кодирует определенные свойства, назначение или тайм-домен объекта.
+During multiple traversal, the runtime must instantly prune nodes that should not react to the current event. For this, each Process has a process mask (Process Mask) — a 32- or 64-bit field where each bit encodes certain properties, purpose, or time domain of the object.
 
-С технической точки зрения планировщик при вызове очередного цикла обновления получает текущую системную маску (например, маску блокировки). Для каждого узла дерева процессов итератор производит побитовую операцию AND (логическое И) между системной маской и маской самого процесса. Если результат не равен нулю ((process.Mask & currentMask) != 0), это означает пересечение блокирующих флагов, и планировщик полностью игнорирует данный процесс и всю его ветку, мгновенно переходя к следующему узлу.
+From a technical standpoint, when the scheduler invokes the next update cycle, it receives the current system mask (e.g., the blocking mask). For each process tree node, the iterator performs a bitwise AND (logical AND) between the system mask and the process's own mask. If the result is non-zero ((process.Mask & currentMask) != 0), this means an intersection of blocking flags, and the scheduler completely ignores this process and its entire branch, instantly moving to the next node.
 
-### 2.3 Исторический контекст: Низкоуровневые маски в OpenGOAL
+### 2.3 Historical Context: Low-Level Masks in OpenGOAL
 
-В оригинальной архитектуре движков серий Crash Bandicoot и Jak and Daxter от Naughty Dog эта система оперировала низкоуровневыми состояниями памяти и специфическими геймплейными сущностями PlayStation 2.
+In the original architecture of the Crash Bandicoot and Jak and Daxter engine series by Naughty Dog, this system operated with low-level memory states and specific gameplay entities of the PlayStation 2.
 
-В современной практике проектирования изолированных рантаймов на C# эта концепция сохраняет свою математическую скорость, но эволюционирует в гораздо более читаемую, структурированную и расширяемую систему категорий:
+In modern practice of designing isolated runtimes in C#, this concept retains its mathematical speed but evolves into a much more readable, structured, and extensible system of categories:
 
 ```cs
 using System;
-/// <summary>/// Маски для категоризации процессов и управления поведением./// Используются для фильтрации, запросов и контроля поведения./// </summary>
+/// <summary>/// Masks for categorizing processes and controlling behavior./// Used for filtering, queries, and behavior control./// </summary>
 [Flags]public enum ProcessMask
 {
-    /// <summary>Нет флагов - состояние по умолчанию</summary>
+    /// <summary>No flags - default state</summary>
     None = 0,
 
     // =======================================================================
-    // CORE BEHAVIOR FLAGS (базовое поведение)
+    // CORE BEHAVIOR FLAGS (basic behavior)
     // =======================================================================
 
-    /// <summary>Процесс отключен и не выполняет логику</summary>
+    /// <summary>Process is disabled and does not execute logic</summary>
     Disabled = 1 << 0,
 
-    /// <summary>Процесс спит - пропускает обновление, но остается в памяти</summary>
+    /// <summary>Process is sleeping - skips update but remains in memory</summary>
     Sleeping = 1 << 1,
 
-    /// <summary>Процесс в переходном состоянии между состояниями</summary>
+    /// <summary>Process is in a transition state between states</summary>
     Transitioning = 1 << 2,
 
     // =======================================================================
-    // ENTITY CATEGORIES (категории сущностей)
+    // ENTITY CATEGORIES (entity categories)
     // =======================================================================
 
-    /// <summary>Процесс представляет игрока</summary>
+    /// <summary>Process represents the player</summary>
     Player = 1 << 4,
 
-    /// <summary>Процесс представляет врага</summary>
+    /// <summary>Process represents an enemy</summary>
     Enemy = 1 << 5,
 
-    /// <summary>Процесс представляет NPC</summary>
+    /// <summary>Process represents an NPC</summary>
     NPC = 1 << 6,
 
-    /// <summary>Процесс представляет интерактивный объект</summary>
+    /// <summary>Process represents an interactive object</summary>
     Interactive = 1 << 7,
 
-    /// <summary>Процесс представляет коллекционный предмет</summary>
+    /// <summary>Process represents a collectible item</summary>
     Collectible = 1 << 8,
 
-    /// <summary>Процесс представляет элемент окружения</summary>
+    /// <summary>Process represents an environment element</summary>
     Environmental = 1 << 9,
 
     // =======================================================================
-    // SYSTEM CATEGORIES (системные категории)
+    // SYSTEM CATEGORIES (system categories)
     // =======================================================================
 
-    /// <summary>Процесс управляет камерой</summary>
+    /// <summary>Process controls the camera</summary>
     Camera = 1 << 10,
 
-    /// <summary>Процесс управляет UI элементами</summary>
+    /// <summary>Process controls UI elements</summary>
     UI = 1 << 11,
 
-    /// <summary>Процесс управляет аудио</summary>
+    /// <summary>Process controls audio</summary>
     Audio = 1 << 12,
 
-    /// <summary>Процесс управляет визуальными эффектами</summary>
+    /// <summary>Process controls visual effects</summary>
     VisualEffects = 1 << 13,
 
-    /// <summary>Процесс управляет игровой логикой</summary>
+    /// <summary>Process controls game logic</summary>
     GameLogic = 1 << 14,
 
-    /// <summary>Процесс представляет игровое меню</summary>
+    /// <summary>Process represents the game menu</summary>
     GameMenu = 1 << 15,
 
     // =======================================================================
-    // BEHAVIOR MODIFIERS (модификаторы поведения)
+    // BEHAVIOR MODIFIERS (behavior modifiers)
     // =======================================================================
 
-    /// <summary>Процесс должен приостанавливаться при паузе игры</summary>
+    /// <summary>Process should pause when the game is paused</summary>
     Pausable = 1 << 16,
 
-    /// <summary>Процесс сохраняется между сценами</summary>
+    /// <summary>Process is preserved between scenes</summary>
     Persistent = 1 << 17,
 
-    /// <summary>Процесс временный и может быть очищен</summary>
+    /// <summary>Process is temporary and can be cleaned up</summary>
     Temporary = 1 << 18,
 
-    /// <summary>Процесс критический и не должен прерываться</summary>
+    /// <summary>Process is critical and must not be interrupted</summary>
     Critical = 1 << 19,
 
-    /// <summary>Сообщение о логическом завершении задачи этого состояния</summary>
+    /// <summary>Message about logical completion of this state's task</summary>
     StateTaskCompleteFlag = 1 << 20,
 
-    /// <summary>Процесс в режиме отладки</summary>
+    /// <summary>Process is in debug mode</summary>
     Debugging = 1 << 21,
 
     // =======================================================================
-    // LEGACY COMPATIBILITY (для обратной совместимости)
+    // LEGACY COMPATIBILITY (for backward compatibility)
     // =======================================================================
 
-    /// <summary>Узел дерева процессов без функциональности (легаси)</summary>
+    /// <summary>Process tree node without functionality (legacy)</summary>
     ProcessTree = 1 << 30
 }
 ```
 
-С такой структурой вызов отсечения в планировщике превращается в быструю низкоуровневую проверку на C#:
+With such a structure, the culling call in the scheduler becomes a fast low-level check in C#:
 
 ```cs
-// Если процесс содержит биты, подпадающие под текущую маску блокировки/игнорирования
+// If the process contains bits matching the current blocking/ignoring mask
 if ((currentExecutionMask & process.Mask) != ProcessMask.None)
 {
-    // Мгновенный детерминированный пропуск вызова логики на уровне итератора кадра
+    // Instant deterministic skip of logic invocation at the frame iterator level
     return; 
 }
 ```
 
-## Глава 3 Микроуровень: Жизненный цикл и микро-нюансы смены состояний
+## Chapter 3 Microlevel: Lifecycle and Micro-Nuances of State Transitions
 
-Жизненный цикл процесса в детерминированном рантайме строго регламентирован и изолирован от изменчивой среды игрового движка. В отличие от классического компонентного подхода, каждый процесс проходит через строго контролируемую последовательность системных статусов, зафиксированных в ProcessStatus: Dead → Ready → Init → Pending → Transition → Suspended.
+The process lifecycle in a deterministic runtime is strictly regulated and isolated from the volatile environment of the game engine. Unlike the classic component approach, each process goes through a strictly controlled sequence of system statuses recorded in ProcessStatus: Dead → Ready → Init → Pending → Transition → Suspended.
 
-[Вставить Рисунок: figure10_finite_state_machine_classes]
-Каждое состояние внутри процесса содержит строго определенный набор методов (делегатов):
+[Insert Figure: figure10_finite_state_machine_classes]
+Each state inside a process contains a strictly defined set of methods (delegates):
 
-* `Enter` — вызывается при входе в состояние.
-* `Code` — корутина состояния, выступающая «главным потоком» процесса.
-* `Exit` — вызывается после выхода из состояния.
-* `Post` — вызывается каждый кадр после выполнения основного кода.
-* OnEvent — вызывается при доставке сообщения в это состояние.
+* `Enter` — called upon entering the state.
+* `Code` — the state's coroutine, acting as the process's "main thread."
+* `Exit` — called after exiting the state.
+* `Post` — called every frame after the main code execution.
+* OnEvent — called when a message is delivered to this state.
 
-Рассмотрим микро-нюансы работы функции перехода go(NewState):
+Let's examine the micro-nuances of the transition function go(NewState):
 ![Switching State7](images/ra_dev_notes_go_state_from_main_thread.drawio.png)
 
-### 3.1 Метод Finalize
+### 3.1 The Finalize Method
 
-Изучение эволюции проприетарных технологий Naughty Dog показывает, что проблема прерывания логики в фазе инициализации оставалась актуальной и после отказа от языка GOAL. В более поздней C++ архитектуре движка, на которой создавалась серия игр Uncharted, в жизненный цикл состояний был добавлен еще один специализированный делегат — Finalize.
+A study of the evolution of Naughty Dog's proprietary technologies shows that the problem of interrupting logic in the initialization phase remained relevant even after abandoning the GOAL language. In the later C++ engine architecture used to create the Uncharted series, another specialized delegate was added to the state lifecycle — Finalize.
 
-#### 3.1.1 Зачем понадобился Finalize?
+#### 3.1.1 Why Was Finalize Needed?
 
-В классической схеме Exit → Enter → Code предполагается, что если состояние инициализировалось в Enter(), то очистку за ним выполнит зеркальный метод Exit(). Однако, если внутри Enter() срабатывает триггер мгновенного перехода go() в совершенно другое состояние, стандартный метод Exit() текущего стейта вызван не будет, так как процесс физически еще не закрепился в этом состоянии.
-Это создавало опасную уязвимость для детерминированного рантайма:
+The classic scheme Exit → Enter → Code assumes that if a state was initialized in Enter(), the mirror method Exit() will perform cleanup for it. However, if an immediate transition trigger go() fires inside Enter() to a completely different state, the standard Exit() method of the current state will not be called, since the process has not physically settled into this state yet.
+This created a dangerous vulnerability for a deterministic runtime:
 
-* Если внутри Enter() успела выделиться память, создалось локальное соединение или прокси-объект захватил ресурс сцены, а затем произошел мгновенный сброс контекста — эти ресурсы зависали в памяти навседель, порождая скрытые утечки.
+* If memory was allocated inside Enter(), a local connection was created, or a proxy object captured a scene resource, and then an instant context reset occurred — these resources would hang in memory forever, causing hidden leaks.
 
-#### 3.1.2 Механика работы Finalize
+#### 3.1.2 Mechanics of Finalize
 
-Делегат Finalize выполняет роль аварийного финализатора контекста. Он вызывается планировщиком только в одном специфическом сценарии: когда процесс запрашивает переключение в другое состояние, находясь непосредственно внутри фазы Enter() текущего.
+The Finalize delegate acts as an emergency context finalizer. It is called by the scheduler only in one specific scenario: when a process requests a switch to another state while directly inside the Enter() phase of the current state.
 
-Наличие Finalize гарантирует, что даже если состояние просуществовало ничтожную долю миллисекунды и было прервано на взлете, рантайм детерминированно закроет все ресурсы, которые этот стейт успел развернуть, сохраняя абсолютную чистоту Zero-GC пулов памяти.
+The presence of Finalize guarantees that even if a state existed for a negligible fraction of a millisecond and was interrupted mid-flight, the runtime will deterministically close all resources that this state managed to deploy, maintaining absolute purity of Zero-GC memory pools.
 
-### 3.2 Микро-нюансы и правила рантайма
+### 3.2 Micro-Nuances and Runtime Rules
 
-* Место вызова go() решает всё:
-* Вызов go() из основного потока Code: Переход происходит немедленно внутри текущего кадра. Код ниже инструкции go() в этой же функции прерывается. Рантайм останавливает текущую корутину, мгновенно вызывает метод Exit() старого состояния, переключает контекст на новое состояние, выполняет метод Enter() нового состояния и запускает его корутину Code до первого прерывания (suspend).
-  * Вызов go() из побочных методов (Init, Trans, Post, Exit, OnEvent): Поскольку эти методы вызываются диспетчером рантайма снаружи, мгновенный сброс контекста невозможен. Метод go() просто сохраняет целевое состояние в переменную nextState и возвращает контроль текущему процессу. Процесс завершает выполнение текущего метода до конца его блока, и рантайм производит физическую смену состояния на следующей итерации.
-* Микро-нюансы вызова Exit:
-* Метод Exit() вызывается всегда, когда процесс штатно покидает состояние, гарантируя зачистку локальных ресурсов (отписка от событий, выключение локальной дебаг-отрисовки).
-  * Исключение: Если процесс уничтожается принудительно (переводится в статус dead из-за смерти родительского узла), выполнение ветки обрывается жестко. Очистка при смерти процесса ложится на системные методы самого объекта (OnDisable), а не на логический Exit стейта, так как стейт в этот момент уже невалиден.
-* Защита от бесконечной рекурсии (State Loop):
-* Если внутри метода Enter() нового состояния программист случайно снова вызывает go(), это может вызвать переполнение стека. Рантайм перехватывает этот переход, переводя статус процесса в специальный режим initialize-go. Это позволяет корректно закрыть стейт до запуска Code и предотвратить падение потока.
+* The place of the go() call decides everything:
+* Calling go() from the main Code thread: The transition happens immediately within the current frame. The code below the go() instruction in the same function is interrupted. The runtime stops the current coroutine, instantly calls the Exit() method of the old state, switches context to the new state, executes the Enter() method of the new state, and starts its Code coroutine up to the first interruption (suspend).
+  * Calling go() from side methods (Init, Trans, Post, Exit, OnEvent): Since these methods are called by the runtime dispatcher from outside, an instant context reset is impossible. The go() method simply saves the target state into the nextState variable and returns control to the current process. The process completes execution of the current method to the end of its block, and the runtime performs the physical state change on the next iteration.
+* Micro-nuances of the Exit call:
+* The Exit() method is always called when the process normally leaves the state, guaranteeing cleanup of local resources (unsubscribing from events, disabling local debug drawing).
+  * Exception: If the process is destroyed forcibly (transitioned to dead status due to the death of a parent node), execution of the branch is abruptly terminated. Cleanup upon process death falls on the object's own system methods (OnDisable), not on the logical Exit of the state, since the state is already invalid at that moment.
+* Protection against infinite recursion (State Loop):
+* If inside the Enter() method of the new state the programmer accidentally calls go() again, this may cause a stack overflow. The runtime intercepts this transition, putting the process status into a special initialize-go mode. This allows the state to be properly closed before Code starts and prevents the thread from crashing.
 
-Внутренне состояние процессо сохрнаняется в переменной status и участвует в процессе принятия решений планировщиа и методов управления процессом.
+The internal state of the process is stored in the status variable and participates in the scheduler's decision-making process and process management methods.
 
 ```cs
    /// <summary>
@@ -325,28 +325,28 @@ if ((currentExecutionMask & process.Mask) != ProcessMask.None)
    }
    ```
 
-## Глава 4 Анатомия контейнера данных: Полиморфизм, Типизация и Object Pooling
+## Chapter 4 Anatomy of the Data Container: Polymorphism, Typing, and Object Pooling
 
-Само сообщение по своей сути является легковесным транспортным контейнером данных, который переносит контекст события от источника к адресату. При реализации этой системы на C# использование оператора new для создания сообщений внутри игрового цикла категорически запрещено, так как перманентная аллокация в куче (heap) мгновенно приведет к микро-фризам рантайма из-за сборщика мусора (Garbage Collector).
-Чтобы совместить гибкость объектно-ориентированного программирования с требованием Zero GC, архитектура опирается на абстрактный базовый класс сообщений с обязательной поддержкой переиспользования памяти через пулы объектов (Object Pooling).
+A message itself is essentially a lightweight transport data container that carries the context of an event from source to destination. When implementing this system in C#, using the new operator to create messages inside the game loop is strictly forbidden, as permanent heap allocation will instantly lead to micro-freezes of the runtime due to the Garbage Collector.
+To combine the flexibility of object-oriented programming with the Zero GC requirement, the architecture relies on an abstract base message class with mandatory support for memory reuse through object pools (Object Pooling).
 
-### 4.1 Базовый контракт сообщения
+### 4.1 Base Message Contract
 
-Каждое сообщение в системе наследуется от единого корня, который хранит метаданные, необходимые для отладки, маршрутизации и утилизации:
+Every message in the system inherits from a single root that stores metadata necessary for debugging, routing, and disposal:
 
 ```cs
 using UnityEngine;
 public abstract class Message
 {
-    /// <summary>Процесс-отправитель сообщения (опционально)</summary>
+    /// <summary>Process that sent the message (optional)</summary>
     public Process Sender;
 
-    /// <summary>Время создания сообщения для отладки и профилирования (Time.time)</summary>
+    /// <summary>Message creation time for debugging and profiling (Time.time)</summary>
     public readonly float CreateTime = Time.time;
 
     /// <summary>
-    /// Сброс состояния объекта для безопасного возврата в пул (Object Pooling).
-    /// Все наследники обязаны переопределять этот метод для зачистки своих тяжелых полей.
+    /// Resets the object state for safe return to the pool (Object Pooling).
+    /// All descendants must override this method to clean up their heavy fields.
     /// </summary>
     public virtual void Reset() => Sender = null;
 
@@ -354,19 +354,19 @@ public abstract class Message
 }
 ```
 
-### 4.2 Реализация конкретного сообщения: Контекст управления камерой
+### 4.2 Implementing a Concrete Message: Camera Control Context
 
-На практике сообщения разделяются по доменам логики. Ниже приведен пример реализации высокоуровневого сообщения CameraSwitchMessage, управляющего поведением и режимами следования игровой камеры.
-Обратите внимание на использование статических фабричных методов (инкапсулирующих сборку объекта) и жесткую валидацию через Debug.Assert, что критически важно для поддержания стабильности детерминированного рантайма:
+In practice, messages are divided by logic domains. Below is an example implementation of a high-level CameraSwitchMessage that controls the behavior and following modes of the game camera.
+Note the use of static factory methods (encapsulating object assembly) and strict validation via Debug.Assert, which is critically important for maintaining the stability of a deterministic runtime:
 
 ```cs
 using UnityEngine;
 /// <summary>
-/// Все сообщения камеры.
+/// All camera messages.
 /// </summary>
 public class CameraMessage : Message{}
 /// <summary>
-/// Сообщение для переключения режимов и управления поведением камеры.
+/// Message for switching camera modes and controlling camera behavior.
 /// </summary>
 public class CameraSwitchMessage : CameraMessage 
 {
@@ -382,18 +382,18 @@ public class CameraSwitchMessage : CameraMessage
     public Transform Transform;
     public Vector3 Position;
 
-    // Константы для быстрого доступа из внешних контекстов без раздувания синтаксиса
+    // Constants for quick access from external contexts without bloating syntax
     public const SwitchType Idle = SwitchType.Idle;
     public const SwitchType FreeCamera = SwitchType.FreeCamera;
     public const SwitchType OrbitCamera = SwitchType.OrbitCamera;
 
     // =======================================================================
-    // ФАБРИЧНЫЕ МЕТОДЫ (Вызываются при извлечении объекта из пула)
+    // FACTORY METHODS (Called when retrieving an object from the pool)
     // =======================================================================
 
     public static CameraSwitchMessage WithSwitch(SwitchType switchType)
     {
-        // В реальном рантайме здесь будет вызов: var msg = MessagePool<CameraSwitchMessage>.Spawn();
+        // In the real runtime there will be a call: var msg = MessagePool<CameraSwitchMessage>.Spawn();
         return new CameraSwitchMessage()
         {
             Switch = switchType,
@@ -404,87 +404,87 @@ public class CameraSwitchMessage : CameraMessage
     }
 
     // =======================================================================
-    // ЖИЗНЕННЫЙ ЦИКЛ ПАМЯТИ
+    // MEMORY LIFECYCLE
     // =======================================================================
 
     public override void Reset()
     {
-        base.Reset(); // Сбрасываем поле Sender в базовом классе Message
+        base.Reset(); // Reset the Sender field in the base Message class
         Switch = default;
         Transform = null;
         Entity = null;
-        // Поле Position затирается фабриками при следующем Spawn, 
-        // но обнуление ссылочных типов (Transform, Entity) критически важно для предотвращения утечек памяти!
+        // The Position field is overwritten by factories on the next Spawn, 
+        // but nulling reference types (Transform, Entity) is critically important for preventing memory leaks!
     }
 }
 ```
 
-Благодаря такой структуре, когда диспетчер в конце кадра завершает трансляцию CameraSwitchMessage по дереву процессов, он вызывает метод Reset() и возвращает экземпляр сообщения в пул класса. Ссылки на Unity-компоненты (Transform, Entity) мгновенно зануляются, что полностью страхует рантайм от утечек памяти и "зомби-объектов", которые могли бы удерживаться в памяти уничтоженными сценами.
+Thanks to this structure, when the dispatcher finishes broadcasting CameraSwitchMessage through the process tree at the end of the frame, it calls the Reset() method and returns the message instance to the class pool. References to Unity components (Transform, Entity) are instantly nulled, which fully protects the runtime from memory leaks and "zombie objects" that could be held in memory by destroyed scenes.
 
-### 4.3 Механика диспетчеризации: Атомарность переходов и Топологическое вещание
+### 4.3 Dispatch Mechanics: Atomicity of Transitions and Topological Broadcasting
 
-Когда сообщение извлекается из очереди и передается целевому объекту, управление переходит к базовым методам доставки класса Process. В детерминированном рантайме этот этап является критическим шлюзом. Процесс имеет право реагировать на внешние раздражители только тогда, когда он находится в стабильном состоянии, а его контекст исполнения на 100% предсказуем.
-Ниже приведен эталонный системный код из ядра рантайма, реализующий доставку и каскадное вещание сообщений по дереву процессов:
+When a message is retrieved from the queue and passed to the target object, control passes to the base delivery methods of the Process class. In a deterministic runtime, this stage is a critical gateway. A process has the right to react to external stimuli only when it is in a stable state and its execution context is 100% predictable.
+Below is the reference system code from the runtime core that implements message delivery and cascading broadcasting through the process tree:
 
 ```cs
 #region Message System
 /// <summary>
-/// Отправляет сообщение в обработчик событий текущего состояния процесса.
-/// Гарантирует детерминированное выполнение, блокируя обработку сообщений во время критических переходов.
+/// Sends a message to the event handler of the process's current state.
+/// Guarantees deterministic execution by blocking message processing during critical transitions.
 /// </summary>
-/// <param name="message">Сообщение для обработки</param>
+/// <param name="message">Message to process</param>
 /// <returns>
-/// true - сообщение было принято и обработано обработчиком состояния,
-/// false - сообщение было отклонено (процесс не готов к обработке или нет обработчика)
+/// true - the message was accepted and processed by the state handler,
+/// false - the message was rejected (process is not ready to process or has no handler)
 /// </returns>
 /// <remarks>
 /// <para>
-/// Механизм обработки сообщений построен на принципе детерминизма — процесс реагирует на события
-/// только в стабильных состояниях, когда его контекст исполнения предсказуем.
+/// The message processing mechanism is built on the principle of determinism — the process reacts to events
+/// only in stable states when its execution context is predictable.
 /// </para>
 /// <para>
-/// Критической фазой является переход между состояниями (статус WaitingToRun). В этот момент:
-/// - Выполняется OnExit() для предыдущего состояния
-/// - Меняется текущее состояние
-/// - Выполняется OnEnter() для нового состояния
-/// Обработка сообщений во время этой операции может привести к неопределенному поведению,
-/// гонкам состояний и трудноотлаживаемым ошибкам.
+/// The critical phase is the transition between states (status WaitingToRun). At this moment:
+/// - OnExit() is executed for the previous state
+/// - The current state is changed
+/// - OnEnter() is executed for the new state
+/// Processing messages during this operation can lead to undefined behavior,
+/// state races, and hard-to-debug errors.
 /// </para>
 /// </remarks>
 public override bool SendMessage(Message message)
 {
-    // Процесс не имеет активного состояния (не инициализирован, завершен или состояние не имеет обработчика)
+    // The process has no active state (not initialized, completed, or the state has no handler)
     if (state == null)
     {
-        // Логируем только если уровень логирования позволяет видеть транзитивные состояния
+        // Log only if the logging level allows seeing transitive states
         if (LogLevel > LogLevel.Trans)
             Debug.Log($"[Process] Ignoring event {message} - no event handler");
 
-        // Сообщение не может быть обработано из-за отсутствия контекста
+        // The message cannot be processed due to missing context
         return false;
     }
 
-    // Детальное логирование для отладки потока сообщений
+    // Detailed logging for debugging the message flow
     if (LogLevel > LogLevel.Status)
         Debug.Log($"[Process] Send event {message}");
 
-    // КРИТИЧЕСКИ ВАЖНАЯ ПРОВЕРКА:
-    // Если процесс находится в состоянии перехода (WaitingToRun), все входящие сообщения игнорируются.
-    // Это обеспечивает атомарность переходов и предотвращает:
-    // - Попытки обработки сообщений неактуальным состоянием
-    // - Вмешательство в работу OnExit()/OnEnter()
-    // - Наложение асинхронных операций во время смены контекста
+    // CRITICALLY IMPORTANT CHECK:
+    // If the process is in a transition state (WaitingToRun), all incoming messages are ignored.
+    // This ensures atomicity of transitions and prevents:
+    // - Attempts to process messages by an outdated state
+    // - Interference with OnExit()/OnEnter()
+    // - Overlapping asynchronous operations during context switching
     if (IsWaitingToRun)
     {
-        // На этом уровне логирования видно игнорирование сообщений (важно для отладки deadlocks)
+        // At this logging level, ignoring messages is visible (important for debugging deadlocks)
         if (LogLevel > LogLevel.Trans)
             Debug.Log($"[Process] Ignoring event {message} - process is transitioning states");
 
         return false;
     }
 
-    // Процесс в стабильном состоянии (Suspended) - сообщение передается в обработчик текущего состояния
-    // Возвращаемый результат указывает, было ли сообщение обработано обработчиком состояния
+    // The process is in a stable state (Suspended) - the message is passed to the current state's handler
+    // The returned result indicates whether the message was processed by the state handler
     if (state.Event != null)
         return state.Event.Invoke(this, message);
     return false;
@@ -530,7 +530,7 @@ public override bool BroadcastMessageToDirectChildren(Message message)
     {
         if (child is Process childProcess)
         {
-            // Отправляем только прямым детям, без рекурсии
+            // Send only to direct children, without recursion
             result |= childProcess.SendMessage(message);
         }
         child = child.nextSibling;
@@ -540,114 +540,114 @@ public override bool BroadcastMessageToDirectChildren(Message message)
 #endregion
 ```
 
-### 4.4 Глубокий разбор системной логики
+### 4.4 Deep Dive into System Logic
 
-1. Защита транзитивной фазы (IsWaitingToRun):
-   Самая частая причина багов в кастомных стейт-машинах игровых движков — это попытка объекта среагировать на событие в тот момент, когда он выполняет логику Exit или Enter. Например, в момент взрыва босс переходит в состояние смерти, и в эту же наносекунду ему прилетает сообщение о дополнительном уроне от периодического эффекта (DoT). Без проверки IsWaitingToRun объект попытался бы повторно обработать урон в контексте старого стейта, порождая каскадный сбой. Игнорирование сообщений в фазе WaitingToRun гарантирует атомарность смены стейтов.
-2. Маршрутизация по топологии дерева:
-   Методы BroadcastMessageToChildren и BroadcastMessageToDirectChildren наглядно иллюстрируют, как дерево процессов заменяет собой глобальные шины данных. Мы можем точечно отправить сообщение родительскому процессу (например, SquadProcess — процесс отряда), и оно детерминировано, предсказуемо и без лишних аллокаций спустится по ссылкам firstChild -> nextSibling строго до нужных дочерних юнитов.
-3. Поглощение и булев результат:
-   Обратите внимание на побитовое сложение результатов (result |= ...). Система точно знает, затухло ли сообщение в пустоте или хотя бы один узел в иерархии процессов успешно перехватил и обработал событие (state.Event.Invoke).
+1. Protection of the transitive phase (IsWaitingToRun):
+   The most common cause of bugs in custom state machines of game engines is an object attempting to react to an event at the moment it is executing Exit or Enter logic. For example, at the moment of an explosion, a boss transitions to a death state, and in that same nanosecond it receives a message about additional damage from a periodic effect (DoT). Without the IsWaitingToRun check, the object would try to re-process damage in the context of the old state, causing a cascading failure. Ignoring messages during the WaitingToRun phase guarantees atomicity of state transitions.
+2. Routing by tree topology:
+   The BroadcastMessageToChildren and BroadcastMessageToDirectChildren methods clearly illustrate how the process tree replaces global data buses. We can send a message point-to-point to a parent process (e.g., SquadProcess — the squad process), and it will deterministically, predictably, and without unnecessary allocations descend through firstChild -> nextSibling references strictly to the required child units.
+3. Absorption and boolean result:
+   Note the bitwise addition of results (result |= ...). The system knows exactly whether a message died in the void or at least one node in the process hierarchy successfully intercepted and processed the event (state.Event.Invoke).
 
-## Глава 5 Топология очередей: Три стратегии доставки сообщений
+## Chapter 5 Queue Topology: Three Message Delivery Strategies
 
-В предложенном рантайме не существует «единственно верного» способа передачи событий. В зависимости от архитектурной задачи, требований к производительности и сложности логики конкретного модуля, система гибко сочетает три различных метода дистрибуции сообщений. Все они абсолютно допустимы, если применяются к месту.
+In the proposed runtime, there is no "single correct" way to transmit events. Depending on the architectural task, performance requirements, and complexity of a specific module's logic, the system flexibly combines three different message distribution methods. All of them are absolutely valid if applied in the right place.
 
-* Стратегия 1: Мгновенная доставка (Прямой вызов метода)
-* Стратегия 2: Глобальная очередь сообщений (Global Message Bus)
-* Стратегия 3: Локальная очередь сообщений внутри объекта (Per-Process Queue)
+* Strategy 1: Instant delivery (Direct method call)
+* Strategy 2: Global message queue (Global Message Bus)
+* Strategy 3: Local message queue inside the object (Per-Process Queue)
 
-### 5.1. Стратегия 1: Мгновенная доставка (Прямой вызов метода)
+### 5.1. Strategy 1: Instant Delivery (Direct Method Call)
 
-В самом простом случае доставка сообщения идет немедленно, работая как обычный вызов метода через process.SendMessage(message).
+In the simplest case, message delivery happens immediately, working like a regular method call via process.SendMessage(message).
 
-* Когда применять: Для жестко связанных геймплейных пар, где реакция должна быть сиюминутной и не порождает циклических зависимостей. Например, физический триггер подножки мгновенно отправляет сообщение Hit персонажу, который наступил на него.
-* Ограничение: Вызывающий процесс должен быть уверен, что объект-цель находится в стабильном состоянии и готов принять удар (что как раз гарантируется системными проверками IsWaitingToRun внутри SendMessage).
+* When to apply: For tightly coupled gameplay pairs where the reaction must be immediate and does not generate cyclic dependencies. For example, a tripwire physical trigger instantly sends a Hit message to the character who stepped on it.
+* Limitation: The calling process must be sure that the target object is in a stable state and ready to take the hit (which is guaranteed by the IsWaitingToRun system checks inside SendMessage).
 
-### 5.2. Стратегия 2: Глобальная очередь сообщений (Global Message Bus)
+### 5.2. Strategy 2: Global Message Queue (Global Message Bus)
 
-Все процессы пишут события в единый плоский системный буфер, из которого диспетчер последовательно раздает их адресатам в фиксированной фазе кадра (например, в конце кадра).
+All processes write events into a single flat system buffer, from which the dispatcher sequentially distributes them to recipients in a fixed frame phase (e.g., at the end of the frame).
 
-* Когда применять: Для сквозных системных событий или lock-step синхронизации, где критически важно собрать все интенты мира за кадр, перемешать их для QA-тестов на недетерминизм или передать по сети.
-* Проблема безопасности и Хендлы: В момент, когда в конце кадра очередь доходит до конкретного сообщения, его получатель уже может быть уничтожен каскадным удалением родительской ветки. Поэтому в глобальной очереди прямые ссылки на память процессов запрещены. Адресация идет через легковесные хендлы (Handle — уникальный ID процесса + счетчик генерации). Диспетчер перед вызовом проверяет хендл по системной таблице, и если процесс мертв, сообщение безопасно утилизируется, предотвращая NullReferenceException.
+* When to apply: For cross-cutting system events or lock-step synchronization, where it is critically important to collect all world intents per frame, shuffle them for QA non-determinism tests, or transmit them over the network.
+* Safety and Handles: At the moment when the queue reaches a specific message at the end of the frame, its recipient may already be destroyed by cascading deletion of the parent branch. Therefore, direct memory references to processes are forbidden in the global queue. Addressing goes through lightweight handles (Handle — a unique process ID + generation counter). Before invoking, the dispatcher checks the handle against the system table, and if the process is dead, the message is safely disposed, preventing NullReferenceException.
 
-### 5.3. Стратегия 3: Локальная очередь сообщений внутри объекта (Per-Process Queue)
+### 5.3. Strategy 3: Local Message Queue Inside the Object (Per-Process Queue)
 
-Каждый процесс (или специализированный менеджер) несет в себе собственную изолированную микро-очередь, куда другие системы могут складывать сообщения. Объект сам решает, в какой конкретно момент своего логического шага вычитать и обработать скопившийся буфер.
+Each process (or specialized manager) carries its own isolated micro-queue, where other systems can stack messages. The object itself decides at which specific moment of its logical step to read and process the accumulated buffer.
 
-### 5.4. GUI-контроллер как эталон применения локальной очереди
+### 5.4. GUI Controller as a Reference Application of the Local Queue
 
-Классическим примером, где локальная очередь жизненно необходима, является GUI-контроллер (интерфейсная система игры). В течение одного кадра от геймплейных систем, сетевых пакетов и действий игрока в интерфейс могут лавинообразно прилетать десятки сообщений: ОбновитьЗдоровье, ПоказатьИконкуУрона, ОткрытьОкноНаград, ЗапуститьАнимациюКнопки.
-Если бы GUI-контроллер обрабатывал их мгновенно по мере поступления, рантайм столкнулся бы со следующими проблемами:
+A classic example where a local queue is vital is a GUI controller (the game's interface system). During a single frame, dozens of messages can avalanche into the interface from gameplay systems, network packets, and player actions: UpdateHealth, ShowDamageIcon, OpenRewardWindow, StartButtonAnimation.
+If the GUI controller processed them instantly as they arrived, the runtime would face the following problems:
 
-   1. Баг избыточного обновления: Интерфейс перерисовывал бы текстовые поля и перезапускал тяжелые UI-лейауты по 5-10 раз за один кадр, съедая драгоценный процессорный шаг.
-   2. Конфликты отображения: Сообщение об открытии окна наград и сообщение о закрытии меню, придя в один кадр от разных систем, могли бы затереть контекст друг друга, оставив UI в сломанном («зависшем») состоянии.
+   1. Redundant update bug: The interface would redraw text fields and restart heavy UI layouts 5-10 times per frame, consuming precious CPU time.
+   2. Display conflicts: A message about opening the reward window and a message about closing the menu, arriving in the same frame from different systems, could overwrite each other's context, leaving the UI in a broken ("frozen") state.
 
-Локальная очередь позволяет GUI-контроллеру собрать все входящие сообщения за кадр, а затем за один проход выполнить их интеллектуальный анализ:
+The local queue allows the GUI controller to collect all incoming messages per frame and then, in a single pass, perform their intelligent analysis:
 
-* Приоритетизация: Отсортировать события по важности (например, системное сообщение КритическаяОшибкаСети должно быть обработано и выведено на экран раньше, чем анимация получения монетки).
-* Аннулирование и Схлопывание (Eviction/Collapsing): Если в очередь пришло пять последовательных сообщений ИзменитьОпыт с разными значениями, контроллер аннулирует первые четыре как неактуальные, берет только последнее, актуальное для конца кадра значение, и обновляет шкалу интерфейса ровно один раз.
+* Prioritization: Sort events by importance (e.g., the system message CriticalNetworkError should be processed and displayed on screen before the coin collection animation).
+* Eviction/Collapsing: If five consecutive ChangeExperience messages with different values arrive in the queue, the controller annuls the first four as irrelevant, takes only the last value relevant for the end of the frame, and updates the interface bar exactly once.
 
-Для простых геймплейных объектов эта локальная очередь может быть оптимизирована до «очереди размером в один элемент» (Single-Element Eviction Queue), где новое сообщение с более высоким приоритетом просто вытесняет старое из фиксированного слота процесса, гарантируя Zero GC и отсутствие динамических аллокаций.
+For simple gameplay objects, this local queue can be optimized to a "single-element queue" (Single-Element Eviction Queue), where a new message with higher priority simply displaces the old one from the process's fixed slot, guaranteeing Zero GC and no dynamic allocations.
 
-## Глава 6. API жизненного цикла процесса и каскадное управление
+## Chapter 6. Process Lifecycle API and Cascading Management
 
-Жизненный цикл процесса в детерминированном рантайме строго регламентирован и изолирован от недетерминированной среды игрового движка. В отличие от классического компонентного подхода (например, MonoBehaviour в Unity), где объекты создаются, подписываются на события и уничтожаются хаотично в произвольные моменты времени, здесь каждый процесс проходит через строгую и предсказуемую последовательность статусов: Inactive → Ready → Running → Suspended → Dead.
-Управление рантаймом на уровне кода инкапсулировано в три базовых метода ядра: Activate(), Deactivate() и Disconnect().
+The process lifecycle in a deterministic runtime is strictly regulated and isolated from the non-deterministic environment of the game engine. Unlike the classic component approach (e.g., MonoBehaviour in Unity), where objects are created, subscribed to events, and destroyed chaotically at arbitrary moments, here each process goes through a strict and predictable sequence of statuses: Inactive → Ready → Running → Suspended → Dead.
+Runtime management at the code level is encapsulated in three core methods: Activate(), Deactivate(), and Disconnect().
 
-### 6.1. Активация процесса (Activate)
+### 6.1. Process Activation (Activate)
 
-Метод отвечает за рождение процесса, его контролируемое внедрение в топологию иерархии и первичную подготовку к исполнению планировщиком.
+The method is responsible for the birth of the process, its controlled injection into the hierarchy topology, and primary preparation for execution by the scheduler.
 
 ```cs
 /// <summary>
-/// Активирует процесс в дереве с указанием родителя и опциональной маски.
+/// Activates the process in the tree with the specified parent and optional mask.
 /// </summary>
 public override void Activate(ProcessTree parent, string name, ProcessMask setMask = ProcessMask.None)
 {
-    // Шаг 1: Базовая вставка узла в иерархию (установка parent, child, sibling)
+    // Step 1: Basic insertion of the node into the hierarchy (setting parent, child, sibling)
     base.Activate(parent, name, setMask);
 
-    // Шаг 2: Выделение уникального ID ядра
+    // Step 2: Allocation of a unique kernel ID
     pid = Kernel.GetNextPid();
     
-    // Шаг 3: Маркировка для диспетчера
+    // Step 3: Marking for the dispatcher
     status = ProcessStatus.Ready;
 
-    // Шаг 4: Наследование логической сущности от родительского контейнера
+    // Step 4: Inheritance of the logical entity from the parent container
     if (CheckMask(ProcessMask.ProcessTree) && parent is Process parentProcess)
     {
         entity = parentProcess.entity;
     }
 
-    // Шаг 5: Инициализация сетевых/событийных соединений
+    // Step 5: Initialization of network/event connections
     ConnectionList = new Connectable(this);
 }
 ```
 
-### 6.2 Архитектурные нюансы фазы активации
+### 6.2 Architectural Nuances of the Activation Phase
 
-   1. Отложенный старт (ProcessStatus.Ready): Процесс никогда не начинает выполнять свою стейт-машину мгновенно в момент вызова Activate(). Он лишь регистрируется в системе в статусе готовности. Планировщик подхватит его и запустит первый метод Enter() текущего состояния строго на следующем кадре. Это гарантирует, что все объекты в рамках одной итерации кадра видят мир в абсолютно консистентном, неразрывном состоянии.
-   2. Наследование сущности (entity): Если узел дерева является чисто техническим контейнером (ProcessMask.ProcessTree), он не дублирует данные, а автоматически наследует ссылку на игровую сущность (entity) своего родителя. Это позволяет группировать логику (например, процесс ИИ оружия и процесс анимации рук) под единым логическим началом.
-   3. PID как фундамент хендлов: Уникальный числовой pid, выдаваемый ядром, является основой детерминированной адресации сообщений. Вместо сырых указателей на память, которые могут стать «висячими» при удалении объекта, система сообщений использует хендлы вида (PID + Generation Counter).
+   1. Deferred start (ProcessStatus.Ready): The process never starts executing its state machine instantly at the moment Activate() is called. It is only registered in the system in the ready status. The scheduler will pick it up and launch the first Enter() method of the current state strictly on the next frame. This guarantees that all objects within a single frame iteration see the world in an absolutely consistent, unbroken state.
+   2. Entity inheritance (entity): If a tree node is a purely technical container (ProcessMask.ProcessTree), it does not duplicate data but automatically inherits a reference to the game entity (entity) of its parent. This allows grouping logic (e.g., the weapon AI process and the hands animation process) under a single logical origin.
+   3. PID as the foundation of handles: The unique numeric pid issued by the kernel is the basis for deterministic message addressing. Instead of raw memory pointers, which can become "dangling" when an object is deleted, the message system uses handles of the form (PID + Generation Counter).
 
-## 6.3. Деактивация процесса (Deactivate)
+## 6.3. Process Deactivation (Deactivate)
 
-Метод Deactivate() реализует один из фундаментальных принципов нашей макроархитектуры — Каскадное отсечение (Cascading Deactivation).
+The Deactivate() method implements one of the fundamental principles of our macroarchitecture — Cascading Deactivation.
 
 ```cs
 /// <summary>
-/// Каскадно деактивирует процесс и все его дочерние поддеревья.
+/// Cascadingly deactivates the process and all its child subtrees.
 /// </summary>
 public override void Deactivate()
 {
-    // Защита от повторного удаления и зацикливания
+    // Protection against repeated deletion and looping
     if (status == ProcessStatus.Dead) return;
 
-    // Полное обнуление контекста кастомных корутин
+    // Complete reset of the custom coroutine context
     coroutineStack.Clear();
 
-    // Рекурсивный обход и уничтожение всей дочерней ветки
+    // Recursive traversal and destruction of the entire child branch
     var child = firstChild;
     while (child != null)
     {
@@ -659,13 +659,13 @@ public override void Deactivate()
         child = next;
     }
 
-    // Принудительный разрыв логических связей и отписка от событий
+    // Forced breaking of logical connections and unsubscribing from events
     Disconnect();
 
-    // Безопасный возврат объекта в пул ядра (Zero GC)
+    // Safe return of the object to the kernel pool (Zero GC)
     pool?.ReturnBase(this);
 
-    // Полная зачистка системных полей во избежание "призрачных" ссылок
+    // Complete cleanup of system fields to avoid "ghost" references
     status = ProcessStatus.Dead;
     entity = null;
     pid = 0;
@@ -673,19 +673,19 @@ public override void Deactivate()
 }
 ```
 
-### 6.4. Архитектурные нюансы фазы деактивации
+### 6.4. Architectural Nuances of the Deactivation Phase
 
-   1. Безопасность иерархии: Благодаря рекурсивному циклу по firstChild и nextSibling, перевод родительского процесса в статус Dead мгновенно и лавинообразно закрывает всю его дочернюю инфраструктуру. Ситуация, при которой, например, персонаж умер, а его логический процесс меча остался висеть в памяти кадра и выполнять Update, физически исключена архитектурой рантайма.
-   2. Очистка стека корутин (coroutineStack.Clear()): Это критически важный шаг для детерминизма. Поскольку мы используем пул объектов для достижения Zero GC, не до конца выполненная или зависшая корутина обязана быть стерта. В противном случае следующий логический процесс, доставший этот объект из пула, «проснется» с чужими остатками данных и сломает рантайм.
-   3. Обнуление системных ссылок: Принудительное выставление в null полей entity и _progress гарантирует, что утилизированный объект в пуле не будет удерживать ссылки на старые геймплейные данные, предотвращая скрытые утечки памяти.
+   1. Hierarchy safety: Thanks to the recursive loop over firstChild and nextSibling, transitioning the parent process to Dead status instantly and avalanche-like closes its entire child infrastructure. The situation where, for example, a character dies but his logical sword process remains hanging in the frame memory executing Update is physically excluded by the runtime architecture.
+   2. Coroutine stack cleanup (coroutineStack.Clear()): This is a critically important step for determinism. Since we use an object pool to achieve Zero GC, an unfinished or stuck coroutine must be erased. Otherwise, the next logical process that gets this object from the pool will "wake up" with someone else's leftover data and break the runtime.
+   3. Nulling system references: Forcibly setting the entity and _progress fields to null guarantees that the disposed object in the pool will not hold references to old gameplay data, preventing hidden memory leaks.
 
-### 6.5. Разрыв логических связей (Disconnect)
+### 6.5. Breaking Logical Connections (Disconnect)
 
-В детерминированной системе мертвый объект не должен оказывать никакого влияния на живой мир, даже если к нему еще летят отложенные сообщения.
+In a deterministic system, a dead object must not have any influence on the living world, even if deferred messages are still flying to it.
 
 ```cs
 /// <summary>
-/// Разрывает все активные логические соединения процесса.
+/// Breaks all active logical connections of the process.
 /// </summary>
 public void Disconnect()
 {
@@ -694,7 +694,7 @@ public void Disconnect()
     {
         if (item is Connection connection)
         {
-            // Переводим соединение в невалидный статус
+            // Transition the connection to invalid status
             connection.MoveToDead();
         }
         item = item.Next1;
@@ -702,146 +702,146 @@ public void Disconnect()
 }
 ```
 
-### 6.6. Архитектурные нюансы фазы разрыва связей
+### 6.6. Architectural Nuances of the Connection Breaking Phase
 
-Метод Disconnect() изолирует процесс от событийной сетки. Проходя по списку ConnectionList, ядро переводит все связанные узлы в статус Dead.
+The Disconnect() method isolates the process from the event grid. Traversing the ConnectionList, the kernel transitions all connected nodes to Dead status.
 
-Это напрямую связано с работой локальных очередей сообщений: если в конце кадра глобальный диспетчер или локальный буфер попытаются доставить сообщение по хендлу этого процесса, внутренняя проверка Handle-системы мгновенно вернет Invalid, и сообщение будет безопасно уничтожено без вызова обработчиков OnEvent.
+This is directly related to the operation of local message queues: if at the end of the frame the global dispatcher or local buffer tries to deliver a message by the handle of this process, the internal check of the Handle system will instantly return Invalid, and the message will be safely destroyed without invoking OnEvent handlers.
 
-### 6.7. Сводная матрица состояний жизненного цикла
+### 6.7. Summary Matrix of Lifecycle States
 
-Взаимосвязь системных фаз, методов API и статусов ProcessStatus подробно описана в источнике, включая создание, сборку ресурсов, ожидание шага, смену стейта, приостановку и уничтожение процесса.
+The relationship between system phases, API methods, and ProcessStatus statuses is described in detail in the source, including creation, resource assembly, frame waiting, state change, suspension, and process destruction.
 
-| Стадия процесса | Вызываемый API-метод | Текущий статус процесса | Поведение в кадре |
+| Process stage | API method called | Current process status | Frame behavior |
 | --- | --- | --- | --- |
-| Создание | Activate() | ProcessStatus.Ready | Регистрируется в дереве, ожидает начала следующего кадра. |
-| Вход в состояние | Делегат Enter | ProcessStatus.Running | Выполняется первичная инициализация логики стейта. |
-| Основной поток кадра | Делегат Code (Корутина) | ProcessStatus.Running | Выполняется главный геймплейный алгоритм процесса. |
-| Пост-обработка | Делегат Post | ProcessStatus.Running | Отрабатывает каждый кадр строго после завершения основного Code. |
-| Приостановка | Инструкция suspend (yield) | ProcessStatus.Suspended | Логика замораживается, управление возвращается планировщику кадра. |
-| Смена стейта | Вызов go(NewState) | ProcessStatus.Running | Мгновенно выполняются делегаты Exit(Old) → Enter(New). |
-| Уничтожение | Deactivate() | ProcessStatus.Dead | Каскадно зачищается, отписывается и возвращается в пул объектов. |
+| Creation | Activate() | ProcessStatus.Ready | Registers in the tree, awaits the start of the next frame. |
+| State entry | Enter delegate | ProcessStatus.Running | Initial initialization of the state logic is performed. |
+| Main frame thread | Code delegate (Coroutine) | ProcessStatus.Running | The main gameplay algorithm of the process is executed. |
+| Post-processing | Post delegate | ProcessStatus.Running | Runs every frame strictly after the main Code completes. |
+| Suspension | suspend instruction (yield) | ProcessStatus.Suspended | Logic is frozen, control returns to the frame scheduler. |
+| State change | go(NewState) call | ProcessStatus.Running | Exit(Old) → Enter(New) delegates are executed instantly. |
+| Destruction | Deactivate() | ProcessStatus.Dead | Cascadingly cleaned, unsubscribed, and returned to the object pool. |
 
-## Глава 7 API перехода в другое состояние
+## Chapter 7 State Transition API
 
-Переход между состояниями — это сердце любой конечной стейт-машины (FSM). Однако в недетерминированных средах вызов смены стейта часто приводит к багам «кадра-призрака», гонкам состояний или утечкам ресурсов. В предложенной архитектуре API перехода спроектирован так, чтобы полностью исключить эти проблемы, предоставляя разработчику два режима смены контекста: **немедленный** и **отложенный**.
+Transitioning between states is the heart of any finite state machine (FSM). However, in non-deterministic environments, calling a state change often leads to "ghost frame" bugs, state races, or resource leaks. In the proposed architecture, the transition API is designed to completely eliminate these problems, providing the developer with two context-switching modes: **immediate** and **deferred**.
 
-### 7.1. Сигнатура метода `GoHook`
+### 7.1. GoHook Method Signature
 
-Основным инструментом перехода между состояниями является метод `GoHook()`, доступный для каждого процесса:
+The primary tool for transitioning between states is the `GoHook()` method, available to every process:
 
 ```cs
 /// <summary>
-/// Запрос на переход в новое состояние с опциональными параметрами
+/// Request to transition to a new state with optional parameters
 /// </summary>
-/// <param name="nextState">Целевое состояние</param>
-/// <param name="transitionParams">Параметры перехода (передаются в Enter нового состояния)</param>
-/// <param name="transitionPriority">Режим перехода: немедленный или отложенный</param>
+/// <param name="nextState">Target state</param>
+/// <param name="transitionParams">Transition parameters (passed to Enter of the new state)</param>
+/// <param name="transitionPriority">Transition mode: immediate or deferred</param>
 public void GoHook(State nextState, in Message transitionParams = default, 
                    TransitionPriority transitionPriority = TransitionPriority.Delayed)
 {
-    // Реализация
+    // Implementation
 }
 ```
 
-#### 7.1.1 Параметры перехода
+#### 7.1.1 Transition Parameters
 
-| Параметр | Тип | Назначение |
+| Parameter | Type | Purpose |
 | -- | -- | -- |
-| `nextState` | `State` | Целевое состояние, в которое переходит процесс |
-| `transitionParams` | `in Message` | Параметры, передаваемые в метод `Enter()` нового состояния (Zero GC) |
-| `transitionPriority` | `TransitionPriority` | Определяет, когда произойдёт переход: **немедленно** или **отложенно** |
+| `nextState` | `State` | Target state to which the process transitions |
+| `transitionParams` | `in Message` | Parameters passed to the `Enter()` method of the new state (Zero GC) |
+| `transitionPriority` | `TransitionPriority` | Determines when the transition occurs: **immediately** or **deferred** |
 
-### 7.2 Режимы приоритета перехода
+### 7.2 Transition Priority Modes
 
 ```cs
 public enum TransitionPriority
 {
     /// <summary>
-    /// Переход происходит немедленно внутри текущего контекста выполнения.
-    /// Работает только при вызове из основного метода Code (корутины).
+    /// Transition occurs immediately within the current execution context.
+    /// Works only when called from the main Code method (coroutine).
     /// </summary>
     Immediate,
 
     /// <summary>
-    /// Переход ставится в очередь и выполняется в следующей безопасной точке
-    /// (после завершения текущего метода или в начале следующего кадра).
-    /// Используется при вызове из Post, Trans, Exit, Enter или OnEvent.
+    /// Transition is queued and executed at the next safe point
+    /// (after the current method completes or at the beginning of the next frame).
+    /// Used when called from Post, Trans, Exit, Enter, or OnEvent.
     /// </summary>
     Delayed
 }
 ```
 
-### 7.3. Микро-нюансы перехода
+### 7.3. Transition Micro-Nuances
 
-#### 7.3.A. Вызов из `Code` (основной корутины)
+#### 7.3.A. Call from `Code` (main coroutine)
 
 ```cs
-// Внутри метода Code() состояния
+// Inside the Code() method of the state
 GoHook(nextState, transitionParams, TransitionPriority.Immediate);
 ```
 
-**Поведение:**
+**Behavior:**
 
-* Переход происходит **немедленно** внутри текущего кадра
-* Вызывается `Exit()` текущего состояния (зачистка ресурсов)
-* Вызывается `Enter()` нового состояния (передача `transitionParams`)
-* Запускается `Code()` нового состояния до первого `suspend`
+* The transition occurs **immediately** within the current frame
+* `Exit()` of the current state is called (resource cleanup)
+* `Enter()` of the new state is called (passing `transitionParams`)
+* `Code()` of the new state is started up to the first `suspend`
 
-**Соответствие диаграмме (Figure 16, Frame 2):**
+**Correspondence to the diagram (Figure 16, Frame 2):**
 
 ```txt
-3. code          ← GoHook() вызывается здесь
-4. exit          ← немедленный выход из State 1
-5. enter         ← немедленный вход в State 2
-6. code          ← выполнение Code нового состояния
-7. suspend       ← приостановка до следующего кадра
+3. code          ← GoHook() is called here
+4. exit          ← immediate exit from State 1
+5. enter         ← immediate entry into State 2
+6. code          ← execution of the new state's Code
+7. suspend       ← suspension until the next frame
 ```
 
-**Важно:** Код ниже вызова `GoHook(Immediate)` в текущем методе `Code()` **не выполняется** — контекст переключается мгновенно.
+**Important:** The code below the `GoHook(Immediate)` call in the current `Code()` method **is not executed** — the context switches instantly.
 
-#### 7.3.B. Вызов из побочных методов (`Post`, `Trans`, `Exit`, `Enter`, `OnEvent`)
+#### 7.3.B. Call from side methods (`Post`, `Trans`, `Exit`, `Enter`, `OnEvent`)
 
 ```cs
-// Внутри метода Post() или OnEvent()
+// Inside the Post() or OnEvent() method
 GoHook(nextState, transitionParams, TransitionPriority.Delayed);
 ```
 
-**Поведение:**
+**Behavior:**
 
-* Переход **не происходит** мгновенно
-* Целевое состояние сохраняется в переменную `_pendingState`
-* Текущий метод завершается до конца
-* Физический переход происходит **на следующей итерации диспетчера** (после завершения текущего хука или в начале следующего кадра)
+* The transition **does not occur** instantly
+* The target state is saved in the `_pendingState` variable
+* The current method completes to the end
+* The physical transition occurs **on the next dispatcher iteration** (after the current hook completes or at the beginning of the next frame)
 
-**Соответствие коду `kernel-dispatcher` OpenGOAL:**
+**Correspondence to the `kernel-dispatcher` OpenGOAL code:**
 
 ```lisp
-;; Временный поток для trans-hook/post-hook
+;; Temporary thread for trans-hook/post-hook
 (let ((trans (new 'process 'cpu-thread ...)))
   (reset-and-call trans (-> this trans-hook))
   (delete trans))
 ```
 
-Поскольку `trans-hook` и `post-hook` выполняются во **временных потоках**, мгновенная смена состояния невозможна — переход откладывается до следующей итерации диспетчера.
+Since `trans-hook` and `post-hook` are executed in **temporary threads**, an instant state change is impossible — the transition is deferred until the next dispatcher iteration.
 
-### 7.4 Защита от бесконечной рекурсии (State Loop Guard)
+### 7.4 Protection Against Infinite Recursion (State Loop Guard)
 
-При вызове `GoHook()` с приоритетом `Immediate` из метода `Enter()` нового состояния может возникнуть **бесконечная рекурсия**:
+When calling `GoHook()` with `Immediate` priority from the `Enter()` method of the new state, **infinite recursion** may occur:
 
 ```
 Enter(State1) → GoHook(State2, Immediate) → Enter(State2) → GoHook(State1, Immediate) → ...
 ```
 
-**Решение:** Рантайм перехватывает такой переход и переводит процесс в специальный статус `Transition`:
+**Solution:** The runtime intercepts such a transition and puts the process into a special `Transition` status:
 
 ```cs
 private void PerformImmediateTransition(State nextState, in Message transitionParams)
 {
     if (_isTransitioning)
     {
-        // Guard: переход уже выполняется
-        status = ProcessStatus.Transition; // Предохранитель
+        // Guard: transition is already in progress
+        status = ProcessStatus.Transition; // Safety fuse
         return;
     }
     
@@ -850,7 +850,7 @@ private void PerformImmediateTransition(State nextState, in Message transitionPa
     {
         Exit();
         Enter(nextState, transitionParams);
-        Code(); // до первого suspend
+        Code(); // up to the first suspend
     }
     finally
     {
@@ -861,15 +861,15 @@ private void PerformImmediateTransition(State nextState, in Message transitionPa
 }
 ```
 
-**Статус `Transition`** — это временный флаг, который:
+**The `Transition` status** is a temporary flag that:
 
-1. Блокирует все входящие сообщения (через `SendMessage`)
-2. Позволяет корректно завершить текущий стейт **до** запуска нового `Code`
-3. Защищает от каскадных переходов внутри `Enter()`
+1. Blocks all incoming messages (via `SendMessage`)
+2. Allows the current state to complete correctly **before** the new `Code` starts
+3. Protects against cascading transitions inside `Enter()`
 
-### 7.5 Передача параметров перехода (`transitionParams`)
+### 7.5 Passing Transition Parameters (`transitionParams`)
 
-Параметры передаются в метод `Enter()` нового состояния через структуру `Message`:
+Parameters are passed to the `Enter()` method of the new state through the `Message` structure:
 
 ```cs
 public void Enter(State state, in Message transitionParams)
@@ -878,34 +878,34 @@ public void Enter(State state, in Message transitionParams)
     {
         case MessageType.MsgVec3:
             var position = transitionParams.vec3;
-            // Инициализация позиции
+            // Position initialization
             break;
         case MessageType.MsgIVec3:
             var target = transitionParams.ivec3;
-            // Установка целевой точки
+            // Setting the target point
             break;
         case MessageType.MsgEntity:
             var entity = transitionParams.entity;
-            // Связывание с сущностью
+            // Binding to the entity
             break;
         // ...
     }
 }
 ```
 
-**Ключевое преимущество:** Использование `in Message` и `StructLayout(LayoutKind.Explicit)` обеспечивает **Zero GC** — параметры передаются по ссылке без создания объектов в куче.
+**Key advantage:** Using `in Message` and `StructLayout(LayoutKind.Explicit)` ensures **Zero GC** — parameters are passed by reference without creating objects on the heap.
 
-### 7.6 Связь с Handle-системой и Message Queue
+### 7.6 Connection with the Handle System and Message Queue
 
-При вызове `GoHook()` с параметрами:
+When calling `GoHook()` with parameters:
 
-1. Если переход **отложенный** (`Delayed`), параметры копируются в `Message Queue` процесса
-2. Handle получателя валидируется перед доставкой
-3. Если процесс умер до момента перехода, сообщение безопасно утилизируется
+1. If the transition is **deferred** (`Delayed`), the parameters are copied into the process's `Message Queue`
+2. The recipient's handle is validated before delivery
+3. If the process died before the transition moment, the message is safely disposed
 
-Это гарантирует, что даже если процесс был уничтожен каскадным удалением родительской ветки, отложенное сообщение не вызовет ошибки обращения к памяти.
+This guarantees that even if the process was destroyed by cascading deletion of the parent branch, the deferred message will not cause a memory access error.
 
-### 7.7 Полный пример использования
+### 7.7 Complete Usage Example
 
 ```cs
 public class EnemyProcess : Process
@@ -914,7 +914,7 @@ public class EnemyProcess : Process
     private State _chaseState;
     private State _attackState;
 
-    // Вызов из Code — немедленный переход
+    // Call from Code — immediate transition
     public void GoToChase(Vector3 targetPosition)
     {
         var paramsMsg = new Message
@@ -926,7 +926,7 @@ public class EnemyProcess : Process
         GoHook(_chaseState, paramsMsg, TransitionPriority.Immediate);
     }
 
-    // Вызов из Post — отложенный переход
+    // Call from Post — deferred transition
     public void GoToIdle()
     {
         GoHook(_idleState, default, TransitionPriority.Delayed);
@@ -934,34 +934,34 @@ public class EnemyProcess : Process
 }
 ```
 
-### 7.8 Таблица: Какой приоритет использовать
+### 7.8 Table: Which Priority to Use
 
-| Место вызова | Рекомендуемый приоритет | Причина |
+| Call location | Recommended priority | Reason |
 | -- | -- | -- |
-| `Code` (корутина) | `Immediate` | Можно безопасно переключить контекст |
-| `Post` | `Delayed` | Выполняется во временном потоке |
-| `Trans` | `Delayed` | Выполняется во временном потоке |
-| `Enter` | `Delayed` (с защитой) | Риск рекурсии |
-| `Exit` | `Delayed` | Нельзя переключать состояние во время выхода |
-| `OnEvent` | `Delayed` | Обработка события не должна прерываться |
+| `Code` (coroutine) | `Immediate` | Context can be safely switched |
+| `Post` | `Delayed` | Executed in a temporary thread |
+| `Trans` | `Delayed` | Executed in a temporary thread |
+| `Enter` | `Delayed` (with protection) | Risk of recursion |
+| `Exit` | `Delayed` | State cannot be switched during exit |
+| `OnEvent` | `Delayed` | Event processing must not be interrupted |
 
-### 7.9 Связь с кодом `kernel-dispatcher` (OpenGOAL)
+### 7.9 Connection with the `kernel-dispatcher` Code (OpenGOAL)
 
-В оригинальной архитектуре OpenGOAL аналог `GoHook()` — это вызов `go(NewState)` внутри `resume-hook`:
-
-```lisp
-;; Внутри resume-hook (Code)
-(go 'chase-state)   ;; Immediate переход
-```
-
-Для отложенного перехода используется установка `next-state`:
+In the original OpenGOAL architecture, the analogue of `GoHook()` is the `go(NewState)` call inside `resume-hook`:
 
 ```lisp
-;; Внутри trans-hook или post-hook
-(set! (-> this next-state) 'chase-state)   ;; Delayed переход
+;; Inside resume-hook (Code)
+(go 'chase-state)   ;; Immediate transition
 ```
 
-Диспетчер проверяет `next-state` на следующей итерации:
+For a deferred transition, `next-state` is set:
+
+```lisp
+;; Inside trans-hook or post-hook
+(set! (-> this next-state) 'chase-state)   ;; Delayed transition
+```
+
+The dispatcher checks `next-state` on the next iteration:
 
 ```lisp
 (when (-> this next-state)
@@ -972,71 +972,71 @@ public class EnemyProcess : Process
     (set! (-> this next-state) #f)))
 ```
 
-### 7.10 Двухфазная инициализация и механизмы отложенного планирования
+### 7.10 Two-Phase Initialization and Deferred Scheduling Mechanisms
 
-Выделение памяти под процесс (Object Pooling) и его логическое наполнение геймплейными данными в детерминированном рантайме **разнесены во времени**. Процесс извлекается из пула в «сыром» виде, после чего проходит процедуру конфигурации.
+Allocating memory for a process (Object Pooling) and its logical filling with gameplay data in a deterministic runtime are **separated in time**. The process is retrieved from the pool in a "raw" form, after which it undergoes a configuration procedure.
 
-Архитектура поддерживает два паттерна инициализации:
+The architecture supports two initialization patterns:
 
-* `InitFromEntity` -- Декларативный. Для статических данных игровой сцены, с получением параметров объекта сцены
-* `InitByOther` -- Императивный. Для динамически создаваемы процессов с ленивой загрухкой параметров или инъекцией.
+* `InitFromEntity` -- Declarative. For static data of the game scene, with retrieval of scene object parameters
+* `InitByOther` -- Imperative. For dynamically created processes with lazy loading of parameters or injection.
 
-#### 7.10.1 Дуализм инициализации
+#### 7.10.1 Dualism of Initialization
 
-Чаще всего процессы порождают другие процессы, но в некоторых случаях процесс порождается объектом сцены (`Entity`). Поэтому API процесса имеет два метода инициализации.
+Most often, processes spawn other processes, but in some cases a process is spawned by a scene object (`Entity`). Therefore, the process API has two initialization methods.
 
-**InitFromEntity (Декларативный путь):** Напрямую наследует подход Naughty Dog к стримингу игровых миров. Сектор карты содержит бинарные данные — списки `Entity` (координаты спавна, радиусы патрулирования, уникальные ID). Ядро связывает «пустой» процесс из пула со статическими данными уровня. Логика полностью изолирована от ассетов сцены: если рантайм работает в режиме выделенного сервера (headless), процесс врага обсчитывает навигацию по `Entity`-данным, вообще не создавая визуальные компоненты движка.
+**InitFromEntity (Declarative path):** Directly inherits Naughty Dog's approach to streaming game worlds. A map sector contains binary data — lists of `Entity` (spawn coordinates, patrol radii, unique IDs). The kernel links a "blank" process from the pool with the static data of the level. The logic is completely isolated from scene assets: if the runtime operates in dedicated server mode (headless), the enemy process computes navigation from `Entity` data without creating any visual engine components at all.
 
-**InitByOther (Императивный путь / Lazy Loading):** Используется для объектов, порождаемых динамически прямо во время игры (выстрел снаряда, выброс предмета из инвентаря). Вызывающий код запрашивает спавн, упаковывает аргументы в Zero-GC структуру `Message` и передаёт её в метод. Это позволяет реализовать отложенную (ленивую) инициализацию: процесс резервируется ядром, но тяжелое наполнение данными происходит только в момент, когда диспетчер кадра дойдет до выполнения этой ветки дерева, минимизируя пиковые нагрузки на CPU (Spikes).
+**InitByOther (Imperative path / Lazy Loading):** Used for objects spawned dynamically right during the game (projectile shot, item dropped from inventory). The calling code requests a spawn, packs the arguments into a Zero-GC `Message` structure, and passes it to the method. This allows deferred (lazy) initialization: the process is reserved by the kernel, but heavy data filling occurs only at the moment when the frame dispatcher reaches the execution of this tree branch, minimizing peak CPU loads (Spikes).
 
 ```cs
 /// <summary>
-/// Инициализация процесса на основе статических данных сущности (Entity) карты.
+/// Initializes the process based on static entity data (Entity) of the map.
 /// </summary>
 public override void InitFromEntity(Entity entity, Message message = null)
 {
     this.entity = entity;
-    // Базовая реализация — производные классы переопределяют для вычитывания параметров
+    // Base implementation — derived classes override to read parameters
 }
 
 /// <summary>
-/// Динамическая инициализация процесса из кода через сообщение (Ленивая инициализация).
+/// Dynamic initialization of the process from code via a message (Lazy Initialization).
 /// </summary>
 public override void InitByOther(Message initMessage = null)
 {
-    // Базовая реализация — производные классы переопределяют для динамического спавна
+    // Base implementation — derived classes override for dynamic spawn
 }
 ```
 
-### 7.11 Отложенный запуск действий через статусы планировщика
+### 7.11 Deferred Action Launch via Scheduler Statuses
 
-Для гибкого управления моментом старта логики внутри детерминированного цикла рантайм предоставляет специализированный API отложенного планирования (Scheduling API). Он позволяет привязать к процессу анонимный делегат (`Action<Process>`), выполнение которого строго регламентировано статусной моделью ядра.
+To flexibly control the moment of logic start inside the deterministic runtime cycle, the runtime provides a specialized scheduling API. It allows binding an anonymous delegate (`Action<Process>`) to a process, the execution of which is strictly regulated by the kernel's status model.
 
-#### 7.11.1 Методы отложенного планирования
+#### 7.11.1 Deferred Scheduling Methods
 
 ```cs
 /// <summary>
-/// Планирует выполнение действия для процесса на следующий кадр.
+/// Schedules an action for the process to be executed on the next frame.
 /// </summary>
 public void RunAtNextFrame(Action<Process> action)
 {
-    Debug.Assert(runAtNextFrame == null, "Допускается только одно отложенное действие runAtNextFrame");
+    Debug.Assert(runAtNextFrame == null, "Only one deferred action runAtNextFrame is allowed");
     runAtNextFrame = action;
     status = ProcessStatus.Pending;
 }
 
 /// <summary>
-/// Планирует выполнение действия инициализации процесса на следующий кадр.
+/// Schedules a process initialization action to be executed on the next frame.
 /// </summary>
 public void RunInitAtNextFrame(Action<Process> action)
 {
-    Debug.Assert(runAtNextFrame == null, "Допускается только одно отложенное действие runAtNextFrame");
+    Debug.Assert(runAtNextFrame == null, "Only one deferred action runAtNextFrame is allowed");
     runAtNextFrame = action;
     status = ProcessStatus.Init;
 }
 
 /// <summary>
-/// Принудительно выполняет запланированное отложенное действие (используется только в тестах).
+/// Forcibly executes the scheduled deferred action (used only in tests).
 /// </summary>
 public void ExecuteScheduledAction()
 {
@@ -1045,25 +1045,25 @@ public void ExecuteScheduledAction()
 }
 ```
 
-#### 7.11.2 Техническая суть и статусная модель
+#### 7.11.2 Technical Essence and Status Model
 
-1. **Защита атомарности** (`Debug.Assert(runAtNextFrame == null)`): На системном уровне к процессу в рамках одного кадра может быть привязано **ровно одно** отложенное действие. Попытка перезаписать делегат до его выполнения сигнализирует об архитектурной ошибке в логике состояний и жестко пресекается ядром.
+1. **Atomicity protection** (`Debug.Assert(runAtNextFrame == null)`): At the system level, **exactly one** deferred action can be bound to a process within a single frame. Attempting to overwrite the delegate before its execution signals an architectural error in the state logic and is strictly suppressed by the kernel.
 
-2. **Разделение фаз через `ProcessStatus`:**
-   * `ProcessStatus.Pending`: Указывает планировщику, что процесс уже полностью инициализирован, но его основной цикл `Code` и корутины должны «подождать» один кадр. Отложенный делегат выполнится на старте следующего цикла обновлений, подготавливая контекст.
-   * `ProcessStatus.Init`: Сигнализирует о том, что процесс находится в промежуточной фазе конфигурации. Планировщик понимает: данный узел дерева еще не является полноценным участником игрового мира. Его отложенный `Action` — это тяжелая процедура сборки (например, линковка зависимостей или ленивая подгрузка ресурсов), которую нужно выполнить строго до того, как процесс получит статус `Ready` и начнет обрабатывать входящие сообщения.
+2. **Phase separation via `ProcessStatus`:**
+   * `ProcessStatus.Pending`: Tells the scheduler that the process is already fully initialized, but its main `Code` loop and coroutines must "wait" one frame. The deferred delegate will execute at the start of the next update cycle, preparing the context.
+   * `ProcessStatus.Init`: Signals that the process is in an intermediate configuration phase. The scheduler understands: this tree node is not yet a full participant in the game world. Its deferred `Action` is a heavy assembly procedure (e.g., linking dependencies or lazy loading resources) that must be executed strictly before the process receives `Ready` status and starts processing incoming messages.
 
-3. **Тестовая изоляция** (`ExecuteScheduledAction`): Наличие метода принудительного вызова позволяет полностью изолировать логику отложенных действий в юнит-тестах. Тестировщик может симулировать наступление следующего кадра в изоляции, не прокручивая глобальный цикл диспетчера задач.
+3. **Test isolation** (`ExecuteScheduledAction`): The presence of a forced-call method allows fully isolating the logic of deferred actions in unit tests. The tester can simulate the onset of the next frame in isolation without cycling the global task dispatcher loop.
 
-### 7.12 Интеграция с диспетчером
+### 7.12 Integration with the Dispatcher
 
-Планировщик (диспетчер) вызывает `ExecuteScheduledAction()` **в начале каждого кадра** для всех процессов со статусом `Pending` или `Init`:
+The scheduler (dispatcher) calls `ExecuteScheduledAction()` **at the beginning of each frame** for all processes with `Pending` or `Init` status:
 
 ```cs
-// Псевдокод диспетчера
+// Dispatcher pseudocode
 void DispatchFrame()
 {
-    // 1. Обработка отложенных действий
+    // 1. Processing deferred actions
     foreach (var process in activeProcesses)
     {
         if (process.status == ProcessStatus.Pending || 
@@ -1073,7 +1073,7 @@ void DispatchFrame()
         }
     }
 
-    // 2. Основной обход дерева (trans-hook → resume-hook → post-hook)
+    // 2. Main tree traversal (trans-hook → resume-hook → post-hook)
     foreach (var process in activeProcesses)
     {
         if (process.status == ProcessStatus.Suspended || 
@@ -1085,91 +1085,91 @@ void DispatchFrame()
 }
 ```
 
-### 7.13 Два измерения жизненного цикла
+### 7.13 Two Dimensions of the Lifecycle
 
-Жизненный цикл процесса в детерминированном рантайме имеет **два независимых измерения**:
+The process lifecycle in a deterministic runtime has **two independent dimensions**:
 
-| Измерение | Механизм | Статусы |
+| Dimension | Mechanism | Statuses |
 |--|--|--|
-| **Состояния (FSM)** | `GoHook()` / `go()` | `Running` → `Suspended` → `Transition` |
-| **Выполнение (Scheduling)** | `RunAtNextFrame()` / `RunInitAtNextFrame()` | `Ready` → `Init` → `Pending` → `Suspended` |
+| **States (FSM)** | `GoHook()` / `go()` | `Running` → `Suspended` → `Transition` |
+| **Execution (Scheduling)** | `RunAtNextFrame()` / `RunInitAtNextFrame()` | `Ready` → `Init` → `Pending` → `Suspended` |
 
-Эти измерения **ортогональны**:
+These dimensions are **orthogonal**:
 
-* Процесс может находиться в состоянии `Idle` и одновременно ждать отложенного действия (`Pending`)
-* Процесс может менять состояние (`Transition`) и одновременно иметь запланированный `runAtNextFrame`
+* A process can be in the `Idle` state and simultaneously await a deferred action (`Pending`)
+* A process can change state (`Transition`) and simultaneously have a scheduled `runAtNextFrame`
 
-**Важное различие:**
+**Important distinction:**
 
-* `TransitionPriority.Delayed` управляет **сменой состояний** (FSM)
-* `ProcessStatus.Pending` управляет **выполнением отложенных действий** (`RunAtNextFrame`)
+* `TransitionPriority.Delayed` controls **state changes** (FSM)
+* `ProcessStatus.Pending` controls **execution of deferred actions** (`RunAtNextFrame`)
 
-Это два **независимых механизма**, которые могут работать одновременно. Процесс может находиться в состоянии `Idle`, ждать отложенного действия (`Pending`) и иметь запланированный переход в другое состояние (`Delayed`) — все в одном кадре.
+These are two **independent mechanisms** that can work simultaneously. A process can be in the `Idle` state, await a deferred action (`Pending`), and have a scheduled transition to another state (`Delayed`) — all in the same frame.
 
-### 7.14 Связь с Entity и Hot Reload
+### 7.14 Connection with Entity and Hot Reload
 
-В контексте **Hot Reload** (Глава 8) двухфазная инициализация приобретает особое значение:
+In the context of **Hot Reload** (Chapter 8), two-phase initialization takes on special significance:
 
-1. **До компиляции** (`OnDisable` → `Kill()`):
-   * Процесс деактивируется (`Deactivate()`)
-   * Статус → `Dead`
-   * Процесс возвращается в пул
+1. **Before compilation** (`OnDisable` → `Kill()`):
+   * The process is deactivated (`Deactivate()`)
+   * Status → `Dead`
+   * The process is returned to the pool
 
-2. **После компиляции** (`OnEnable` → `Birth()`):
-   * Entity генерирует новый `EntityID`
-   * Ядро **лениво** восстанавливает процесс через `RunInitAtNextFrame()`
-   * Процесс получает статус `Init` и ждёт следующего кадра для полной реинкарнации
+2. **After compilation** (`OnEnable` → `Birth()`):
+   * Entity generates a new `EntityID`
+   * The kernel **lazily** restores the process via `RunInitAtNextFrame()`
+   * The process receives `Init` status and waits for the next frame for full reincarnation
 
-Это гарантирует, что Hot Reload не нарушает детерминизм: все процессы пересоздаются **в строго определённом порядке** на следующем кадре, а не хаотично в момент перекомпиляции.
+This guarantees that Hot Reload does not violate determinism: all processes are recreated **in a strictly defined order** on the next frame, not chaotically at the moment of recompilation.
 
-### 7.15 Резюме главы
+### 7.15 Chapter Summary
 
-| Концепция | Описание |
+| Concept | Description |
 | -- | -- |
-| `GoHook(Immediate)` | Мгновенная смена состояния внутри `Code` |
-| `GoHook(Delayed)` | Отложенная смена состояния (для `Post`/`Trans`/`OnEvent`) |
-| `transitionParams` | Параметры передаются через `Message` (Zero GC) |
-| Защита от рекурсии | Статус `Transition` блокирует вложенные переходы |
-| `RunAtNextFrame()` | Отложенное выполнение действия на следующем кадре |
-| `RunInitAtNextFrame()` | Отложенная инициализация (для Lazy Loading) |
-| `InitFromEntity` | Декларативная инициализация из статических данных |
-| `InitByOther` | Императивная инициализация из кода (динамический спавн) |
-| Связь с диспетчером | OpenGOAL: `go()` для Immediate, `next-state` для Delayed |
+| `GoHook(Immediate)` | Instant state change inside `Code` |
+| `GoHook(Delayed)` | Deferred state change (for `Post`/`Trans`/`OnEvent`) |
+| `transitionParams` | Parameters passed via `Message` (Zero GC) |
+| Recursion protection | `Transition` status blocks nested transitions |
+| `RunAtNextFrame()` | Deferred action execution on the next frame |
+| `RunInitAtNextFrame()` | Deferred initialization (for Lazy Loading) |
+| `InitFromEntity` | Declarative initialization from static data |
+| `InitByOther` | Imperative initialization from code (dynamic spawn) |
+| Connection with dispatcher | OpenGOAL: `go()` for Immediate, `next-state` for Delayed |
 
-## Глава 8 Концепция прокси-компонентов: Интеграция процессов с визуальными данными сцены
+## Chapter 8 The Concept of Proxy Components: Integrating Processes with Visual Scene Data
 
-При проектировании изолированного рантайма разработчик неизбежно сталкивается с дилеммой: игровая логика должна быть на 100% детерминированной, текстовой и легковесной, но сама игра — это визуальная среда. Цвета, материалы, анимационные кривые, связи между компонентами и префабами гораздо быстрее, нагляднее и эффективнее настраивать вручную в визуальном редакторе движка (например, Unity Inspector).
-Паттерн прокси-компонентов (Proxy Components) выступает связующим мостом: он обеспечивает бесшовную интеграцию логических процессов (чистого C#-кода) с объектами данных визуальной сцены, не нарушая при этом изоляцию и детерминизм ядра.
+When designing an isolated runtime, the developer inevitably faces a dilemma: game logic must be 100% deterministic, textual, and lightweight, but the game itself is a visual environment. Colors, materials, animation curves, connections between components, and prefabs are much faster, more intuitive, and more efficient to set up manually in the engine's visual editor (e.g., Unity Inspector).
+The Proxy Components pattern acts as a bridge: it provides seamless integration of logical processes (pure C# code) with visual scene data objects without violating the isolation and determinism of the kernel.
 
-* `В РЕДАКТОРЕ` -- Визуальный префаб, сложная структура компонентов, кривые, цвета, материалы
-* `ПРОКСИ-КОМПОНЕНТ` -- Содержит только данные и интерфейс к ним, Минимум кода (Тонкая обертка), Фиксированные имена (Пример: RightHandBone)
-* `В ЯДРЕ` -- Обращается к прокси данным по используемым именам
+* `IN THE EDITOR` -- Visual prefab, complex component structure, curves, colors, materials
+* `PROXY COMPONENT` -- Contains only data and an interface to it, Minimal code (Thin wrapper), Fixed names (Example: RightHandBone)
+* `IN THE KERNEL` -- Accesses proxy data by the used names
 
-### 8.1. Архитектурная суть прокси-объектов
+### 8.1. Architectural Essence of Proxy Objects
 
-Главная задача прокси-компонента — предоставить процессам унифицированный интерфейс к визуальному объекту, независимо от того, какая структура данных и какая иерархия компонентов заложены внутри конкретного префаба.
-Прокси-объекты проектируются по принципу максимальной легковесности:
+The main task of a proxy component is to provide processes with a unified interface to the visual object, regardless of what data structure and what component hierarchy are embedded inside a particular prefab.
+Proxy objects are designed according to the principle of maximum lightness:
 
-* В идеале они содержат минимум кода.
-* Они не принимают решений и не ведут глобальный стейт.
-* Их единственное назначение — хранить данные, ссылки на визуальные элементы сцены и предоставлять чистый интерфейс доступа для логических процессов.
+* Ideally, they contain minimal code.
+* They do not make decisions and do not maintain global state.
+* Their sole purpose is to store data, references to visual scene elements, and provide a clean access interface for logical processes.
 
-### 8.2 Варианты реализации: Поля данных и Интерфейсные методы
+### 8.2 Implementation Options: Data Fields and Interface Methods
 
-В зависимости от задачи прокси-объект может быть реализован в двух формах:
+Depending on the task, a proxy object can be implemented in two forms:
 
-#### 8.2.1 Прокси как плоский контейнер фиксированных ссылок (Данные)
+#### 8.2.1 Proxy as a Flat Container of Fixed References (Data)
 
-Прокси-объект может вообще не содержать методов, а представлять собой структуру с фиксированными, понятными для рантайма именами полей.
-Пример со скелетом персонажа:
-В проекте есть два префаба: Monster и Human. У монстра кость правой руки в иерархии префаба называется Bone_R_02, а у человека — char_interior/arms/Hand_Right. Логическому процессу атаки (чистому коду C#) противопоказано знать об этих различиях.
-На префаб вешается тонкий прокси-компонент, ссылки в котором художник или дизайнер настраивает в редакторе один раз:
+A proxy object may contain no methods at all but instead be a structure with fixed field names that are understandable to the runtime.
+Example with a character skeleton:
+The project has two prefabs: Monster and Human. For the monster, the right hand bone in the prefab hierarchy is named Bone_R_02, while for the human it is char_interior/arms/Hand_Right. The attack logic process (pure C# code) is contraindicated from knowing about these differences.
+A thin proxy component is attached to the prefab, with references that the artist or designer configures in the editor once:
 
 ```cs
 public class CharacterSkeletonProxy : MonoBehaviour
 {
-    // Фиксированные имена полей для рантайма. 
-    // В инспекторе сюда перетаскиваются совершенно разные кости для разных моделей.
+    // Fixed field names for the runtime. 
+    // In the inspector, completely different bones are dragged here for different models.
     public Transform RightHandBone;
     public Transform LeftHandBone;
     public Transform HeadBone;
@@ -1177,13 +1177,13 @@ public class CharacterSkeletonProxy : MonoBehaviour
 }
 ```
 
-Теперь геймплейный процесс оружия просто берет ссылку proxy.WeaponAttachPoint, сохраняя абсолютную независимость от того, как устроен конкретный визуальный префаб.
+Now the weapon gameplay process simply takes the reference proxy.WeaponAttachPoint, maintaining absolute independence from how a particular visual prefab is structured.
 
-#### 8.2.2 Прокси как унифицированный интерфейс доступа (Код)
+#### 8.2.2 Proxy as a Unified Access Interface (Code)
 
-Если структура данных внутри префаба может динамически меняться или коренным образом отличаться у разных типов объектов, прокси предлагает процессам единый контракт в виде интерфейсных методов.
+If the data structure inside a prefab can change dynamically or differ radically between different types of objects, the proxy offers processes a single contract in the form of interface methods.
 
-Пример с интерфейсом параметров:
+Example with a parameters interface:
 
 ```cs
 public interface IRendererProxy
@@ -1191,14 +1191,14 @@ public interface IRendererProxy
     void SetTeamColor(Color color);
     void SetDissolveValue(float t);
 }
-// Реализация для простого объекта (один MeshRenderer)
+// Implementation for a simple object (single MeshRenderer)
 public class SimpleSpriteProxy : MonoBehaviour, IRendererProxy
 {
     public MeshRenderer TargetRenderer;
     public void SetTeamColor(Color color) => TargetRenderer.sharedMaterial.color = color;
     public void SetDissolveValue(float t) => TargetRenderer.sharedMaterial.SetFloat("_Dissolve", t);
 }
-// Реализация для сложного составного объекта (десятки вложенных SkinnedMeshRenderer)
+// Implementation for a complex composite object (dozens of nested SkinnedMeshRenderers)
 public class ComplexCharacterVisualProxy : MonoBehaviour, IRendererProxy
 {
     public SkinnedMeshRenderer[] AllRenderers;
@@ -1215,35 +1215,35 @@ public class ComplexCharacterVisualProxy : MonoBehaviour, IRendererProxy
 }
 ```
 
-### 8.3 Ключевые преимущества для детерминированного рантайма
+### 8.3 Key Advantages for a Deterministic Runtime
 
-   1. Разделение труда (Программист vs Художник): Технический дизайнер или художник по персонажам может полностью пересобрать структуру префаба, заменить шейдеры, переименовать узлы или изменить структуру компонентов в Unity. До тех пор, пока он переназначает ссылки в поля прокси-компонента, чистый код процессов не сломается и даже «не заметит» изменений.
-   2. Изоляция логики от визуального движка: Геймплейные процессы оперируют чистыми абстракциями. Это исключает появление багов, когда логика игры начинает зависеть от случайного порядка выполнения обновлений (Update) визуальных компонентов самого движка.
-   3. Поддержка Headless-режима: На выделенном сервере, где визуальная сцена отсутствует, прокси-объекты либо не инициализируются, либо подменяются легковесными структурами данных, позволяя логическим процессам беспрепятственно выполнять математические расчеты кадра.
+   1. Division of labor (Programmer vs Artist): A technical designer or character artist can completely rebuild the prefab structure, replace shaders, rename nodes, or change the component structure in Unity. As long as they reassign references in the proxy component fields, the pure process code will not break and will not even "notice" the changes.
+   2. Isolation of logic from the visual engine: Gameplay processes operate with pure abstractions. This eliminates bugs where game logic starts depending on the random execution order of updates (Update) of the engine's own visual components.
+   3. Headless mode support: On a dedicated server where there is no visual scene, proxy objects are either not initialized or replaced with lightweight data structures, allowing logical processes to perform frame mathematical calculations unimpeded.
 
-## Глава 9 Концепция Entity
+## Chapter 9 The Entity Concept
 
-Если обычный прокси-компонент является «глупым» и просто предоставляет фиксированные имена для связи с элементами префаба, то Entity (Сущность) — это активный прокси-объект на стероидах. Это минимальная, но живая реализация любого объекта на сцене, которая служит монолитным фундаментом для интеграции процессов ядра с игровым миром.
-Главная особенность Entity заключается в его автономии. Он не просто пассивно лежит в памяти, а обладает собственным базовым жизненным циклом и способен «воскресать» (реинкарнировать) при загрузке сцены или инстанцировании префаба, связывая визуальное представление с логическим процессом.
+If a regular proxy component is "dumb" and simply provides fixed names for linking to prefab elements, then Entity is an active proxy object on steroids. It is the minimal but living implementation of any object on the scene, serving as a monolithic foundation for integrating kernel processes with the game world.
+The main feature of Entity is its autonomy. It does not just passively lie in memory but has its own basic lifecycle and is capable of "resurrecting" (reincarnating) when a scene loads or a prefab is instantiated, linking the visual representation with the logical process.
 
-### 9.1. Процессы рождения и смерти: Birth() и Kill()
+### 9.1. Birth and Death Processes: Birth() and Kill()
 
-Жизненный цикл Entity жестко привязан к событиям активации игрового движка (OnEnable / OnDisable), но сразу же переводит их в плоскость предсказуемых системных статусов.
+The Entity lifecycle is tightly bound to the game engine's activation events (OnEnable / OnDisable), but immediately translates them into the plane of predictable system statuses.
 
 ```txt
-[ Событие Движка: OnEnable() ] ────────► 1. Birth()
-                                              ├──► Генерация уникального EntityID
-                                              └──► Установка флага EEntityStatus.IsAlive
+[ Engine Event: OnEnable() ] ────────► 1. Birth()
+                                              ├──► Generate unique EntityID
+                                              └──► Set flag EEntityStatus.IsAlive
                                               
-[ Событие Движка: OnDisable() ] ───────► 2. Kill()
-                                              ├──► Проверка связи: MainProcess.IsActive?
-                                              ├──► Вызов каскада: MainProcess.Deactivate()
-                                              └──► Полный сброс статусов (Zero GC / Ссылки в null)
+[ Engine Event: OnDisable() ] ────────► 2. Kill()
+                                              ├──► Check connection: MainProcess.IsActive?
+                                              ├──► Call cascade: MainProcess.Deactivate()
+                                              └──► Full status reset (Zero GC / References to null)
 ```
 
-#### 9.1.1 Рождение (Birth)
+#### 9.1.1 Birth
 
-При активации объекта на сцене движок автоматически вызывает OnEnable(), который делегирует управление системному методу Birth():
+When an object is activated on the scene, the engine automatically calls OnEnable(), which delegates control to the system method Birth():
 
 ```cs
 public virtual void Birth()
@@ -1254,16 +1254,16 @@ public virtual void Birth()
 }
 ```
 
-В этот момент объект официально регистрируется в игровом мире, получает свой сквозной уникальный EntityID и переходит в статус IsAlive. Он готов к тому, чтобы либо самостоятельно запросить создание управляющего процесса из пула, либо быть подхваченным внешней системой инициализации уровня.
+At this moment, the object is officially registered in the game world, receives its cross-cutting unique EntityID, and transitions to IsAlive status. It is ready to either independently request the creation of a controlling process from the pool or be picked up by an external level initialization system.
 
-#### 9.1.2 Смерть (Kill)
+#### 9.1.2 Death (Kill)
 
-Когда объект выключается (скриптом, при переходе на другой уровень или при уничтожении префаба), срабатывает OnDisable(), вызывающий метод Kill():
+When an object is disabled (by script, when moving to another level, or when a prefab is destroyed), OnDisable() triggers, calling the Kill() method:
 
 ```cs
 public virtual void Kill()
 {
-    // Деактивируем связанный логический процесс
+    // Deactivate the associated logical process
     if (MainProcess != null && MainProcess.IsActive)
     {
         MainProcess.Deactivate();
@@ -1275,11 +1275,11 @@ public virtual void Kill()
 }
 ```
 
-Архитектурный нюанс смерти: Entity выступает гарантом чистоты памяти рантайма. Если визуальный объект деактивируется, он обязан мгновенно оборвать свою логическую жизнь. Метод Kill() проверяет наличие привязанного процесса MainProcess и, если тот активен, принудительно вызывает Deactivate(), каскадно зачищая стек корутин и возвращая процесс обратно в пул. Ссылки обнуляются, полностью исключая появление утечек памяти или «висячих» логических апдейтов мертвых объектов.
+Architectural nuance of death: Entity acts as the guarantor of runtime memory purity. If a visual object is deactivated, it must instantly terminate its logical life. The Kill() method checks for an associated MainProcess and, if it is active, forcibly calls Deactivate(), cascadingly cleaning the coroutine stack and returning the process back to the pool. References are nulled, completely eliminating memory leaks or "dangling" logical updates of dead objects.
 
-### 9.2 Связывание с процессом: InitByProcess
+### 9.2 Binding to the Process: InitByProcess
 
-Для того чтобы Entity ожил и начал выполнять геймплейный код, логический процесс ядра должен заявить свои права на владение этой сущностью. Это происходит через метод сопряжения:
+For Entity to come alive and start executing gameplay code, the kernel's logical process must claim ownership of this entity. This happens through the coupling method:
 
 ```cs
 public virtual void InitByProcess(Process process)
@@ -1295,13 +1295,13 @@ public virtual void InitByProcess(Process process)
 }
 ```
 
-Ядро защищает объект от ситуации «двух хозяев»: если у Entity уже есть активный исполняемый процесс, повторная инициализация заблокируется. Если проверка пройдена, сущность получает ссылку на процесс, выставляет статус IsInitialized = true и становится полноценным, предсказуемым актором игрового мира.
+The kernel protects the object from the "two owners" situation: if Entity already has an active executing process, re-initialization will be blocked. If the check passes, the entity receives a reference to the process, sets IsInitialized = true status, and becomes a full-fledged, predictable actor of the game world.
 
-### 9.3. Детерминированная маршрутизация и бродкаст сообщений
+### 9.3. Deterministic Routing and Message Broadcasting
 
-Одно из главных преимуществ Entity как активного прокси — инкапсуляция детерминированной отправки сообщений, которая защищает логику во время нестабильных фаз смены стейтов.
-Процесс обработки сообщений жестко подчинен правилу: объект реагирует на внешние раздражители только тогда, когда его логический контекст предсказуем. Критической зоной является статус WaitingToRun (фаза перехода между состояниями, когда выполняются методы Exit() старого и Enter() нового стейта). Любое сообщение, доставленное в этот момент, может вызвать гонку состояний.
-Поэтому Entity безопасно делегирует отправку внутренним проверкам процесса:
+One of the main advantages of Entity as an active proxy is the encapsulation of deterministic message sending, which protects logic during unstable state transition phases.
+The message processing flow is strictly subject to the rule: the object reacts to external stimuli only when its logical context is predictable. The critical zone is the WaitingToRun status (the transition phase between states when the Exit() methods of the old state and Enter() of the new state are executed). Any message delivered at this moment can cause a state race.
+Therefore, Entity safely delegates sending to the process's internal checks:
 
 ```cs
 public virtual bool SendMessage(Message message)
@@ -1314,7 +1314,7 @@ public virtual bool SendMessage(Message message)
 }
 ```
 
-Более того, топология Entity на сцене (иерархия GameObject в редакторе) может использоваться для направленной дистрибуции событий (Broadcast), позволяя каскадно передавать сообщения дочерним узлам (например, сообщение Взрыв, пришедшее в корневой Entity танка, автоматически бродкастится на дочерние Entity башни и гусениц):
+Moreover, the Entity topology on the scene (the GameObject hierarchy in the editor) can be used for directed event distribution (Broadcast), allowing cascading transmission of messages to child nodes (e.g., an Explosion message arriving at the root Entity of a tank is automatically broadcast to the child Entities of the turret and tracks):
 
 ```cs
 public virtual bool BroadcastMessage(Message message, bool includeChildren = true)
@@ -1333,95 +1333,95 @@ public virtual bool BroadcastMessage(Message message, bool includeChildren = tru
 }
 ```
 
-Использование связки Entity + Process позволяет коду оставаться на 100% модульным. Мы можем в любой момент подменить управляющий процесс внутри Entity (например, переключить управление персонажем с PlayerControlProcess на AIControlProcess), при этом физический объект на сцене, его ID, его маски и связи с другими объектами останутся абсолютно нетронутыми.
+Using the Entity + Process combination allows the code to remain 100% modular. We can at any moment substitute the controlling process inside Entity (e.g., switch character control from PlayerControlProcess to AIControlProcess), while the physical object on the scene, its ID, its masks, and connections with other objects remain absolutely untouched.
 
-### 9.4 Готовность к перекомпиляции «на лету» (Hot Reload)
+### 9.4 Readiness for "On-the-Fly" Recompilation (Hot Reload)
 
-Архитектура распределенного рантайма должна проектироваться с прицелом на максимальную скорость итерации во время разработки. Одним из самых жестких стресс-тестов для детерминированных систем является перекомпиляция кода «на лету» (Hot Reload) в редакторе Unity, когда программист вносит изменения в скрипты C# прямо во время работы игрового режима.
-Приложение необходимо изначально проектировать таким образом, чтобы мгновенная перезагрузка ассембли не приводила к исключительным ситуациям, крашам или зависаниям рантайма.
-Для этого на уровне Entity и связанных процессов учитываются критические особенности Hot Reload:
+The architecture of a distributed runtime must be designed with maximum iteration speed during development in mind. One of the harshest stress tests for deterministic systems is on-the-fly code recompilation (Hot Reload) in the Unity editor, when a programmer makes changes to C# scripts right during play mode.
+The application must be designed from the outset so that instant assembly reloading does not lead to exceptional situations, crashes, or runtime hangs.
+For this, critical features of Hot Reload are taken into account at the Entity and related process level:
 
-   1. Обнуление несериализуемых полей: В момент перекомпиляции Unity полностью уничтожает контекст выполнения. Все поля классов, которые не помечены атрибутом [SerializeField] (включая ссылки на интерфейсы, кастомные структуры очередей сообщений и указатели на логические процессы MainProcess), принудительно сбрасываются в null.
-   2. Игнорирование Awake и Start: При «горячей» перезагрузке движок не вызывает методы Awake() или Start() для уже существующих на сцене объектов. Если инициализация несериализуемых полей (например, повторное связывание Entity со своим процессом или восстановление хендлов) была завязана на эти методы, объект проснется «сломанным».
-   3. Спасительный дуализм OnEnable / OnDisable: Единственные методы жизненного цикла, которые Unity гарантированно вызывает до и после процедуры Hot Reload — это OnDisable() (перед компиляцией) и OnEnable() (сразу после её завершения).
+   1. Nulling non-serializable fields: At the moment of recompilation, Unity completely destroys the execution context. All class fields that are not marked with the [SerializeField] attribute (including interface references, custom message queue structures, and pointers to logical processes MainProcess) are forcibly reset to null.
+   2. Ignoring Awake and Start: During "hot" reload, the engine does not call Awake() or Start() methods for objects already present on the scene. If initialization of non-serializable fields (e.g., re-binding Entity with its process or restoring handles) was tied to these methods, the object will wake up "broken."
+   3. The saving dualism of OnEnable / OnDisable: The only lifecycle methods that Unity guaranteed to call before and after the Hot Reload procedure are OnDisable() (before compilation) and OnEnable() (immediately after its completion).
 
-Именно поэтому в базовой реализации Entity процессы рождения и смерти детерминированно завязаны на эти фазы:
+That is why in the base Entity implementation, birth and death processes are deterministically tied to these phases:
 
-protected virtual void OnEnable() => Birth(); // Воскрешение и пересборка несериализуемых полейprotected virtual void OnDisable() => Kill(); // Безопасное освобождение ресурсов
+protected virtual void OnEnable() => Birth(); // Resurrection and reassembly of non-serializable fieldsprotected virtual void OnDisable() => Kill(); // Safe resource release
 
-* Освобождение ресурсов: В методе Kill() (вызываемом через OnDisable) происходит корректный разрыв связей. Если этого не сделать, старые «призрачные» указатели на процессы останутся в памяти, нарушая чистоту Zero-GC пулов после компиляции.
-* Реинкарнация и ленивое восстановление: В методе Birth() (вызываемом через OnEnable) объект заново генерирует детерминированный рабочий контекст и сигнализирует ядру о готовности к повторному сопряжению с процессами, делая Hot Reload абсолютно незаметным и безопасным для игрового потока.
+* Resource release: In the Kill() method (called via OnDisable), correct connection breaking occurs. If this is not done, old "ghost" process pointers will remain in memory, violating the purity of Zero-GC pools after compilation.
+* Reincarnation and lazy restoration: In the Birth() method (called via OnEnable), the object regenerates a deterministic working context and signals the kernel about readiness for re-coupling with processes, making Hot Reload absolutely invisible and safe for the game flow.
 
-## Глава 10 Детерминизм как архитектурный выбор
+## Chapter 10 Determinism as an Architectural Choice
 
-Мы начали эту статью с утверждения, что современные игровые движки создают **иллюзию контроля**. Разработчик верит, что управляет порядком выполнения кода, жизненным циклом объектов и потоками данных, но в реальности рантайм остаётся «чёрным ящиком» — непредсказуемым, связанным с визуальной сценой и уязвимым для микро-фризов из-за сборщика мусора.
+We began this article with the assertion that modern game engines create an **illusion of control**. The developer believes they control the order of code execution, the lifecycle of objects, and data flows, but in reality, the runtime remains a "black box" — unpredictable, coupled to the visual scene, and vulnerable to micro-freezes due to the garbage collector.
 
-Предложенная архитектура — это **системный ответ** на эти проблемы. Она не просто набор изолированных паттернов, а **целостная экосистема**, где каждый компонент работает в унисон с другими, обеспечивая три ключевых свойства:
+The proposed architecture is a **systemic answer** to these problems. It is not just a set of isolated patterns but a **holistic ecosystem** where each component works in unison with the others, providing three key properties:
 
-### 10.1 Детерминизм исполнения
+### 10.1 Execution Determinism
 
-Детерминизм в нашей системе — это не модное слово, а **строгое математическое свойство**, гарантированное на нескольких уровнях:
+Determinism in our system is not a buzzword but a **strict mathematical property** guaranteed at several levels:
 
-| Уровень | Механизм | Гарантия |
+| Level | Mechanism | Guarantee |
 |--|--|--|
-| **Макроуровень** | Дерево процессов (parent → child → sibling) | Фиксированный порядок обхода (DFS: PBC / CBP) |
-| **Микроуровень** | Строгая FSM (Enter → Code → Exit → Post) | Предсказуемая смена состояний с защитой от рекурсии |
-| **Системный уровень** | Маски процессов (ProcessMask) | Мгновенное отсечение узлов по битовой маске |
-| **Коммуникационный** | Очереди сообщений (Global / Local) | Буферизация и фиксированный порядок доставки |
-| **Управление памятью** | Object Pooling + Zero GC | Отсутствие аллокаций в куче во время игрового цикла |
+| **Macro level** | Process tree (parent → child → sibling) | Fixed traversal order (DFS: PBC / CBP) |
+| **Micro level** | Strict FSM (Enter → Code → Exit → Post) | Predictable state change with recursion protection |
+| **System level** | Process masks (ProcessMask) | Instant pruning of nodes by bitmask |
+| **Communication** | Message queues (Global / Local) | Buffering and fixed delivery order |
+| **Memory management** | Object Pooling + Zero GC | No heap allocations during the game loop |
 
-Итог: два запуска одной и той же симуляции с одинаковым входным состоянием дадут **идентичный результат** до последнего байта. Это делает архитектуру пригодной для:
+Result: two runs of the same simulation with the same input state will produce an **identical result** down to the last byte. This makes the architecture suitable for:
 
-* **Lock-step синхронизации** в многопользовательских играх
-* **Детерминированных реплеев** (запись только входных данных)
-* **Автоматического тестирования** (сравнение эталонных логов)
+* **Lock-step synchronization** in multiplayer games
+* **Deterministic replays** (recording only input data)
+* **Automated testing** (comparison of reference logs)
 
-### 10.2 Изоляция логики от визуальной сцены
+### 10.2 Isolation of Logic from the Visual Scene
 
-Второй фундаментальный принцип — **логическое дерево процессов не обязано совпадать с визуальной иерархией сцены**:
+The second fundamental principle — **the logical process tree does not have to coincide with the visual hierarchy of the scene**:
 
-![Финальная структура среды исполнения](images/proxy-component.drawio.png)
+![Final runtime structure](images/proxy-component.drawio.png)
 
-Эта изоляция даёт мощные преимущества:
+This isolation provides powerful advantages:
 
-* **Headless-режим**: выделенный сервер может выполнять всю игровую логику без визуальной сцены, экономя ресурсы
-* **Гибкость разработки**: художники и дизайнеры могут перестраивать префабы, не затрагивая код
-* **Тестируемость**: процессы можно запускать в изоляции без зависимостей от Unity-компонентов
+* **Headless mode**: a dedicated server can execute all game logic without a visual scene, saving resources
+* **Development flexibility**: artists and designers can rebuild prefabs without touching code
+* **Testability**: processes can be run in isolation without dependencies on Unity components
 
-### 10.3 Zero GC и предсказуемая производительность
+### 10.3 Zero GC and Predictable Performance
 
-Сборщик мусора — главный враг стабильного FPS. В нашей архитектуре мы исключили его влияние через несколько взаимосвязанных решений:
+The garbage collector is the main enemy of stable FPS. In our architecture, we have eliminated its influence through several interrelated solutions:
 
-**СТРАТЕГИИ ZERO GC*
+**ZERO GC STRATEGIES**
 
 1. `OBJECT POOLING`
-   • Процессы извлекаются из пула, а не создаются через new
+   • Processes are retrieved from the pool, not created via new
    • Deactivate() → pool.ReturnBase(this)
-2. `STRUCTS ВМЕСТО CLASSES`
-   • Message — структура с [StructLayout(LayoutKind.Explicit)]
-   • Передача по ссылке (in Message)
-3. `КАСТОМНЫЕ КОНТЕЙНЕРЫ`
-   • Дерево процессов на трёх указателях (parent/child/sibling)
-   • Без List<T>, без LINQ, без аллокаций
-4. `ОТСУТСТВИЕ ЗАВИСИМОСТЕЙ ОТ UNITY-API В ЯДРЕ`
-   • Process — чистый C# класс, не наследует MonoBehaviour  
-   • Нет случайных вызовов GC через Unity-обёртки
+2. `STRUCTS INSTEAD OF CLASSES`
+   • Message — a structure with [StructLayout(LayoutKind.Explicit)]
+   • Passed by reference (in Message)
+3. `CUSTOM CONTAINERS`
+   • Process tree on three pointers (parent/child/sibling)
+   • No List<T>, no LINQ, no allocations
+4. `NO DEPENDENCIES ON UNITY API IN THE KERNEL`
+   • Process — a pure C# class, does not inherit MonoBehaviour  
+   • No accidental GC calls through Unity wrappers
 
-Итог: рантайм работает с **константной памятью** и **предсказуемым временем кадра** (frame budget), что критически важно для консольных игр и VR-приложений.
+Result: the runtime operates with **constant memory** and **predictable frame time** (frame budget), which is critically important for console games and VR applications.
 
-## 10.4 Детерминированная случайность: Контроль вероятностей без RNG
+## 10.4 Deterministic Randomness: Controlling Probabilities Without RNG
 
-Когда геймдизайнер говорит, что «Зомби-лидер должен появляться с вероятностью 20% (0.2)», программисты часто совершают архитектурную ошибку, внедряя в код вызов генератора случайных чисел: if (Random.value < 0.2f) SpawnLeader();.
-В детерминированном рантайме классический генератор случайных чисел (даже псевдослучайный с фиксированным Seed) обладает двумя критическими недостатками:
+When a game designer says that "The Zombie Leader should appear with a probability of 20% (0.2)," programmers often make an architectural mistake by embedding a random number generator call in the code: if (Random.value < 0.2f) SpawnLeader();.
+In a deterministic runtime, the classic random number generator (even a pseudorandom one with a fixed Seed) has two critical drawbacks:
 
-1. Дисперсия на малых выборках: Вероятность 0.2 гарантирует появление 20 лидеров на выборке в 100 зомби. Однако на коротком отрезке из 10 врагов чистый рандом может выдать либо 0 лидеров (игрок заскучает), либо 5 лидеров подряд (игрок мгновенно погибнет из-за дисбаланса).
-2. Хрупкость сетевого синхропотока: Если в lock-step сети один клиент просчитает вызов Random в побочном потоке или из-за задержки пакета вызовет его на один раз больше, Seed сместится. Произойдет рассинхронизация (Desync), и на экранах игроков начнется совершенно разная игра.
+1. Dispersion on small samples: A probability of 0.2 guarantees the appearance of 20 leaders on a sample of 100 zombies. However, on a short segment of 10 enemies, pure random may yield either 0 leaders (the player gets bored) or 5 leaders in a row (the player instantly dies due to imbalance).
+2. Fragility of the network sync flow: If in a lock-step network one client computes a Random call in a side thread or, due to packet delay, calls it one extra time, the Seed shifts. Desync occurs, and completely different games begin on the players' screens.
 
-### 10.4.1 Решение: Контролируемые списки распределения (Distribution Pools)
+### 10.4.1 Solution: Controlled Distribution Pools
 
-Для детерминизма баланса случайность заменяется на циклические списки (например, чередование рядовых зомби follower и лидеров leader в фиксированной пропорции).
+For balance determinism, randomness is replaced with cyclic lists (e.g., alternating ranks of follower zombies and leader zombies in a fixed proportion).
 
-Пример кода с жестко прописанными правилами показан ниже. В реальности лучше прибегать к конфигурационным файлам, скриптингу, а в крайнем случае — к визуальному программированию логики.
+An example code with hardcoded rules is shown below. In reality, it is better to resort to configuration files, scripting, and, as a last resort, visual logic programming.
 
 ```cs
 public enum ESpawnType : byte
@@ -1432,7 +1432,7 @@ public enum ESpawnType : byte
 
 public class DeterministicSpawner
 {
-    // Жестко заданная последовательность, гарантирующая ровно 20% лидеров на каждые 10 спавнов
+    // Hardcoded sequence guaranteeing exactly 20% leaders per 10 spawns
     private static readonly ESpawnType[] SpawnPattern = new ESpawnType[]
     {
         ESpawnType.Follower, ESpawnType.Follower, ESpawnType.Follower, ESpawnType.Follower, ESpawnType.Follower,
@@ -1445,7 +1445,7 @@ public class DeterministicSpawner
 
     public ESpawnType GetNextSpawnType()
     {
-        // Детерминированный сдвиг по кругу с помощью операции остатка от деления
+        // Deterministic circular shift using the modulo operation
         ESpawnType nextType = SpawnPattern[_spawnCounter % SpawnPattern.Length];
         
         _spawnCounter++;
@@ -1454,66 +1454,66 @@ public class DeterministicSpawner
 }
 ```
 
-#### 10.4.2 Архитектурные преимущества
+#### 10.4.2 Architectural Advantages
 
-   1. Гарантия игрового опыта: Геймдизайнер получает математически точный контроль над ритмикой игры. Ситуация, когда игрока задушит случайная лавина из элитных врагов, физически исключена.
-   2. Сетевая безопасность: Метод GetNextSpawnType() зависит только от атомарного инкремента _spawnCounter. Порядок вызовов жестко привязан к логическому шагу кадра, что делает рассинхронизацию невозможной.
-   3. Легкость отладки (Deterministic Replays): Для повторения бага в реплее вам больше не нужно записывать миллионы сгенерированных Float-значений рандома. Доточное состояние спавнера в любой момент времени описывается всего одним числом — текущим значением _spawnCounter.
+   1. Gameplay experience guarantee: The game designer gets mathematically precise control over the game's rhythm. The situation where the player is overwhelmed by a random avalanche of elite enemies is physically excluded.
+   2. Network safety: The GetNextSpawnType() method depends only on the atomic increment of _spawnCounter. The order of calls is tightly bound to the logical step of the frame, making desync impossible.
+   3. Ease of debugging (Deterministic Replays): To reproduce a bug in a replay, you no longer need to record millions of generated Float random values. The exact state of the spawner at any moment in time is described by just one number — the current value of _spawnCounter.
 
-### 10.5 Сквозной жизненный цикл: от Entity до состояния
+### 10.5 End-to-End Lifecycle: From Entity to State
 
-Все компоненты архитектуры выстроены в **единую цепочку управления**, где каждый уровень отвечает за свой аспект жизни объекта:
+All architecture components are arranged in a **single control chain**, where each level is responsible for its own aspect of the object's life:
 
 ```txt
 ┌─────────────────────────────────────────────────────────────┐
-│                  СКВОЗНОЙ ЖИЗНЕННЫЙ ЦИКЛ                    │
+│                  END-TO-END LIFECYCLE                        │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  UNITY (OnEnable)                                           │
 │      │                                                      │
 │      ▼                                                      │
 │  ENTITY.Birth()                                             │
-│      │  → Генерация EntityID                                │
-│      │  → Установка IsAlive = true                          │
+│      │  → Generate EntityID                                 │
+│      │  → Set IsAlive = true                                │
 │      │                                                      │
 │      ▼                                                      │
 │  PROCESS.Activate()                                         │
-│      │  → Установка parent / child / sibling                │
+│      │  → Set parent / child / sibling                      │
 │      │  → pid = Kernel.GetNextPid()                         │
 │      │  → status = ProcessStatus.Ready                      │
 │      │                                                      │
 │      ▼                                                      │
 │  PROCESS.InitFromEntity() / InitByOther()                   │
-│      │  → Загрузка параметров из Entity или Message         │
+│      │  → Load parameters from Entity or Message            │
 │      │                                                      │
 │      ▼                                                      │
 │  STATE.Enter()                                              │
-│      │  → Вход в первое состояние                           │
+│      │  → Entry into the first state                        │
 │      │                                                      │
 │      ▼                                                      │
-│  STATE.Code() (корутина)                                    │
-│      │  → Основной геймплей                                 │
-│      │  → GoHook(NextState) — смена состояния               │
-│      │  → suspend — приостановка                            │
+│  STATE.Code() (coroutine)                                   │
+│      │  → Main gameplay                                     │
+│      │  → GoHook(NextState) — state change                  │
+│      │  → suspend — suspension                              │
 │      │                                                      │
 │      ▼                                                      │
 │  STATE.Post()                                               │
-│      │  → Пост-обработка (анимация, визуальные эффекты)     │
+│      │  → Post-processing (animation, visual effects)       │
 │      │                                                      │
 │      ▼                                                      │
 │  STATE.Exit()                                               │
-│      │  → Зачистка ресурсов перед уходом                    │
+│      │  → Resource cleanup before leaving                   │
 │      │                                                      │
 │      ▼                                                      │
 │  PROCESS.Deactivate()                                       │
-│      │  → Каскадная деактивация детей                       │
-│      │  → Disconnect() — разрыв связей                      │
-│      │  → pool.ReturnBase() — возврат в пул                 │
+│      │  → Cascading deactivation of children                │
+│      │  → Disconnect() — breaking connections               │
+│      │  → pool.ReturnBase() — return to pool                │
 │      │                                                      │
 │      ▼                                                      │
 │  ENTITY.Kill()                                              │
-│      │  → Установка IsAlive = false                         │
-│      │  → Обнуление MainProcess                             │
+│      │  → Set IsAlive = false                               │
+│      │  → Null MainProcess                                  │
 │      │                                                      │
 │      ▼                                                      │
 │  UNITY (OnDisable)                                          │
@@ -1521,43 +1521,43 @@ public class DeterministicSpawner
 └─────────────────────────────────────────────────────────────┘
 ```
 
-Эта сквозная цепочка гарантирует, что **ни один объект не останется "висеть"** между состояниями, а переходы между фазами будут строго детерминированы.
+This end-to-end chain guarantees that **no object will remain "hanging"** between states, and transitions between phases will be strictly deterministic.
 
-### 10.6 Что мы получили в итоге?
+### 10.6 What Have We Achieved?
 
-| Аспект | Традиционный подход (Unity/Unreal) | Предложенная архитектура |
+| Aspect | Traditional approach (Unity/Unreal) | Proposed architecture |
 | -- | -- | -- |
-| **Порядок выполнения** | Недетерминирован (зависит от порядка в сцене) | Строго фиксирован (DFS по дереву) |
-| **Жизненный цикл** | Размыт (Awake/Start/OnEnable/Update) | Чёткий (Enter/Code/Post/Exit) |
-| **Смена состояний** | Риск гонок и багов "кадра-призрака" | Атомарна (Immediate/Delayed + защита от рекурсии) |
-| **Связь с визуальной сценой** | Жёсткая (MonoBehaviour, Transform) | Изолирована (Proxy / Entity) |
-| **Сообщения** | Прямые вызовы или глобальные события | Буферизированные очереди (Global/Local) |
-| **Управление памятью** | GC (микро-фризы) | Zero GC (пулы + структуры) |
-| **Headless-режим** | Сложно (зависимость от движка) | Естественно (чистые процессы) |
-| **Hot Reload** | Риск крашей и "зомби-объектов" | Безопасен (OnEnable/OnDisable) |
-| **Детерминизм** | Не гарантирован | Гарантирован математически |
+| **Execution order** | Non-deterministic (depends on scene order) | Strictly fixed (DFS over the tree) |
+| **Lifecycle** | Blurred (Awake/Start/OnEnable/Update) | Clear (Enter/Code/Post/Exit) |
+| **State changes** | Risk of races and "ghost frame" bugs | Atomic (Immediate/Delayed + recursion protection) |
+| **Connection to visual scene** | Tight (MonoBehaviour, Transform) | Isolated (Proxy / Entity) |
+| **Messages** | Direct calls or global events | Buffered queues (Global/Local) |
+| **Memory management** | GC (micro-freezes) | Zero GC (pools + structs) |
+| **Headless mode** | Difficult (engine dependency) | Natural (pure processes) |
+| **Hot Reload** | Risk of crashes and "zombie objects" | Safe (OnEnable/OnDisable) |
+| **Determinism** | Not guaranteed | Mathematically guaranteed |
 
-### 10.7 Заключительная мысль
+### 10.7 Concluding Thought
 
-Архитектура, представленная в этой статье, не является "серебряной пулей". Она требует дисциплины в написании кода, строгого следования правилам и осознанного подхода к проектированию каждого нового процесса. Однако эта дисциплина окупается сторицей:
+The architecture presented in this article is not a "silver bullet." It requires discipline in writing code, strict adherence to rules, and a conscious approach to designing each new process. However, this discipline pays off handsomely:
 
-* **Надёжность**: Игра не падает от случайного NullReferenceException
-* **Предсказуемость**: Поведение объектов не меняется от кадра к кадру
-* **Производительность**: Стабильный FPS без микро-фризов
-* **Гибкость**: Лёгкая адаптация под любые игровые жанры
-* **Тестируемость**: Возможность автоматизированного регрессионного тестирования
+* **Reliability**: The game does not crash from an accidental NullReferenceException
+* **Predictability**: Object behavior does not change from frame to frame
+* **Performance**: Stable FPS without micro-freezes
+* **Flexibility**: Easy adaptation to any game genres
+* **Testability**: Possibility of automated regression testing
 
-В мире, где игровые проекты становятся всё сложнее, а требования к стабильности — всё выше, **детерминизм перестаёт быть опцией и становится необходимостью**.
+In a world where game projects are becoming increasingly complex and stability requirements are ever higher, **determinism ceases to be an option and becomes a necessity**.
 
-Предложенная архитектура — это попытка вернуть разработчику **контроль над рантаймом**, который так легко потерять в современных движках. Она вдохновлена идеями Naughty Dog, реализованными в компиляторе GOAL более двадцати лет назад, но адаптирована под современные реалии C# и Unity.
+The proposed architecture is an attempt to return to the developer **control over the runtime**, which is so easily lost in modern engines. It is inspired by the ideas of Naughty Dog, implemented in the GOAL compiler more than twenty years ago, but adapted to the modern realities of C# and Unity.
 
-Детерминизм — это не ограничение. **Это — свобода.**
+Determinism is not a limitation. **It is freedom.**
 
-## Благодарности
+## Acknowledgments
 
-Автор выражает глубокую признательность:
+The author expresses deep gratitude to:
 
-* Сообществу и разработчикам проекта [OpenGOAL](https://opengoal.dev/ "OpenGOAL Official Website") за неоценимый вклад в реверс-инжиниринг, декомпиляцию и детальное документирование уникальных рантайм-технологий студии Naughty Dog.
-* **Джейсону Грегори (Jason Gregory)**, главному программисту игрового движка Naughty Dog, чья фундаментальная работа *«Game Engine Architecture»* стала главным вдохновением и теоретической базой для проектирования детерминированных систем.
-* **Теренсу Коэну (Terrence Coen)** за глубокие исследования и практический вклад в развитие архитектуры игровых систем и легковесных планировщиков потоков.
-* Всем инженерам и разработчикам, которые продолжают развивать концепции предсказуемого рантайма и отстаивать культуру абсолютного контроля над кодом.
+* The community and developers of the [OpenGOAL](https://opengoal.dev/ "OpenGOAL Official Website") project for their invaluable contribution to reverse engineering, decompilation, and detailed documentation of the unique runtime technologies of the Naughty Dog studio.
+* **Jason Gregory**, lead programmer of the Naughty Dog game engine, whose fundamental work *"Game Engine Architecture"* became the main inspiration and theoretical basis for designing deterministic systems.
+* **Terrence Coen** for deep research and practical contribution to the development of game systems architecture and lightweight thread schedulers.
+* All engineers and developers who continue to advance the concepts of a predictable runtime and uphold the culture of absolute control over code.
