@@ -28,10 +28,10 @@ The main focus was not on ultra-miniaturization (as in commercial fitness tracke
 ![Test Board](/projects/ppg/pcb-mnf.jpg)
 Manufactured test board for initial sensor and software validation.
 <br>
-![Test Board](/projects/ppg/pcb-construction.png)
+![Assembly](/projects/ppg/pcb-construction.png)
 Placement stage in Altium Designer. Two-board component layout within the dimensions of the future bracelet. The project was paused right before PCB routing.
 <br>
-![Test Board](/projects/ppg/screen.jpg)
+![Host Application](/projects/ppg/screen.jpg)
 Python host application interface. Real-time raw data output from the optical sensor for subsequent pulse wave analysis.
 
 ## Current Status
