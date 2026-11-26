@@ -1,131 +1,131 @@
-# Двухсвязные матрицы подсистем: Архитектура управления параметрами в OpenGOAL
+# Two-Way Sub-System Matrices: Parameter Management Architecture in OpenGOAL
 
-*Как система ортогональных списков позволяет гибко управлять параметрами игры с автоматическим блендингом и минимальной связанностью компонентов*
+*How a system of orthogonal lists enables flexible control of game parameters with automatic blending and minimal component coupling*
 
-**Аннотация.** В статье рассматривается архитектурный подход к организации игровых подсистем, реализованный в движке OpenGOAL. Система ортогональных двухсвязных списков позволяет множеству процессов одновременно управлять одними и теми же параметрами (громкость звука, яркость света, время суток) с автоматическим блендингом и без жесткой связанности компонентов. В отличие от ECS, эта система предназначена для логики верхнего уровня, а не для низкоуровневых вычислений. Материал будет полезен разработчикам игр, интересующимся гибкими архитектурами для управления состоянием игрового мира.
+**Abstract.** The article examines an architectural approach to organizing game subsystems, implemented in the OpenGOAL engine. The system of orthogonal two-way lists allows multiple processes to simultaneously control the same parameters (sound volume, light brightness, time of day) with automatic blending and without rigid coupling of components. Unlike ECS, this system is intended for high-level logic, not for low-level computations. The material will be useful to game developers interested in flexible architectures for managing the state of the game world.
 
 ---
 
-## 1. Проблема: управление параметрами в сложной игре
+## 1. The Problem: Parameter Management in a Complex Game
 
-Представьте типичную игровую ситуацию:
+Imagine a typical game situation:
 
-- Игрок заходит в пещеру — громкость эхо должна плавно увеличиться.
-- Одновременно солнце садится — яркость источников света должна измениться.
-- Персонаж получает бафф на скорость — анимация должна ускориться.
-- Звук шагов зависит от типа поверхности.
+- The player enters a cave — the echo volume should smoothly increase.
+- At the same time, the sun sets — the brightness of light sources should change.
+- The character receives a speed buff — the animation should speed up.
+- The sound of footsteps depends on the surface type.
 
-В классическом ООП-подходе управление параметрами выглядит как прямые вызовы:
+In the classic OOP approach, parameter management looks like direct calls:
 
 ```csharp
-// Кто-то где-то пишет
+// Someone somewhere writes
 AudioManager.Instance.SetVolume(0.8f);
 LightManager.Instance.SetBrightness(0.5f);
 ```
 
-Проблемы начинаются, когда параметров много, а контролировать их хотят десятки разных систем одновременно. Например:
+Problems begin when there are many parameters, and dozens of different systems want to control them simultaneously. For example:
 
-- **Система окружения** говорит: "Громкость должна быть 0.8, потому что мы в пещере".
-- **Система здоровья** говорит: "Громкость должна быть 0.3, потому что персонаж ранен".
-- **Система диалогов** говорит: "Громкость должна быть 0.5, потому что идет важный разговор".
+- **The environment system** says: "The volume should be 0.8 because we are in a cave."
+- **The health system** says: "The volume should be 0.3 because the character is wounded."
+- **The dialogue system** says: "The volume should be 0.5 because an important conversation is taking place."
 
-Как объединить эти запросы? Применить минимальное значение? Максимальное? Среднее? А может быть, плавно переходить между ними?
+How to combine these requests? Apply the minimum value? The maximum? The average? Or perhaps smoothly transition between them?
 
-Именно для решения этой задачи в OpenGOAL была разработана система **ортогональных двухсвязных матриц**.
+It is precisely to solve this problem that the system of **orthogonal two-way matrices** was developed in OpenGOAL.
 
 ---
 
-## 2. Архитектура: основные понятия
+## 2. Architecture: Basic Concepts
 
-Система строится на трёх базовых классах, каждый из которых выполняет строго определенную роль:
+The system is built on three base classes, each of which performs a strictly defined role:
 
 ![OpenGOAL Connection System](images/image1.png)
-*Рис. 1 — Ортогональная система связей*
+*Fig. 1 — Orthogonal connection system*
 
-### 2.1. Connectable — узел связи
+### 2.1. Connectable — the connection node
 
-Базовый класс, который содержит два независимых двухсвязных списка:
+The base class that contains two independent two-way lists:
 
 ```csharp
 public class Connectable
 {
     public object Owner;
     
-    // Горизонтальный список (внутри Engine)
+    // Horizontal list (within Engine)
     public Connectable Next0;
     public Connectable Prev0;
     
-    // Вертикальный список (между Engine для одного Process)
+    // Vertical list (between Engine for one Process)
     public Connectable Next1;
     public Connectable Prev1;
 }
 ```
 
-Каждый `Connectable` может одновременно находиться в двух независимых списках:
-- **Горизонтальный (0)**: связывает узлы внутри одного `Engine`
-- **Вертикальный (1)**: связывает узлы, принадлежащие одному `Process`
+Each `Connectable` can simultaneously be in two independent lists:
+- **Horizontal (0)**: links nodes within one `Engine`
+- **Vertical (1)**: links nodes belonging to one `Process`
 
-### 2.2. Connection — узел с данными
+### 2.2. Connection — the node with data
 
-Наследует `Connectable` и добавляет параметры:
+Inherits `Connectable` and adds parameters:
 
 ```csharp
 public class Connection : Connectable
 {
-    public object Arg0;  // Функция-обработчик или ссылка на объект
-    public int Arg1;     // Идентификатор параметра (ESetting)
-    public int Arg2;     // Метод применения (EMethod)
-    public int Arg3;     // Значение параметра
+    public object Arg0;  // Handler function or object reference
+    public int Arg1;     // Parameter identifier (ESetting)
+    public int Arg2;     // Application method (EMethod)
+    public int Arg3;     // Parameter value
 }
 ```
 
-### 2.3. Engine — подсистема управления
+### 2.3. Engine — the control subsystem
 
-Управляет списком `Connection` и выполняет их обновление:
+Manages the list of `Connection` and performs their update:
 
 ```csharp
 public class Engine
 {
     public string Name;
-    public int Length;  // Количество активных соединений
+    public int Length;  // Number of active connections
     
-    // Сентинелы для списков
+    // Sentinels for lists
     public Connectable AliveList;
     public Connectable AliveListEnd;
     public Connectable DeadList;
     public Connectable DeadListEnd;
     
-    // Пул предварительно выделенных соединений
+    // Pool of pre-allocated connections
     public Connection[] Data;
 }
 ```
 
-### 2.4. Process — сущность игрового мира
+### 2.4. Process — the entity of the game world
 
-Любая сущность, которая может управлять параметрами (персонаж, источник света, триггер зоны):
+Any entity that can control parameters (character, light source, zone trigger):
 
 ```csharp
 public class Process
 {
     public string name;
-    public Connectable ConnectionList;  // Голова вертикального списка
+    public Connectable ConnectionList;  // Head of the vertical list
 }
 ```
 
 ---
 
-## 3. Двухсвязные списки: как это работает
+## 3. Two-Way Lists: How It Works
 
 ![OpenGOAL Connection System](images/image7.png)
-*Рис. 1 — Ортогональная система связей*
+*Fig. 1 — Orthogonal connection system*
 
-### Горизонтальный вектор (next0 / prev0)
+### Horizontal vector (next0 / prev0)
 
-Связывает все `Connection` внутри одного `Engine`. Каждый `Engine` имеет два списка:
-- **AliveList** — активные соединения, которые должны быть обработаны
-- **DeadList** — пул неактивных соединений для переиспользования
+Links all `Connection` within one `Engine`. Each `Engine` has two lists:
+- **AliveList** — active connections that must be processed
+- **DeadList** — pool of inactive connections for reuse
 
-При создании нового `Engine` все соединения предварительно выделяются в пуле:
+When a new `Engine` is created, all connections are pre-allocated in the pool:
 
 ```csharp
 public Engine(string name, int size)
@@ -134,11 +134,11 @@ public Engine(string name, int size)
     for (int i = 0; i < size; i++)
         Data[i] = new Connection();
     
-    // Все соединения находятся в DeadList
+    // All connections are in DeadList
     DeadList.Next0 = Data[0];
     DeadListEnd.Prev0 = Data[Data.Length - 1];
     
-    // Связываем все элементы в цепочку
+    // Link all elements into a chain
     for (int i = 0; i < Data.Length - 1; i++)
     {
         Data[i].Next0 = Data[i + 1];
@@ -147,39 +147,39 @@ public Engine(string name, int size)
 }
 ```
 
-### Вертикальный вектор (next1 / prev1)
+### Vertical vector (next1 / prev1)
 
-Связывает все `Connection`, принадлежащие одному `Process`. Это позволяет быстро найти все подсистемы, в которых зарегистрирован процесс.
+Links all `Connection` belonging to one `Process`. This allows quickly finding all subsystems in which the process is registered.
 
 ---
 
-## 4. Регистрация и выполнение
+## 4. Registration and Execution
 
-### Добавление соединения
+### Adding a connection
 
-Когда процесс хочет начать управлять параметром, он создаёт соединение:
+When a process wants to start controlling a parameter, it creates a connection:
 
 ```csharp
-// В SettingsControl
+// In SettingsControl
 public void AddSetting(Process process, int setting, EMethod method, int arg)
 {
     engine.AddConnection(process, null, setting, (int)method, arg);
 }
 
-// В Engine
+// In Engine
 public void AddConnection(Process process, object arg0, int arg1, int arg2, int arg3)
 {
-    // Берём соединение из DeadList
+    // Take a connection from DeadList
     Connectable connectable = DeadList.Next0;
     Connection connection = connectable as Connection;
     
-    // Настраиваем параметры
+    // Configure parameters
     connection.Arg0 = arg0;
     connection.Arg1 = arg1;  // ESetting
     connection.Arg2 = arg2;  // EMethod
-    connection.Arg3 = arg3;  // Значение
+    connection.Arg3 = arg3;  // Value
     
-    // Перемещаем в AliveList
+    // Move to AliveList
     DeadList.Next0 = connectable.Next0;
     connectable.Next0.Prev0 = DeadList;
     
@@ -188,7 +188,7 @@ public void AddConnection(Process process, object arg0, int arg1, int arg2, int 
     connectable.Prev0 = AliveList;
     AliveList.Next0 = connectable;
     
-    // Добавляем в вертикальный список процесса
+    // Add to the process's vertical list
     connectable.Next1 = process.ConnectionList.Next1;
     if (connectable.Next1 != null)
         connectable.Next1.Prev1 = connectable;
@@ -199,26 +199,26 @@ public void AddConnection(Process process, object arg0, int arg1, int arg2, int 
 }
 ```
 
-### Вычисление итогового значения
+### Calculating the resulting value
 
-Каждый кадр `SettingsControl` обновляет параметры:
+Each frame, `SettingsControl` updates the parameters:
 
 ```csharp
 public void Update()
 {
-    // Начинаем с дефолтных значений
+    // Start with default values
     target.CopyFrom(defaults);
     
-    // Применяем все запросы из Engine
+    // Apply all requests from Engine
     target.UpdateFromEngine(engine);
     
-    // Вычисляем итоговые значения
+    // Calculate the resulting values
     ApplySettings();
     InterpolateSettings();
 }
 ```
 
-`SettingsData.UpdateFromEngine` обходит все активные соединения и применяет их:
+`SettingsData.UpdateFromEngine` traverses all active connections and applies them:
 
 ```csharp
 public void UpdateFromEngine(Engine engine)
@@ -234,16 +234,16 @@ public void UpdateFromEngine(Engine engine)
 }
 ```
 
-Методы обновления для разных типов значений:
+Update methods for different value types:
 
 ```csharp
 protected float UpdateFloat(float current, EMethod method, float value)
 {
     switch (method)
     {
-        case EMethod.Set:    return value;                // Абсолютное значение
-        case EMethod.Rel:    return current * value * 0.01f; // Проценты
-        case EMethod.Scale:  return current * value;       // Масштабирование
+        case EMethod.Set:    return value;                // Absolute value
+        case EMethod.Rel:    return current * value * 0.01f; // Percentages
+        case EMethod.Scale:  return current * value;       // Scaling
         default: return current;
     }
 }
@@ -252,32 +252,32 @@ protected bool UpdateBool(bool current, EMethod method, bool value)
 {
     switch (method)
     {
-        case EMethod.Set:    return value;    // Установить
-        case EMethod.Or:     return current | value;  // Логическое ИЛИ
-        case EMethod.And:    return current & value;  // Логическое И
+        case EMethod.Set:    return value;    // Set
+        case EMethod.Or:     return current | value;  // Logical OR
+        case EMethod.And:    return current & value;  // Logical AND
         default: return current;
     }
 }
 ```
 
-### Методы применения
+### Application methods
 
-| Метод | Назначение | Пример |
+| Method | Purpose | Example |
 |-------|------------|--------|
-| **Set** | Установить абсолютное значение | `Громкость = 0.8` |
-| **Rel** | Проценты от текущего значения (0..100) | `Громкость *= 50%` |
-| **Scale** | Масштабирование (0..1) | `Громкость *= 0.5` |
-| **Or** | Логическое ИЛИ (для флагов) | `Флаги |= 0x01` |
-| **And** | Логическое И (для флагов) | `Флаги &= 0xFE` |
+| **Set** | Set an absolute value | `Volume = 0.8` |
+| **Rel** | Percentages of the current value (0..100) | `Volume *= 50%` |
+| **Scale** | Scaling (0..1) | `Volume *= 0.5` |
+| **Or** | Logical OR (for flags) | `Flags |= 0x01` |
+| **And** | Logical AND (for flags) | `Flags &= 0xFE` |
 
 ---
 
-## 5. Пример: управление громкостью звука
+## 5. Example: Sound Volume Management
 
-Рассмотрим реальный сценарий с тремя процессами, управляющими громкостью:
+Let us consider a real scenario with three processes controlling the volume:
 
 ```csharp
-// 1. Процесс "Пещера" — абсолютное значение
+// 1. The "Cave" process — absolute value
 public class CaveProcess : Process
 {
     void OnEnter()
@@ -286,7 +286,7 @@ public class CaveProcess : Process
             this,
             (int)ESetting.Volume,
             EMethod.Set,
-            0.8f  // Громкость 80%
+            0.8f  // Volume 80%
         );
     }
     
@@ -296,7 +296,7 @@ public class CaveProcess : Process
     }
 }
 
-// 2. Процесс "Ранение" — масштабирование
+// 2. The "Damage" process — scaling
 public class DamageProcess : Process
 {
     void OnTakeDamage()
@@ -305,12 +305,12 @@ public class DamageProcess : Process
             this,
             (int)ESetting.Volume,
             EMethod.Scale,
-            0.5f  // Уменьшить громкость вдвое
+            0.5f  // Reduce volume by half
         );
     }
 }
 
-// 3. Процесс "Диалог" — абсолютное значение
+// 3. The "Dialogue" process — absolute value
 public class DialogProcess : Process
 {
     void OnDialogStart()
@@ -319,57 +319,57 @@ public class DialogProcess : Process
             this,
             (int)ESetting.Volume,
             EMethod.Set,
-            0.6f  // Громкость 60% во время диалога
+            0.6f  // Volume 60% during dialogue
         );
     }
 }
 ```
 
-### Как это работает в рантайме:
+### How it works at runtime:
 
 ```
-Начальное состояние (default): Volume = 1.0
+Initial state (default): Volume = 1.0
 
-1. Игрок входит в пещеру:
+1. The player enters the cave:
    - CaveProcess: Set(0.8) → Volume = 0.8
 
-2. Игрок получает ранение:
+2. The player takes damage:
    - CaveProcess: Set(0.8)
    - DamageProcess: Scale(0.5) → Volume = 0.8 * 0.5 = 0.4
 
-3. Начинается диалог:
+3. A dialogue begins:
    - CaveProcess: Set(0.8)
    - DamageProcess: Scale(0.5)
-   - DialogProcess: Set(0.6) → Volume = 0.6 (переопределяет)
+   - DialogProcess: Set(0.6) → Volume = 0.6 (overrides)
 
-4. Диалог заканчивается (удаляется соединение):
+4. The dialogue ends (the connection is removed):
    - CaveProcess: Set(0.8)
    - DamageProcess: Scale(0.5) → Volume = 0.8 * 0.5 = 0.4
 ```
 
-Итоговая громкость зависит от того, какие процессы активны и в каком порядке они применяются.
+The resulting volume depends on which processes are active and in what order they are applied.
 
 ---
 
-## 6. Удаление соединений (O(1))
+## 6. Removing Connections (O(1))
 
-Когда процесс уничтожается, он должен освободить все свои соединения. Благодаря вертикальному списку, это делается мгновенно:
+When a process is destroyed, it must release all its connections. Thanks to the vertical list, this is done instantly:
 
 ```csharp
 public Connection MoveToDead()
 {
     Engine engine = GetEngine();
     
-    // Удаляем из горизонтального списка Engine (O(1))
+    // Remove from the Engine's horizontal list (O(1))
     Prev0.Next0 = Next0;
     Next0.Prev0 = Prev0;
     
-    // Удаляем из вертикального списка Process (O(1))
+    // Remove from the Process's vertical list (O(1))
     Prev1.Next1 = Next1;
     if (Next1 != null)
         Next1.Prev1 = Prev1;
     
-    // Перемещаем в DeadList
+    // Move to DeadList
     Next0 = engine.DeadList.Next0;
     Next0.Prev0 = this;
     Prev0 = engine.DeadList;
@@ -381,7 +381,7 @@ public Connection MoveToDead()
 }
 ```
 
-Процесс может удалить все свои соединения одним вызовом:
+A process can remove all its connections with a single call:
 
 ```csharp
 public void RemoveSetting(Process process, int setting)
@@ -395,7 +395,7 @@ public void RemoveSetting(Process process, int setting)
         if (conn.BelongsToEngine(engine) && 
             (setting == (int)ESetting.All || conn.Arg1 == setting))
         {
-            conn.MoveToDead();  // O(1) для каждого соединения
+            conn.MoveToDead();  // O(1) for each connection
         }
         item = next;
     }
@@ -404,79 +404,79 @@ public void RemoveSetting(Process process, int setting)
 
 ---
 
-## 7. Важное уточнение: это не ECS
+## 7. Important Clarification: This Is Not ECS
 
-Систему OpenGOAL часто путают с ECS (Entity-Component-System), но это принципиально разные подходы с разными целями:
+The OpenGOAL system is often confused with ECS (Entity-Component-System), but these are fundamentally different approaches with different goals:
 
-| Характеристика | OpenGOAL | ECS (Unity DOTS) |
+| Characteristic | OpenGOAL | ECS (Unity DOTS) |
 |----------------|----------|------------------|
-| **Основная цель** | Гибкое управление параметрами с блендингом | Максимальная производительность массовых вычислений |
-| **Кэш-дружественность** | Не является приоритетом. Объекты разбросаны по памяти | Все компоненты одного типа лежат в непрерывных массивах |
-| **Итерация** | По связным спискам (некэш-френдли) | По линейным массивам (кэш-френдли) |
-| **Применение** | Логика верхнего уровня, управление состоянием | Низкоуровневые вычисления (физика, рендеринг) |
-| **Гибкость** | Высокая — динамическое изменение архетипа объекта | Низкая — архетип фиксирован |
-| **Блендинг** | Встроен на уровне архитектуры | Требуется ручная реализация |
-| **Реальное использование** | Управление параметрами в Jak and Daxter | Физика, рендеринг в современных играх |
+| **Main goal** | Flexible parameter management with blending | Maximum performance of mass computations |
+| **Cache-friendliness** | Not a priority. Objects are scattered in memory | All components of one type lie in contiguous arrays |
+| **Iteration** | Over linked lists (not cache-friendly) | Over linear arrays (cache-friendly) |
+| **Application** | High-level logic, state management | Low-level computations (physics, rendering) |
+| **Flexibility** | High — dynamic change of object archetype | Low — archetype is fixed |
+| **Blending** | Built-in at the architecture level | Requires manual implementation |
+| **Real usage** | Parameter management in Jak and Daxter | Physics, rendering in modern games |
 
-В OpenGOAL `Connection` — это не просто данные, это **активный участник системы**, который содержит логику применения (`EMethod`). А сами объекты (`Process`) могут быть разбросаны по памяти — система не требует от них кэш-дружественности.
+In OpenGOAL, `Connection` is not just data, it is an **active participant in the system** that contains application logic (`EMethod`). And the objects themselves (`Process`) can be scattered in memory — the system does not require cache-friendliness from them.
 
-**Ключевое отличие от ECS:** в OpenGOAL важна гибкость и возможность динамически менять набор параметров, которыми управляет объект, а не скорость прохода по массиву.
+**Key difference from ECS:** in OpenGOAL, flexibility and the ability to dynamically change the set of parameters controlled by an object are important, not the speed of traversal over an array.
 
 ---
 
-## 8. Универсальность паттерна
+## 8. Universality of the Pattern
 
-Хотя в оригинальной реализации OpenGOAL система ортогональных матриц использовалась исключительно для управления параметрами (громкость, яркость, скорость времени), архитектурный паттерн сам по себе универсален.
+Although in the original OpenGOAL implementation the system of orthogonal matrices was used exclusively for managing parameters (volume, brightness, time speed), the architectural pattern itself is universal.
 
-> **Важное уточнение:** В Jak and Daxter система **не** использовалась для физики, рендеринга или массовых вычислений. Её реальное применение — управление параметрами с блендингом. Однако структура данных может быть переиспользована для других задач.
+> **Important clarification:** In Jak and Daxter, the system was **not** used for physics, rendering, or mass computations. Its real application is parameter management with blending. However, the data structure can be reused for other tasks.
 
-### Потенциальные сценарии (гипотетические)
+### Potential scenarios (hypothetical)
 
-1. **Система баффов и дебаффов**
-   - Процесс-игрок: "Скорость = 5"
-   - Бафф: "Умножь скорость на 1.5"
-   - Дебафф: "Умножь скорость на 0.5"
-   - Результат: 5 × 1.5 × 0.5 = 3.75
+1. **Buffs and debuffs system**
+   - Player process: "Speed = 5"
+   - Buff: "Multiply speed by 1.5"
+   - Debuff: "Multiply speed by 0.5"
+   - Result: 5 × 1.5 × 0.5 = 3.75
 
-2. **Система квестов**
-   - Процесс-квест: "NPC активен"
-   - Процесс-время суток: "NPC активен только ночью"
-   - Процесс-прогресс: "NPC активен только после квеста X"
+2. **Quest system**
+   - Quest process: "NPC is active"
+   - Time-of-day process: "NPC is active only at night"
+   - Progress process: "NPC is active only after quest X"
 
-3. **Система модификаторов оружия**
-   - Оружие: "Урон = 10"
-   - Модификатор "Огненный": "Умножь урон на 1.2"
-   - Модификатор "Тяжелый": "Умножь урон на 1.5"
-   - Результат: 10 × 1.2 × 1.5 = 18
+3. **Weapon modifier system**
+   - Weapon: "Damage = 10"
+   - "Fire" modifier: "Multiply damage by 1.2"
+   - "Heavy" modifier: "Multiply damage by 1.5"
+   - Result: 10 × 1.2 × 1.5 = 18
 
-### Почему этот паттерн не стал ECS
+### Why this pattern did not become ECS
 
-Важно понимать, почему эта система не превратилась в ECS:
+It is important to understand why this system did not turn into ECS:
 
-| Аспект | OpenGOAL (оригинал) | Почему не ECS |
+| Aspect | OpenGOAL (original) | Why not ECS |
 |--------|---------------------|---------------|
-| **Цель** | Гибкость управления параметрами | Для ECS нужна другая структура памяти |
-| **Итерация** | По связным спискам | Некэш-дружественно для массовых вычислений |
-| **Данные** | Разбросаны по куче | Для ECS нужны непрерывные массивы |
-| **Сценарий** | Логика верхнего уровня | ECS — для низкоуровневых вычислений |
+| **Goal** | Flexibility of parameter management | ECS needs a different memory structure |
+| **Iteration** | Over linked lists | Not cache-friendly for mass computations |
+| **Data** | Scattered across the heap | ECS needs contiguous arrays |
+| **Scenario** | High-level logic | ECS — for low-level computations |
 
 ---
 
-## 9. Код из реального проекта
+## 9. Code from a Real Project
 
-Ниже представлен фрагмент реального кода, демонстрирующий использование системы для управления настройками в игре. Полный код включает:
+Below is a fragment of real code demonstrating the use of the system for managing settings in a game. The full code includes:
 
-- `Connectable.cs` — базовый узел с двумя двухсвязными списками.
-- `Connection.cs` — узел с параметрами и методами управления.
-- `Engine.cs` — подсистема с пулом соединений.
-- `Settings.cs` — надстройка для управления настройками с тремя копиями (default, target, current).
+- `Connectable.cs` — the base node with two two-way lists.
+- `Connection.cs` — the node with parameters and control methods.
+- `Engine.cs` — the subsystem with a pool of connections.
+- `Settings.cs` — the wrapper for managing settings with three copies (default, target, current).
 
 ```csharp
 /// <summary>
-/// Три копии настроек:
-/// - default — базовые значения (если никто не управляет параметром)
-/// - target — дефолтные значения + изменения от всех процессов
-/// - current — фактические значения (применяются каждый кадр)
+/// Three copies of settings:
+/// - default — base values (if no one controls the parameter)
+/// - target — default values + changes from all processes
+/// - current — actual values (applied every frame)
 /// </summary>
 public class SettingControl<T> where T : SettingsData, new()
 {
@@ -487,11 +487,11 @@ public class SettingControl<T> where T : SettingsData, new()
     
     public void Update()
     {
-        // Начинаем с дефолтов
+        // Start with defaults
         target.CopyFrom(defaults);
-        // Применяем все запросы из Engine
+        // Apply all requests from Engine
         target.UpdateFromEngine(engine);
-        // Вычисляем итоговые значения
+        // Calculate the resulting values
         ApplySettings();
         InterpolateSettings();
     }
@@ -500,34 +500,34 @@ public class SettingControl<T> where T : SettingsData, new()
 
 ---
 
-## 10. Выводы
+## 10. Conclusions
 
-Двухсвязные ортогональные матрицы OpenGOAL — это инструмент для управления сложностью и гибкостью в игровых проектах. В отличие от ECS, эта система предназначена для:
+OpenGOAL's two-way orthogonal matrices are a tool for managing complexity and flexibility in game projects. Unlike ECS, this system is intended for:
 
-- Управления параметрами (громкость, яркость, скорость времени)
-- Состояния мира (время суток, погода, региональные эффекты)
-- Блендинга анимаций (плавные переходы между состояниями)
-- Логики верхнего уровня, где требуется динамическое изменение поведения объекта
+- Parameter management (volume, brightness, time speed)
+- World state (time of day, weather, regional effects)
+- Animation blending (smooth transitions between states)
+- High-level logic where dynamic change of object behavior is required
 
-Система даёт разработчикам возможность:
+The system gives developers the ability to:
 
-1. **Динамически менять архетип объекта** — добавлять и удалять способности, эффекты, модификаторы.
-2. **Разрешать конфликты запросов** без написания сложного кода приоритетов.
-3. **Получать плавные переходы** автоматически (блендинг встроен в архитектуру).
-4. **Быстро удалять объекты** (O(1) за счёт вертикальных списков).
+1. **Dynamically change an object's archetype** — add and remove abilities, effects, modifiers.
+2. **Resolve request conflicts** without writing complex priority code.
+3. **Get smooth transitions** automatically (blending is built into the architecture).
+4. **Quickly remove objects** (O(1) thanks to vertical lists).
 
-Это архитектура, рожденная для гибкости и выразительности, а не для рекордов производительности. И в этом её главная ценность.
-
----
-
-## Дополнительные материалы
-
-1. **OpenGOAL GitHub** — открытая реализация движка: [github.com/open-goal](https://github.com/open-goal)
-2. **GDC 2004 — Jak and Daxter** — доклад о технических решениях Naughty Dog.
-3. Game Engine Architecture — книга Джейсона Грегори (Jason Gregory), раздел о системах управления параметрами.
+This is an architecture born for flexibility and expressiveness, not for performance records. And this is its main value.
 
 ---
 
-*Автор: Валерия Пудова (hww)*  
-*Исходный материал: RA Game Developing Notes (2023)*  
-*Дата публикации: 17 августа 2026*
+## Additional Materials
+
+1. **OpenGOAL GitHub** — open implementation of the engine: [github.com/open-goal](https://github.com/open-goal)
+2. **GDC 2004 — Jak and Daxter** — a talk on Naughty Dog's technical solutions.
+3. Game Engine Architecture — the book by Jason Gregory, section on parameter management systems.
+
+---
+
+*Author: Valeriya Pudova (hww)*
+*Source material: RA Game Developing Notes (2023)*
+*Publication date: August 17, 2026*

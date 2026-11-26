@@ -1,500 +1,501 @@
-# Создание тестируемого кода: Интерактивная разработка как философия
+# Creating Testable Code: Interactive Development as a Philosophy
 
-**Валерия Пудова**  
-ARCADIA  
-6.02.2022  
-*Версия 2.0 (переработанная)*
-
----
-
-## Аннотация
-
-
-Каждый день программист тратит часы на ожидание: скомпилировать, загрузить сцену, воспроизвести баг, остановить, исправить, повторить. Этот цикл **Edit → Compile → Run** — главный враг продуктивности. Статья предлагает философию разработки, где код пишется так, чтобы модификации вносились прямо в рантайме, а результат оценивался мгновенно. Рассматриваются практические инструменты: Debug Menu, REPL, удалённый терминал, валидация, логирование и профайлинг — всё, что превращает тестирование из рутины в непрерывный процесс.
-
-*Ключевые слова: Testing, Collaboration, Process Automation, Debugging, Scripting, REPL, Runtime Editing, Live Reload*
+**Valeriya Pudova**
+ARCADIA
+6.02.2022
+*Version 2.0 (revised)*
 
 ---
 
-## Содержание
+## Abstract
 
-- [Создание тестируемого кода: Интерактивная разработка как философия](#создание-тестируемого-кода-интерактивная-разработка-как-философия)
-  - [Аннотация](#аннотация)
-  - [Содержание](#содержание)
-  - [Введение: Главный враг продуктивности](#введение-главный-враг-продуктивности)
-  - [Терминология](#терминология)
-  - [Единицы измерения](#единицы-измерения)
-  - [Выбор сторонних решений](#выбор-сторонних-решений)
-  - [Автоматическое тестирование кода](#автоматическое-тестирование-кода)
-  - [Оптимизация](#оптимизация)
-  - [Целевая платформа](#целевая-платформа)
+Every day a programmer spends hours waiting: compile, load the scene, reproduce the bug, stop, fix, repeat. This **Edit → Compile → Run** cycle is the main enemy of productivity. The article proposes a development philosophy where code is written so that modifications are made directly in the runtime, and the result is evaluated instantly. Practical tools are examined: Debug Menu, REPL, remote terminal, validation, logging, and profiling — everything that turns testing from a routine into a continuous process.
+
+*Keywords: Testing, Collaboration, Process Automation, Debugging, Scripting, REPL, Runtime Editing, Live Reload*
+
+---
+
+## Table of Contents
+
+- [Creating Testable Code: Interactive Development as a Philosophy](#creating-testable-code-interactive-development-as-a-philosophy)
+  - [Abstract](#abstract)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction: The Main Enemy of Productivity](#introduction-the-main-enemy-of-productivity)
+  - [Terminology](#terminology)
+  - [Units of Measurement](#units-of-measurement)
+  - [Choosing Third-Party Solutions](#choosing-third-party-solutions)
+  - [Automated Code Testing](#automated-code-testing)
+  - [Antidote to Random: Determinism as the Basis of Predictable QA](#antidote-to-random-determinism-as-the-basis-of-predictable-qa)
+  - [Optimization](#optimization)
+  - [Target Platform](#target-platform)
   - [Shortcuts \& Debug Menu](#shortcuts--debug-menu)
-    - [Функции](#функции)
+    - [Functions](#functions)
   - [Debug Draw](#debug-draw)
-  - [Лог файл](#лог-файл)
-  - [Встроенный профайлер](#встроенный-профайлер)
+  - [Log File](#log-file)
+  - [Built-in Profiler](#built-in-profiler)
   - [Crash Report](#crash-report)
-  - [Интерактивная разработка](#интерактивная-разработка)
+  - [Interactive Development](#interactive-development)
   - [REPL](#repl)
-  - [Удалённый терминал](#удалённый-терминал)
+  - [Remote Terminal](#remote-terminal)
   - [Unity 3D Runtime Environment](#unity-3d-runtime-environment)
   - [Unity 3D Static Validation](#unity-3d-static-validation)
   - [Human-readable format](#human-readable-format)
     - [GUI vs Text](#gui-vs-text)
-    - [Локализация](#локализация)
-  - [Валидация](#валидация)
-    - [Статическая валидация](#статическая-валидация)
-    - [Динамическая валидация Validate or Require](#динамическая-валидация-validate-or-require)
-  - [Пример из практики: как мы сократили цикл разработки на 80%](#пример-из-практики-как-мы-сократили-цикл-разработки-на-80)
-  - [Заключение: Программист как скульптор](#заключение-программист-как-скульптор)
-  - [Литература](#литература)
+    - [Localization](#localization)
+  - [Validation](#validation)
+    - [Static Validation](#static-validation)
+    - [Dynamic Validation Validate or Require](#dynamic-validation-validate-or-require)
+  - [The Script Reload Trap: Anatomy of Runtime Compilation in Unity](#the-script-reload-trap-anatomy-of-runtime-compilation-in-unity)
+  - [Case Study: How We Cut the Development Cycle by 80%](#case-study-how-we-cut-the-development-cycle-by-80)
+  - [Conclusion: The Programmer as Sculptor](#conclusion-the-programmer-as-sculptor)
+  - [References](#references)
 
 ---
 
-## Введение: Главный враг продуктивности
+## Introduction: The Main Enemy of Productivity
 
-Перед тем как читать эту статью, остановитесь на секунду.
+Before reading this article, pause for a second.
 
-Сколько раз за сегодня вы перезапускали игру? Десять? Двадцать? Каждый раз вы ждали, пока она загрузится, пока вы дойдёте до нужного места, пока повторится баг.
+How many times have you restarted the game today? Ten? Twenty? Each time you waited for it to load, for you to reach the right place, for the bug to reproduce.
 
-Это не кажется большой проблемой. 30 секунд — ерунда. Но 30 секунд × 50 раз в день × 5 дней в неделю × 50 недель = 104 часа в год. На одного человека. Умножьте на размер вашей команды.
+This does not seem like a big problem. 30 seconds is nothing. But 30 seconds × 50 times a day × 5 days a week × 50 weeks = 104 hours a year. Per person. Multiply by the size of your team.
 
-Вот о чём эта статья. Не о коде. О времени. О внимании. О том, что каждый раз, когда вы ждёте компиляцию, вы теряете не секунды, а контекст. И вернуть его сложнее, чем вы думаете.
+This is what the article is about. Not about code. About time. About attention. About the fact that every time you wait for a compilation, you lose not seconds but context. And getting it back is harder than you think.
 
-Мы будем говорить об инструментах. Но на самом деле мы будем говорить о том, как не тратить свою жизнь на ожидание.
+We will talk about tools. But in reality we will talk about how not to waste your life on waiting.
 
-Разработка игры — это не написание кода. Это **тысячи итераций**: проверка механик, настройка баланса, поиск багов, полировка анимаций, тестирование на целевой платформе. Каждая итерация требует, чтобы код работал — и работал правильно.
+Game development is not writing code. It is **thousands of iterations**: checking mechanics, tuning balance, finding bugs, polishing animations, testing on the target platform. Each iteration requires the code to work — and work correctly.
 
-Но есть проблема. Стандартный цикл разработки выглядит так:
+But there is a problem. The standard development cycle looks like this:
 
 ```
 Edit → Compile → Run → Test → Fail → Edit → Compile → Run → Test → Pass
 ```
 
-Это называется **Edit → Compile → Run**. И это главный враг продуктивности.
+This is called **Edit → Compile → Run**. And it is the main enemy of productivity.
 
-Почему? Потому что между "Edit" и "Test" лежит **зона ожидания**:
+Why? Because between "Edit" and "Test" lies a **waiting zone**:
 
-- Компиляция: 30 секунд — 2 минуты
-- Загрузка сцены: 10–30 секунд
-- Повтор игровой ситуации: ещё 10–30 секунд
-- Итого: **1–3 минуты на одну итерацию**
+- Compilation: 30 seconds — 2 minutes
+- Scene loading: 10–30 seconds
+- Repeating the game situation: another 10–30 seconds
+- Total: **1–3 minutes per iteration**
 
-Умножьте это на 50 итераций в день — получите **2–3 часа чистого времени**, потраченного на ожидание. А если вы работаете с консолью или VR-платформой, время деплоя может достигать 10–15 минут.
+Multiply this by 50 iterations a day — you get **2–3 hours of pure time** spent on waiting. And if you work with a console or VR platform, the deployment time can reach 10–15 minutes.
 
-**Но самое страшное — не время.** Самое страшное — **потеря контекста**. Каждый раз, когда вы ждёте 30 секунд загрузки, вы выходите из состояния потока. Вернуться в него сложно. А выходить и входить 50 раз в день — невозможно.
+**But the worst thing is not the time.** The worst thing is **loss of context**. Every time you wait 30 seconds for loading, you exit the flow state. Getting back into it is hard. And exiting and entering 50 times a day is impossible.
 
-**Философия этой статьи проста:**
+**The philosophy of this article is simple:**
 
-> Программист должен писать код так, чтобы модификации вносились в рантайме, а результат оценивался мгновенно. Без реббилда. Без перезапуска. Без повторного прохождения уровня. Каждый инструмент, описанный ниже, служит одной цели: **минимизировать цикл Edit → Compile → Run** и вернуть разработчику его внимание.
-
----
-
-## Терминология
-
-**Tuning, Настройка** — это изменение параметров: *скорость*, *высота прыжка* и т.д. Добавление призов, NPCs и т.д. На конечных этапах разработки называется ***fine tuning*.**
-
-**Tweaking, Polishing, Полировка** — небольшие изменения, устранение всех видимых дефектов и недостатков.
+> The programmer must write code so that modifications are made in the runtime, and the result is evaluated instantly. Without a rebuild. Without a restart. Without replaying the level. Every tool described below serves one goal: **to minimize the Edit → Compile → Run cycle** and return the developer's attention.
 
 ---
 
-## Единицы измерения
+## Terminology
 
-Для параметров использовать стандартные единицы измерения: *метр*, *килограмм*, *секунда*. Использовать другие единицы с обязательной подсказкой: *ms*, *fps*, и т.д., поэтому проще использовать стандартные единицы.
+**Tuning** — is changing parameters: *speed*, *jump height*, etc. Adding bonuses, NPCs, etc. At the final stages of development it is called ***fine tuning*.**
 
-**Почему это важно для интерактивной разработки:** Если вы настраиваете параметры в рантайме, вы должны понимать, что именно вы меняете. "Скорость = 5" — это 5 метров в секунду или 5 юнитов в кадр? Стандартные единицы исключают неоднозначность.
-
----
-
-## Выбор сторонних решений
-
-В современной разработке соблазн взять готовое решение из Asset Store или использовать популярный фреймворк велик. Но эта практика требует крайней осторожности.
-
-**Проблема:** Сторонние решения часто приносят больше проблем, чем пользы:
-
-- Они могут конфликтовать с другими системами.
-- Их внутренняя архитектура не предусматривает **горячую перезагрузку** (live reload) — а это ключевое требование для интерактивной разработки.
-- Обновления фреймворка могут сломать ваш код.
-- Исходный код закрыт, и вы не можете адаптировать его под свой пайплайн.
-- Документация обещает одно, а поведение в рантайме — другое.
-
-**Правильный подход:**
-
-1. **Тщательный отбор.** Прежде чем внедрить решение, проверьте:
-   - Поддерживает ли оно интерактивную разработку? Можно ли менять параметры в рантайме?
-   - Есть ли у него автоматические тесты?
-   - Как часто оно обновляется?
-   - Можно ли заглянуть в исходный код?
-
-2. **Иногда лучше создать своё.** Если фреймворк не соответствует вашим требованиям по интерактивности, а адаптировать его невозможно — написание собственного решения может сэкономить тонну времени в долгосрочной перспективе.
-
-3. **Если решение принято — погрузитесь в него.** Ответственный за внедрение должен устранить пробелы в документации и добавить автотесты для всех процедур, которые используются в проекте. Это особенно важно для систем, которые должны работать в рантайме без перезапуска.
-
-**Золотое правило:** Сторонний фреймворк — это инструмент, а не религия. Если он мешает вашему циклу Edit → Compile → Run, он не стоит потраченного времени.
+**Tweaking, Polishing** — small changes, elimination of all visible defects and shortcomings.
 
 ---
 
-## Автоматическое тестирование кода
+## Units of Measurement
 
-Некоторые части кода, спроектированные внутри компании, должны покрываться автоматическими тестами (Code coverage). К ним относятся:
+For parameters, use standard units of measurement: *meter*, *kilogram*, *second*. Use other units with a mandatory hint: *ms*, *fps*, etc., so it is easier to use standard units.
 
-- Библиотеки математических операций.
-- Библиотеки структур данных.
-- Библиотеки сетевых протоколов.
-- И другие им подобные.
-- Интегрированные в Unity сторонние C++ библиотеки, особенно подобные вышеперечисленным.
-
-**Связь с лейтмотивом:** Автотесты — это страховка. Если вы активно используете интерактивную разработку и меняете код в рантайме, риск сломать что-то возрастает. Автотесты позволяют быстро проверить, что базовая функциональность не нарушена.
-
-## Противоядие от Random: Детерминизм как основа предсказуемого QA
-
-Когда геймдизайнер просит сделать так, чтобы «редкий зомби-лидер появлялся с вероятностью 0.2» (то есть в среднем 2 лидера на 8 рядовых существ), первая интуитивная реакция программиста — использовать `Random.Range()`. В контексте интерактивной разработки и тестирования это скрытая ловушка.
-
-**В чем физика проблемы:**
-Чистый генератор псевдослучайных чисел (ГПСЧ) не дает никаких гарантий локальной плотности. В одной игровой сессии тестировщик может встретить 5 лидеров подряд, а в другой — не встретить ни одного за час. Если на стыке спавна лидера и физики локации возникнет редкий баг, воспроизвести, локализовать и исправить его в цикле *Edit → Compile → Run* станет невозможно. Рандом уничтожает повторяемость.
-
-**Решение:**
-Полный отказ от рантайм-случайности в критических узлах симуляции. Вместо ГПСЧ система спавна должна использовать циклические детерминированные списки-паттерны или жесткие счетчики:
-* 5 рядовых зомби;
-* 1 зомби-лидер;
-* 3 рядовых зомби;
-* 1 зомби-лидер.
-
-Математическое ожидание остается прежним (0.2), но система становится абсолютно предсказуемой. Тестировщик или автоматический скрипт точно знают, на каком шаге симуляции гарантированно появится целевой объект. Контроль рантайма возвращается в руки инженера, а плавающие «рандомные» баги исчезают как класс.
+**Why this is important for interactive development:** If you tune parameters in the runtime, you must understand what exactly you are changing. "Speed = 5" — is it 5 meters per second or 5 units per frame? Standard units eliminate ambiguity.
 
 ---
 
-## Оптимизация
+## Choosing Third-Party Solutions
 
-Оптимизация производится на каждом этапе производства игры, но её природа меняется в зависимости от стадии проекта. Здесь важно найти баланс между **скоростью прототипирования** и **производительностью финального продукта**.
+In modern development, the temptation to take a ready-made solution from the Asset Store or use a popular framework is great. But this practice requires extreme caution.
 
-На ранних этапах, когда механики ещё проверяются методом проб и ошибок, преждевременная оптимизация — это враг. Первый вариант кода может быть неэффективным, но он позволяет быстро проверить гипотезу. Часто после тестирования выясняется, что этот код вообще больше не нужен — и потраченное на его оптимизацию время оказывается потерянным навсегда.
+**The problem:** Third-party solutions often bring more problems than benefits:
 
-**Поэтому правило звучит так:** делай это быстро и некрасиво — для проверки. Но как только механика утверждена, **немедленно** реализуй бенчмарки и профилировку. Это позволяет выявить бутылочное горлышко до того, как оно врастёт в архитектуру.
+- They may conflict with other systems.
+- Their internal architecture does not provide for **live reload** — and this is a key requirement for interactive development.
+- Framework updates may break your code.
+- The source code is closed, and you cannot adapt it to your pipeline.
+- The documentation promises one thing, but the runtime behavior is another.
 
-Особый случай — когда жанр игры вступает в конфликт с движком. Например, 2D-скроллер на 3D-движке. Здесь оптимизация становится нетривиальной задачей, и все этапы тестирования нужно проходить заранее, на стадии прототипа, чтобы понять, сможет ли движок выдать нужное количество пикселей на целевой платформе без падения FPS.
+**The right approach:**
 
-**Но есть одна область, где компромиссов быть не должно — время запуска игры.** Все департаменты (дизайнеры, аниматоры, QA, программисты) перезапускают игру десятки, а иногда и сотни раз в день. Каждая лишняя секунда загрузки умножается на количество запусков и на количество людей в команде. Это не просто раздражение — это прямые потери в продуктивности.
+1. **Careful selection.** Before implementing a solution, check:
+   - Does it support interactive development? Can parameters be changed in the runtime?
+   - Does it have automated tests?
+   - How often is it updated?
+   - Can you look into the source code?
 
-**Практический итог:**
+2. **Sometimes it is better to create your own.** If the framework does not meet your interactivity requirements, and adapting it is impossible — writing your own solution can save a ton of time in the long run.
 
-| Стадия | Подход к оптимизации |
+3. **If the decision is made — dive into it.** The person responsible for implementation must fill in the gaps in the documentation and add autotests for all procedures used in the project. This is especially important for systems that must work in the runtime without restarting.
+
+**Golden rule:** A third-party framework is a tool, not a religion. If it hinders your Edit → Compile → Run cycle, it is not worth the time spent.
+
+---
+
+## Automated Code Testing
+
+Some parts of the code designed within the company must be covered by automated tests (Code coverage). These include:
+
+- Libraries of mathematical operations.
+- Libraries of data structures.
+- Libraries of network protocols.
+- And others similar to them.
+- Third-party C++ libraries integrated into Unity, especially similar to the above.
+
+**Connection with the leitmotif:** Autotests are insurance. If you actively use interactive development and change code in the runtime, the risk of breaking something increases. Autotests allow you to quickly verify that basic functionality is not impaired.
+
+## Antidote to Random: Determinism as the Basis of Predictable QA
+
+When a game designer asks to make "a rare zombie leader appear with a probability of 0.2" (that is, on average 2 leaders per 8 regular creatures), the programmer's first intuitive reaction is to use `Random.Range()`. In the context of interactive development and testing, this is a hidden trap.
+
+**What is the physics of the problem:**
+A pure pseudorandom number generator (PRNG) gives no guarantees of local density. In one game session, a tester may encounter 5 leaders in a row, and in another — not a single one for an hour. If a rare bug occurs at the junction of leader spawn and location physics, reproducing, localizing, and fixing it in the *Edit → Compile → Run* cycle becomes impossible. Randomness destroys repeatability.
+
+**Solution:**
+Complete rejection of runtime randomness in critical simulation nodes. Instead of a PRNG, the spawn system must use cyclic deterministic pattern lists or rigid counters:
+* 5 regular zombies;
+* 1 zombie leader;
+* 3 regular zombies;
+* 1 zombie leader.
+
+The mathematical expectation remains the same (0.2), but the system becomes absolutely predictable. The tester or automated script knows exactly at which simulation step the target object will guaranteed to appear. Control of the runtime returns to the engineer's hands, and floating "random" bugs disappear as a class.
+
+---
+
+## Optimization
+
+Optimization is performed at every stage of game production, but its nature changes depending on the stage of the project. Here it is important to find a balance between **prototyping speed** and **final product performance**.
+
+At the early stages, when mechanics are still being tested by trial and error, premature optimization is the enemy. The first version of the code may be inefficient, but it allows you to quickly test a hypothesis. Often after testing it turns out that this code is no longer needed at all — and the time spent on optimizing it turns out to be lost forever.
+
+**Therefore the rule is:** do it fast and ugly — for verification. But as soon as the mechanic is approved, **immediately** implement benchmarks and profiling. This allows you to identify the bottleneck before it grows into the architecture.
+
+A special case is when the game genre comes into conflict with the engine. For example, a 2D scroller on a 3D engine. Here optimization becomes a non-trivial task, and all stages of testing must be passed in advance, at the prototype stage, to understand whether the engine can produce the required number of pixels on the target platform without FPS drops.
+
+**But there is one area where there should be no compromises — game launch time.** All departments (designers, animators, QA, programmers) restart the game dozens, and sometimes hundreds of times a day. Each extra second of loading is multiplied by the number of launches and by the number of people on the team. This is not just irritation — it is direct losses in productivity.
+
+**Practical summary:**
+
+| Stage | Approach to optimization |
 |--------|----------------------|
-| **Прототип (проверка гипотезы)** | Код пишется самым простым и очевидным способом. Оптимизация игнорируется. |
-| **После утверждения механики** | Сразу внедряются бенчмарки. Выявляются узкие места. |
-| **Production** | Оптимизация становится частью каждого коммита. |
-| **Всегда** | Время запуска игры — священная корова. Никаких компромиссов. |
+| **Prototype (hypothesis testing)** | Code is written in the simplest and most obvious way. Optimization is ignored. |
+| **After mechanic approval** | Benchmarks are introduced immediately. Bottlenecks are identified. |
+| **Production** | Optimization becomes part of every commit. |
+| **Always** | Game launch time is a sacred cow. No compromises. |
 
 ---
 
-## Целевая платформа
+## Target Platform
 
-Несмотря на то, что игра проектируется для целевой платформы: PlayStation, Oculus, etc в процессе разработки обязательно нужно делать игру так, чтобы она могла тестироваться на платформе разработки. Для этого, с самого начала, в игру интегрируется симуляция устройств ввода целевой платформы (например, Oculus контроллер): клавиатурой PC и джойстиком PS2.
+Despite the fact that the game is designed for a target platform: PlayStation, Oculus, etc., during development it is mandatory to make the game so that it can be tested on the development platform. For this, from the very beginning, simulation of the target platform's input devices (e.g., Oculus controller) is integrated into the game: with a PC keyboard and a PS2 joystick.
 
-Это довольно трудно в VR, но это можно рассматривать как идеальную цель, к которой нужно стремиться. Продвинувшись в этом направлении мы расширим возможности тестирования большим количеством участников и выигрыш будет очевиден.
+This is quite difficult in VR, but it can be considered an ideal goal to strive for. By advancing in this direction we will expand testing opportunities with a large number of participants, and the gain will be obvious.
 
-**Связь с лейтмотивом:** Если игра запускается на PC (а не только на консоли), её запуск занимает секунды, а не минуты. Это напрямую сокращает цикл Edit → Compile → Run. Чем быстрее игра запускается на платформе разработки, тем больше итераций может сделать разработчик за день.
+**Connection with the leitmotif:** If the game launches on PC (and not only on console), its launch takes seconds, not minutes. This directly shortens the Edit → Compile → Run cycle. The faster the game launches on the development platform, the more iterations a developer can make per day.
 
 ---
 
 ## Shortcuts & Debug Menu
 
-С самого начала игра оснащается отладочным меню и набором *shortcuts* (или *keystrokes* для некоторых функций) чтобы обеспечить QA-специалистов и разработчиков всеми инструментами, облегчающими процесс тестирования и настройки игры.
+From the very beginning, the game is equipped with a debug menu and a set of *shortcuts* (or *keystrokes* for some functions) to provide QA specialists and developers with all the tools that facilitate the process of testing and tuning the game.
 
-**Технические требования к Debug Menu:**
+**Technical requirements for Debug Menu:**
 
-- Меню не обязано быть красивым, достаточно отрисовывать текст.
-- Меню должно быть хорошо читаемым: заметный цвет текста, шрифт с контуром и оттеняющий полупрозрачный фон под текстом.
-- Меню не должно существенно влиять на производительность.
-- Меню должно быть организовано с помощью системы иерархии и горизонтальными разделителями.
-- Опции в меню должны иметь подсказки *keystrokes* (для PC клавиатуры).
-- Изменение параметров в меню должны вступать в силу мгновенно.
-- API меню должен быть настолько прост, что добавление новой опции не должно занимать больше нескольких минут времени разработчика. Как правило, это одна строка кода.
-- Значения, изменённые от начальных, должны подсвечиваться, а специальный keystroke должен сбрасывать их в начальное значение.
-- Должна быть возможность ввести ограничения (min, max), а также точность отображаемой величины (количество знаков после запятой). Если значения выводятся в столбце — рассмотреть вариант добавления возможности выравнивания величины в ячейке столбца по десятичному разделителю. Это может быть удобно для слежения за несколькими связанными значениями в режиме реального времени.
-- Использование клавиш изменения числовой величины:
-  - Увеличивает/уменьшает на предварительно заданное значение, это значение может быть любым: 0.01, 0.1, 1 или 10 и т.д. Дополнительный логарифмический режим (изменение в зависимости от величины текущего значения) должен присутствовать как опция. Шаг изменения значения должен зависеть от самого значения, например: ±0.1 для значений до \|10\|, ±1 для значений до \|100\| и так далее.
-  - При удержании кнопки акселератора, инкремент увеличивается в 10 раз.
-  - Все вышеперечисленные функции могут быть реализованы с помощью lambda функций.
+- The menu does not have to be beautiful; rendering text is enough.
+- The menu must be well readable: noticeable text color, font with outline, and a shading semi-transparent background under the text.
+- The menu must not significantly affect performance.
+- The menu must be organized using a hierarchy system and horizontal separators.
+- Options in the menu must have *keystrokes* hints (for a PC keyboard).
+- Changes to parameters in the menu must take effect instantly.
+- The menu API must be so simple that adding a new option should not take more than a few minutes of developer time. As a rule, this is one line of code.
+- Values changed from the initial ones must be highlighted, and a special keystroke must reset them to the initial value.
+- There must be the ability to enter constraints (min, max), as well as the precision of the displayed value (number of digits after the decimal point). If values are output in a column — consider adding the ability to align the value in the column cell by the decimal separator. This can be convenient for tracking several related values in real time.
+- Use of keys for changing a numeric value:
+  - Increases/decreases by a pre-set value, this value can be any: 0.01, 0.1, 1 or 10, etc. An additional logarithmic mode (change depending on the magnitude of the current value) must be present as an option. The step of changing the value should depend on the value itself, for example: ±0.1 for values up to \|10\|, ±1 for values up to \|100\|, and so on.
+  - When holding the accelerator button, the increment increases 10 times.
+  - All the above functions can be implemented using lambda functions.
 
-Замечательный пример системы меню можно увидеть в [EMACS](https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html).
+A wonderful example of a menu system can be seen in [EMACS](https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html).
 
 
-> ### 💡 ПРИМЕР ИЗ ПРАКТИКИ: THE LAST OF US
+> ### 💡 CASE STUDY: THE LAST OF US
 > ![Debug Menu](images/nd_01.jpg)
-> В *The Last of Us* на PlayStation 3 разработчики реализовали мощную систему отладочного меню, работающую прямо на целевой платформе. Это не просто "инструмент для программистов" — это полноценная среда управления игрой, доступная прямо в рантайме.
+> In *The Last of Us* on PlayStation 3, the developers implemented a powerful debug menu system that works directly on the target platform. This is not just a "tool for programmers" — it is a full-fledged game management environment available right in the runtime.
 >
-> **Доступ к меню:**
+> **Access to the menu:**
 > - **Dev Menu** — L3 + Start
 > - **Quick Menu** — L3 + Select
-> - **Debug Fly** — L3 + R3 (свободный полёт по уровню)
+> - **Debug Fly** — L3 + R3 (free flight through the level)
 >
-> **Что можно делать прямо в игре:**
-> - Изменять скорость игры (Clock) — замедлять или ускорять геймплей для отладки таймингов
-> - Загружать любую задачу (Tasks) — любой уровень, любая кат-сцена, любой чекпоинт, мгновенно
-> - Включать бесконечные патроны, неуязвимость, отключать перезарядку — для быстрого тестирования сложных секций
-> - Скрывать ассеты на сцене (Selective Background) — чтобы проверять коллизии и видимость
-> - Управлять оружием и слотами игрока — для тестирования разных конфигураций без перезапуска
+> **What you can do right in the game:**
+> - Change the game speed (Clock) — slow down or speed up gameplay for debugging timings
+> - Load any task (Tasks) — any level, any cutscene, any checkpoint, instantly
+> - Enable infinite ammo, invulnerability, disable reloading — for quick testing of complex sections
+> - Hide assets on the scene (Selective Background) — to check collisions and visibility
+> - Manage the player's weapons and slots — to test different configurations without restarting
 >
-> **Что особенно важно:** Это меню работает на **реальной консоли**, на **реальном билде**, без необходимости подключать отладчик. Весь инструментарий доступен прямо в игре, в любом месте, в любое время.
+> **What is especially important:** This menu works on a **real console**, on a **real build**, without the need to connect a debugger. The entire toolkit is available right in the game, anywhere, at any time.
 >
-> Разработчики даже создали секретные тренировочные комнаты (*Training Debug Rooms*), доступные только через это меню — специальные тестовые уровни для отладки механик, боевых последовательностей и AI.
+> The developers even created secret training rooms (*Training Debug Rooms*), accessible only through this menu — special test levels for debugging mechanics, combat sequences, and AI.
 >
-> *"В Uncharted 1 и 2 полное Dev Menu было доступно в розничных билдах, но для доступа требовался Dev Kit. В The Last Of Us меню было урезано для розничной версии, но оставленный функционал всё равно позволяет сделать практически всё, что нужно для тестирования."*
+> *"In Uncharted 1 and 2, the full Dev Menu was available in retail builds, but a Dev Kit was required for access. In The Last Of Us, the menu was trimmed for the retail version, but the remaining functionality still allows you to do practically everything needed for testing."*
 >
-> **Вывод:** Если вы работаете над консольным проектом, вы не можете позволить себе перезапускать игру каждые 10 минут. Инструменты вроде этого Debug Menu превращают разработку из "подожди-перезапусти-проверь" в непрерывный процесс. Всё описанное выше — это не роскошь. Это **необходимость**, продиктованная жестокими условиями консольной разработки.
+> **Conclusion:** If you are working on a console project, you cannot afford to restart the game every 10 minutes. Tools like this Debug Menu turn development from "wait-restart-check" into a continuous process. Everything described above is not a luxury. It is a **necessity** dictated by the harsh conditions of console development.
 
-### Функции
+### Functions
 
-Меню должно содержать все параметры, которые могут быть использованы для тюнинга. Ассортимент функций зависит от конкретного проекта. Ниже перечислены наиболее популярные:
+The menu must contain all parameters that can be used for tuning. The range of functions depends on the specific project. The most popular are listed below:
 
-- **User Settings Editor** — редактор настроек пользователя
-- **Data Editor** — редактор настроек разработчика
-- **Play/Pause** (с keystroke)
-- **Смена уровня на любой** — даже на тот, который не присутствует в меню игрока
-- **Screenshot** — сохранить снимок экрана с геолокацией в игре (с keystroke)
-- **Snapshot** — скриншот параметров игры и лога игры
-- **Hard Reset** — перезагрузка всей системы
-- **Soft Reset** — перезагрузка игры
-- **Scene Reset** — перезагрузка текущего уровня
-- **Scene Reset & Restore** — перезагрузка текущего уровня в текущем месте игрока
-- **Scene Reset & Previous Restore** — перезагрузка текущего уровня в предыдущем месте игрока
-- **Mini games mode** — разбрасывание физических объектов: шаров, кубов, ragdolls, магнитное "оружие" и т.д. Всё это может пригодиться для тестирования collisions, physics system и оптимизации производительности.
-- **Time x0.1, x0.5, ... x1.0 x2.0** — замедление и ускорение времени (с keystroke)
-- **Time rewind** — для игр, которые используют время должна быть возможность не только останавливать время, но и перематывать его в любую сторону.
-- **Show/Hide Debug Draw** — отобразить или скрыть отладочный рендеринг
-- **Show/Hide Textures** — отобразить/скрыть текстуры
-- **Enable/Disable Lighting** — включить/выключить освещение
-- **Enable/Disable Post Effects** — включить/выключить постпроцессинг операции
-- **Switch camera** — переключить режим камеры (если они есть)
-- **Fly through camera** — камера свободного полета, должна работать даже в приостановленной игре
-- **Back camera** — камера позади персонажа, позволяет видеть самого персонажа в шутерах от первого лица
-- И так далее...
+- **User Settings Editor** — user settings editor
+- **Data Editor** — developer settings editor
+- **Play/Pause** (with keystroke)
+- **Change level to any** — even to one that is not present in the player's menu
+- **Screenshot** — save a screenshot with geolocation in the game (with keystroke)
+- **Snapshot** — screenshot of game parameters and game log
+- **Hard Reset** — restart of the entire system
+- **Soft Reset** — restart of the game
+- **Scene Reset** — restart of the current level
+- **Scene Reset & Restore** — restart of the current level at the player's current location
+- **Scene Reset & Previous Restore** — restart of the current level at the player's previous location
+- **Mini games mode** — scattering of physical objects: balls, cubes, ragdolls, magnetic "weapon," etc. All this can be useful for testing collisions, physics system, and performance optimization.
+- **Time x0.1, x0.5, ... x1.0 x2.0** — slowing down and speeding up time (with keystroke)
+- **Time rewind** — for games that use time, there must be the ability not only to stop time but also to rewind it in any direction.
+- **Show/Hide Debug Draw** — show or hide debug rendering
+- **Show/Hide Textures** — show/hide textures
+- **Enable/Disable Lighting** — enable/disable lighting
+- **Enable/Disable Post Effects** — enable/disable post-processing operations
+- **Switch camera** — switch camera mode (if any)
+- **Fly through camera** — free flight camera, must work even in a paused game
+- **Back camera** — camera behind the character, allows you to see the character himself in first-person shooters
+- And so on...
 
-В любом случае, любые необходимые опции меню могут быть добавлены позже, по мере необходимости.
+In any case, any necessary menu options can be added later, as needed.
 
-**Связь с лейтмотивом:** Debug Menu — это главный инструмент для сокращения цикла Edit → Compile → Run. Вместо того чтобы менять параметр в коде, перекомпилировать и перезапускать игру, вы просто открываете меню, меняете значение и видите результат мгновенно. Это экономит сотни часов в масштабах проекта.
+**Connection with the leitmotif:** Debug Menu is the main tool for shortening the Edit → Compile → Run cycle. Instead of changing a parameter in the code, recompiling, and restarting the game, you simply open the menu, change the value, and see the result instantly. This saves hundreds of hours across the project.
 
 ---
 
 ## Debug Draw
 
-Высокопроизводительная система отрисовки примитивов: wireframe, wireframe + flat shaded semi transparent, а также 3D текстов. Система не должна производить мусор. Каждый примитив, кроме цвета, должен иметь время жизни: один кадр или время в секундах. Начать можно с самых необходимых примитивов и по мере разработки расширять этот список.
+A high-performance primitive rendering system: wireframe, wireframe + flat shaded semi transparent, as well as 3D texts. The system must not produce garbage. Each primitive, besides color, must have a lifetime: one frame or time in seconds. You can start with the most necessary primitives and expand this list as development progresses.
 
-**Связь с лейтмотивом:** Debug Draw позволяет видеть коллизии, траектории, зоны поражения и другие невидимые сущности прямо в рантайме. Это помогает программисту проверять правильность работы системы без остановки игры.
-
----
-
-## Лог файл
-
-Следует придерживаться лучших практик логирования, со стандартным форматом сигнатуры времени.
-
-Минимизация производства мусора — это одна из технически сложных задач в приложениях реального времени. Особенно, когда количество выводимого в лог текста велико и, особенно, на мобильной платформе. Другая проблема — вывод в лог файл в многопоточных системах. Всё это необходимо учитывать на ранних этапах проектирования. И прибегать к наиболее подходящим для проекта практикам.
-
-Лог файл должен помочь понять где находится проблема, даже если проблема случилась вчера. Форматирование лог файла должны быть дружественны для REGEXP и GREP.
+**Connection with the leitmotif:** Debug Draw allows you to see collisions, trajectories, hit zones, and other invisible entities right in the runtime. This helps the programmer verify the correctness of the system without stopping the game.
 
 ---
 
-## Встроенный профайлер
+## Log File
 
-Для оптимизации производительности в игру интегрируется HUD профайлера. Также должна быть возможность активации периодической записи в лог информации профайлера (метрики).
+Best logging practices should be followed, with a standard timestamp format.
 
-**Связь с лейтмотивом:** Если вы меняете параметры в рантайме, вы должны сразу видеть, как это влияет на производительность. Встроенный профайлер даёт эту обратную связь мгновенно.
+Minimizing garbage production is one of the technically complex tasks in real-time applications. Especially when the amount of text output to the log is large and, especially, on a mobile platform. Another problem is output to a log file in multithreaded systems. All this must be taken into account at the early stages of design. And resort to the practices most suitable for the project.
+
+The log file must help understand where the problem is, even if the problem happened yesterday. The log file formatting must be friendly to REGEXP and GREP.
+
+---
+
+## Built-in Profiler
+
+For performance optimization, a profiler HUD is integrated into the game. There must also be the ability to activate periodic recording of profiler information (metrics) to the log.
+
+**Connection with the leitmotif:** If you change parameters in the runtime, you must immediately see how this affects performance. The built-in profiler gives this feedback instantly.
 
 ---
 
 ## Crash Report
 
-Необходимо продумать и то, какие данные должны быть сохранены для всеобъемлющего crash репорта. Это может быть архив состоящий из: stack trace, лог файла, screenshot, возможно потребуется дополнительная информация... Всё это продумывается для каждого проекта.
+It is also necessary to think through what data must be saved for a comprehensive crash report. This may be an archive consisting of: stack trace, log file, screenshot, possibly additional information will be required... All this is thought through for each project.
 
-Сбои бывают разные и не каждый сбой позволяет сохранить дополнительные данные. Например:
+Crashes are different, and not every crash allows saving additional data. For example:
 
-- **System Crash** (общий сбой системы) не оставляет выбора программисту. В системе остаётся та информация, которая предусмотрена.
-- **Unity Exceptions** позволяет сохранить в репорте ту информацию, которая может помочь в понимании проблемы.
+- **System Crash** (general system crash) leaves the programmer no choice. The system retains the information that is provided for.
+- **Unity Exceptions** allows saving in the report the information that can help in understanding the problem.
 
 ---
 
-## Интерактивная разработка
+## Interactive Development
 
-Подразумевает под собой мгновенное внесение изменений без необходимости реббилда проекта. Любые входные данные: исходный код, параметры анимаций, логика персонажа, положение ассета в сцене — должны немедленно передаваться в уже запущенную игру. Это особенно важно и технически трудно, когда игра запущена на удалённой VR платформе.
+Implies instant application of changes without the need to rebuild the project. Any input data: source code, animation parameters, character logic, asset position in the scene — must be immediately transmitted to the already running game. This is especially important and technically difficult when the game is running on a remote VR platform.
 
-> **Цель, к которой нужно стремиться.** Даже если мы достигнем её только на 50% — это лучше чем ничего.
+> **The goal to strive for.** Even if we achieve it only by 50% — it is better than nothing.
 
 ---
 
 ## REPL
 
-**Read Eval Print Loop** — это интерактивная система, в которой разработчик может инспектировать любой объект, посылать необходимые сообщения в работающую систему или запускать короткие скрипты для автоматизации системы отладки и полировки игры.
+**Read Eval Print Loop** — is an interactive system in which the developer can inspect any object, send the necessary messages to the running system, or run short scripts to automate the system of debugging and polishing the game.
 
-**Пример использования:** Представьте, что вы хотите проверить, как персонаж реагирует на изменение силы гравитации. Вместо того чтобы менять константу в коде и перекомпилировать игру, вы просто вводите в REPL:
+**Usage example:** Imagine you want to check how the character reacts to a change in gravity. Instead of changing a constant in the code and recompiling the game, you simply enter in the REPL:
 
 ```python
 game.physics.gravity = 9.8
 ```
 
-И персонаж начинает падать быстрее — прямо сейчас, в работающей игре.
+And the character starts falling faster — right now, in the running game.
 
-**Связь с лейтмотивом:** REPL — это самый быстрый способ проверить гипотезу. Вы пишете одну строку и видите результат. Никаких компиляций, никаких перезапусков. Это идеальный инструмент для исследования поведения системы.
+**Connection with the leitmotif:** REPL is the fastest way to test a hypothesis. You write one line and see the result. No compilations, no restarts. This is the ideal tool for investigating system behavior.
 
 ---
 
-## Удалённый терминал
+## Remote Terminal
 
-Если целевая платформа не имеет клавиатуры, очень важно обеспечить возможность удалённого соединения с игрой через терминал. В этом случае, разработчик может выполнять все вышеперечисленные операции удалённо.
+If the target platform does not have a keyboard, it is very important to provide the ability for a remote connection to the game via a terminal. In this case, the developer can perform all the above operations remotely.
 
-**Связь с лейтмотивом:** На консолях и VR-гарнитурах цикл деплоя занимает минуты. Удалённый терминал позволяет обойти это — вы подключаетесь к уже запущенной игре и меняете параметры через текстовый интерфейс с PC.
+**Connection with the leitmotif:** On consoles and VR headsets, the deployment cycle takes minutes. The remote terminal allows you to bypass this — you connect to an already running game and change parameters via a text interface from a PC.
 
 ---
 
 ## Unity 3D Runtime Environment
 
-Приложение Unity должно продолжать работу после внесения изменений в исходный код.
+The Unity application must continue working after changes are made to the source code.
 
-Изменение исходного кода и запись его в файл вызывают компилятор и затем обновляют Unity Runtime Environment. После этого запускается десериализация объектов и т.д. Необходимо использование таких практик программирования, при которых процесс компиляции не вызывает Unity Exceptions и не требует перезапуска игры.
+Changing the source code and writing it to a file triggers the compiler and then updates the Unity Runtime Environment. After that, deserialization of objects, etc., is launched. It is necessary to use such programming practices in which the compilation process does not cause Unity Exceptions and does not require restarting the game.
 
-**Связь с лейтмотивом:** Это техническая основа интерактивной разработки в Unity. Если вы не можете менять код без перезапуска — вы не можете эффективно работать.
+**Connection with the leitmotif:** This is the technical basis of interactive development in Unity. If you cannot change code without restarting — you cannot work effectively.
 
 ---
 
 ## Unity 3D Static Validation
 
-Для минимизации ошибок, которые могут возникнуть на этапе разработки логики игры и механик, исходный код и инструменты Unity 3D должны иметь функции валидации сцены, такие как:
+To minimize errors that may occur at the stage of developing game logic and mechanics, the source code and Unity 3D tools must have scene validation functions, such as:
 
-- Поиск ошибок конфигурации 3D объектов: материал по умолчанию и т.д.
-- Поиск неэффективных для рендеринга объектов: большой *mesh*, неэффективный *shader*, наличие *multitexturing* и т.д.
-- Поиск неправильно сконфигурированных компонентов: отсутствие необходимых компонентов, неопределённый параметр или выход за пределы допустимого диапазона значений.
+- Finding 3D object configuration errors: default material, etc.
+- Finding objects inefficient for rendering: large *mesh*, inefficient *shader*, presence of *multitexturing*, etc.
+- Finding incorrectly configured components: missing necessary components, undefined parameter, or out-of-range value.
 
-**Связь с лейтмотивом:** Статическая валидация ловит ошибки до того, как они потребуют перезапуска сцены. Это ещё один способ сократить цикл Edit → Compile → Run.
+**Connection with the leitmotif:** Static validation catches errors before they require restarting the scene. This is another way to shorten the Edit → Compile → Run cycle.
 
 ---
 
 ## Human-readable format
 
-В процессе создания игры, а особенно после её публикации, очень полезно использовать текстовый формат файла для внесения изменений и корректировок в игру. Это могут быть простая текстовая запись данных, таблица в csv формате, json или xml. Допустимо любое легко читаемое текстовое представление данных и настроек игры.
+In the process of creating a game, and especially after its publication, it is very useful to use a text file format for making changes and adjustments to the game. This can be a simple text record of data, a table in csv format, json, or xml. Any easily readable text representation of game data and settings is acceptable.
 
 ### GUI vs Text
 
-В вопросе выбора между текстовым форматом и GUI, в большинстве случаев текст более предпочтителен. В этом случае не нужно тратить время на разработку GUI. Кроме этого, иногда простые инструменты GUI, которые кажутся достаточными, в работе имеют слишком много ограничений. Часто в них не хватает элементарных инструментов (например, search & replace, import, export и т.д.). Использовать текстовую форму — означает дать разработчику всю мощь современных текстовых редакторов.
+In the question of choosing between a text format and a GUI, in most cases text is preferable. In this case, you do not need to spend time developing a GUI. In addition, sometimes simple GUI tools that seem sufficient have too many limitations in practice. Often they lack elementary tools (e.g., search & replace, import, export, etc.). Using the text form means giving the developer all the power of modern text editors.
 
-### Локализация
+### Localization
 
-Предпочитать текстовый формат ввода текста, желательно один из стандартных (например, .po файл). Также следует разделять текст и стиль его отображения (подобно html и css). При этом описание стиля будет содержать не только цвет и размер текста, но и название шрифта и прочие атрибуты стиля. Отдельный файл описания правил языка обычно содержит основные правила плюрализации: чисел, дат и т.д.
+Prefer a text format for text input, preferably one of the standard ones (e.g., a .po file). Also, separate the text and its display style (like html and css). In this case, the style description will contain not only the color and size of the text but also the font name and other style attributes. A separate language rules description file usually contains the basic pluralization rules: numbers, dates, etc.
 
-**Связь с лейтмотивом:** Если данные хранятся в текстовом формате, их можно редактировать без перекомпиляции. Просто изменил значение в файле — и игра подхватила его на следующем запуске (или даже без перезапуска, если реализована горячая перезагрузка данных).
+**Connection with the leitmotif:** If data is stored in a text format, it can be edited without recompilation. Simply changed a value in the file — and the game picked it up on the next launch (or even without a restart, if hot data reload is implemented).
 
 ---
 
-## Валидация
+## Validation
 
-### Статическая валидация
+### Static Validation
 
-Инструменты статической валидации могут облегчить тестирование проекта. В отличие от инструментов валидации с помощью C# атрибутов, специальный процесс валидации может иметь следующие преимущества:
+Static validation tools can facilitate project testing. Unlike validation tools using C# attributes, a special validation process can have the following advantages:
 
-- Работать только когда запущен, а значит может быть более сложным и производить более детальный отчёт.
-- Иметь отключаемые тесты и проверять только необходимое.
-- Содержать весьма сложные процедуры (как пример такие как проверка наличия или отсутствия дополнительных UV maps).
+- Work only when launched, and therefore can be more complex and produce a more detailed report.
+- Have disableable tests and check only what is needed.
+- Contain rather complex procedures (for example, such as checking for the presence or absence of additional UV maps).
 
-### Динамическая валидация Validate or Require
+### Dynamic Validation Validate or Require
 
-Применяется в различных проектах где нет (или трудно реализовать) статической валидации какого-либо значения: система сообщений, система анимаций, система звуковых эффектов. Для примера возьмем систему локализации, где каждому ключу в базе данных должно соответствовать текстовое сообщение. Предположим есть класс, который использует такое сообщение:
+Used in various projects where static validation of some value is absent (or difficult to implement): message system, animation system, sound effects system. As an example, let us take a localization system where each key in the database must correspond to a text message. Suppose there is a class that uses such a message:
 
 ```csharp
 display(L("foo"))
 ```
 
-Однако, он отображает его крайне редко. Тогда отсутствие дефиниции этого ключа будет замечено не сразу. Если предположить, что статическая валидация неприменима, к примеру, по следующим причинам:
+However, it displays it extremely rarely. Then the absence of a definition for this key will not be noticed immediately. If we assume that static validation is inapplicable, for example, for the following reasons:
 
-- Требует парсинга C# исходного кода для поиска всех выражений L(...).
-- Имя ключа не является константой и вычисляется в процессе игры.
-- Другая причина
+- It requires parsing the C# source code to find all expressions L(...).
+- The key name is not a constant and is computed during the game.
+- Another reason
 
-Тогда для упрощённого тестирования можно использовать интерфейс динамической валидации. В этом случае класс, использующий ресурс, должен запросить его валидацию в момент запуска игры. При этом, (для примера выше) возможны два сценария:
+Then for simplified testing, you can use the dynamic validation interface. In this case, the class using the resource must request its validation at the moment the game starts. At the same time, (for the example above) two scenarios are possible:
 
-1. **Validate Mode** — Языковой файл был загружен. Тогда метод `validate_key(key)` будет сообщать об ошибке если `key` не валиден.
+1. **Validate Mode** — The language file was loaded. Then the method `validate_key(key)` will report an error if `key` is invalid.
 
-2. **Require Mode** — Языковой файл не был загружен. Тогда метод `validate_key(key)` будет сообщать системе локализации о требовании этого ключа. Загрузчик локали будет сообщать об ошибке если файлы локали не имеют дефиниции этого ключа.
+2. **Require Mode** — The language file was not loaded. Then the method `validate_key(key)` will report to the localization system the requirement for this key. The locale loader will report an error if the locale files do not have a definition for this key.
 
-**Связь с лейтмотивом:** Валидация — это способ поймать ошибку до того, как она потребует перезапуска игры. Если валидация запускается автоматически при загрузке сцены, разработчик получает обратную связь мгновенно.
+**Connection with the leitmotif:** Validation is a way to catch an error before it requires restarting the game. If validation runs automatically when loading a scene, the developer receives feedback instantly.
 
-## Ловушка перезагрузки скриптов: Анатомия рантайм-компиляции в Unity
+## The Script Reload Trap: Anatomy of Runtime Compilation in Unity
 
-Unity декларирует прекрасную возможность — изменять C#-код «на лету» прямо во время работы Play Mode, автоматически обновляя Runtime Environment. Однако без понимания внутренней физики этого процесса горячая перезагрузка (Live Reload) мгновенно превращает рантайм в генератор исключений `NullReferenceException`.
+Unity declares a wonderful capability — to change C# code "on the fly" right during Play Mode, automatically updating the Runtime Environment. However, without understanding the internal physics of this process, hot reload (Live Reload) instantly turns the runtime into a generator of `NullReferenceException` exceptions.
 
-**В чем физика проблемы:**
-В момент, когда компилятор Unity подхватывает измененный файл, происходят следующие скрытые процессы:
-1. Движок полностью замораживает поток симуляции.
-2. Все несериализуемые (non-serialized) поля и динамические указатели (ссылки на другие компоненты, кэшированные методы, лямбды) **принудительно обнуляются (nullified)**.
-3. Потоковое состояние десериализуется обратно в объекты на сцене.
+**What is the physics of the problem:**
+At the moment when the Unity compiler picks up the changed file, the following hidden processes occur:
+1. The engine completely freezes the simulation thread.
+2. All non-serialized fields and dynamic pointers (references to other components, cached methods, lambdas) are **forcibly nullified**.
+3. The thread state is deserialized back into the objects on the scene.
 
-Самое опасное: при рантайм-перекомпиляции Unity **никогда не вызывает методы Awake() и Start()** для уже существующих на сцене объектов. Если ваша инициализация ссылок была завязана на эти методы, после горячего обновления кода вся логика мгновенно рассыплется, требуя полного перезапуска сцены и обнуляя всю ценность интерактивной разработки.
+The most dangerous: during runtime recompilation, Unity **never calls the Awake() and Start() methods** for objects already present on the scene. If your reference initialization was tied to these methods, after a hot code update all logic will instantly fall apart, requiring a full scene restart and nullifying all the value of interactive development.
 
-**Решение:**
-Жесткий архитектурный регламент распределения жизненного цикла ресурса:
-* **Инициализация:** Все несериализуемые поля, динамические подписки на события и захват тяжелых ресурсов обязаны инициализироваться строго в методе `OnEnable()`. Этот метод Unity гарантированно вызывает принудительно сразу после завершения рантайм-десериализации скрипта.
-* **Освобождение памяти:** Любой сброс ссылок, отписка от событий и освобождение ресурсов должны выполняться в методе `OnDisable()`.
+**Solution:**
+A strict architectural regulation for distributing the resource lifecycle:
+* **Initialization:** All non-serialized fields, dynamic event subscriptions, and heavy resource capture must be initialized strictly in the `OnEnable()` method. This method is guaranteed to be forcibly called by Unity immediately after the runtime deserialization of the script is complete.
+* **Memory release:** Any reset of references, unsubscription from events, and release of resources must be performed in the `OnDisable()` method.
 
-Соблюдение этого правила гарантирует, что игра продолжит стабильную работу в том же кадре, где был изменен код, сохраняя контекст итерации.
+Observing this rule guarantees that the game will continue stable operation in the same frame where the code was changed, preserving the iteration context.
 
 ---
 
-## Пример из практики: как мы сократили цикл разработки на 80%
+## Case Study: How We Cut the Development Cycle by 80%
 
-В одной международной компании, где я работала над игровыми автоматами, мы столкнулись с классической проблемой: каждый раз, когда нужно было изменить параметры игры (скорость, баланс, тайминги анимаций), мы проходили через полный цикл:
+At an international company where I worked on arcade machines, we faced a classic problem: every time we needed to change game parameters (speed, balance, animation timings), we went through the full cycle:
 
 ```
 Edit → Compile → Deploy → Run → Test → Fail → Repeat
 ```
 
-Это занимало **2–3 минуты на одну итерацию**. При 50–100 итерациях в день — это **до 5 часов чистого времени**, потраченного на ожидание. А если учётная запись требовала синхронизации с удалённым сервером — время росло до 10–15 минут за цикл.
+This took **2–3 minutes per iteration**. At 50–100 iterations a day — that is **up to 5 hours of pure time** spent on waiting. And if the account required synchronization with a remote server — the time grew to 10–15 minutes per cycle.
 
-**Решение было радикальным, но простым:**
+**The solution was radical but simple:**
 
-Мы создали **инструмент редактирования параметров прямо на целевой платформе** — прямо в работающем игровом автомате. Разработчик (или балансер) мог:
+We created a **tool for editing parameters directly on the target platform** — right in the running arcade machine. The developer (or balancer) could:
 
-- Открыть меню на экране автомата.
-- Изменить любой параметр (скорость, здоровье, тайминги) в реальном времени.
-- Немедленно увидеть результат — без перезапуска, без деплоя, без компиляции.
+- Open the menu on the machine's screen.
+- Change any parameter (speed, health, timings) in real time.
+- Immediately see the result — without restarting, without deploying, without compiling.
 
-**Но самое важное было внутри:** система сохраняла **инкремент всех изменений** — каждое изменение логировалось с временной меткой. В конце сессии разработчик нажимал кнопку "Export" — и все изменения упаковывались в файл обновления. Этот файл отправлялся в команду, проходил код-ревью и мержился в основной репозиторий.
+**But the most important thing was inside:** the system saved an **increment of all changes** — each change was logged with a timestamp. At the end of the session, the developer pressed the "Export" button — and all changes were packed into an update file. This file was sent to the team, went through code review, and was merged into the main repository.
 
-**Результат:**
+**Result:**
 
-| Метрика | До | После |
+| Metric | Before | After |
 |---------|----|----|
-| Время одной итерации | 2–15 минут | 5 секунд |
-| Итераций в день | 20–30 | 100+ |
-| Ошибок при деплое | ~10% | <1% |
-| Время на поиск баланса | недели | часы |
+| Time per iteration | 2–15 minutes | 5 seconds |
+| Iterations per day | 20–30 | 100+ |
+| Errors during deployment | ~10% | <1% |
+| Time to find balance | weeks | hours |
 
-**Вывод:** Интерактивная разработка — это не роскошь. Это способ сохранить главный ресурс команды — **внимание и поток**. Каждый раз, когда вы прерываете разработчика на 2 минуты загрузки, вы убиваете его контекст. Инструменты рантайм-редактирования возвращают этот контекст обратно.
+**Conclusion:** Interactive development is not a luxury. It is a way to preserve the team's main resource — **attention and flow**. Every time you interrupt a developer for 2 minutes of loading, you kill their context. Runtime editing tools return this context back.
 
-**Связь с лейтмотивом:** Этот пример демонстрирует все принципы, описанные в статье — Debug Menu, удалённое редактирование, логирование изменений, минимизация цикла Edit → Compile → Run. Это не теория. Это практика, проверенная в боевых условиях.
-
----
-
-## Заключение: Программист как скульптор
-
-Разработка игры — это не строительство. Строительство требует точного плана, чертежей и последовательного возведения. Разработка игры — это **скульптура**.
-
-Скульптор не строит статую по чертежам. Он берёт кусок камня и убирает лишнее. Он смотрит, пробует, отступает на шаг, снова подходит. Каждое движение — это итерация. Каждая итерация приближает его к замыслу.
-
-Программист, который работает в цикле Edit → Compile → Run, похож на скульптора, который после каждого удара резца должен ждать, пока камень "перезагрузится". Он теряет ритм. Он теряет ощущение материала. Его работа становится механической, а не творческой.
-
-Инструменты, описанные в этой статье — Debug Menu, REPL, удалённый терминал, валидация, логирование, профайлинг — это не просто "фичи для разработчиков". Это **способ вернуть программисту его внимание**. Это способ сделать разработку непрерывной, а не дискретной. Это способ превратить программиста из сборщика в скульптора.
-
-**Главный принцип, который стоит запомнить:**
-
-> Каждый инструмент в проекте должен либо сокращать цикл Edit → Compile → Run, либо помогать разработчику быстрее находить проблемы внутри этого цикла.
-
-Если инструмент не делает ни того, ни другого — он не нужен. Если практика замедляет итерации — от неё нужно отказаться. Время разработчика — это самый ценный ресурс в проекте. И оно не должно тратиться на ожидание.
+**Connection with the leitmotif:** This example demonstrates all the principles described in the article — Debug Menu, remote editing, change logging, minimizing the Edit → Compile → Run cycle. This is not theory. This is practice tested in combat conditions.
 
 ---
 
-## Литература
+## Conclusion: The Programmer as Sculptor
+
+Game development is not construction. Construction requires a precise plan, blueprints, and sequential erection. Game development is **sculpture**.
+
+A sculptor does not build a statue according to blueprints. He takes a piece of stone and removes the excess. He looks, tries, steps back, approaches again. Each movement is an iteration. Each iteration brings him closer to the concept.
+
+A programmer who works in the Edit → Compile → Run cycle is like a sculptor who, after each chisel strike, must wait for the stone to "reload." He loses the rhythm. He loses the feel for the material. His work becomes mechanical, not creative.
+
+The tools described in this article — Debug Menu, REPL, remote terminal, validation, logging, profiling — are not just "developer features." They are a **way to return the programmer's attention**. They are a way to make development continuous rather than discrete. They are a way to turn the programmer from an assembler into a sculptor.
+
+**The main principle worth remembering:**
+
+> Every tool in the project must either shorten the Edit → Compile → Run cycle or help the developer find problems within this cycle faster.
+
+If a tool does neither — it is not needed. If a practice slows down iterations — it should be abandoned. The developer's time is the most valuable resource in the project. And it should not be spent on waiting.
+
+---
+
+## References
 
 - Schell J. The Art of Game Design: A book of lenses. — CRC press, 2008.
 - Schell J. The art of game design: A deck of lenses. — Pittsburgh : Schell Games, 2008.
 - Gregory J. Game engine architecture. — crc Press, 2018.
 - Wikipedia - Software release life cycle.
-- Пудова В.А. "Процесс разработки игр" — ARCADIA 2022.
-- Пудова В.А. "Эстетика движения: почему геймдизайн рождается из анимации" — 2022.
+- Pudova V.A. "Game Development Process" — ARCADIA 2022.
+- Pudova V.A. "The Aesthetics of Motion: Why Game Design Is Born from Animation" — 2022.

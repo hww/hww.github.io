@@ -30,10 +30,10 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 - **[RU] Gameplay Programming — Clarification for the Creative Team.** [EN](https://hww.github.io/articles/2022/nd_gfs_creative/index) · [EN](https://hww.github.io/articles/2022/nd_gfs_creative_en/index)
 - **[EN] Game Developing — The Last of Us Case Study.** [EN](https://hww.github.io/articles/2022/nd_gfs_en/index)
 - **[EN] Game Developing — Clarification for the Creative Team.** [EN](https://hww.github.io/articles/2022/nd_gfs_creative_en/index)
-- **[EN] Two-Way Sub-System Matrices: Architecture Lessons from OpenGOAL.** [EN](https://hww.github.io/articles/2022/nd_engines/)
-- **[RU] Against the Loop: A Manifesto for Interactive Game Development.** [EN](https://hww.github.io/articles/2022/edit_compile_run/)
+- **[EN] Two-Way Sub-System Matrices: Architecture Lessons from OpenGOAL.** [EN](https://hww.github.io/articles/2022/nd_engines/index.ru.html) · [EN](https://hww.github.io/articles/2022/nd_engines/)
+- **[RU] Against the Loop: A Manifesto for Interactive Game Development.** [RU](https://hww.github.io/articles/2022/edit_compile_run/index.ru.html) · [EN](https://hww.github.io/articles/2022/edit_compile_run/)
 - **[RU] Three Core Components of a Successful Game Studio.** [EN](https://hww.github.io/articles/2022/3_parts_game_studio/index)
-- **[RU] Myths and Misconceptions of a Game Programmer.** [EN](https://hww.github.io/articles/2022/game_dev_myths/index)
+- **[RU] Myths and Misconceptions of a Game Programmer.** [EN](https://hww.github.io/articles/2022/game_dev_myths/index.ru.html)[RU] · (https://hww.github.io/articles/2022/game_dev_myths/index)
 
 ### Programming Languages, Compilers & Embedded Scripting
 
