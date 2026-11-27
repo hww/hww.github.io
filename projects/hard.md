@@ -1,4 +1,3 @@
-
 ---
 title: Embedded Systems, Hardware & Integrated Systems
 description: Hardware design, FPGA, embedded firmware, electronics, DSP, and complete hardware-software systems.
