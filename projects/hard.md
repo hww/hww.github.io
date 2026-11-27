@@ -1,8 +1,3 @@
----
-title: Embedded Systems, Hardware & Integrated Systems
-description: Hardware design, FPGA, embedded firmware, electronics, DSP, and complete hardware-software systems.
----
-
 # Embedded Systems, Hardware & Integrated Systems
 
 Engineering projects covering hardware architecture, electronics, FPGA, embedded firmware, DSP, and integrated hardware-software products.
@@ -23,13 +18,13 @@ Some projects also include software, emulators, or firmware developed by other t
 
 - **[KIRA Neon](./kira_neon/)** — Compact, portable, low-cost synthesizer built on a custom hardware DSP platform. The proprietary sound synthesis firmware was developed by our team; my primary contribution to this project was hardware platform development. [DSP] [SCH] [PCB] [SI/PI] [Firmware]
 
-- **[KIRA SHARC DSP Module](/projects/kira_dsp_module/index)** — Design of a standalone digital signal processing module, including hardware architecture and PCB development. The accompanying software was developed by other contributors; firmware development remained at an early stage. [DSP] [SCH] [PCB] [Firmware]
+- **[KIRA SHARC DSP Module](/projects/kira_dsp_module/index)** — Design of a standalone digital signal processing module, including hardware architecture and PCB development. The accompanying software was developed by other contributors; firmware development remained at an early stage. [DSP] [SCH] [PCB] [SI/PI] [Firmware]
 
 - **[Aleste LX FPGA Computer](https://github.com/hww/aleste-lx-fpga-sv)** — FPGA implementation of a classic computer architecture using SystemVerilog, with Verilator-based simulation and verification. [RTL] [Verilator] [Emulation]
 
 - **[Nintendo GBA SP & DS Video Hardware](/projects/view_boy/)** — Custom hardware for capturing and outputting video from handheld game consoles. [SCH] [PCB]
 
-- **[Aleste XI Computer](/projects/xialeste)** — An attempt to create a highly accurate hardware implementation of the Aleste EX computer architecture. [SCH] [PCB]
+- **[Aleste XI Computer](/projects/xialeste)** — An attempt to create a highly accurate hardware implementation of the Aleste EX computer architecture. [SCH] [PCB] [SI/PI] 
 
 - **[NuBridge — RISC-V NuBus Controller](https://github.com/hww/nubridge)** — Verilog implementation of a NuBus controller, including arbiter, master, and slave components, with SystemVerilog testbenches for RISC-V (PicoRV32) integration. [RTL] [Verilator]
 
