@@ -22,13 +22,13 @@ Some projects also include software, emulators, or firmware developed by other t
 
 - **[Aleste LX FPGA Computer](https://github.com/hww/aleste-lx-fpga-sv)** — FPGA implementation of a classic computer architecture using SystemVerilog, with Verilator-based simulation and verification. `[RTL]` `[Verilator]` `[Emulation]` `[Python]`
 
-- **[Nintendo GBA SP & DS Video Hardware](/projects/view_boy/)** — Custom hardware for capturing and outputting video from handheld game consoles. `[SCH]` `[PCB]`
-
 - **[Aleste XI FPGA Computer](/projects/xialeste)** — An attempt to create a highly accurate hardware implementation of the Aleste EX computer architecture. `[SCH]` `[PCB]` `[SI/PI]` 
 
 - **[NuBridge — RISC-V NuBus Controller](https://github.com/hww/nubridge)** — Verilog implementation of a NuBus controller, including arbiter, master, and slave components, with SystemVerilog testbenches for RISC-V (PicoRV32) integration. `[RTL]` `[Verilator]`
 
 - **[Rocket Amusements Cabinet I/O Board v2](/projects/ra_io_board2)** and **[v1](/projects/ra_io_board1)** — Development of arcade cabinet I/O hardware and peripheral interfaces. My contribution included hardware architecture, I/O design, technical specifications, and supporting code for firmware development. The main firmware implementation was carried out in collaboration with another developer. `[Firmware]` `[SCH]` `[PCB]`
+
+- **[Nintendo GBA SP & DS Video Hardware](/projects/view_boy/)** — Custom hardware for capturing and outputting video from handheld game consoles. `[SCH]` `[PCB]` `[OPTICAL-DESIGN]`
 
 ---
 
