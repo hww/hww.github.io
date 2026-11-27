@@ -22,7 +22,7 @@ Some projects also include software, emulators, or firmware developed by other t
 
 - **[Aleste LX FPGA Computer](https://github.com/hww/aleste-lx-fpga-sv)** — FPGA implementation of a classic computer architecture using SystemVerilog, with Verilator-based simulation and verification. `[RTL]` `[Verilator]` `[Emulation]
 
-- **[Nintendo GBA SP & DS Video Hardware](/projects/view_boy/)** — Custom hardware for capturing and outputting video from handheld game consoles. `[SCH]` `[PCB]
+- **[Nintendo GBA SP & DS Video Hardware](/projects/view_boy/)** — Custom hardware for capturing and outputting video from handheld game consoles. `[SCH]` `[PCB]`
 
 - **[Aleste XI Computer](/projects/xialeste)** — An attempt to create a highly accurate hardware implementation of the Aleste EX computer architecture. `[SCH]` `[PCB]` `[SI/PI]` 
 
