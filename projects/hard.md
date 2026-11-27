@@ -50,7 +50,7 @@ These projects demonstrate the ability to develop complete hardware-software sys
 
   My work covered the initial concept, system architecture, electronic schematics, PCB design, enclosure and mechanical integration, embedded firmware, sensor-fusion algorithms, and application software.
 
-  Textile construction and pattern development were carried out with a specialist based on the mechanical and functional requirements of the device. `[Software]` `[Firmware]` `[SCH]` `[PCB]
+  Textile construction and pattern development were carried out with a specialist based on the mechanical and functional requirements of the device. `[Software]` `[Firmware]` `[SCH]` `[PCB]`
 
 - **[Medical PPG Wristband Prototype](/projects/ppg/index)** — Development of a biometric sensing prototype combining electronic design, PCB layout, signal integrity considerations, embedded firmware, and supporting software for data acquisition and visualization. `[SCH]` `[PCB]` `[SI/PI]` `[Firmware]` `[Software]`
 
