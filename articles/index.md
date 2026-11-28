@@ -44,6 +44,10 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 
 - **Engineering Manifest: File & Folder Organization Standard.** [RU](https://hww.github.io/articles/2026/engineering-manifest/manifest.ru) · [EN](https://hww.github.io/articles/2026/engineering-manifest/manifest.en)
 
+#### Design Study — 2026
+
+- **Design Study: An In-Circuit Analyzer Built on AC Impedance Measurement** [EN](./ica-design-study/ica-design-study.md)
+
 #### Unity Style Guide & Pipeline — 2022
 
 - **File Naming Conventions in Unity 3D.** [EN](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/01-naming/index.en.html) · [RU](https://github.com/hww/unity-style-guide-and-pipeline/blob/main/01-naming/index.html)
