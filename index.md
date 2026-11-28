@@ -68,7 +68,7 @@ table img {
 
 /* Заголовки */
 table h3 {
-  color: #1ec973 !important;
+  color: #b8d5e3  !important;
 }
 /* Стили для ссылок */
 table a {
