@@ -442,7 +442,7 @@ Connecting one or more DACs to the terminals requires a switching scheme. Figure
 | 2 | DAC → multiplexer → sample-and-hold per terminal → buffer op-amp → analog switch | Can generate complex waveforms on many terminals | Maximum frequency falls as the number of terminals grows; an op-amp and a switch per terminal |
 | 3 | FPGA PWM outputs → low-pass filter cluster → analog switch | High frequency, arbitrary waveforms from FPGA | Two GPIOs per channel (PWM and switch control) |
 
-![Analog output options](./images/analog_out_01.svg)  
+![Analog output options](./images/analog_out_01.svg)
 *Figure 14. Analog output options.*
 
 Some DACs cannot be used in multiplexed mode because they have an output filter that does not support multiplexing between channels. Switching elements in the output path must have low on-resistance.
