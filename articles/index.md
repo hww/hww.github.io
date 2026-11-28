@@ -20,7 +20,7 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 - **SOOT: A Scriptable Lisp-Based Development Ecosystem** — an embedded Lisp environment for interactive development, build automation, and runtime architecture. [RU](https://hww.github.io/articles/2026/soot/ru/) · [EN](https://hww.github.io/articles/2026/soot/en/)
 - **In Search of Lost Determinism: Architecting an Isolated C# Game Runtime Inspired by Naughty Dog** — deterministic execution, isolated simulation, and Zero-GC runtime design. [RU](https://hww.github.io/articles/2026/gfs_runtime/index.ru.html) · [EN](https://hww.github.io/articles/2026/gfs_runtime/index.html)
 - **Time Vector: How to Design a Non-Linear Timeline in Unity and Stay Sane** — time control, state isolation, and load balancing. [RU](https://hww.github.io/articles/2026/time_vector/index.ru.html) · [EN](https://hww.github.io/articles/2026/time_vector/)
-- **Building a Data-Oriented System in Unity: Where Theory Breaks Against Reality** — a practical experiment with component architecture and data pipelines. [EN](https://hww.github.io/articles/2026/dcs_unity/index.ru.html) · [EN](https://hww.github.io/articles/2026/dcs_unity/)
+- **Building a Data-Oriented System in Unity: Where Theory Breaks Against Reality** — a practical experiment with component architecture and data pipelines. [RU](https://hww.github.io/articles/2026/dcs_unity/index.ru.html) · [EN](https://hww.github.io/articles/2026/dcs_unity/)
 
 #### 2022
 
