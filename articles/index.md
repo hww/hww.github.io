@@ -46,7 +46,7 @@ Game-engine architecture, runtime systems, programming languages, compilers, vir
 
 #### Design Study — 2026
 
-- **Design Study: An In-Circuit Analyzer Built on AC Impedance Measurement** [EN](./ica-design-study/ica-design-study.md)
+- **Design Study: An In-Circuit Analyzer Built on AC Impedance Measurement** [EN](./2026/ica-design-study/ica-design-study.md)
 
 #### Unity Style Guide & Pipeline — 2022
 
