@@ -334,6 +334,7 @@ $$
 In polar form, with amplitudes V<sub>a1</sub>, V<sub>a2</sub> and phase difference θ:
 
 $$
+
 |Z| = \frac{V_{a2} R_{ref}}{\sqrt{V_{a1}^2 - 2V_{a1}V_{a2}\cos\theta + V_{a2}^2}}
 $$
 
@@ -346,10 +347,9 @@ $$
 With a series model of the component (R<sub>esr</sub> in series with C or L):
 
 $$
-C = \frac{-1}{2\pi f\,|Z|\sin\alpha}, \qquad
-L = \frac{|Z|\sin\alpha}{2\pi f}, \qquad
-R_{esr} = |Z|\cos\alpha
+C = \frac{-1}{2\pi f\,|Z|\sin\alpha}, \qquad L = \frac{|Z|\sin\alpha}{2\pi f}, \qquad R_{esr} = |Z|\cos\alpha
 $$
+
 
 For a capacitor α is negative (close to −90°), for an inductor positive (close to +90°); the sign of α also tells which one is measured.
 
