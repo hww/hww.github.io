@@ -359,9 +359,9 @@ The method needs two signals simultaneously. However, since the generator output
 
 #### 5.5.3 Frequency selection
 
-The measurement is most accurate when `|Z|` is within roughly one decade of R<sub>ref</sub>, i.e. when the ratio V<sub>a2</sub>/V<sub>a1</sub> is not too small. A practical rule is therefore to **change the generator frequency whenever the level at the terminal falls below −20 dB (0.1×) of the generator level**. With this rule the programmable-gain input amplifier is needed only for DC measurements, not for AC.
+The measurement is most accurate when \|Z\| is within roughly one decade of R<sub>ref</sub>, i.e. when the ratio V<sub>a2</sub>/V<sub>a1</sub> is not too small. A practical rule is therefore to **change the generator frequency whenever the level at the terminal falls below −20 dB (0.1×) of the generator level**. With this rule the programmable-gain input amplifier is needed only for DC measurements, not for AC.
 
-Back-of-the-envelope check with R<sub>ref</sub> = 1 kΩ, a usable window `100 Ω ≤ |Z| ≤ 10 kΩ`, and a frequency range 1–100 kHz:
+Back-of-the-envelope check with R<sub>ref</sub> = 1 kΩ, a usable window 100 Ω ≤ \|Z\| ≤ 10 kΩ`, and a frequency range 1–100 kHz:
 
 | Frequency | C range | L range |
 |---|---|---|
@@ -391,7 +391,7 @@ Advantages:
 
 - small signal levels and no back-EMF spikes;
 - no switching of range resistors for C and L: the frequency is the range;
-- yields |Z|, phase and ESR in one measurement.
+- yields \|Z\|, phase and ESR in one measurement.
 
 Disadvantages:
 
@@ -650,8 +650,8 @@ The listing implements the equations of Section 5.5.1. The `theta` argument is t
 
 | Test | V<sub>1</sub> | V<sub>2</sub> | θ | f | R<sub>ref</sub> | Expected |
 |---|---|---|---|---|---|---|
-| Capacitor | 1.934 V | 0.31 V | −80° | 100 kHz | 1 kΩ | C ≈ 9.78 nF, ESR ≈ 2.2 Ω, |Z| ≈ 163 Ω |
-| Inductor | 1.906 V | 1.03 V | +55.83° | 10 kHz | 1 kΩ | L ≈ 10.39 mH, ESR ≈ 16.8 Ω, |Z| ≈ 653 Ω |
+| Capacitor | 1.934 V | 0.31 V | −80° | 100 kHz | 1 kΩ | C ≈ 9.78 nF, ESR ≈ 2.2 Ω, \|Z\| ≈ 163 Ω |
+| Inductor | 1.906 V | 1.03 V | +55.83° | 10 kHz | 1 kΩ | L ≈ 10.39 mH, ESR ≈ 16.8 Ω, \|Z\| ≈ 653 Ω |
 
 ```c
 /* ica_math.c -- impedance, C, L and ESR from two sampled sine signals
