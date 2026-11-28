@@ -8,7 +8,7 @@
 
 ## Abstract
 
-This document is a pre-design study for an automatic in-circuit test (ICT) instrument for assembled printed circuit boards. It surveys the test strategies and fixturing options (flying probes, bed of nails, low-cost cartridge systems), derives the requirements of each test stage, and then focuses on the measurement channel. The central proposal is to measure R, L, C, |Z| and ESR with a **low-level sinusoidal stimulus and two sampled signals** instead of the DC step-response method commonly used in low-cost testers. The document includes the derivation, a back-of-the-envelope range check, simulation results and a reference implementation of the algorithm. It also sketches the module bus, the mechanical concept and a software architecture.
+This document is a pre-design study for an automatic in-circuit test (ICT) instrument for assembled printed circuit boards. It surveys the test strategies and fixturing options (flying probes, bed of nails, low-cost cartridge systems), derives the requirements of each test stage, and then focuses on the measurement channel. The central proposal is to measure `R`, `L`, `C`, `|Z|` and `ESR` with a **low-level sinusoidal stimulus and two sampled signals** instead of the DC step-response method commonly used in low-cost testers. The document includes the derivation, a back-of-the-envelope range check, simulation results and a reference implementation of the algorithm. It also sketches the module bus, the mechanical concept and a software architecture.
 
 This is a design rationale and a set of recommendations, not a technical specification. No hardware was built.
 
