@@ -89,7 +89,7 @@ Available for selected R&D projects, architecture reviews, technical consulting,
 
 Areas of interest include runtime architecture, programming-language tooling, embedded firmware, FPGA/DSP systems, and hardware-software integration.
 
-For inquiries, contact me via [Telegram](@valery_h2w) or email.
+For inquiries, contact me via [Telegram](https://t.me/valery_h2w) or email.
 
 ---
 
