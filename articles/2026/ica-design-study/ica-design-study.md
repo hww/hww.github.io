@@ -4,6 +4,8 @@
 **Status:** Draft (R&D study, not implemented)  
 **Last updated:** 2026-11-28
 
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 ---
 
 ## Abstract
