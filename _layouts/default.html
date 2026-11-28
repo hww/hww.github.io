@@ -88,36 +88,53 @@
       }
 
       /* 4. Компактные таблицы для технической документации */
-      #main_content table {
-        display: block;
-        width: max-content;
-        max-width: 100%;
-        overflow-x: auto;
+      /* Технические таблицы */
+      table {
+        display: table;              /* на случай, если тема делает таблицу блоком */
+        width: 100%;                 /* все таблицы одной ширины */
         border-collapse: collapse;
-        font-size: 0.85rem;
+        margin: 1em 0 1.6em;
+        font-size: 0.88em;
         line-height: 1.35;
-        margin: 1rem 0;
-        border: none;
+        border-top: 2px solid rgba(128, 128, 128, 0.55);
+        border-bottom: 2px solid rgba(128, 128, 128, 0.55);
       }
-      #main_content th,
-      #main_content td {
-        padding: 5px 10px;
-        border: 1px solid #d0d7de;
+      
+      table th,
+      table td {
+        padding: 0.3em 0.7em;
         text-align: left;
         vertical-align: top;
+        border: 0;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.3);
       }
-      #main_content th {
-        background-color: #373737;
-        color: #ffffff;
+      
+      table th {
+        background: rgba(128, 128, 128, 0.12);
         font-weight: 600;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.55);
+      }
+      
+      table tbody tr:nth-child(even) {
+        background: rgba(128, 128, 128, 0.06);
+      }
+      
+      table tbody tr:last-child td {
+        border-bottom: 0;
+      }
+      
+      table code {
+        font-size: 0.95em;
         white-space: nowrap;
       }
-      #main_content tr:nth-child(even) {
-        background-color: #f6f8fa;
-      }
-      #main_content table code {
-        font-size: 0.8rem;
-        padding: 1px 4px;
+      
+      /* На узких экранах таблицу можно прокрутить вбок, а не ломать страницу */
+      @media (max-width: 640px) {
+        table {
+          display: block;
+          overflow-x: auto;
+          font-size: 0.82em;
+        }
       }
     </style>
 
