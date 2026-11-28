@@ -359,9 +359,9 @@ The method needs two signals simultaneously. However, since the generator output
 
 #### 5.5.3 Frequency selection
 
-The measurement is most accurate when |Z| is within roughly one decade of R<sub>ref</sub>, i.e. when the ratio V<sub>a2</sub>/V<sub>a1</sub> is not too small. A practical rule is therefore to **change the generator frequency whenever the level at the terminal falls below −20 dB (0.1×) of the generator level**. With this rule the programmable-gain input amplifier is needed only for DC measurements, not for AC.
+The measurement is most accurate when `|Z|` is within roughly one decade of R<sub>ref</sub>, i.e. when the ratio V<sub>a2</sub>/V<sub>a1</sub> is not too small. A practical rule is therefore to **change the generator frequency whenever the level at the terminal falls below −20 dB (0.1×) of the generator level**. With this rule the programmable-gain input amplifier is needed only for DC measurements, not for AC.
 
-Back-of-the-envelope check with R<sub>ref</sub> = 1 kΩ, a usable window 100 Ω ≤ |Z| ≤ 10 kΩ, and a frequency range 1–100 kHz:
+Back-of-the-envelope check with R<sub>ref</sub> = 1 kΩ, a usable window `100 Ω ≤ |Z| ≤ 10 kΩ`, and a frequency range 1–100 kHz:
 
 | Frequency | C range | L range |
 |---|---|---|
@@ -375,12 +375,12 @@ This matches the targets of Section 5.3 (200 pF–1 µF, 10 µH–1 H) fairly we
 
 Simulation of the capacitance-measuring circuit with R<sub>ref</sub> = 1 kΩ covers 50 pF to 10 µF.
 
-![Capacitance simulation](./sim-images/cap_sim.png)  
+![Capacitance simulation](./images/cap_sim.png)  
 *Figure 12. Simulated response for capacitance measurement.*
 
 Simulation of the inductance circuit covers 10 µH to 1 H.
 
-![Inductance simulation](./sim-images/ind_sim.png)  
+![Inductance simulation](./images/ind_sim.png)  
 *Figure 13. Simulated response for inductance measurement.*
 
 The plots reach −80 dB, which is the extreme of the dynamic range. In normal operation the frequency is changed before the signal falls below −20 dB.
