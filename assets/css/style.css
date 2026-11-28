@@ -1,4 +1,7 @@
-@import "{{ site.theme }}";
+---
+---
+
+@import "jekyll-theme-slate";
 
 /* 1. Четкие, читаемые ссылки в основном контенте */
 #main_content a {
